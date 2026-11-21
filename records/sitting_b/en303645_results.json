@@ -1,0 +1,80 @@
+[
+ {
+  "provision": "5.1-1",
+  "check": "CONTROL an unknown originator cannot read the phone's location",
+  "pass": true,
+  "detail": "403"
+ },
+ {
+  "provision": "5.1-1",
+  "check": "FINDING anyone asserting the well-known admin originator 'CAdmin' reads the phone's precise location",
+  "pass": true,
+  "detail": "ACME fullAccessAdmin=True, admin originator is a fixed string, never authenticated"
+ },
+ {
+  "provision": "5.5-1",
+  "check": "FINDING the oneM2M edge serves the phone's data over plain HTTP (no TLS)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "provision": "5.5-5",
+  "check": "FINDING a local program can write AS the phone (originator asserted, not authenticated)",
+  "pass": true,
+  "detail": "201"
+ },
+ {
+  "provision": "5.5-1",
+  "check": "FINDING the MEC Location API hands out the phone's location with NO client authentication",
+  "pass": true,
+  "detail": "no OAuth2/mTLS on MEC 013 in this lab"
+ },
+ {
+  "provision": "5.5-1",
+  "check": "the QKD 014 SAE interface requires mutual TLS (evidence: test_phone_qkd cert-less/rogue controls)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "provision": "5.6-1",
+  "check": "every lab service listens on loopback only",
+  "pass": true,
+  "detail": "11 ports checked"
+ },
+ {
+  "provision": "5.6-4",
+  "check": "FINDING the phone runs with USB debugging (a debug interface) enabled",
+  "pass": true,
+  "detail": "required by this lab; a shipped device must not"
+ },
+ {
+  "provision": "5.4-1",
+  "check": "the edge keeps the phone's data in memory only (no plaintext location store on disk)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "provision": "6-4",
+  "check": "OBSERVATION location history retained on the edge (bounded by mni)",
+  "pass": true,
+  "detail": "up to 2000 samples x 5 s = 2.8 h of precise location"
+ },
+ {
+  "provision": "5.11-1",
+  "check": "the device owner can erase ALL its data on the edge in one request (even the admin then finds none)",
+  "pass": true,
+  "detail": "DELETE 200, afterwards 404"
+ },
+ {
+  "provision": "5.9-1",
+  "check": "after its data was erased, the phone re-establishes itself on the edge without help",
+  "pass": true,
+  "detail": "200"
+ },
+ {
+  "provision": "5.9-2",
+  "check": "after a real restart of the edge CSE (in-memory: everything lost) the phone recovers on its own",
+  "pass": true,
+  "detail": "fresh data 6 s after restart"
+ }
+]

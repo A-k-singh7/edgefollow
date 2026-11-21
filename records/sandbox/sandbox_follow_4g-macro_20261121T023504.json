@@ -1,0 +1,300 @@
+{
+ "script": "sandbox_follow.py",
+ "mec013": "<sandbox>",
+ "ue": "10.10.0.1",
+ "started_utc": "2026-11-21T01:35:37Z",
+ "lab": {
+  "ok": true,
+  "statuses": [
+   201,
+   201,
+   201,
+   201,
+   201
+  ]
+ },
+ "zone_a": "zone03",
+ "zone_b": "zone02",
+ "period_s": 2.0,
+ "polls": [
+  {
+   "t": 0.0,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-6"
+  },
+  {
+   "t": 2.216,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-6"
+  },
+  {
+   "t": 4.316,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-6"
+  },
+  {
+   "t": 6.416,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-6"
+  },
+  {
+   "t": 8.521,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-6"
+  },
+  {
+   "t": 10.624,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-6"
+  },
+  {
+   "t": 12.724,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-6"
+  },
+  {
+   "t": 14.83,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-6"
+  },
+  {
+   "t": 16.928,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-6"
+  },
+  {
+   "t": 19.03,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-6"
+  },
+  {
+   "t": 21.14,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-6"
+  },
+  {
+   "t": 23.25,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-6"
+  },
+  {
+   "t": 25.351,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-6"
+  },
+  {
+   "t": 27.457,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-6"
+  },
+  {
+   "t": 29.558,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-6"
+  },
+  {
+   "t": 31.656,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-6"
+  },
+  {
+   "t": 33.763,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-6"
+  },
+  {
+   "t": 35.87,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-6"
+  },
+  {
+   "t": 37.971,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-6"
+  },
+  {
+   "t": 40.079,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-6"
+  },
+  {
+   "t": 42.184,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-6"
+  },
+  {
+   "t": 44.29,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-6"
+  },
+  {
+   "t": 46.395,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-6"
+  },
+  {
+   "t": 48.495,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-6"
+  },
+  {
+   "t": 50.602,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-6"
+  },
+  {
+   "t": 52.707,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-6"
+  },
+  {
+   "t": 54.817,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-6"
+  },
+  {
+   "t": 56.932,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-6"
+  },
+  {
+   "t": 59.039,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-6"
+  },
+  {
+   "t": 61.149,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-6"
+  },
+  {
+   "t": 63.251,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-6"
+  },
+  {
+   "t": 65.349,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-6"
+  },
+  {
+   "t": 67.456,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-6"
+  },
+  {
+   "t": 69.558,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-6"
+  },
+  {
+   "t": 71.666,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-6"
+  },
+  {
+   "t": 73.774,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-7"
+  },
+  {
+   "t": 75.873,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-7"
+  },
+  {
+   "t": 77.972,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-7"
+  },
+  {
+   "t": 80.086,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-7"
+  },
+  {
+   "t": 82.185,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-7"
+  },
+  {
+   "t": 84.293,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-7"
+  },
+  {
+   "t": 86.395,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-7"
+  },
+  {
+   "t": 88.497,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-7"
+  },
+  {
+   "t": 90.599,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-7"
+  },
+  {
+   "t": 92.703,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-7"
+  },
+  {
+   "t": 94.812,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-7"
+  },
+  {
+   "t": 96.92,
+   "zone": "zone02",
+   "poa": "4g-macro-cell-5"
+  }
+ ],
+ "steps": [
+  {
+   "step": "the sandbox's MEC 013 reports the UE",
+   "ok": true,
+   "detail": "{\"zone\": \"zone03\", \"poa\": \"4g-macro-cell-6\"}"
+  },
+  {
+   "step": "the UE is in zone A before the trigger is armed",
+   "ok": true,
+   "detail": "poa 4g-macro-cell-6"
+  },
+  {
+   "step": "the UE was seen in zone A for 46 polls before the change",
+   "ok": true,
+   "detail": "at least 3 required"
+  },
+  {
+   "step": "the UE entered zone B: the move starts",
+   "ok": true,
+   "detail": "between t=94.812 s and t=96.92 s"
+  },
+  {
+   "step": "after the move: edge B holds every sample, edge A 404, IN-CSE routes to B",
+   "ok": true,
+   "detail": "{\"moved\": true, \"samples_on_b\": 3, \"edge_a_status\": 404, \"route\": [\"/id-mn-b\"]}"
+  }
+ ],
+ "result": "COMPLETED",
+ "failed_polls": 0,
+ "zone_change": {
+  "last_in_a_t": 94.812,
+  "first_in_b_t": 96.92,
+  "poa_b": "4g-macro-cell-5"
+ },
+ "move": {
+  "ok": true,
+  "moved": true,
+  "samples_on_b": 3,
+  "edge_a_status": 404,
+  "route": [
+   "/id-mn-b"
+  ],
+  "duration_s": 0.243
+ }
+}

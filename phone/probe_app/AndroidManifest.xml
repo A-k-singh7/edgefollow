@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+<!-- Copyright 2026 Ashish Kumar Singh -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.edgefollow.probe" android:versionCode="20" android:versionName="20">
+    <uses-sdk android:minSdkVersion="30" android:targetSdkVersion="30"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.HIGH_SAMPLING_RATE_SENSORS"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION"/>
+    <!-- v18: sign_prompt mode (BiometricPrompt). Normal permission, granted at install. -->
+    <uses-permission android:name="android.permission.USE_BIOMETRIC"/>
+    <!-- v18: declared ahead of a targetSdk 34+ raise (needed then for the location FGS); a no-op at targetSdk 30. -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION"/>
+    <application android:label="Probe" android:debuggable="false" android:allowBackup="false"
+        android:networkSecurityConfig="@xml/network_security_config">
+        <!-- Exported for adb only: DUMP is held by the shell/system, never grantable to an ordinary app. -->
+        <activity android:name=".Main" android:exported="true" android:permission="android.permission.DUMP"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
+            <intent-filter><action android:name="android.intent.action.MAIN"/></intent-filter>
+        </activity>
+        <service android:name=".LiveService" android:exported="false" android:foregroundServiceType="location"/>
+    </application>
+</manifest>

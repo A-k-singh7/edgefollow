@@ -1,0 +1,4 @@
+# The CSE build every estimed result is measured on: installed in /home/edgefollow/estimed-venv (run_topology.sh's VENV) and
+# held equal to it and to the README by estimed/tests/test_lab_config.py. 2026.05.3 was released on 2026-10-12 (MQTT crash
+# fix, HTTP content-type argument parsing), so it is past the two-week age rule (the lab's dependency-age rule); installed 2026-10-29.
+acmecse==2026.5.3

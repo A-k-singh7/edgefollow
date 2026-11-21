@@ -1,0 +1,455 @@
+{
+ "scenario": "4g-wifi-macro",
+ "started": "2026-11-21T02:19:31+0100",
+ "deploy": {
+  "ok": true,
+  "seconds": 0
+ },
+ "automation_before": {
+  "MOVEMENT": true,
+  "MOBILITY": true,
+  "NETWORK-CHARACTERISTICS-UPDATE": false,
+  "POAS-IN-RANGE": false
+ },
+ "zones": {
+  "mep1": [
+   [
+    "zone01",
+    5,
+    1
+   ],
+   [
+    "zone02",
+    5,
+    1
+   ],
+   [
+    "zone04",
+    7,
+    0
+   ],
+   [
+    "zone03",
+    4,
+    1
+   ]
+  ]
+ },
+ "apis": [
+  {
+   "mep": "mep1",
+   "api": "Bandwidth Management REST API",
+   "spec_http": 200,
+   "version": "3.1.1",
+   "server": "https://try-mec.etsi.org/<sandbox>/mep1/bwm/v1",
+   "gets": [
+    {
+     "path": "/bw_allocations",
+     "http": 200,
+     "ms": 102,
+     "shape": "items=0"
+    },
+    {
+     "path": "/bw_allocations/{allocationId}",
+     "skipped": "needs allocationId"
+    },
+    {
+     "path": "/subscriptions",
+     "http": 501,
+     "ms": 100,
+     "shape": ""
+    },
+    {
+     "path": "/subscriptions/{subscriptionId}",
+     "skipped": "needs subscriptionId"
+    }
+   ]
+  },
+  {
+   "mep": "mep1",
+   "api": "Device Application Interface REST API",
+   "spec_http": 200,
+   "version": "3.1.1",
+   "server": "https://try-mec.etsi.org/<sandbox>/mep1/dev_app/v1",
+   "gets": [
+    {
+     "path": "/app_list",
+     "http": 200,
+     "ms": 103,
+     "shape": "items=1 keys=['appList']"
+    }
+   ]
+  },
+  {
+   "mep": "mep1",
+   "api": "Location Service REST API",
+   "spec_http": 200,
+   "version": "3.1.1",
+   "server": "https://try-mec.etsi.org/<sandbox>/mep1/location/v3",
+   "gets": [
+    {
+     "path": "/queries/distance",
+     "skipped": "needs address"
+    },
+    {
+     "path": "/queries/users",
+     "http": 200,
+     "ms": 101,
+     "shape": "items=3 keys=['userList']"
+    },
+    {
+     "path": "/queries/zones",
+     "http": 200,
+     "ms": 107,
+     "shape": "items=4 keys=['zoneList']"
+    },
+    {
+     "path": "/queries/zones/zone01",
+     "http": 200,
+     "ms": 106,
+     "shape": "keys=['zoneInfo']"
+    },
+    {
+     "path": "/queries/zones/zone01/accessPoints",
+     "http": 200,
+     "ms": 111,
+     "shape": "items=5 keys=['accessPointList']"
+    },
+    {
+     "path": "/queries/zones/zone01/accessPoints/4g-macro-cell-1",
+     "http": 200,
+     "ms": 104,
+     "shape": "items=1 keys=['accessPointInfo']"
+    },
+    {
+     "path": "/subscriptions/area",
+     "http": 200,
+     "ms": 104,
+     "shape": "keys=['notificationSubscriptionList']"
+    },
+    {
+     "path": "/subscriptions/area/{subscriptionId}",
+     "skipped": "needs subscriptionId"
+    },
+    {
+     "path": "/subscriptions/distance",
+     "http": 200,
+     "ms": 99,
+     "shape": "keys=['notificationSubscriptionList']"
+    },
+    {
+     "path": "/subscriptions/distance/{subscriptionId}",
+     "skipped": "needs subscriptionId"
+    },
+    {
+     "path": "/subscriptions/users",
+     "http": 200,
+     "ms": 100,
+     "shape": "keys=['notificationSubscriptionList']"
+    },
+    {
+     "path": "/subscriptions/users/{subscriptionId}",
+     "skipped": "needs subscriptionId"
+    },
+    {
+     "path": "/subscriptions/zones",
+     "http": 200,
+     "ms": 101,
+     "shape": "keys=['notificationSubscriptionList']"
+    },
+    {
+     "path": "/subscriptions/zones/{subscriptionId}",
+     "skipped": "needs subscriptionId"
+    }
+   ]
+  },
+  {
+   "mep": "mep1",
+   "api": "MEC Application Support API",
+   "spec_http": 200,
+   "version": "3.1.1",
+   "server": "https://try-mec.etsi.org/<sandbox>/mep1/mec_app_support/v2",
+   "gets": [
+    {
+     "path": "/applications/{appInstanceId}/traffic_rules",
+     "skipped": "needs appInstanceId"
+    },
+    {
+     "path": "/applications/{appInstanceId}/traffic_rules/{trafficRuleId}",
+     "skipped": "needs appInstanceId, trafficRuleId"
+    },
+    {
+     "path": "/applications/{appInstanceId}/dns_rules",
+     "skipped": "needs appInstanceId"
+    },
+    {
+     "path": "/applications/{appInstanceId}/dns_rules/{dnsRuleId}",
+     "skipped": "needs appInstanceId, dnsRuleId"
+    },
+    {
+     "path": "/applications/{appInstanceId}/subscriptions",
+     "skipped": "needs appInstanceId"
+    },
+    {
+     "path": "/applications/{appInstanceId}/subscriptions/{subscriptionId}",
+     "skipped": "needs appInstanceId, subscriptionId"
+    },
+    {
+     "path": "/registrations/{appInstanceId}",
+     "skipped": "needs appInstanceId"
+    },
+    {
+     "path": "/registration/{registrationId}",
+     "skipped": "needs registrationId"
+    },
+    {
+     "path": "/timing/timing_caps",
+     "http": 200,
+     "ms": 98,
+     "shape": "keys=['timeStamp']"
+    },
+    {
+     "path": "/timing/current_time",
+     "http": 200,
+     "ms": 113,
+     "shape": "keys=['nanoSeconds', 'seconds', 'timeSourceStatus']"
+    }
+   ]
+  },
+  {
+   "mep": "mep1",
+   "api": "MEC CAPIF Management API",
+   "spec_http": 200,
+   "version": "3.2.1",
+   "server": "https://try-mec.etsi.org/<sandbox>/mep1/service-apis/v1",
+   "gets": [
+    {
+     "path": "/allServiceAPIs",
+     "http": 200,
+     "ms": 106,
+     "shape": "items=6 keys=['serviceAPIDescriptions']"
+    },
+    {
+     "path": "/{apfId}/service-apis",
+     "skipped": "needs apfId"
+    },
+    {
+     "path": "/{apfId}/service-apis/{serviceApiId}",
+     "skipped": "needs apfId, serviceApiId"
+    }
+   ]
+  },
+  {
+   "mep": "mep1",
+   "api": "MEC Service Management API",
+   "spec_http": 200,
+   "version": "3.1.1",
+   "server": "https://try-mec.etsi.org/<sandbox>/mep1/mec_service_mgmt/v1",
+   "gets": [
+    {
+     "path": "/applications/{appInstanceId}/subscriptions",
+     "skipped": "needs appInstanceId"
+    },
+    {
+     "path": "/applications/{appInstanceId}/subscriptions/{subscriptionId}",
+     "skipped": "needs appInstanceId, subscriptionId"
+    },
+    {
+     "path": "/applications/{appInstanceId}/services",
+     "skipped": "needs appInstanceId"
+    },
+    {
+     "path": "/applications/{appInstanceId}/services/{serviceId}",
+     "skipped": "needs appInstanceId, serviceId"
+    },
+    {
+     "path": "/services",
+     "http": 200,
+     "ms": 109,
+     "shape": "items=6"
+    },
+    {
+     "path": "/services/{serviceId}",
+     "skipped": "needs serviceId"
+    },
+    {
+     "path": "/transports",
+     "http": 200,
+     "ms": 104,
+     "shape": "items=1"
+    },
+    {
+     "path": "/resource_uri_allocated_by_MEC_platform",
+     "http": 404,
+     "ms": 126,
+     "shape": "404 page not found\n"
+    }
+   ]
+  },
+  {
+   "mep": "mep1",
+   "api": "Multi-access Traffic Steering REST API",
+   "spec_http": 200,
+   "version": "3.1.1",
+   "server": "https://try-mec.etsi.org/<sandbox>/mep1/mts/v1",
+   "gets": [
+    {
+     "path": "/mts_capability_info",
+     "http": 200,
+     "ms": 98,
+     "shape": "items=2 keys=['mtsAccessInfo', 'mtsMode', 'timeStamp']"
+    },
+    {
+     "path": "/mts_sessions",
+     "http": 200,
+     "ms": 105,
+     "shape": "items=0"
+    },
+    {
+     "path": "/mts_sessions/{sessionId}",
+     "skipped": "needs sessionId"
+    }
+   ]
+  },
+  {
+   "mep": "mep1",
+   "api": "Radio Network Information Service REST API",
+   "spec_http": 200,
+   "version": "2.2.1",
+   "server": "https://try-mec.etsi.org/<sandbox>/mep1/rni/v2",
+   "gets": [
+    {
+     "path": "/queries/rab_info",
+     "http": 200,
+     "ms": 106,
+     "shape": "items=3 keys=['appInstanceId', 'cellUserInfo', 'requestId', 'timeStamp']"
+    },
+    {
+     "path": "/queries/plmn_info",
+     "skipped": "needs app_ins_id"
+    },
+    {
+     "path": "/queries/s1_bearer_info",
+     "http": 501,
+     "ms": 108,
+     "shape": ""
+    },
+    {
+     "path": "/queries/layer2_meas",
+     "http": 200,
+     "ms": 111,
+     "shape": "items=10 keys=['cellInfo', 'cellUEInfo', 'timeStamp']"
+    },
+    {
+     "path": "/subscriptions",
+     "http": 200,
+     "ms": 98,
+     "shape": "keys=['_links']"
+    },
+    {
+     "path": "/subscriptions/{subscriptionId}",
+     "skipped": "needs subscriptionId"
+    }
+   ]
+  },
+  {
+   "mep": "mep1",
+   "api": "WLAN Access Information Service REST API",
+   "spec_http": 200,
+   "version": "2.3.1",
+   "server": "https://try-mec.etsi.org/<sandbox>/mep1/wai/v2",
+   "gets": [
+    {
+     "path": "/queries/ap/ap_information",
+     "http": 200,
+     "ms": 107,
+     "shape": "items=11"
+    },
+    {
+     "path": "/queries/sta/sta_information",
+     "http": 200,
+     "ms": 103,
+     "shape": "items=0"
+    },
+    {
+     "path": "/subscriptions",
+     "http": 200,
+     "ms": 107,
+     "shape": "keys=['_links']"
+    },
+    {
+     "path": "/subscriptions/{subscriptionId}",
+     "skipped": "needs subscriptionId"
+    },
+    {
+     "path": "/measurements",
+     "http": 501,
+     "ms": 103,
+     "shape": ""
+    },
+    {
+     "path": "/measurements/{measurementConfigId}",
+     "skipped": "needs measurementConfigId"
+    }
+   ]
+  }
+ ],
+ "observe": {
+  "seconds_max": 240,
+  "crossings": [
+   {
+    "t": 108.7,
+    "ue": "10.100.0.1",
+    "mep": "mep1",
+    "from": "zone01",
+    "to": "zone02"
+   },
+   {
+    "t": 130.4,
+    "ue": "10.100.0.1",
+    "mep": "mep1",
+    "from": "zone02",
+    "to": "zone03"
+   },
+   {
+    "t": 173.9,
+    "ue": "10.10.0.1",
+    "mep": "mep1",
+    "from": "zone02",
+    "to": "zone03"
+   }
+  ],
+  "mep_moves": []
+ },
+ "handover": {
+  "ue": "10.10.0.1",
+  "mep": "mep1",
+  "zone_a": "zone03",
+  "zone_b": "zone02",
+  "score": 2,
+  "tail": [
+   "handover transaction 7e659c22a39e8cf4: /id-mn-a -> /id-mn-b",
+   "RESULT COMPLETED  (record: /home/edgefollow/estimed-run/sandbox-2026-11-21/sandbox_follow_4g-wifi-macro_20261121T022237.json)"
+  ],
+  "record": {
+   "result": "COMPLETED",
+   "zone_change": {
+    "last_in_a_t": 16.96,
+    "first_in_b_t": 19.06,
+    "poa_b": "wifi-ap-5"
+   },
+   "move": {
+    "ok": true,
+    "moved": true,
+    "samples_on_b": 3,
+    "edge_a_status": 404,
+    "route": [
+     "/id-mn-b"
+    ],
+    "duration_s": 0.236
+   },
+   "failed_polls": 0,
+   "record": "/home/edgefollow/estimed-run/sandbox-2026-11-21/sandbox_follow_4g-wifi-macro_20261121T022237.json"
+  }
+ }
+}

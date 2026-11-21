@@ -1,0 +1,21 @@
+  PASS  vehicle attached to edge A with telemetry
+          3 samples, edges at IN-CSE: 2
+  PASS  MEC 013 Location reports the vehicle
+          zone=zone001 ap=ap01 pos={'latitude': 48.1351, 'longitude': 11.582}
+  PASS  MEC 012 RNIS reports the serving cell
+          cellId=6060606 requestId=rab-req-1
+  PASS  MEC 040 federation lists peer systems
+          SEED_SYS_1->http://127.0.0.1:8202; SEED_SYS_2->http://127.0.0.1:8201
+  PASS  MEC 040 selects the peer system to hand over to
+          SEED_SYS_1 (SYSTEM_PROVIDER) at http://127.0.0.1:8202
+  PASS  peer endpoint resolves to a reachable edge CSE
+          http://127.0.0.1:8202 -> cse-mn-b
+  PASS  oneM2M subtree handed over to the peer edge
+  PASS  telemetry intact on the peer edge
+          3 samples: ['48.1351,11.5820', '48.1361,11.5835', '48.1372,11.5849']
+  PASS  vehicle released from the origin edge
+          HTTP 404
+  PASS  IN-CSE still holds both edges
+          ['cse-in/id-mn-a', 'cse-in/id-mn-b']
+
+  RESULT: PASS  (10/10 steps)

@@ -1,0 +1,23 @@
+  PASS  precondition: phone has a live MEC 013 record
+== periodic location
+  PASS  UserLocationPeriodicSubscription created  -- 201 id=dc10b8d8dc374bd0a7fd9f76d067ebc3
+== distance to fixture UE acr:10.0.0.3
+  PASS  distance subscription within2x created  -- 201
+  PASS  distance subscription beyondhalf created  -- 201
+  PASS  distance subscription CONTROL_withinhalf created  -- 201
+== event subscriptions (must stay silent while nothing changes)
+  PASS  UserLocationEventSubscription created  -- 201
+  PASS  ZoneLocationEventSubscription created  -- 201
+  PASS  ZoneStatusSubscription created  -- 201
+  PASS  UserAreaSubscription created  -- 201
+  PASS  3 periodic reports, ~5 s apart, only the last final  -- 3 reports, gaps [6.0, 6.0]
+  PASS  periodic reports valid vs ETSI UserLocationPeriodicNotification.schema.json
+  PASS  reports carry the phone's live cell + fix (result SUCCESS)
+  PASS  AllWithinDistance @ 2x true distance -> immediate UserDistanceNotification  -- true distance <distance>
+  PASS  AllBeyondDistance @ 0.5x -> immediate notification
+  PASS  distance notifications valid vs ETSI UserDistanceNotification.schema.json
+  PASS  CONTROL AllWithinDistance @ 0.5x stays silent
+  PASS  CONTROL event subscriptions: zero notifications while the phone is static  -- []
+  PASS  periodic stops after reportingAmount
+
+RESULT: 18/18 checks pass

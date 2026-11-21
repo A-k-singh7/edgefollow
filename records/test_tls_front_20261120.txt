@@ -1,0 +1,156 @@
+== set-up
+  PASS  a throwaway certificate authority, server certificate and keys were made in the temporary folder  -- cryptography under /usr/bin/python3
+  PASS  the program under test is there  -- /home/edgefollow/edgefollow/phone/tls_front.py
+  PASS  the front door starts on a free loopback port and says so  -- port 46107
+== the app's own requests come through unchanged
+  PASS  a client that trusts the throwaway authority completes the handshake, in TLS 1.3  -- TLSv1.3
+  PASS  the app's whole conversation (21 requests: AE, GET, PUT, 7 containers, pch, cmd subscription, 5 records, radioTs, pcu GET and its answer, ack) is answered with the upstream's own statuses  -- [201, 200, 200, 201, 201, 201, 201, 201, 201, 201, 201, 201, 201, 201, 201, 201, 201, 201, 200, 201, 201]
+  PASS  the upstream saw exactly those requests, in order and unchanged: method, path, body byte for byte, X-M2M-Origin, X-M2M-RI, X-M2M-RVI, Accept, Content-Type  -- 21 seen, 21 sent
+  PASS  the upstream got only Host, X-M2M-Origin, X-M2M-RI, X-M2M-RVI, Accept, Content-Type and Content-Length (User-Agent, Accept-Encoding, Connection were not passed on)  -- other headers seen: []
+  PASS  the long poll's answer came back as the upstream gave it ({} = nothing queued)
+  PASS  the second bound address (127.0.0.2) gets through with its own originator and AE name  -- [(201, b'{"method": "POST", "target": "/cse-mn-a", "origin": "Cprobe-test-b", "body": "{\\"m2m:ae\\":{\\"rn\\":\\"probeB\\",\\"api\\":\\"Nprobe.phone\\",\\"rr\\":false,\\"srv\\":[\\"4\\"]}}"}'), (201,
+  PASS  GET: the status and the body are the upstream's own  -- 200 against 200
+  PASS  GET: the X-M2M response headers come through (RSC, RI, RVI)  -- [('Server', 'BaseHTTP/0.6 Python/3.14.8'), ('Date', 'Fri, 20 Nov 2026 15:11:17 GMT'), ('Content-Type', 'application/json'), ('X-M2M-RSC', '2000'), ('X-M2M-RI', 'ri-1'), ('X-M2M-RVI', '3'), ('Connection', 'close'), ('Content-Length', '85')]
+  PASS  GET: the response headers are the upstream's, none added and none lost (Date and Connection aside)  -- direct [('content-length', '85'), ('content-type', 'application/json'), ('server', 'BaseHTTP/0.6 Python/3.14.8'), ('x-m2m-ri', 'ri-1'), ('x-m2m-rsc', '2000'), ('x-m2m-rvi', '3')] | through [('content-length', '85'), ('content-type', 'application/json'), ('server', 'BaseHTTP/0.6 Python/3.14.8'), ('x-m2m-ri', 'ri-1'), ('x-m2m-rsc', '2000'), ('x-m2m-rvi', '3')]
+  PASS  the set-up of the log rows holds: the marker strings did reach the upstream (RI and body)  -- status 201
+  PASS  an upstream 404 comes back as 404 with its body and its X-M2M-RSC  -- 404 b'{"m2m:dbg":"resource not found"}'
+  PASS  an upstream 204 comes back as 204 without a body  -- 204
+  PASS  a 1 MiB answer comes back byte for byte (under the default --max-response of 4 MiB)  -- 1048576 bytes
+  PASS  a record whose strings hold #, ;;, // and /* */ (a Wi-Fi name, say) is forwarded byte for byte  -- status 201
+  PASS  Host with the port (127.0.0.1:PORT, as Android and urllib write it) and an X-M2M-RI of exactly 64 characters are forwarded unchanged  -- status 200, upstream saw '127.0.0.1:46107'
+  PASS  a Content-Type written another way (Application/JSON; ty=4) is accepted and the upstream gets the door's own application/json;ty=4, never the client's text  -- status 201, upstream saw 'application/json;ty=4'
+== the simulated phone through a front door
+  PASS  sim_phone.SimPhone (which imitates the app) registers, posts one tick and long-polls through a front door with nothing refused  -- seq 1, posts 5/0, ts 1/0, front answered 18, upstream saw 18
+== pinning: one address, one originator, one AE subtree, only the app's requests
+  PASS  CONTROL (must FAIL) a request with X-M2M-Origin: CAdmin (the CSE's admin) reached the upstream  -- status 403 (X-M2M-Origin must be given once and be the originator bound to this ad), upstream saw 0, bystander 0
+  PASS  CONTROL (must FAIL) a request from 127.0.0.1 with the other bound client's originator reached the upstream  -- status 403 (X-M2M-Origin must be given once and be the originator bound to this ad), upstream saw 0, bystander 0
+  PASS  CONTROL (must FAIL) a request with two X-M2M-Origin headers reached the upstream  -- status 403 (X-M2M-Origin must be given once and be the originator bound to this ad), upstream saw 0, bystander 0
+  PASS  CONTROL (must FAIL) a request with no X-M2M-Origin header reached the upstream  -- status 403 (X-M2M-Origin must be given once and be the originator bound to this ad), upstream saw 0, bystander 0
+  PASS  CONTROL (must FAIL) the SP-relative path /~/id-in/cse-in (another CSE) reached the upstream  -- status 400 ('/~/' in the path is not served (no other CSE, no dot segments)), upstream saw 0, bystander 0
+  PASS  CONTROL (must FAIL) the path //x reached the upstream  -- status 400 ('//' in the path is not served (no other CSE, no dot segments)), upstream saw 0, bystander 0
+  PASS  CONTROL (must FAIL) the absolute path /_/x (another service provider) reached the upstream  -- status 400 ('/_/' in the path is not served (no other CSE, no dot segments)), upstream saw 0, bystander 0
+  PASS  CONTROL (must FAIL) the CSE's web UI /webui reached the upstream  -- status 403 (only paths under /cse-mn-a are served), upstream saw 0, bystander 0
+  PASS  CONTROL (must FAIL) a path under another base with the bound AE name (/cse-in/phone) reached the upstream  -- status 403 (only paths under /cse-mn-a are served), upstream saw 0, bystander 0
+  PASS  CONTROL (must FAIL) the path /cse-mn-a/../x reached the upstream  -- status 400 ('/../' in the path is not served (no other CSE, no dot segments)), upstream saw 0, bystander 0
+  PASS  CONTROL (must FAIL) the path /cse-mn-a/phone%2f.. reached the upstream  -- status 400 (percent-encoding in the path is not served), upstream saw 0, bystander 0
+  PASS  CONTROL (must FAIL) a path under another AE (/cse-mn-a/probeB) reached the upstream  -- status 403 (the path is not under this client's own AE), upstream saw 0, bystander 0
+  PASS  CONTROL (must FAIL) a query string reached the upstream  -- status 400 (a query string is not served), upstream saw 0, bystander 0
+  PASS  CONTROL (must FAIL) a DELETE reached the upstream (refused as a DELETE)  -- status 403 (DELETE is not served), upstream saw 0, bystander 0
+  PASS  CONTROL (must FAIL) an ACP create (ty=1) under /cse-mn-a reached the upstream  -- status 403 (not a request the probe app sends (method, path and Content-Type)), upstream saw 0, bystander 0
+  PASS  CONTROL (must FAIL) the app's own AE body sent with ty=1 instead of ty=2 reached the upstream  -- status 403 (not a request the probe app sends (method, path and Content-Type)), upstream saw 0, bystander 0
+  PASS  CONTROL (must FAIL) an AE create naming another AE (rn probeB) reached the upstream  -- status 403 (the body is not what the probe app sends for this request), upstream saw 0, bystander 0
+  PASS  CONTROL (must FAIL) an AE create carrying poa (an address for the CSE to contact) reached the upstream (refused as poa)  -- status 403 (the body names an address for the CSE to contact (poa or nu)), upstream saw 0, bystander 0
+  PASS  CONTROL (must FAIL) an AE create carrying at (announce to another CSE) reached the upstream  -- status 403 (the body is not what the probe app sends for this request), upstream saw 0, bystander 0
+  PASS  CONTROL (must FAIL) an AE create with the rn key twice (rn phone, then rn probeB) reached the upstream  -- status 400 (the body is not JSON (or gives a key twice)), upstream saw 0, bystander 0
+  PASS  CONTROL (must FAIL) a container create carrying nu reached the upstream (refused as nu)  -- status 403 (the body names an address for the CSE to contact (poa or nu)), upstream saw 0, bystander 0
+  PASS  CONTROL (must FAIL) a contentInstance into the cmd container (the app never writes its own commands) reached the upstream  -- status 403 (not a request the probe app sends (method, path and Content-Type)), upstream saw 0, bystander 0
+  PASS  CONTROL (must FAIL) a header name with '_' (X_M2M_Origin: CAdmin beside the right X-M2M-Origin) reached the upstream  -- status 400 (malformed header name (an HTTP token, without '_')), upstream saw 0, bystander 0
+  PASS  CONTROL (must FAIL) a request with two Host headers reached the upstream (refused as a header syntax fault)  -- status 400 (more than one Host header), upstream saw 0, bystander 0
+  PASS  CONTROL (must FAIL) a header value holding \x0b reached the upstream  -- status 400 (a control character in a header value), upstream saw 0, bystander 0
+  PASS  CONTROL (must FAIL) a POST whose body is not JSON reached the upstream  -- status 400 (the body is not JSON (or gives a key twice)), upstream saw 0, bystander 0
+  PASS  CONTROL (must FAIL) a command subscription whose nu is anything but [its own originator] reached the upstream (a URL, the originator plus a URL, the other client, a bare string, [], the originator twice)  -- status 403 (the body is not what the probe app sends for this request), upstream saw 0, bystander 0; status 403 (the body is not what the probe app sends for this request), upstream saw 0, bystander 0; status 403 (the body is not what the probe app sends for this request), upstream saw 0, bystander 0; status 403 (the body is not what the probe app sends for this request), upstream saw 0, bystander 0; status 403 (the body is not what the probe app sends for this request), upstream saw 0, bystander 0; status 403 (the body is not what the probe app sends for this request), upstream saw 0, bystander 0
+  PASS  CONTROL (must FAIL) a body with /*x*/ between tokens reached the upstream  -- status 400 (the body is not JSON (or gives a key twice)), upstream saw 0, bystander 0
+  PASS  CONTROL (must FAIL) a body with # or // after a value reached the upstream  -- status 400 (the body is not JSON (or gives a key twice)), upstream saw 0, bystander 0; status 400 (the body is not JSON (or gives a key twice)), upstream saw 0, bystander 0
+  PASS  CONTROL (must FAIL) a body whose string value ends in a backslash with more JSON after it on the same line (rqi x\, then the to URL with plain '/': ACME would cut the rest of the line as a // comment) reached the upstream (refused by the comparison with ACME's comment remover)  -- status 400 (the CSE's comment remover would change this body (text it takes for a ), upstream saw 0, bystander 0
+  PASS  CONTROL (must FAIL) a pcu answer split over two lines (rqi x\, then the to URL with plain '/' at the end of the first line, then rsc and rvi on the second; ACME would cut the rest of the first line as a // comment) reached the upstream (refused by the comparison with ACME's comment remover, read line by line)  -- status 400 (the CSE's comment remover would change this body (text it takes for a ), upstream saw 0, bystander 0
+  PASS  CONTROL (must FAIL) a body whose last string ends in a backslash (ACME's comment remover misreads it: it would store con a\ for a/*b*/\, and it scans such text in quadratic time) reached the upstream  -- status 400 (the body's last string ends in a backslash: the CSE's comment remover ), upstream saw 0, bystander 0; status 400 (the body's last string ends in a backslash: the CSE's comment remover ), upstream saw 0, bystander 0
+  PASS  CONTROL (must FAIL) a 48 kB body that would keep ACME's comment regex busy for seconds (24,000 escaped quotes, then a last string ending in a backslash) held up the front door instead of being refused at once  -- status 400 (the body's last string ends in a backslash: the CSE's comment remover ), upstream saw 0, bystander 0; 0.26 s
+  PASS  CONTROL (must FAIL) an X-M2M-RVI other than 4 (3, none) reached the upstream  -- status 400 (X-M2M-RVI must be 4, as the app sends), upstream saw 0, bystander 0; status 400 (X-M2M-RVI must be 4, as the app sends), upstream saw 0, bystander 0
+  PASS  CONTROL (must FAIL) an Accept other than application/json (*/*, application/json with another type, none) reached the upstream  -- status 400 (Accept must be application/json, as the app sends), upstream saw 0, bystander 0; status 400 (Accept must be application/json, as the app sends), upstream saw 0, bystander 0; status 400 (Accept must be application/json, as the app sends), upstream saw 0, bystander 0
+  PASS  CONTROL (must FAIL) an X-M2M-RI that is not 1 to 64 printable ASCII characters without spaces (65 characters, one with a space, one with a byte above 0x7e, none) reached the upstream  -- status 400 (X-M2M-RI must be 1 to 64 printable ASCII characters without spaces), upstream saw 0, bystander 0; status 400 (X-M2M-RI must be 1 to 64 printable ASCII characters without spaces), upstream saw 0, bystander 0; status 400 (X-M2M-RI must be 1 to 64 printable ASCII characters without spaces), upstream saw 0, bystander 0; status 400 (X-M2M-RI must be 1 to 64 printable ASCII characters without spaces), upstream saw 0, bystander 0
+  PASS  CONTROL (must FAIL) a Host that is not this front door's address (a name, another port, another address, none) reached the upstream  -- status 400 (Host must be this front door's address, with or without the port), upstream saw 0, bystander 0; status 400 (Host must be this front door's address, with or without the port), upstream saw 0, bystander 0; status 400 (Host must be this front door's address, with or without the port), upstream saw 0, bystander 0; status 400 (Host must be this front door's address, with or without the port), upstream saw 0, bystander 0
+  PASS  CONTROL (must FAIL) a container create with an rn outside the app's list (pch, evil, radioTs) reached the upstream  -- status 403 (the body is not what the probe app sends for this request), upstream saw 0, bystander 0; status 403 (the body is not what the probe app sends for this request), upstream saw 0, bystander 0; status 403 (the body is not what the probe app sends for this request), upstream saw 0, bystander 0
+  PASS  CONTROL (must FAIL) a container create with an mni other than the app's 2000 (1, 2001, 2000.0, "2000") reached the upstream  -- status 403 (the body is not what the probe app sends for this request), upstream saw 0, bystander 0; status 403 (the body is not what the probe app sends for this request), upstream saw 0, bystander 0; status 403 (the body is not what the probe app sends for this request), upstream saw 0, bystander 0; status 403 (the body is not what the probe app sends for this request), upstream saw 0, bystander 0
+  PASS  CONTROL (must FAIL) a timeSeriesInstance with an snr that is not a whole number >= 0 (-1, 1.5, "3", true) reached the upstream  -- status 403 (the body is not what the probe app sends for this request), upstream saw 0, bystander 0; status 403 (the body is not what the probe app sends for this request), upstream saw 0, bystander 0; status 403 (the body is not what the probe app sends for this request), upstream saw 0, bystander 0; status 403 (the body is not what the probe app sends for this request), upstream saw 0, bystander 0
+  PASS  CONTROL (must FAIL) a timeSeriesInstance with a dgt not in the app's format (ISO with dashes, no fraction, 5 digits of fraction) reached the upstream  -- status 403 (the body is not what the probe app sends for this request), upstream saw 0, bystander 0; status 403 (the body is not what the probe app sends for this request), upstream saw 0, bystander 0; status 403 (the body is not what the probe app sends for this request), upstream saw 0, bystander 0
+  PASS  CONTROL (must FAIL) a pcu answer whose to is an ID instead of the app's CSE URL (/id-in, CAdmin, Cother, /id-in/cse-mn-a) reached the upstream  -- status 403 (the body is not what the probe app sends for this request), upstream saw 0, bystander 0; status 403 (the body is not what the probe app sends for this request), upstream saw 0, bystander 0; status 403 (the body is not what the probe app sends for this request), upstream saw 0, bystander 0; status 403 (the body is not what the probe app sends for this request), upstream saw 0, bystander 0
+  PASS  CONTROL (must FAIL) a pcu answer whose rqi is outside the allowed shape (a space, 257 characters, a non-ASCII letter, empty) reached the upstream  -- status 403 (the body is not what the probe app sends for this request), upstream saw 0, bystander 0; status 403 (the body is not what the probe app sends for this request), upstream saw 0, bystander 0; status 403 (the body is not what the probe app sends for this request), upstream saw 0, bystander 0; status 403 (the body is not what the probe app sends for this request), upstream saw 0, bystander 0
+  PASS  CONTROL (must FAIL) a GET with a body (Content-Length 5) reached the upstream  -- status 400 (a body on a request that has none), upstream saw 0, bystander 0
+== a slow answer does not hold up the others
+  PASS  a 3 s upstream answer to the long poll comes through with its status, body and X-M2M-RI  -- {'status': 200, 'target': '/cse-mn-a/phone/pch/pcu', 'ri': ['slow-pcu'], 'took': 3.005904613994062, 'end': 264585.9363597}
+  PASS  a fast request made while the slow one waits is answered first, in under 1.5 s  -- fast 0.01 s, slow 3.01 s
+== TLS: who gets in at all
+  PASS  CONTROL (must FAIL) a client that offers TLS 1.2 at most completed the handshake  -- SSLError(1, '[SSL: TLSV1_ALERT_PROTOCOL_VERSION] tlsv1 alert protocol version (_ssl.c:1127)')
+  PASS  CONTROL (must FAIL) a plain-HTTP request to the TLS port was forwarded or answered over HTTP  -- connection ended True, 0 bytes back, upstream saw 0
+== an address that is not bound
+  PASS  CONTROL (must FAIL) a client address with no --bind (127.0.0.3) completed the TLS handshake or reached the upstream  -- handshake completed False (SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of); upstream saw 0
+== size limits and request framing
+  PASS  a body of exactly --max-body bytes (262144) is forwarded  -- status 201
+  PASS  CONTROL (must FAIL) a request body one byte over --max-body reached the upstream  -- status 413, upstream saw 0
+  PASS  after the 413 the connection is closed
+  PASS  CONTROL (must FAIL) a header block over 16 kB reached the upstream  -- status 431, closed True
+  PASS  CONTROL (must FAIL) a request line over 16 kB reached the upstream  -- status 431, closed True
+  PASS  a request of about 15 kB of line and headers (in a header that is not passed on) is still forwarded  -- status 200
+  PASS  CONTROL (must FAIL) a request with Transfer-Encoding: chunked (a good record in one chunk, a second request behind it, all else the app's own) reached the upstream, or was refused for another reason  -- status 501 (Transfer-Encoding in a request is not served; send Content-L), closed True, upstream saw 0
+  PASS  CONTROL (must FAIL) a request with two Content-Length values (the record's length, and that plus the 5 spaces sent after it) reached the upstream, or was refused for another reason  -- status 400 (bad Content-Length), upstream saw 0, bystander 0
+  PASS  CONTROL (must FAIL) a request whose Content-Length is not a plain number (+N for a good record of N bytes) reached the upstream, or was refused for another reason  -- status 400 (bad Content-Length), upstream saw 0, bystander 0
+== it is not an open proxy
+  PASS  CONTROL (must FAIL) a request with an absolute-URI target was forwarded (to the upstream or to the server it names)  -- status 400, upstream saw 0, bystander saw 0
+  PASS  CONTROL (must FAIL) a CONNECT opened a tunnel or reached a server  -- status 405, after it b'', bystander 0
+  PASS  CONTROL (must FAIL) a target that does not start with '/', or holds a space or a control byte, reached the upstream  -- status 400, 400, 400
+  PASS  CONTROL (must FAIL) a method other than GET, POST, PUT (DELETE aside, refused above) reached the upstream  -- status [405, 405, 405, 405, 405]
+  PASS  CONTROL (must FAIL) a request with a folded header line or a space in a header name reached the upstream  -- status 400
+== resources: answer size and connection slots
+  PASS  CONTROL (must FAIL) an upstream answer over --max-response (1 MiB against 1,000,000 bytes) was passed back, whole or in part  -- status 502, 58 bytes back
+  PASS  an answer of exactly --max-response bytes comes back whole  -- status 200, 1048576 bytes
+  PASS  CONTROL (must FAIL) a client holding its 2 connection slots with stalled connections locked out the other bound client, or got a third connection  -- 2 held; third connection from 127.0.0.1 completed False; 127.0.0.2 answered True in 0.01 s
+  PASS  CONTROL (must FAIL) a connection beyond --max-conns (3 in all, each held) completed the TLS handshake  -- 3 held; fourth connection completed False (SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occu)
+  PASS  after the stalled connections close, both clients are let in again (the slots were released)
+  PASS  the two connections refused for want of a slot are counted (refused_busy 2)  -- exit 0, [{'event': 'stopped', 'requests': 4, 'refused_not_bound': 0, 'refused_busy': 2, 'thread_start_failed': 0, 'accept_errors': 0, 'handshake_failed': 0}]
+== injected faults: slow body, slow reader, slow handshake, thread start, accept errors
+  PASS  CONTROL (must FAIL) a body sent one byte at a time went on past BODY_S (1.5 s here) instead of ending in 408 by BODY_S + 1 s  -- after 1.51 s and 15 bytes: b'HTTP/1.1 408 Request Timeout\r\nContent-Ty'
+  PASS  CONTROL (must FAIL) a client that read an 8 MiB answer slowly (about 20 kB/s) kept its connection, or its one slot, past BODY_S (1.5 s here) + 1 s  -- slot free again at 2.53 s: True; connection closed (end of stream); 1802240 bytes of 8388608 read; counts {'requests': 2, 'refused_not_bound': 0, 'refused_busy': 0, 'thread_start_failed': 0, 'accept_errors': 0, 'handshake_failed': 0}
+  PASS  CONTROL (must FAIL) a TLS handshake whose ClientHello came one byte at a time went on past HANDSHAKE_S (1.5 s here) + 1 s, or kept its one slot  -- closed at 1.5 s after 15 of 1658 bytes; slot free again True; counts {'requests': 1, 'refused_not_bound': 0, 'refused_busy': 0, 'thread_start_failed': 0, 'accept_errors': 0, 'handshake_failed': 1}
+  PASS  CONTROL (must FAIL) a failure to start a connection's thread stopped the front door or kept its slot  -- injected 1, first connection completed False, second answered True, serving True, counts {'requests': 1, 'refused_not_bound': 0, 'refused_busy': 0, 'thread_start_failed': 1, 'accept_errors': 0, 'handshake_failed': 0}
+  PASS  CONTROL (must FAIL) an accept() that fails every time made the loop spin (process CPU over 1 s)  -- 0.001 s of CPU, 10 accept calls, loop ended True
+== injected faults: a slow head, a refusal never read, an idle connection; the default limits
+  PASS  the default limits are these numbers: HANDSHAKE_S 10 s, HEAD_S 20 s, BODY_S 30 s, DRAIN_S 2 s, DRAIN_BYTES 4 MiB, DRAIN_QUIET_S 0.25 s, ACCEPT_PAUSE_S 0.1 s, MAX_HEAD 16384; --max-conns 32, --max-conns-per-client 4, --max-body 262144, --max-response 4 MiB, --upstream-timeout 30 s
+  PASS  CONTROL (must FAIL) a request head sent one byte a second (each byte inside the 1.5 s a single read may wait) went on past HEAD_S (1.5 s here) instead of ending in 408 by HEAD_S + 1 s, or kept its one slot  -- after 1.50 s and 2 bytes: b'HTTP/1.1 408 Request Timeout\r\nContent-Ty'; upstream saw 0; slot free again True
+  PASS  CONTROL (must FAIL) a refused request whose client never reads the refusal kept its connection and its one slot past BODY_S (1.0 s here) + 1 s  -- handshake True; the refusal's write had the timeout [1.0]; slot free again after 1.02 s; upstream saw 1 (the good request only)
+  PASS  CONTROL (must FAIL) a kept-open connection left idle after one answered request stayed open past HEAD_S (1.5 s here) + 1 s, or kept its one slot  -- status 200; then end of stream after 1.46 s; slot free again True
+== upstream down and upstream slow
+  PASS  upstream down: 502  -- status 502
+  PASS  the front door for the dead upstream stops cleanly on SIGINT (exit 0)
+  PASS  an upstream that does not answer within the time limit (1 s here, 30 s by default): 504  -- status 504 after 1.01 s
+  PASS  after the 504 the same front door still answers
+  PASS  a connection kept open and idle does not hold up the stop (exit 0 in under 1.5 s)  -- status 200, exit 0 after 0.52 s
+== the log and the stop
+  PASS  SIGTERM: the front door stops cleanly (exit 0) and reports its counts  -- exit 0, [{'event': 'stopped', 'requests': 218, 'refused_not_bound': 1, 'refused_busy': 0, 'thread_start_failed': 0, 'accept_errors': 0, 'handshake_failed': 2}], ours 218
+  PASS  it counted the two refused handshakes (TLS 1.2, plain HTTP) and the one address not bound, and nothing refused for want of a slot  -- [{'event': 'stopped', 'requests': 218, 'refused_not_bound': 1, 'refused_busy': 0, 'thread_start_failed': 0, 'accept_errors': 0, 'handshake_failed': 2}]
+  PASS  after the stop nothing listens on its port
+  PASS  the log holds one line per request answered  -- 218 lines, 218 requests
+  PASS  every log line holds time, client, method, path, status, bytes, ms and nothing else  -- [{'time': '2026-11-20T15:11:17.192+00:00', 'client': '127.0.0.1', 'method': 'POST', 'path': '/cse-mn-a', 'status': 201, 'bytes': 165, 'ms': 3.1}]
+  PASS  the statuses in the log are the ones the clients saw, one for one (refusals included)  -- log {200: 99, 201: 24, 204: 1, 400: 40, 403: 43, 404: 1, 405: 6, 413: 1, 431: 2, 501: 1}
+  PASS  the AE create's line: client 127.0.0.1, status 201, the bytes of the answer, a time taken  -- [{'time': '2026-11-20T15:11:17.192+00:00', 'client': '127.0.0.1', 'method': 'POST', 'path': '/cse-mn-a', 'status': 201, 'bytes': 165, 'ms': 3.1}]
+  PASS  the long poll's line shows about 3 s  -- [{'time': '2026-11-20T15:11:41.898+00:00', 'client': '127.0.0.1', 'method': 'GET', 'path': '/cse-mn-a/phone/pch/pcu', 'status': 200, 'bytes': 93, 'ms': 3001.5}]
+  PASS  CONTROL (must FAIL) a header value, a body text or a query string was written to the log  -- found []
+  PASS  CONTROL (must FAIL) a header value, a body text or a query string was written to the program's standard error  -- found []
+  PASS  the log file is readable by its owner only  -- 0o600
+== the command line
+  PASS  CONTROL (must FAIL) a front door started with an --upstream that is https, not loopback, a name, or has a path  -- {'https://127.0.0.1:9': 2, 'http://192.0.2.1:80': 2, 'http://example.com:80': 2, 'http://localhost:80': 2, 'http://127.0.0.1:43783/base': 2, 'http://user@127.0.0.1:80': 2, 'http://127.0.0.1': 2, 'ftp://127.0.0.1:21': 2}
+  PASS  CONTROL (must FAIL) a front door started on 0.0.0.0 or :: without --allow-any-interface  -- exit 2, 2
+  PASS  with --allow-any-interface the same arguments are accepted (checked with --self-check)  -- exit 0
+  PASS  CONTROL (must FAIL) a front door started with --bind 127.0.0.1=CAdmin:phone (the CSE's admin originator)  -- exit [2]
+  PASS  CONTROL (must FAIL) a front door started with --bind 127.0.0.1=cadmin:phone (the admin originator in another case)  -- exit [2, 2]
+  PASS  CONTROL (must FAIL) a front door started with --bind with an originator that does not start with C (Sprobe, /id-x, probe)  -- exit [2, 2, 2]
+  PASS  CONTROL (must FAIL) a front door started with --bind with an originator holding a character outside [A-Za-z0-9_-] or longer than 64  -- exit [2, 2, 2]
+  PASS  CONTROL (must FAIL) a front door started with --bind with a bad AE name (ph/one, empty, 65 characters, ph.one)  -- exit [2, 2, 2, 2]
+  PASS  CONTROL (must FAIL) a front door started with the same address bound twice  -- exit [2]
+  PASS  CONTROL (must FAIL) a front door started with two addresses bound to one originator  -- exit [2]
+  PASS  CONTROL (must FAIL) a front door started with two addresses bound to one AE name  -- exit [2]
+  PASS  CONTROL (must FAIL) a front door started with no --bind, or a --bind that is not IP=ORIGIN:RN  -- exit [2, 2, 2]
+  PASS  CONTROL (must FAIL) a front door started with no --base, or a bad one (cse/x, empty)  -- exit [2, 2, 2]
+  PASS  CONTROL (must FAIL) a front door started with --base _x (ACME reads a path _x/... as /x/..., another CSE)  -- exit [2]
+  PASS  CONTROL (must FAIL) a front door started with --base=-x (a leading '-'; written with = so that it is the program, not argparse, that refuses)  -- exit [2]
+  PASS  CONTROL (must FAIL) a front door started with an AE name with a leading '_' or '-' (_p, -p)  -- exit [2, 2]
+  PASS  CONTROL (must FAIL) a front door started with --allow (the option --bind replaced)  -- exit [2, 2]
+  PASS  CONTROL (must FAIL) a front door started with an option the program does not know  -- exit [2]
+  PASS  --self-check prints the subject, the alternative names and the validity dates, and exits 0  -- subject: O=tlsfront throwaway test, CN=tlsfront test server | issuer: O=tlsfront throwaway test, CN=tlsfront throwaway test CA | subject alternative names: DNS:localhost, IP:127.0.0.1 | not before: 2026-11-20T15:06:17Z | not after: 2026-11-22T15:11:17Z | within its validity dates now: yes | key: loa
+  PASS  CONTROL (must FAIL) --self-check bound the listening port (it must only read the certificate and key)  -- with the port held by the test: exit 0, subject printed True, the test's socket still served True; with it free: exit 0, port free afterwards True
+  PASS  CONTROL (must FAIL) the program started (or self-checked) with a key that does not belong to its certificate  -- exit 2, 2
+  PASS  CONTROL (must FAIL) the program started with a certificate file that is not there  -- exit 2
+  PASS  none of these starts sent anything to the upstream
+  PASS  the throwaway keys are gone: the temporary folder and everything in it is deleted
+  PASS  no front door process is left running  -- []
+
+139 passed, 0 failed; controls 91; skipped 0

@@ -1,0 +1,2 @@
+# The CSE environment (Python 3.13): ACME oneM2M CSE as used by every run in this repository.
+acmecse==2026.5.3

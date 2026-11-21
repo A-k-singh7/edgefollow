@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="640" viewBox="0 0 1240 640" font-family="DejaVu Sans, Noto Sans, Liberation Sans, sans-serif">
+<defs>
+<marker id="aK" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3a3a3a"/></marker>
+<marker id="aB" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f5fa8"/></marker>
+<marker id="aG" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7a7a7a"/></marker>
+<marker id="aO" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c25a00"/></marker>
+<marker id="aR" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b3261e"/></marker>
+<marker id="aE" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e7d32"/></marker>
+</defs>
+<rect x="0" y="0" width="1240" height="640" fill="#ffffff"/>
+<text x="24" y="38" font-size="22" font-weight="bold" fill="#1d1d1d">One oneM2M workload over six bindings of one CSE (ACME 2026.5.3, loopback)</text>
+<text x="30" y="90" font-size="15" font-weight="bold" text-anchor="start" fill="#1d1d1d">A  Write one 100 B sample, ms: median (bar), p95 (tick)</text>
+<line x1="230" y1="102" x2="230" y2="482" stroke="#d9d9d9" stroke-width="1"/>
+<text x="230.0" y="500" font-size="12" text-anchor="middle" fill="#555555">0</text>
+<line x1="312" y1="102" x2="312" y2="482" stroke="#d9d9d9" stroke-width="1"/>
+<text x="312.5" y="500" font-size="12" text-anchor="middle" fill="#555555">5</text>
+<line x1="395" y1="102" x2="395" y2="482" stroke="#d9d9d9" stroke-width="1"/>
+<text x="395.0" y="500" font-size="12" text-anchor="middle" fill="#555555">10</text>
+<line x1="478" y1="102" x2="478" y2="482" stroke="#d9d9d9" stroke-width="1"/>
+<text x="477.5" y="500" font-size="12" text-anchor="middle" fill="#555555">15</text>
+<line x1="560" y1="102" x2="560" y2="482" stroke="#d9d9d9" stroke-width="1"/>
+<text x="560.0" y="500" font-size="12" text-anchor="middle" fill="#555555">20</text>
+<text x="218" y="140" font-size="14" text-anchor="end" fill="#1d1d1d">HTTP</text>
+<rect x="230" y="124" width="63.2" height="24" rx="4" fill="#6b6b6b"/>
+<line x1="323.2" y1="120" x2="323.2" y2="152" stroke="#1d1d1d" stroke-width="2"/>
+<text x="331.225" y="141" font-size="12" text-anchor="start" fill="#333">3.8 / 5.7</text>
+<text x="218" y="202" font-size="14" text-anchor="end" fill="#1d1d1d">HTTPS</text>
+<rect x="230" y="186" width="268.6" height="24" rx="4" fill="#6b6b6b"/>
+<line x1="521.4" y1="182" x2="521.4" y2="214" stroke="#1d1d1d" stroke-width="2"/>
+<text x="529.39" y="203" font-size="12" text-anchor="start" fill="#333">16.3 / 17.7</text>
+<text x="218" y="264" font-size="14" text-anchor="end" fill="#1d1d1d">WebSocket</text>
+<rect x="230" y="248" width="47.9" height="24" rx="4" fill="#6b6b6b"/>
+<line x1="292.2" y1="244" x2="292.2" y2="276" stroke="#1d1d1d" stroke-width="2"/>
+<text x="300.205" y="265" font-size="12" text-anchor="start" fill="#333">2.9 / 3.8</text>
+<text x="218" y="326" font-size="14" text-anchor="end" fill="#1d1d1d">WebSocket + TLS</text>
+<rect x="230" y="310" width="47.9" height="24" rx="4" fill="#6b6b6b"/>
+<line x1="297.2" y1="306" x2="297.2" y2="338" stroke="#1d1d1d" stroke-width="2"/>
+<text x="305.155" y="327" font-size="12" text-anchor="start" fill="#333">2.9 / 4.1</text>
+<text x="218" y="388" font-size="14" text-anchor="end" fill="#1d1d1d">MQTT (broker)</text>
+<rect x="230" y="372" width="66.0" height="24" rx="4" fill="#6b6b6b"/>
+<line x1="316.0" y1="368" x2="316.0" y2="400" stroke="#1d1d1d" stroke-width="2"/>
+<text x="323.96500000000003" y="389" font-size="12" text-anchor="start" fill="#333">4.0 / 5.2</text>
+<text x="218" y="450" font-size="14" text-anchor="end" fill="#1d1d1d">CoAP</text>
+<rect x="230" y="434" width="47.9" height="24" rx="4" fill="#6b6b6b"/>
+<line x1="296.3" y1="430" x2="296.3" y2="462" stroke="#1d1d1d" stroke-width="2"/>
+<text x="304.33" y="451" font-size="12" text-anchor="start" fill="#333">2.9 / 4.0</text>
+<text x="640" y="90" font-size="15" font-weight="bold" text-anchor="start" fill="#1d1d1d">B  A notification to a device that nobody can call, ms</text>
+<line x1="760" y1="102" x2="760" y2="482" stroke="#d9d9d9" stroke-width="1"/>
+<text x="760.0" y="500" font-size="12" text-anchor="middle" fill="#555555">0</text>
+<line x1="865" y1="102" x2="865" y2="482" stroke="#d9d9d9" stroke-width="1"/>
+<text x="865.0" y="500" font-size="12" text-anchor="middle" fill="#555555">25</text>
+<line x1="970" y1="102" x2="970" y2="482" stroke="#d9d9d9" stroke-width="1"/>
+<text x="970.0" y="500" font-size="12" text-anchor="middle" fill="#555555">50</text>
+<line x1="1075" y1="102" x2="1075" y2="482" stroke="#d9d9d9" stroke-width="1"/>
+<text x="1075.0" y="500" font-size="12" text-anchor="middle" fill="#555555">75</text>
+<line x1="1180" y1="102" x2="1180" y2="482" stroke="#d9d9d9" stroke-width="1"/>
+<text x="1180.0" y="500" font-size="12" text-anchor="middle" fill="#555555">100</text>
+<text x="748" y="140" font-size="14" text-anchor="end" fill="#1d1d1d">HTTP</text>
+<rect x="760" y="124" width="50.8" height="24" rx="4" fill="#c25a00"/>
+<text x="818.778" y="141" font-size="12" text-anchor="start" fill="#333">12.1  polling channel</text>
+<text x="748" y="202" font-size="14" text-anchor="end" fill="#1d1d1d">HTTPS</text>
+<rect x="760" y="186" width="99.9" height="24" rx="4" fill="#c25a00"/>
+<text x="867.876" y="203" font-size="12" text-anchor="start" fill="#333">23.8  polling channel</text>
+<text x="748" y="264" font-size="14" text-anchor="end" fill="#1d1d1d">WebSocket</text>
+<rect x="760" y="248" width="18.8" height="24" rx="4" fill="#1f5fa8"/>
+<text x="786.774" y="265" font-size="12" text-anchor="start" fill="#333">4.5  pushed on its own connection</text>
+<text x="748" y="326" font-size="14" text-anchor="end" fill="#1d1d1d">WebSocket + TLS</text>
+<rect x="760" y="310" width="18.7" height="24" rx="4" fill="#1f5fa8"/>
+<text x="786.732" y="327" font-size="12" text-anchor="start" fill="#333">4.5  pushed on its own connection</text>
+<text x="748" y="388" font-size="14" text-anchor="end" fill="#1d1d1d">MQTT (broker)</text>
+<rect x="760" y="372" width="200.3" height="24" rx="4" fill="#1f5fa8"/>
+<rect x="960.3" y="372" width="185.4" height="24" rx="4" fill="#9bb7dc"/>
+<text x="766" y="389" font-size="12" text-anchor="start" fill="#ffffff">48 isolated write</text>
+<text x="1139.77" y="389" font-size="12" text-anchor="end" fill="#1d1d1d">92 back to back</text>
+<text x="748" y="450" font-size="14" text-anchor="end" fill="#1d1d1d">CoAP</text>
+<rect x="760" y="434" width="64.8" height="24" rx="4" fill="#c25a00"/>
+<text x="832.806" y="451" font-size="12" text-anchor="start" fill="#333">15.4  polling channel</text>
+<rect x="700" y="520" width="16" height="16" rx="3" fill="#1f5fa8"/>
+<text x="724" y="533" font-size="13" text-anchor="start" fill="#333">push: the CSE sends on a connection the device opened</text>
+<rect x="700" y="546" width="16" height="16" rx="3" fill="#c25a00"/>
+<text x="724" y="559" font-size="13" text-anchor="start" fill="#333">poll: the device holds a request open (pollingChannel)</text>
+<text x="30" y="588" font-size="13" text-anchor="start" fill="#555555">CoAP: ACME sends no notifications over CoAP, so the device must poll. HTTPS: the repeated TLS handshake is about</text>
+<text x="30" y="608" font-size="13" text-anchor="start" fill="#555555">1.5 ms of its extra cost; about 11 ms is server time this run does not explain. MQTT: cause of the delay not found.</text>
+<text x="30" y="628" font-size="12" text-anchor="start" fill="#555555">Record: records/proto/proto_bench_20261121T033502Z_public.json (3 repeats; one PC, loopback: not a network measurement).</text>
+</svg>

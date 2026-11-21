@@ -1,0 +1,45 @@
+{
+  "appDVersion": "1",
+  "appName": "estimed-mec-ipe",
+  "appProvider": "ESTIMED lab",
+  "appSoftVersion": "0.1.0",
+  "appDescription": "The lab's oneM2M MEC-IPE (estimed/mec_ipe.py, carried byte for byte with handover.py) as a MEC application, TR-0086 deployment option A: it registers as an AE directly at the IN-CSE; there is no MN-CSE. onem2m.mnCse names the CSE it registers to (here the IN's CSEBase); onem2m.acp and onem2m.container name the IPE's operator ACP and its device request container, which mec_ipe.py creates itself.",
+  "entryPoint": {
+    "runtime": "python3",
+    "file": "mec_ipe_app.py",
+    "args": [
+      "--instance",
+      "{instance}",
+      "--mec013",
+      "http://127.0.0.1:8101/location/v3",
+      "--operator",
+      "Cin-ops"
+    ]
+  },
+  "files": {
+    "handover.py": "7ddf664554cade8acc087673764f942f224fe3e8b8e7dfe659926d4ed95a0315",
+    "mec_ipe.py": "54fcc820c6c0013757b6632b88ac3a3c9d1db148b108fcb6744b5ae8e7a65ea2",
+    "mec_ipe_app.py": "67a8ba0daa91d1a1f6bdd438ea8a64d1057db5bc1d7dbb227558a9fe1337e148"
+  },
+  "mecServicesRequired": [
+    {
+      "serName": "mec_app_support",
+      "version": "v2"
+    },
+    {
+      "serName": "mec_service_mgmt",
+      "version": "v1"
+    }
+  ],
+  "onem2m": {
+    "mnCse": "cse-in",
+    "api": "Nestimed.mec-ipe",
+    "originator": "Cmec-ipe",
+    "rn": "mec-ipe",
+    "acp": {
+      "rn": "operator",
+      "readers": []
+    },
+    "container": "location-requests"
+  }
+}

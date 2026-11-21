@@ -1,0 +1,8 @@
+4g-wifi-macro                deploy    0s  meps mep1       apis  9  GET  24/28  crossings  3 mep-moves  0  handover COMPLETED
+dual-mep-4g-5g-wifi-macro    deploy   35s  meps mep1,mep2  apis 15  GET  40/46  crossings  3 mep-moves  0  handover COMPLETED
+4g-5g-wifi-macro             deploy   33s  meps mep1       apis  9  GET  24/28  crossings  3 mep-moves  0  handover COMPLETED
+4g-macro                     deploy   33s  meps mep1       apis  9  GET  24/28  crossings  3 mep-moves  0  handover COMPLETED
+4g-5g-macro-v2x              deploy   33s  meps mep1       apis 10  GET  24/29  crossings  3 mep-moves  0  handover COMPLETED
+4g-5g-mc-v2x-fed-iot         deploy   45s  meps mep1,mep2  apis 22  GET  45/61  crossings  3 mep-moves  0  handover COMPLETED
+dual-mep-short-path          deploy   43s  meps mep1,mep2  apis 14  GET  39/45  crossings  1 mep-moves  5  handover COMPLETED
+4g-5g-macro-v2x-fed          deploy   33s  meps mep1       apis 11  GET  25/31  crossings  3 mep-moves  0  handover COMPLETED

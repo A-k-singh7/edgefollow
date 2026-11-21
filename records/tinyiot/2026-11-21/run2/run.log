@@ -1,0 +1,29 @@
+lab mn-b before: 2557567
+=== reset before the swap
+routes for Cvehicle01 at the IN: {"m2m:uril": []}
+=== swap 03:12:13
+  stale id-mn-b at IN: DELETE 200
+  tinyIoT MN-B up and registered
+=== t1_handover_acme_to_tinyiot 03:12:15
+--- t1_handover_acme_to_tinyiot exit 0:   RESULT: PASS
+routes after t1: {"m2m:uril": []}
+=== t2_handover_tinyiot_to_acme 03:12:15
+--- t2_handover_tinyiot_to_acme exit 1:   RESULT: FAIL
+routes after t2: {"m2m:uril": []}
+=== t3_scenario_mn_b_tinyiot 03:12:16
+--- t3_scenario_mn_b_tinyiot exit 0:       "ok": true,
+=== reset before the restore
+routes before restore: {"m2m:uril": []}
+=== restore 03:12:16
+  stopped tinyIoT 2565584
+  stale id-mn-b at IN: DELETE 200
+  ACME MN-B back and registered (03:12:21)
+routes after restore: {"m2m:uril": []}
+=== c3_handover_all_acme_after 03:12:21
+--- c3_handover_all_acme_after exit 0:   RESULT: PASS
+=== final reset
+routes at the end: {"m2m:uril": []}
+lab: PIDS CHANGED {'in': 1547356, 'mn-a': 1548137, 'mn-b': 2557567} -> {'in': 1547356, 'mn-a': 1548137, 'mn-b': 2566643} APPENDED +4591 bytes (same inode, old content is an exact prefix) /home/edgefollow/estimed-run/mn-b/logs/cse-estimed.example.com-id-mn-b.log: [3307541, 12527, 'c842add81c28eb383377ab11f47226bf4c7334d737bf754830c710abd30c0afa'] -> [3307541, 17118, 'fcf660bfe38a99961ba8460f62248e3b050024984
+lab mn-b after: 2566643
+=== DONE 03:12:22
+Terminated                 setsid "${ACME_CMD[@]}" > $OUT/acme-mn-b-restart.log 2>&1 < /dev/null

@@ -1,0 +1,8 @@
+start 2026-11-19T22:32:28Z commit 62cdc9d dirty-tracked 6
+ATS reference: 79e755f status: ?? REFERENCE.md 
+stopping :8085 pid 1193335 (/home/edgefollow/edgefollow-lab/.venv/bin/python mec012/candidate.py)
+stopping :8101 pid 1168074 (/home/edgefollow/edgefollow-lab/.venv/bin/python mec013_look/candidate.py)
+sweep exit 0 at 2026-11-19T22:37:52Z
+after: :8085 -> 200
+after: :8101 -> 200
+ATS reference after: ?? REFERENCE.md 

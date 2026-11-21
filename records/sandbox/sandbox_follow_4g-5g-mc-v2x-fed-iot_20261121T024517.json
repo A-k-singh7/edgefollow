@@ -1,0 +1,95 @@
+{
+ "script": "sandbox_follow.py",
+ "mec013": "<sandbox>",
+ "ue": "10.100.0.1",
+ "started_utc": "2026-11-21T01:45:17Z",
+ "lab": {
+  "ok": true,
+  "statuses": [
+   201,
+   201,
+   201,
+   201,
+   201
+  ]
+ },
+ "zone_a": "zone03",
+ "zone_b": "zone01",
+ "period_s": 2.0,
+ "polls": [
+  {
+   "t": 0.0,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-6"
+  },
+  {
+   "t": 2.218,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-6"
+  },
+  {
+   "t": 4.325,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-6"
+  },
+  {
+   "t": 6.427,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-6"
+  },
+  {
+   "t": 8.533,
+   "zone": "zone03",
+   "poa": "5g-small-cell-9"
+  },
+  {
+   "t": 10.639,
+   "zone": "zone01",
+   "poa": "4g-macro-cell-3"
+  }
+ ],
+ "steps": [
+  {
+   "step": "the sandbox's MEC 013 reports the UE",
+   "ok": true,
+   "detail": "{\"zone\": \"zone03\", \"poa\": \"4g-macro-cell-6\"}"
+  },
+  {
+   "step": "the UE is in zone A before the trigger is armed",
+   "ok": true,
+   "detail": "poa 4g-macro-cell-6"
+  },
+  {
+   "step": "the UE was seen in zone A for 5 polls before the change",
+   "ok": true,
+   "detail": "at least 3 required"
+  },
+  {
+   "step": "the UE entered zone B: the move starts",
+   "ok": true,
+   "detail": "between t=8.533 s and t=10.639 s"
+  },
+  {
+   "step": "after the move: edge B holds every sample, edge A 404, IN-CSE routes to B",
+   "ok": true,
+   "detail": "{\"moved\": true, \"samples_on_b\": 3, \"edge_a_status\": 404, \"route\": [\"/id-mn-b\"]}"
+  }
+ ],
+ "result": "COMPLETED",
+ "failed_polls": 0,
+ "zone_change": {
+  "last_in_a_t": 8.533,
+  "first_in_b_t": 10.639,
+  "poa_b": "4g-macro-cell-3"
+ },
+ "move": {
+  "ok": true,
+  "moved": true,
+  "samples_on_b": 3,
+  "edge_a_status": 404,
+  "route": [
+   "/id-mn-b"
+  ],
+  "duration_s": 0.247
+ }
+}

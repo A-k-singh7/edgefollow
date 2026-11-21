@@ -1,0 +1,448 @@
+{
+ "device": "adb",
+ "verdict": "PASS",
+ "aborted_at": null,
+ "measurements": {
+  "device": "adb",
+  "s1_order": "before the re-point",
+  "handover_txn": "c73320d1b4c4abb3",
+  "history_rule": "latest",
+  "history_copied": {
+   "imu": "12 of 12",
+   "env": "12 of 12",
+   "loc": "1 of 12",
+   "radio": "12 of 12",
+   "wlan": "1 of 12"
+  },
+  "history_after_release": {
+   "edge_a_instances_of_the_vehicle": 0,
+   "edge_b_over_the_rule": {
+    "loc": 0,
+    "wlan": 0
+   },
+   "edge_b_records": {
+    "loc": 3,
+    "wlan": 3
+   }
+  },
+  "downlink_at_target": {
+   "ping_ack_s": 0.51,
+   "period_ack_s": 0.52,
+   "posted_by": "the vehicle's owner, from the host",
+   "wait_limit_s": 20.0
+  },
+  "sequence": {
+   "countable": true,
+   "counter": "restarted",
+   "source": {
+    "n": 5,
+    "first": 7,
+    "last": 11
+   },
+   "target": {
+    "n": 3,
+    "first": 0,
+    "last": 2
+   },
+   "lost": 0,
+   "duplicated": 0,
+   "first_lost": [],
+   "first_duplicated": [],
+   "restarts": [],
+   "gap_s": 8.62,
+   "gap_periods": 1.72,
+   "unusable_instances": {
+    "source": 0,
+    "target": 0
+   },
+   "samples_without_one_record_each": {
+    "source": 0,
+    "target": 0
+   }
+  },
+  "s1_notifications": {
+   "records": 3,
+   "notifications": 3,
+   "lost": 0,
+   "duplicated": 0,
+   "unknown": 0
+  },
+  "telemetry_pause_s": 8.72,
+  "pause_proof_s": 6.03,
+  "notification_gap_s": 8.72,
+  "handover_duration_s": 16.52,
+  "trigger_rsrp_reported": 27,
+  "threshold_dbm": -44.0,
+  "period_s": 5.0,
+  "cleanup": {
+   "cse-mn-b/phone/radio/estimedS1": 200,
+   "cse-mn-a/phone/radio/estimedS2": 404,
+   "cse-mn-a/phone/radio/estimedS1": 404,
+   "cse-mn-a/rsu/imu/estimedS3": 200,
+   "mec012 sub-1": 204
+  }
+ },
+ "run": {
+  "argv": [
+   "/home/edgefollow/edgefollow-lab/.venv/bin/python",
+   "/home/edgefollow/edgefollow/phone/estimed_poc2.py",
+   "--rsrp-threshold",
+   "-44",
+   "--history-rule",
+   "latest",
+   "--period",
+   "5",
+   "--results",
+   "/home/edgefollow/estimed-run/sitting_b/poc2_run1.json"
+  ],
+  "cwd": "/home/edgefollow/edgefollow",
+  "commit": "971d8718295a81734229594e4c43cfcbd0a2c753",
+  "uncommitted_paths": 4,
+  "files_sha256": {
+   "phone/estimed_poc2.py": "6948ea68df922f10c12628d8221bdcdd353686dda4c542650046320c54cb5e34",
+   "phone/estimed_poc.py": "12a721a6589e5d9df74ee62a5a1167af99b48cfc7eaf173081ac9d764c2210f9",
+   "phone/sim_phone.py": "bb408c167c0ec00409606e35b9f08e2135c618cb1d1ef6a85586f07c97ef3d74",
+   "phone/mec012_phone.py": "011d4870efc71dbe42bb7414ba55e93f4e2371c48d094ced17c110b426b6a62c",
+   "phone/mec013_phone.py": "ecc26a8eb65b5d9c5ea089b3ebc2313af2d7f8c84ea3b7507e225be8621d2344",
+   "phone/device_state.py": "12edbe8121543d7d459090601d3578e3fb7b6195a79b52c0a2e1a0c50ac524c9",
+   "phone/onem2m_acp.py": "2e70112dc67ebebade1c5ae248b0a1e03bafcbad844178fa0e80096a3b72925f",
+   "estimed/handover.py": "f1ed29421427e521b715efb341a3105f1b7ca39443aec3591545d06e5e356d4a",
+   "estimed/scenario.py": "7f78beccb019f576293124fbc52d8215078b0037e6072616dfc27e8be100a070",
+   "demo/mec040.py": "c314fb13b0022f01542a1e4326b50744a48c1840ddf3a1c6e578fbacfa1ac96d",
+   "estimed_poc/orchestrator.py": "ec17455e5d9978b9d966b8cc0263974a300d2dd98d4620fa234cd6364160d6fa",
+   "estimed_poc/district_app.py": "e80a39275867320d82e3d39c80480b0a8c062e902355e1ee44704ced8822d293",
+   "estimed_poc/mec011_district.py": "db93a150369fbd4b60b1282ca3915f967222fb601ed26d83e604f2b4b6765f33",
+   "/home/edgefollow/edgefollow/mec011_appsupport/candidate.py": "a36e1616b75d97da18f5193445aa2ce1701a681ee871ec11ca4e3f580b706534"
+  },
+  "acme": "2026.5.3",
+  "at_utc": "2026-11-19T15:58:13Z",
+  "mec": {
+   "mec013": "http://127.0.0.1:8401/location/v3",
+   "mec012": "http://127.0.0.1:8402/rni/v2",
+   "ue": "acr:phone-DEVC",
+   "callback": "http://127.0.0.1:8450"
+  }
+ },
+ "steps": [
+  {
+   "step": "phone AE live on edge A with real telemetry",
+   "pass": true,
+   "detail": "radio instances on A: 7, latest ct 20261119T155728,812761"
+  },
+  {
+   "step": "a <timeSeries> radioTs under the vehicle's AE on edge A takes the phone's sequence numbers; owner only (reader 403, stranger 403)",
+   "pass": true,
+   "detail": "create HTTP 201; reader/stranger (403, 403)"
+  },
+  {
+   "step": "7.1 central IN-AE registered on the IN-CSE with its 4 containers",
+   "pass": true,
+   "detail": "AE 201, cnt [201, 201, 201, 201]"
+  },
+  {
+   "step": "roadside sensor AE live on edge A (second device, own originator)",
+   "pass": true,
+   "detail": "AE 200; instances {'imu': 4, 'env': 4, 'loc': 4, 'radio': 4, 'wlan': 4}"
+  },
+  {
+   "step": "sensor access policy on A: reader 200, stranger 403",
+   "pass": true,
+   "detail": "200/403"
+  },
+  {
+   "step": "sensor subscription S3 notifying",
+   "pass": true,
+   "detail": "create 201"
+  },
+  {
+   "step": "7.2 two subscriptions on the phone's radio data on edge A, both notifying",
+   "pass": true,
+   "detail": "create 201/201; notifications S1 1, S2 1 in 5 s"
+  },
+  {
+   "step": "MEC 013 reports the phone (real fix + serving cell)",
+   "pass": true,
+   "detail": "http://127.0.0.1:8401/location/v3: zone=<tac-A> ap=<cell-A> accuracy=100 m (fix provider fused); fix fresh (<= 60 s): True"
+  },
+  {
+   "step": "MEC 012 reports the vehicle's real cell (PLMN + cell id) for its address",
+   "pass": true,
+   "detail": "http://127.0.0.1:8402/rni/v2: ue phone-DEVC -> ecgi {'plmn': {'mcc': '<mcc-A>', 'mnc': '<mnc-A>'}, 'cellId': '<cell-A>'}"
+  },
+  {
+   "step": "7.1 MEC 013 location + the phone's signal strength written into oneM2M under the IN-AE",
+   "pass": true,
+   "detail": "zone <tac-A> ap <cell-A>; signal {'cells[0].rsrp': -118, 'cells[0].rsrq': -13, 'cells[0].rssi': -69, 'cells[0].dbm': -118, 'cells[1].rsrp': -122, 'cells[1].rsrq': -18, 'cells[1].dbm': -122, 'cells[2].rsrp': -129, 'cells[2].rsrq': -16, 'cells[2].dbm': -129}"
+  },
+  {
+   "step": "MEC 012 MeasRepUe subscription on the vehicle's cell accepted",
+   "pass": true,
+   "detail": "HTTP 201 http://127.0.0.1:8402/rni/v2/subscriptions/sub-1"
+  },
+  {
+   "step": "CONTROL (must FAIL) a forged MeasRepUe from an unauthorised source was accepted",
+   "pass": false,
+   "detail": "4 forged reports (bare path, guessed token, other subscription, other cell): refused 4, accepted 0; the callback URL is the credential (MEC 012 signs nothing)"
+  },
+  {
+   "step": "MEC 012 reports the vehicle's RSRP during the hold window",
+   "pass": true,
+   "detail": "2 MeasRepUe in 12 s, reported values [('LTE', 23), ('LTE', 23)]"
+  },
+  {
+   "step": "CONTROL (must FAIL) a handover trigger fired during the hold window",
+   "pass": false,
+   "detail": "hold threshold -157.0 dBm (below any reportable RSRP); triggering reports []"
+  },
+  {
+   "step": "7.2 the radio authority triggered the handover: MEC 012 reports the vehicle's RSRP below the threshold",
+   "pass": true,
+   "detail": "LTE reported value 27 = below -113 dBm, threshold -44.0 dBm; the phone's own radio"
+  },
+  {
+   "step": "7.4 the hub shares bounded context only: no positions in it",
+   "pass": true,
+   "detail": "{\"phone\": {\"edge\": \"cse-mn-a\", \"rat\": \"LTE\", \"rsrp_dbm_below\": -113, \"rsrp_reported\": 27, \"zone\": \"<tac-A>\"}, \"rsu\": {\"edge\": \"cse-mn-a\", \"wifi_aps_seen\": 35}}"
+  },
+  {
+   "step": "7.4 recommendations issued by the hub, decisions recorded by each participant",
+   "pass": true,
+   "detail": "phone: move to the peer edge (MEC 012 LTE RSRP below -113 dBm vs threshold -44.0 dBm); rsu: stay"
+  },
+  {
+   "step": "CONTROL (must FAIL) the hub wrote into a participant's own data",
+   "pass": false,
+   "detail": "HTTP 403: participants keep local authority"
+  },
+  {
+   "step": "the vehicle's own agent accepted the move: the handover runs on trigger AND acceptance",
+   "pass": true,
+   "detail": "[{'accepted': True, 'by': 'phone', 'recommendation': 'move to the peer edge'}, {'accepted': True, 'by': 'rsu', 'recommendation': 'stay'}]"
+  },
+  {
+   "step": "MEC 040 lists peer systems",
+   "pass": true,
+   "detail": "SEED_SYS_1->http://127.0.0.1:8202; SEED_SYS_2->http://127.0.0.1:8201"
+  },
+  {
+   "step": "MEC 040 selects a peer for edge A",
+   "pass": true,
+   "detail": "SEED_SYS_1 at http://127.0.0.1:8202"
+  },
+  {
+   "step": "peer endpoint resolves to a reachable edge CSE",
+   "pass": true,
+   "detail": "http://127.0.0.1:8202 -> cse-mn-b; HTTP 403, X-M2M-RSC 4103"
+  },
+  {
+   "step": "the target is another CSE than the source, and the IN-AE names the source as the serving CSE",
+   "pass": true,
+   "detail": "/id-mn-a -> /id-mn-b; IN-AE servingCSE ['cse-mn-a']"
+  },
+  {
+   "step": "a handover transaction with an identifier and a validity time is opened at the IN-CSE",
+   "pass": true,
+   "detail": "transaction c73320d1b4c4abb3, valid 120 s"
+  },
+  {
+   "step": "CONTROL (must FAIL) a second handover of the same vehicle was admitted while the first is open",
+   "pass": false,
+   "detail": "second transaction: None"
+  },
+  {
+   "step": "phone stream paused (no new instances on A for 6 s)",
+   "pass": true,
+   "detail": "radio cni frozen at 12 for 6.0 s"
+  },
+  {
+   "step": "edge A holds at least 2 of the phone's numbered samples (the count across both edges needs them)",
+   "pass": true,
+   "detail": "5 samples, 0 instances without a usable number or time"
+  },
+  {
+   "step": "edge B's name for the vehicle is free or the vehicle's own (never another originator's AE)",
+   "pass": true,
+   "detail": "free"
+  },
+  {
+   "step": "AE + 5 containers rebuilt on B: imu, env and radio bit-identical; position and Wi-Fi history by rule 'latest'",
+   "pass": true,
+   "detail": "imu 12 of 12, env 12 of 12, loc 1 of 12, radio 12 of 12, wlan 1 of 12; the rule shows only when the source held at least 2 records of each"
+  },
+  {
+   "step": "access policy on B: reader 200, stranger 403",
+   "pass": true,
+   "detail": "200/403"
+  },
+  {
+   "step": "phone stream re-pointed: new live readings arrive on B",
+   "pass": true,
+   "detail": "2 new radio instances on B; telemetry pause 13 s (wall)"
+  },
+  {
+   "step": "no new readings on A after re-point",
+   "pass": true,
+   "detail": "A radio cni 12 -> 12"
+  },
+  {
+   "step": "7.2 subscription S1 migrated to edge B keeps notifying with the phone's new data",
+   "pass": true,
+   "detail": "create on B 201 (before the re-point); 2 notifications after the switch; gap from the last on A 8.7 s"
+  },
+  {
+   "step": "MEC 013 now sourced from edge B reports a newer fix",
+   "pass": true,
+   "detail": "fix t 1795103850 -> 1795103883"
+  },
+  {
+   "step": "phone released from edge A",
+   "pass": true,
+   "detail": "HTTP 404"
+  },
+  {
+   "step": "after the release edge A holds no record of the vehicle and edge B holds no position or Wi-Fi history beyond rule 'latest'",
+   "pass": true,
+   "detail": "A: 0 instances; B: loc 3 records, 0 over; wlan 3 records, 0 over"
+  },
+  {
+   "step": "CONTROL (must FAIL) the history scan missed an old position planted on the target",
+   "pass": false,
+   "detail": "planted HTTP 201; scan found 1; removed HTTP 200"
+  },
+  {
+   "step": "the planted record is gone again and the scan is clean",
+   "pass": true,
+   "detail": "DELETE HTTP 200"
+  },
+  {
+   "step": "IN-CSE still holds both edges",
+   "pass": true,
+   "detail": "['cse-in/id-mn-a', 'cse-in/id-mn-b']"
+  },
+  {
+   "step": "the handover transaction is closed once the vehicle is served by the target",
+   "pass": true,
+   "detail": "HTTP 404"
+  },
+  {
+   "step": "7.2 trigger -> handover COMPLETED within 60 s (our bound; TR-0077 sets none)",
+   "pass": true,
+   "detail": "16.5 s"
+  },
+  {
+   "step": "the sensor's subscription S3 kept notifying through the vehicle's handover",
+   "pass": true,
+   "detail": "2 S3 notifications after the vehicle switched"
+  },
+  {
+   "step": "the sensor stayed on edge A (A 200, B 404)",
+   "pass": true,
+   "detail": "A 200, B 404"
+  },
+  {
+   "step": "per-device serving CSE on the IN-AE: vehicle A->B, sensor stays on A",
+   "pass": true,
+   "detail": "[{'phone': 'cse-mn-a', 'rsu': 'cse-mn-a'}, {'phone': 'cse-mn-b', 'rsu': 'cse-mn-a'}]"
+  },
+  {
+   "step": "CONTROL (must FAIL) S2, NOT migrated, still notifies after the handover",
+   "pass": false,
+   "detail": "0 S2 data notifications after the switch (a missing migration is visible)"
+  },
+  {
+   "step": "7.2 handover states recorded in order on the IN-AE",
+   "pass": true,
+   "detail": "ATTACHED -> TRIGGERED -> TARGET_SELECTED -> MIGRATING -> SERVING_CHANGED -> COMPLETED"
+  },
+  {
+   "step": "7.2 serving MN-CSE resolved on the IN-AE: edge A before, edge B now",
+   "pass": true,
+   "detail": "['cse-mn-a', 'cse-mn-b']"
+  },
+  {
+   "step": "a downlink command (ping) posted at edge B is acknowledged by the phone in edge B's ack container",
+   "pass": true,
+   "detail": "POST HTTP 201; acknowledgement after 0.5 s: {'id': '542ba4dd', 'cmd': 'ping', 'phone_t': 1795103893219, 'ok': True, 'battery_pct': 48}"
+  },
+  {
+   "step": "a period command (5 s) at edge B is acknowledged with that value",
+   "pass": true,
+   "detail": "POST HTTP 201; acknowledgement after 0.5 s: {'id': 'd586cb99', 'cmd': 'period', 'phone_t': 1795103893737, 'ok': True, 'period': 5}"
+  },
+  {
+   "step": "CONTROL (must FAIL) a period of 0 s was not refused by the phone",
+   "pass": false,
+   "detail": "POST HTTP 201; acknowledgement after 0.5 s: {'id': 'fbe92041', 'cmd': 'period', 'phone_t': 1795103894261, 'ok': False, 'error': 'period out of range 1..60'}"
+  },
+  {
+   "step": "the source edge takes no command for the vehicle after the release (HTTP 404)",
+   "pass": true,
+   "detail": "HTTP 404"
+  },
+  {
+   "step": "the phone's sequence numbers across both edges: none lost, none duplicated (the <timeSeries> on edge B was made empty by the handover; reader 403, stranger 403)",
+   "pass": true,
+   "detail": "source {'n': 5, 'first': 7, 'last': 11}, target {'n': 3, 'first': 0, 'last': 2}, counter restarted; lost []; duplicated []; started again inside an edge []; 8.62 s = 1.72 periods without a sample; reader/stranger (403, 403)"
+  },
+  {
+   "step": "every numbered sample has exactly one record in each of the five containers on its own edge",
+   "pass": true,
+   "detail": "5 samples on A, 3 on B; not one record: A [], B []"
+  },
+  {
+   "step": "CONTROL (must FAIL) the count missed a number removed, a sample put on both edges, a record removed or a record doubled in a copy of the target's data",
+   "pass": false,
+   "detail": "lost [{'where': 'target', 'snr': 1}], duplicated [{'where': 'both edges', 'snr': 11}], records [{'snr': 0, 'cnt': 'loc', 'records': 2}, {'snr': 0, 'cnt': 'radio', 'records': 0}]"
+  },
+  {
+   "step": "subscription S1 on edge B: every new radio record was notified once, none lost, none twice",
+   "pass": true,
+   "detail": "3 records, 3 notifications; lost 0, twice 0, for no listed record 0"
+  },
+  {
+   "step": "a stranger reads none of the central IN-AE's records (403 on every container and its latest)",
+   "pass": true,
+   "detail": "8 containers, empty []; not 403: []"
+  },
+  {
+   "step": "no position or trajectory in any record the city holds (every container on the IN-AE scanned)",
+   "pass": true,
+   "detail": "18 records scanned; hits []"
+  },
+  {
+   "step": "CONTROL (must FAIL) the position scan missed a planted coordinate",
+   "pass": false,
+   "detail": "found ['m2m:cnt.m2m:cin[0].con.fix.lat', 'm2m:cnt.m2m:cin[0].con.fix.lon']"
+  },
+  {
+   "step": "the registry's device locations match where each device's AE exists (one edge each)",
+   "pass": true,
+   "detail": "registry {'phone': 'cse-mn-b', 'rsu': 'cse-mn-a'}; AEs {'phone': {'cse-mn-b'}, 'rsu': {'cse-mn-a'}}"
+  },
+  {
+   "step": "CONTROL (must FAIL) a registry entry naming the vehicle's old edge passed the device audit",
+   "pass": false,
+   "detail": "flagged ['phone']"
+  },
+  {
+   "step": "the central IN-AE reads the vehicle on edge B THROUGH the IN-CSE (retargeting)",
+   "pass": true,
+   "detail": "HTTP 200"
+  },
+  {
+   "step": "CONTROL (must FAIL) a stranger read the vehicle through the IN-CSE",
+   "pass": false,
+   "detail": "HTTP 403"
+  },
+  {
+   "step": "the IN-AE cannot read the vehicle's loc through the IN-CSE (positions never reach the city)",
+   "pass": true,
+   "detail": "HTTP 403"
+  },
+  {
+   "step": "the IN-AE cannot read the vehicle's wlan through the IN-CSE (positions never reach the city)",
+   "pass": true,
+   "detail": "HTTP 403"
+  }
+ ]
+}

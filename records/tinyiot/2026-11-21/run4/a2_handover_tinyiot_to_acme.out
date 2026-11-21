@@ -1,0 +1,18 @@
+1. edges registered at the IN-CSE
+     ['cse-in/id-mn-a', 'cse-in/id-mn-b']
+2. vehicle joins edge B (tinyIoT)
+     AE        HTTP 201
+     container HTTP 201
+     3 position samples written
+3. subtree readable on edge B
+     ['48.1351,11.5820', '48.1361,11.5835', '48.1372,11.5849']
+4. handover B -> A
+     handover transaction a1d3e4de2cc6c205: /id-mn-b -> /id-mn-a
+     done
+5. subtree readable on edge A, and gone from B
+     on A: ['48.1351,11.5820', '48.1361,11.5835', '48.1372,11.5849']
+     on B: HTTP 404 (404 expected)
+6. IN-CSE still holds both edges
+     ['cse-in/id-mn-a', 'cse-in/id-mn-b']
+
+  RESULT: PASS

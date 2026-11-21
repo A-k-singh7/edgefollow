@@ -1,0 +1,196 @@
+{
+ "device": "adb",
+ "verdict": "PASS",
+ "aborted_at": null,
+ "measurements": {
+  "device": "adb",
+  "label": "phone-B",
+  "purpose": "estimed.handover.reauth.v1",
+  "enrolment": {
+   "alias": "witness-20261015",
+   "leaf_sha256": "57fe30c5621322294da27bac5abd777a4635a341b7ff59c0d35d9e06021d831a",
+   "attestation": "PASS",
+   "attestation_warnings": [],
+   "verified_as_of": "2026-10-15T10:22:47+00:00",
+   "verified_as_of_source": "filename",
+   "security_level": "TrustedEnvironment",
+   "keymint_security_level": "TrustedEnvironment",
+   "policy": {
+    "require_hw_tee": true,
+    "require_locked_verified": true
+   },
+   "checks_made": [
+    "root_pinned",
+    "root_self_signature",
+    "root_validity",
+    "chain_signatures",
+    "intermediates_validity",
+    "extension_only_in_leaf",
+    "revocation",
+    "key_description_parse",
+    "challenge",
+    "proof_of_possession",
+    "hw_tee",
+    "device_locked",
+    "verified_boot_state",
+    "software_enforced_auth"
+   ],
+   "checks_warned": [],
+   "checks_not_asked": [
+    "user_auth",
+    "auth_timeout"
+   ],
+   "checks_not_made": [
+    "freshness: the expected challenge is taken from the record itself, so the challenge check shows only that the leaf certificate carries the challenge the record names",
+    "the day itself: verified_as_of is the day the status list is said to be fetched, and on that day its age is 0 every time, so the age of the list is not judged",
+    "anything after that day: a later revocation, a later unlock of the device, whether the key still exists",
+    "a kept key under this alias, without user binding: read from the record's own fields, not from the certificate",
+    "that the key belongs to the device the AE-ID names: AE-ID and label are given by whoever enrols",
+    "which app holds the key: the app identity in the certificate is not compared with anything",
+    "that the key was made in the secure hardware and not imported: the origin in the certificate is not judged"
+   ]
+  },
+  "attest_file_sha256": "6d206b2bd9ee1fb88734a0f30e2b01c0dd151dbb573a43479d4aae439dbeaed6",
+  "left_behind": {
+   "registry": 404,
+   "transaction": 404,
+   "ae_on_target": 404
+  },
+  "not_run": [],
+  "not_shown": [
+   "who holds the phone: the key used has no binding to a fingerprint or a screen lock",
+   "an authenticated originator: the lab CSEs take the X-M2M-Origin header as given, so the registry's access policy and the 'target' role bind honest parties only",
+   "a fresh attestation: the key was attested on the day of the record; its certificate chain is checked as of that day",
+   "the full handover: admission here lets the AE be created on the target; the data move is phone/estimed_poc2.py, which does not call this yet",
+   "that the app that signs is the app that was attested, beyond holding the key"
+  ]
+ },
+ "run": {
+  "argv": [
+   "/home/edgefollow/edgefollow-lab/.venv/bin/python",
+   "/home/edgefollow/edgefollow/phone/reauth.py",
+   "--device",
+   "adb",
+   "--attest",
+   "/home/edgefollow/estimed-run/two_phone/20261015T102247Z/seal/P1/attest.json",
+   "--status",
+   "/home/edgefollow/estimed-run/two_phone/20261015T102247Z/raw/google_attest_status_20261015T102247Z.json",
+   "--results",
+   "/home/edgefollow/estimed-run/sitting_b/reauth_1.json"
+  ],
+  "cwd": "/home/edgefollow/edgefollow",
+  "commit": "971d8718295a81734229594e4c43cfcbd0a2c753",
+  "uncommitted_paths": 4,
+  "files_sha256": {
+   "phone/estimed_poc2.py": "6948ea68df922f10c12628d8221bdcdd353686dda4c542650046320c54cb5e34",
+   "phone/estimed_poc.py": "12a721a6589e5d9df74ee62a5a1167af99b48cfc7eaf173081ac9d764c2210f9",
+   "phone/sim_phone.py": "bb408c167c0ec00409606e35b9f08e2135c618cb1d1ef6a85586f07c97ef3d74",
+   "phone/mec012_phone.py": "011d4870efc71dbe42bb7414ba55e93f4e2371c48d094ced17c110b426b6a62c",
+   "phone/mec013_phone.py": "ecc26a8eb65b5d9c5ea089b3ebc2313af2d7f8c84ea3b7507e225be8621d2344",
+   "phone/device_state.py": "12edbe8121543d7d459090601d3578e3fb7b6195a79b52c0a2e1a0c50ac524c9",
+   "phone/onem2m_acp.py": "2e70112dc67ebebade1c5ae248b0a1e03bafcbad844178fa0e80096a3b72925f",
+   "estimed/handover.py": "f1ed29421427e521b715efb341a3105f1b7ca39443aec3591545d06e5e356d4a",
+   "estimed/scenario.py": "7f78beccb019f576293124fbc52d8215078b0037e6072616dfc27e8be100a070",
+   "demo/mec040.py": "c314fb13b0022f01542a1e4326b50744a48c1840ddf3a1c6e578fbacfa1ac96d",
+   "estimed_poc/orchestrator.py": "ec17455e5d9978b9d966b8cc0263974a300d2dd98d4620fa234cd6364160d6fa",
+   "estimed_poc/district_app.py": "e80a39275867320d82e3d39c80480b0a8c062e902355e1ee44704ced8822d293",
+   "estimed_poc/mec011_district.py": "db93a150369fbd4b60b1282ca3915f967222fb601ed26d83e604f2b4b6765f33",
+   "/home/edgefollow/edgefollow/mec011_appsupport/candidate.py": "a36e1616b75d97da18f5193445aa2ce1701a681ee871ec11ca4e3f580b706534"
+  },
+  "acme": "2026.5.3",
+  "at_utc": "2026-11-19T16:27:39Z",
+  "mec": {
+   "mec013": "http://127.0.0.1:8401/location/v3",
+   "mec012": "http://127.0.0.1:8402/rni/v2",
+   "ue": "acr:phone-DEVC",
+   "callback": "http://127.0.0.1:8450"
+  }
+ },
+ "steps": [
+  {
+   "step": "the IN-CSE and both edges answer",
+   "pass": true,
+   "detail": "[200, 200, 200]"
+  },
+  {
+   "step": "the attestation record verifies as of the day it was made, shows a hardware-backed key on a locked device that booted verified, and names a kept key without user binding",
+   "pass": true,
+   "detail": "alias witness-20261015, PASS, as of 2026-10-15T10:22:47+00:00 (day taken from: filename), attestation level TrustedEnvironment, key level TrustedEnvironment"
+  },
+  {
+   "step": "the registry holds the key and the target edge reads it back unchanged",
+   "pass": true,
+   "detail": "create [201, 201, 201, 201], read 200"
+  },
+  {
+   "step": "CONTROL (must FAIL) a stranger wrote a key into the registry",
+   "pass": false,
+   "detail": "HTTP 403"
+  },
+  {
+   "step": "a handover transaction is open at the IN-CSE and the target read its identifier and valid-until",
+   "pass": true,
+   "detail": "{'source': 'cse-mn-a', 'target': 'cse-mn-b', 'validUntil': 1795105778}"
+  },
+  {
+   "step": "without a signature the target does not admit, and the phone's AE is not on the target",
+   "pass": true,
+   "detail": "no signature was presented; AE on B HTTP 404"
+  },
+  {
+   "step": "the phone's serial is given in $RSU_SERIAL",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "step": "the phone signed the transaction's digest with its kept key (probe mode sign, no prompt)",
+   "pass": true,
+   "detail": "{'ok': True, 'stage': 'done', 'exception': None, 'error': None}"
+  },
+  {
+   "step": "CONTROL (must FAIL) a signature by another key of the same phone over the right digest was admitted",
+   "pass": false,
+   "detail": "the signature does not verify with the enrolled key over this transaction"
+  },
+  {
+   "step": "with the phone's signature over this transaction the target admits, and only then is the AE created on the target",
+   "pass": true,
+   "detail": "admitted; AE on B created: True"
+  },
+  {
+   "step": "CONTROL (must FAIL) the same signature shown a second time was admitted",
+   "pass": false,
+   "detail": "the nonce was already used"
+  },
+  {
+   "step": "CONTROL (must FAIL) a transaction past its valid-until was admitted",
+   "pass": false,
+   "detail": "the transaction is past its valid-until"
+  },
+  {
+   "step": "CONTROL (must FAIL) an AE-ID the registry does not know was admitted",
+   "pass": false,
+   "detail": "the registry holds no key for this AE-ID"
+  },
+  {
+   "step": "CONTROL (must FAIL) a handover onto the source was admitted",
+   "pass": false,
+   "detail": "the target is the source"
+  },
+  {
+   "step": "a second transaction can be opened after the first is closed",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "step": "CONTROL (must FAIL) the signature made for the first transaction was admitted for a second one",
+   "pass": false,
+   "detail": "the signature does not verify with the enrolled key over this transaction"
+  },
+  {
+   "step": "nothing is left behind: registry, transaction and the AE on the target are gone",
+   "pass": true,
+   "detail": "{'registry': 404, 'transaction': 404, 'ae_on_target': 404}"
+  }
+ ]
+}

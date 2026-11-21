@@ -1,0 +1,3243 @@
+{
+ "record": "estimed.fl.dev-run.v1",
+ "device": "phone-A and phone-B: their captured env records, posted by a host bridge",
+ "sim": false,
+ "verdict_scope": "the rows that ran. The observations of flSrc1 and flSrc2 come from the capture file; a phone did not register, was not notified and did not train. Every other party is simulated. TD_MEC_FL_01 is not passed.",
+ "preregistration": {
+  "sha256": "6b10749058c77ab26ee43412e48fca2412f18f07a4720a6ecfe6f30fd293a18e",
+  "go_phrase": "6b107490",
+  "result": "given on the command line"
+ },
+ "sources_capture": {
+  "file": "/home/edgefollow/estimed-run/sitting_b/fl_capture_1.json",
+  "sha256": "9a7d65c47a8eda1f5f3f1d28525424adb8d3ad2118df14b13bbc2d62bcae0ea4",
+  "origin": "device",
+  "made_at_utc": "2026-11-19T15:55:59Z",
+  "slot0": 359020726,
+  "expect": {
+   "r1": {
+    "n": 16,
+    "per_source": {
+     "flSrc1": 8,
+     "flSrc2": 8
+    },
+    "dropped_gap": 0,
+    "dropped_unaligned": 0
+   },
+   "weights": {
+    "1": {
+     "P-TFC-AGG": 16
+    },
+    "2": {
+     "P-TFC-S1": 17,
+     "P-TFC-S2": 17
+    },
+    "3": {
+     "P-TFC-S1": 26
+    }
+   }
+  },
+  "per_source": {
+   "flSrc1": {
+    "label": "phone-A",
+    "records": 27,
+    "refused": 0,
+    "dropped_same_slot": 0,
+    "outside_the_window": 0,
+    "digest": "69cbcc2ed127eda8d0749a9c78968b22f2ae22aca76e882b62cd53c51f7e0ffc",
+    "cse_time_minus_record_time_ms": {
+     "n": 27,
+     "median": -2455,
+     "min": -2467,
+     "max": -2415
+    },
+    "countersignature": {
+     "ok": false,
+     "alias": "witness-20261015",
+     "challenge": "69cbcc2ed127eda8d0749a9c78968b22f2ae22aca76e882b62cd53c51f7e0ffc",
+     "sig": null,
+     "stage": "load",
+     "exception": "java.security.KeyStoreException",
+     "message": "no private key under alias witness-20261015"
+    }
+   },
+   "flSrc2": {
+    "label": "phone-B",
+    "records": 27,
+    "refused": 0,
+    "dropped_same_slot": 0,
+    "outside_the_window": 0,
+    "digest": "4871baf24ce5fda37b9921b9888570fb0c4a704c7b10f4b7b8ef67899ecdcc02",
+    "cse_time_minus_record_time_ms": {
+     "n": 27,
+     "median": -676,
+     "min": -680,
+     "max": -665
+    },
+    "countersignature": {
+     "ok": true,
+     "alias": "witness-20261015",
+     "challenge": "4871baf24ce5fda37b9921b9888570fb0c4a704c7b10f4b7b8ef67899ecdcc02",
+     "sig": "MEUCIQD/OraTqgiZhnu0WcQarq595ZZhXuDKcjrsp6B4TnQ7twIgE3CLomc1iI4OaLNDjpli/LKC3iGCPWgf/jxsoVE5Bcg=",
+     "stage": "done",
+     "exception": null,
+     "message": null
+    }
+   }
+  }
+ },
+ "sim_flag_note": "\"sim\": true inside a record of this run says the party that wrote it is a thread of the driver; the phones' observations carry no such mark",
+ "verdict": "PASS",
+ "aborted_at": null,
+ "clock_offset": {
+  "result": "NA",
+  "reason": "every party is a thread of one process on one host; times are that host's clock and the CSEs' creation times on the same host"
+ },
+ "device_labels": {
+  "flOrch": {
+   "originator": "CflOrch",
+   "cse": "cse-in",
+   "role": "orchestrator",
+   "sim": true,
+   "class": "not a device"
+  },
+  "flAgg": {
+   "originator": "CflAgg",
+   "cse": "cse-mn-a",
+   "role": "aggregator",
+   "sim": true,
+   "class": "not a device"
+  },
+  "flTfc": {
+   "originator": "CflTfc",
+   "cse": "cse-mn-a",
+   "role": "tfc",
+   "sim": true,
+   "class": "not a device"
+  },
+  "flTfc2": {
+   "originator": "CflTfc2",
+   "cse": "cse-mn-b",
+   "role": "tfc",
+   "sim": true,
+   "class": "not a device"
+  },
+  "flNat": {
+   "originator": "CflNat",
+   "cse": "cse-mn-a",
+   "role": "client",
+   "sim": true,
+   "class": "FL-native class represented by a simulated source"
+  },
+  "flDec": {
+   "originator": "CflDec",
+   "cse": "cse-mn-a",
+   "role": "client",
+   "sim": true,
+   "class": "FL-native class represented by a simulated source"
+  },
+  "flSrc1": {
+   "originator": "CflSrc1",
+   "cse": "cse-mn-a",
+   "role": "data-source",
+   "sim": true,
+   "class": "constrained (FL-assisted) class represented by a simulated source"
+  },
+  "flSrc2": {
+   "originator": "CflSrc2",
+   "cse": "cse-mn-a",
+   "role": "data-source",
+   "sim": true,
+   "class": "constrained (FL-assisted) class represented by a simulated source"
+  }
+ },
+ "open_decisions": [
+  "the model: a 3-weight integer (Q8) linear model on simulated battery telemetry was taken as the default; the proof-of-concept plan's traffic model is the alternative",
+  "keys: none are created, stored or read; an update is bound by SHA-256 digests, the CSE-recorded creator and access control policies; signatures wait for the ruling on lab keys",
+  "sources: flSrc1 and flSrc2 carry a device capture behind a host bridge; flNat, flDec and the held-out set are simulated",
+  "thresholds of ours: quorum at least 2 updates and 2/3 of the selected; round window 4.0 s; bound 1024 per weight"
+ ],
+ "kpi": {
+  "sim": true,
+  "scope": "rounds 1 to 3; the control round is given separately; every source is simulated",
+  "rates": {
+   "participant_success_rate": {
+    "numerator": 6,
+    "denominator": 8,
+    "N": 8,
+    "unit": "%",
+    "value": "75.0"
+   },
+   "participant_success_rate_with_control_round": {
+    "numerator": 7,
+    "denominator": 10,
+    "N": 10,
+    "unit": "%",
+    "value": "70.0"
+   },
+   "round_completion_rate": {
+    "numerator": 3,
+    "denominator": 3,
+    "N": 3,
+    "unit": "%",
+    "value": "100.0"
+   },
+   "round_completion_rate_with_control_round": {
+    "numerator": 3,
+    "denominator": 4,
+    "N": 4,
+    "unit": "%",
+    "value": "75.0"
+   },
+   "update_exclusion_rate": {
+    "numerator": 2,
+    "denominator": 8,
+    "N": 8,
+    "unit": "%",
+    "value": "25.0"
+   },
+   "invitation_acceptance_rate": {
+    "numerator": 2,
+    "denominator": 3,
+    "N": 3,
+    "unit": "%",
+    "value": "66.7"
+   },
+   "ae_registration_success_rate": {
+    "numerator": 8,
+    "denominator": 8,
+    "N": 8,
+    "unit": "%",
+    "value": "100.0"
+   }
+  },
+  "fl_round_completion_time_s": {
+   "values": [
+    "0.241",
+    "4.521",
+    "0.477"
+   ],
+   "N": 3,
+   "unit": "s",
+   "from": "the orchestrator's discovery",
+   "to": "every participant has read the new model",
+   "note": "round 2 waits for its 4.0 s window because one client drops out"
+  },
+  "edge_cloud_bytes": {
+   "values": [
+    18536,
+    28284,
+    34037
+   ],
+   "N": 3,
+   "unit": "bytes",
+   "total": 80857,
+   "total_MB": "0.080857",
+   "counted": "request and response bodies (no headers) between edge-side parties and the IN-CSE, between the orchestrator and the edge CSEs, and task notifications; one PC, loopback"
+  },
+  "held_out_error": {
+   "values": [
+    220,
+    428,
+    261
+   ],
+   "N": 3,
+   "unit": "tenths of a degree C, summed over 39 simulated samples",
+   "before_round_1": 350
+  }
+ },
+ "enforcement": [
+  {
+   "what": "who may read a source's observations",
+   "enforced_by": "CSE",
+   "how": "accessControlPolicy on the source's container; anyone else gets 403"
+  },
+  {
+   "what": "who may change a source's access policy",
+   "enforced_by": "CSE",
+   "how": "the policy's selfPrivileges: the source and its authority"
+  },
+  {
+   "what": "who may create an update at the aggregator",
+   "enforced_by": "CSE",
+   "how": "CREATE on the updates container for the registered clients, RETRIEVE for the aggregator alone"
+  },
+  {
+   "what": "which originator wrote an update or a policy record",
+   "enforced_by": "CSE",
+   "how": "the creator attribute the CSE records; the lab CSE does not authenticate the originator header"
+  },
+  {
+   "what": "that a capability profile is a flexContainer of a known specialisation",
+   "enforced_by": "CSE",
+   "how": "the CSE refuses an unknown specialisation or attribute (400)"
+  },
+  {
+   "what": "what discovery returns to an originator",
+   "enforced_by": "CSE",
+   "how": "DISCOVERY privilege; metadata resources and observation containers carry different policies"
+  },
+  {
+   "what": "purpose, operation, processor, execution domain and expiry of a data-use policy",
+   "enforced_by": "application",
+   "how": "authorize()"
+  },
+  {
+   "what": "that a policy's authority is neither the requester nor the processor",
+   "enforced_by": "application",
+   "how": "authorize(), on the creator the CSE recorded"
+  },
+  {
+   "what": "task, round, model and dataset binding of an update; replay; bound; deadline",
+   "enforced_by": "application",
+   "how": "check_update()"
+  },
+  {
+   "what": "state of a source's policy when its update is accepted",
+   "enforced_by": "application",
+   "how": "check_update() on the policy record the aggregator read; the denied read itself is the CSE's"
+  },
+  {
+   "what": "quorum before a model is published",
+   "enforced_by": "application",
+   "how": "close_round(), re-checked by verify_round()"
+  },
+  {
+   "what": "readiness and a client's own decision to take part",
+   "enforced_by": "application",
+   "how": "select_participants()"
+  },
+  {
+   "what": "package digest before activation, and which version is active",
+   "enforced_by": "application",
+   "how": "check_package(), deployment_view()"
+  },
+  {
+   "what": "deletion of temporary copies",
+   "enforced_by": "application",
+   "how": "the client deletes; a read-back on the CSE (404) is the evidence"
+  }
+ ],
+ "retention": {
+  "temp_copies": [
+   {
+    "ref": "flTfc/flTmp/ds-agg-v1",
+    "dataset": "ds-agg",
+    "created": 201,
+    "deleted": 200,
+    "readback": 404
+   },
+   {
+    "ref": "flTfc/flTmp/ds-s1-v2",
+    "dataset": "ds-s1",
+    "created": 201,
+    "deleted": 200,
+    "readback": 404
+   },
+   {
+    "ref": "flTfc/flTmp/ds-s2-v2",
+    "dataset": "ds-s2",
+    "created": 201,
+    "deleted": 200,
+    "readback": 404
+   },
+   {
+    "ref": "flTfc/flTmp/ds-s1-v3",
+    "dataset": "ds-s1",
+    "created": 201,
+    "deleted": 200,
+    "readback": 404
+   },
+   {
+    "ref": "flTfc/flTmp/ds-s2-v3",
+    "dataset": "ds-s2",
+    "created": 201,
+    "deleted": 200,
+    "readback": 404
+   },
+   {
+    "ref": "flTfc/flTmp/ds-s1-v4",
+    "dataset": "ds-s1",
+    "created": 201,
+    "deleted": 200,
+    "readback": 404
+   }
+  ],
+  "accepted_from_revoked": 2,
+  "irreversible": [
+   {
+    "what": "model v1 (round 1) and every version built on it",
+    "why": "it is a weighted average that includes the update of P-TFC-AGG, trained on flSrc2's data before the revocation; an average cannot be separated into its contributions"
+   },
+   {
+    "what": "model v2 (round 2) and every version built on it",
+    "why": "it is a weighted average that includes the update of P-TFC-S2, trained on flSrc2's data before the revocation; an average cannot be separated into its contributions"
+   },
+   {
+    "what": "the update records of those rounds at the aggregator and the published dataset records (digests, counts, provenance digests)",
+    "why": "kept as the lineage a checker needs to recompute the aggregates; they hold weight changes and digests, no observation, and the run's cleanup removes them from the CSEs with everything else"
+   },
+   {
+    "what": "copies outside this run's reach",
+    "why": "none were made by this run; a client that kept its own copy offline could not be made to delete it (TR 7.3.5.8.4 as reported, fact F32)"
+   }
+  ]
+ },
+ "steps": [
+  {
+   "step": "the IN-CSE and both MN-CSEs answer",
+   "pass": true,
+   "detail": "{'IN': 200, 'MN-A': 200, 'MN-B': 200}"
+  },
+  {
+   "step": "no AE of an earlier run is left under our names",
+   "pass": true,
+   "detail": "none found"
+  },
+  {
+   "step": "the MEC 011 candidate answers (app support and service registry)",
+   "pass": true,
+   "detail": "http://127.0.0.1:8097: HTTP 200; started by this run"
+  },
+  {
+   "step": "MEC 011 registered the Trusted FL Client as an application instance",
+   "pass": true,
+   "detail": "HTTP 201"
+  },
+  {
+   "step": "seven AEs, each with two access policies, its containers and (participants) its capability profile",
+   "pass": true,
+   "detail": "flOrch on cse-in, flAgg on cse-mn-a, flSrc1 on cse-mn-a, flSrc2 on cse-mn-a, flTfc on cse-mn-a, flNat on cse-mn-a, flDec on cse-mn-a"
+  },
+  {
+   "step": "the host bridge posted the captured records (first 9 slots) into the sources' own containers",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "step": "an initial global model is provisioned (v0, all weights 0)",
+   "pass": true,
+   "detail": "HTTP 201"
+  },
+  {
+   "step": "[check 1] two data sources and the Trusted FL Client registered; the orchestrator discovered the sources' metadata and the client's capability, and nothing it received holds an observation",
+   "pass": true,
+   "detail": "discovery by label returned 5 profiles: flDec, flNat, flSrc1, flSrc2, flTfc"
+  },
+  {
+   "step": "the orchestrator's discovery lists none of the observations",
+   "pass": true,
+   "detail": "0 observation paths visible to it"
+  },
+  {
+   "step": "[FL_01 step 1] the capability profile of the FL-native class (represented by a simulated source) is two <flexContainer> resources",
+   "pass": true,
+   "detail": "mad:dmCay (dmCapability) and mad:dmAgt (dmAgent), TS-0023 classes the CSE knows; the mapping is ours"
+  },
+  {
+   "step": "the CSE refuses a capability flexContainer of a specialisation it does not know (400)",
+   "pass": true,
+   "detail": "HTTP 400"
+  },
+  {
+   "step": "[FL_01 step 2] that profile is discoverable by the orchestrator for client selection",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "step": "[FL_01 step 4] the Trusted FL Client is registered at the MEC platform (listed after confirm_ready, not before) and at the MN-CSE for the two sources that cannot train",
+   "pass": true,
+   "detail": "service registration 201; it runs inside this process, not as a deployed package"
+  },
+  {
+   "step": "two device classes, each represented by a simulated source, are enumerable by the orchestrator",
+   "pass": true,
+   "detail": "FL-native class represented by a simulated source: ['flDec', 'flNat']; constrained (FL-assisted) class represented by a simulated source: ['flSrc1', 'flSrc2'] behind flTfc; the third class has no candidate, so FL_01 step 7 does not pass"
+  },
+  {
+   "step": "each domain's authority posted a policy record for its source",
+   "pass": true,
+   "detail": "HTTP 201, 201"
+  },
+  {
+   "step": "[check 2] a two-source dataset definition is authorised with one decision reference per source policy; while one policy did not permit training it was refused and nothing was assembled",
+   "pass": true,
+   "detail": "refused: {'flSrc2': ['operation-not-permitted']} (the client's read then: HTTP 403); after lab-domain-B's policy 2 (HTTP 201): ['flSrc1-policy@1:permit', 'flSrc2-policy@2:permit']"
+  },
+  {
+   "step": "the two sources are two domains: the authority of one cannot open the other's source (403)",
+   "pass": true,
+   "detail": "HTTP 403"
+  },
+  {
+   "step": "each authority opened its own source to the Trusted FL Client on the CSE",
+   "pass": true,
+   "detail": "HTTP [200, 200]"
+  },
+  {
+   "step": "[readiness] the Trusted FL Client is not ready while its data condition is false, and ready when all six hold",
+   "pass": true,
+   "detail": "false before the grant: authorizedLocalDataAccessible"
+  },
+  {
+   "step": "[self-grant] the orchestrator can neither read a source's observations nor change the source's access policy",
+   "pass": true,
+   "detail": "read 403, policy change 403, read again 403"
+  },
+  {
+   "step": "CONTROL (must FAIL) the orchestrator read a source's raw data by itself",
+   "pass": false,
+   "detail": "HTTP 403, then 403"
+  },
+  {
+   "step": "CONTROL (must FAIL) the orchestrator granted itself access to a source",
+   "pass": false,
+   "detail": "HTTP 403"
+  },
+  {
+   "step": "round 1: subscription on the task container for flNat",
+   "pass": true,
+   "detail": "HTTP 201"
+  },
+  {
+   "step": "round 1: subscription on the task container for flTfc",
+   "pass": true,
+   "detail": "HTTP 201"
+  },
+  {
+   "step": "round 1: task op-fl-1-r1-P-TFC-AGG posted",
+   "pass": true,
+   "detail": "HTTP 201"
+  },
+  {
+   "step": "round 1: task op-fl-1-r1-P-NAT posted",
+   "pass": true,
+   "detail": "HTTP 201"
+  },
+  {
+   "step": "[FL_02 step 1] the orchestrator selected the participants from discovered capability profiles",
+   "pass": true,
+   "detail": "selected ['P-NAT', 'P-TFC-AGG']; not selected {'P-DEC': ['declined']}"
+  },
+  {
+   "step": "[decline] a client whose descriptors match declined and is not a participant",
+   "pass": true,
+   "detail": "P-DEC: ['declined']; descriptors match for ['P-DEC', 'P-NAT', 'P-TFC-AGG']"
+  },
+  {
+   "step": "CONTROL (must FAIL) a client that declined although its descriptors match was counted as participating",
+   "pass": false,
+   "detail": "participants ['P-NAT', 'P-TFC-AGG']"
+  },
+  {
+   "step": "[FL_02 step 2] each selected client was notified of its task through a subscription on the task container",
+   "pass": true,
+   "detail": "4 notifications at ['flNat', 'flTfc']; every subscriber of the one task container gets every task and takes its own"
+  },
+  {
+   "step": "[FL_02 step 3] the global model was distributed in the orchestrator's <container> and each selected client read it",
+   "pass": true,
+   "detail": "v0 591cd2c3964fe9f9"
+  },
+  {
+   "step": "[FL_02 step 4] each client verified task identity, binding version and model digest, then trained on its own samples",
+   "pass": true,
+   "detail": "P-TFC-AGG: 16 samples, P-NAT: 8 samples"
+  },
+  {
+   "step": "the scan sees observations where they are (the source's own container), so an empty result elsewhere means something",
+   "pass": true,
+   "detail": "36 hits in flSrc1/env"
+  },
+  {
+   "step": "[FL_02 step 5] no observation is on the IN-CSE, in the aggregator's containers or in anything the orchestrator received, and the orchestrator's own read is refused",
+   "pass": true,
+   "detail": "scanned 13 contentInstances and 36 answers; 'node' here is a resource tree, all on one PC"
+  },
+  {
+   "step": "[FL_02 step 6] each update is a <contentInstance> created at the aggregator under the client's own originator",
+   "pass": true,
+   "detail": "P-TFC-AGG by CflTfc, P-NAT by CflNat"
+  },
+  {
+   "step": "a client can create an update and cannot read the updates container (403)",
+   "pass": true,
+   "detail": "HTTP 403"
+  },
+  {
+   "step": "[FL_02 step 7] the aggregator collected every posted update inside the round's time window",
+   "pass": true,
+   "detail": "2 read, window 4.0 s"
+  },
+  {
+   "step": "[FL_02 step 8] the aggregate (FedAvg by sample count) recomputes bit for bit and its held-out error is lower",
+   "pass": true,
+   "detail": "w [0, 0, 0] -> [63, 158, 13]; held-out error 350 -> 220 tenths of a degree over 39 simulated samples"
+  },
+  {
+   "step": "[FL_02 step 9] the orchestrator redistributed the new model and every participant read it",
+   "pass": true,
+   "detail": "v1 b5ede96f9fe93d04"
+  },
+  {
+   "step": "[FL_02 step 10] the round completed at or above the stated participation rate (2/3, at least 2)",
+   "pass": true,
+   "detail": "accepted 2 of 2; no straggler in this round"
+  },
+  {
+   "step": "[check 3] the dataset was assembled by the stated feature selection and time alignment; version, provenance and effective sample count are published, the samples are not",
+   "pass": true,
+   "detail": "ds-agg version 1, rules estimed.fl.env-slots.v1, 16 samples from 18 source records"
+  },
+  {
+   "step": "the assembled dataset is the one counted a second way in the capture file",
+   "pass": true,
+   "detail": "16 samples {'flSrc1': 8, 'flSrc2': 8}, 0 gap, 0 windows unused"
+  },
+  {
+   "step": "[check 4] aggregatedSources: ONE participant and ONE update from the Trusted FL Client although two sources contribute; the weighting basis is logged and is the sample count",
+   "pass": true,
+   "detail": "weights [('P-NAT', 8), ('P-TFC-AGG', 16)] by effectiveSampleCount"
+  },
+  {
+   "step": "round 1: the weights are the sample counts counted a second way in the capture file",
+   "pass": true,
+   "detail": "{'P-NAT': 8, 'P-TFC-AGG': 16}"
+  },
+  {
+   "step": "delivery: the target checked package v1 against the digest the aggregator published, activated it and echoed version and digest",
+   "pass": true,
+   "detail": "active version 1; echo b5ede96f9fe93d04"
+  },
+  {
+   "step": "the host bridge posted the captured records (the next 9 slots)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "step": "round 2: task op-fl-1-r2-P-TFC-S1 posted",
+   "pass": true,
+   "detail": "HTTP 201"
+  },
+  {
+   "step": "round 2: task op-fl-1-r2-P-TFC-S2 posted",
+   "pass": true,
+   "detail": "HTTP 201"
+  },
+  {
+   "step": "round 2: task op-fl-1-r2-P-NAT posted",
+   "pass": true,
+   "detail": "HTTP 201"
+  },
+  {
+   "step": "round 2 completed and its record recomputes",
+   "pass": true,
+   "detail": "COMPLETED, checker: no objection; w [63, 158, 13] -> [88, 222, 13]; held-out error 220 -> 428 (recorded, not a pass condition)"
+  },
+  {
+   "step": "[check 5] independentSources: one client AE, two participants with separate task, dataset and update identities (separate identities, not a claim of statistical independence)",
+   "pass": true,
+   "detail": "op-fl-1-r2-P-TFC-S1, op-fl-1-r2-P-TFC-S2"
+  },
+  {
+   "step": "[FL_02 step 10] with one client dropping out the round still completed at the stated rate, and the straggler is left out and logged",
+   "pass": true,
+   "detail": "accepted 2 of 3; missing [{'participantId': 'P-NAT', 'reasons': ['no-update-by-deadline']}]"
+  },
+  {
+   "step": "the client that dropped out posted nothing, and still received the new model",
+   "pass": true,
+   "detail": "flNat read v2: {'status': 200, 'digest': '42c6cdf4742f5d530e265715d620b59ca318830e88544b3e88aec4644dfe2190'}"
+  },
+  {
+   "step": "the round-1 update that was sent again is excluded with its reasons",
+   "pass": true,
+   "detail": "created 201; [{'participantId': 'P-TFC-AGG', 'reasons': ['unknown-task', 'wrong-round', 'stale-model', 'replay', 'not-selected'], 'updateDigest': 'a3be496d95bd80bfaa756897e949b2bd730037005bafdaeb3b8b91de7b64be0a'}]"
+  },
+  {
+   "step": "CONTROL (must FAIL) a replayed update (an earlier round's update sent again) was accepted",
+   "pass": false,
+   "detail": "excluded: [['unknown-task', 'wrong-round', 'stale-model', 'replay', 'not-selected']]"
+  },
+  {
+   "step": "round 2: the weights are the sample counts counted a second way in the capture file",
+   "pass": true,
+   "detail": "{'P-TFC-S1': 17, 'P-TFC-S2': 17}"
+  },
+  {
+   "step": "[deployment] version 2 is aggregated and redistributed but not deployed: the active version is still 1",
+   "pass": true,
+   "detail": "aggregated [1, 2], undeployed [2], active 1"
+  },
+  {
+   "step": "CONTROL (must FAIL) a model version that was aggregated but not deployed shows as active",
+   "pass": false,
+   "detail": "active 1, the target reports 1"
+  },
+  {
+   "step": "[package] the target refused a package whose content does not hash to its stated digest; the active version did not move",
+   "pass": true,
+   "detail": "['digest-mismatch']; active 1"
+  },
+  {
+   "step": "CONTROL (must FAIL) a model package whose digest does not match was activated",
+   "pass": false,
+   "detail": "verdict refused, active 1"
+  },
+  {
+   "step": "the host bridge posted the captured records (the next 9 slots)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "step": "round 3: task op-fl-1-r3-P-TFC-S1 posted",
+   "pass": true,
+   "detail": "HTTP 201"
+  },
+  {
+   "step": "round 3: task op-fl-1-r3-P-TFC-S2 posted",
+   "pass": true,
+   "detail": "HTTP 201"
+  },
+  {
+   "step": "round 3: task op-fl-1-r3-P-NAT posted",
+   "pass": true,
+   "detail": "HTTP 201"
+  },
+  {
+   "step": "round 3 completed and its record recomputes",
+   "pass": true,
+   "detail": "COMPLETED, checker: no objection; w [88, 222, 13] -> [51, 196, 24]; held-out error 428 -> 261 (recorded, not a pass condition)"
+  },
+  {
+   "step": "[check 6] after the revocation the CSE denies the client's read, the dataset is marked invalid and the pending update is excluded",
+   "pass": true,
+   "detail": "policy 3 by CflAuthB (HTTP 201), readers cleared (HTTP 200); read 200 -> 403; excluded [('P-TFC-S2', ['dataset-invalid', 'source-revoked'])]"
+  },
+  {
+   "step": "CONTROL (must FAIL) an update from a revoked source was accepted",
+   "pass": false,
+   "detail": "accepted ['P-NAT', 'P-TFC-S1']"
+  },
+  {
+   "step": "round 3: the weights are the sample counts counted a second way in the capture file",
+   "pass": true,
+   "detail": "{'P-NAT': 26, 'P-TFC-S1': 26}"
+  },
+  {
+   "step": "delivery: model version before -> deployment status -> active version after",
+   "pass": true,
+   "detail": "1 -> activated -> 3; never deployed: [2]"
+  },
+  {
+   "step": "round 4: task op-fl-1-r4-P-TFC-S1 posted",
+   "pass": true,
+   "detail": "HTTP 201"
+  },
+  {
+   "step": "round 4: task op-fl-1-r4-P-NAT posted",
+   "pass": true,
+   "detail": "HTTP 201"
+  },
+  {
+   "step": "the revoked source's participant is not selected any more, for the policy's reason",
+   "pass": true,
+   "detail": "{'P-DEC': ['declined'], 'P-TFC-S2': ['not-authorized']}"
+  },
+  {
+   "step": "the update outside the bound is excluded with its reason",
+   "pass": true,
+   "detail": "bound 1024 per weight; [{'participantId': 'P-TFC-S1', 'reasons': ['out-of-bound'], 'updateDigest': '46fa67699a88188d55671235bc3c4a809670b44d6b71f3afb08f5706f8c93aef'}]"
+  },
+  {
+   "step": "CONTROL (must FAIL) a poisoned update (outside the stated bound) was accepted",
+   "pass": false,
+   "detail": "accepted ['P-NAT']"
+  },
+  {
+   "step": "[quorum] a round below quorum says so and publishes no model",
+   "pass": true,
+   "detail": "accepted 1 of 2, needed 2: FAILED_QUORUM; versions at the aggregator ['v1', 'v2', 'v3']"
+  },
+  {
+   "step": "CONTROL (must FAIL) a round below quorum still published a model",
+   "pass": false,
+   "detail": "global model still v3; aggregator holds ['v1', 'v2', 'v3']"
+  },
+  {
+   "step": "round 4: the weights are the sample counts counted a second way in the capture file",
+   "pass": true,
+   "detail": "{'P-NAT': 26}"
+  },
+  {
+   "step": "[check 7] at the other operator's host the client is blocked (the CSE denies the read and the old policy does not cover it) until the source's authority approves a fresh policy version",
+   "pass": true,
+   "detail": "flTfc2 registered on cse-mn-b (HTTP 201): registration alone opened nothing; read 403, {'flSrc1': ['processor-not-authorized', 'domain-not-allowed']}; policy 2 (HTTP 201, readers 200); read 200. The move is simulated: a second AE, no process moved"
+  },
+  {
+   "step": "[check 8] every temporary copy the Trusted FL Client made is deleted and gone on read-back; what cannot be deleted or reversed is listed",
+   "pass": true,
+   "detail": "6 temporary copies, read-back [404]; 4 entries that cannot be undone, 2 of them accepted contributions of the revoked source"
+  },
+  {
+   "step": "[FL_02 step 5] after all four rounds: still no observation at the centre, at the aggregator or in what the orchestrator received",
+   "pass": true,
+   "detail": "scanned 47 contentInstances and 93 answers"
+  },
+  {
+   "step": "[TD_MEC_OBS_01 step 4] the KPI block has round completion time, participant success rate and edge-cloud bytes, every rate with numerator, denominator and N",
+   "pass": true,
+   "detail": "participant_success_rate 6/8 = 75.0 % (N 8); participant_success_rate_with_control_round 7/10 = 70.0 % (N 10); round_completion_rate 3/3 = 100.0 % (N 3); round_completion_rate_with_control_round 3/4 = 75.0 % (N 4); update_exclusion_rate 2/8 = 25.0 % (N 8); invitation_acceptance_rate 2/3 = 66.7 % (N 3); ae_registration_success_rate 8/8 = 100.0 % (N 8); round times ['0.241', '4.521', '0.477'] s; 80857 bytes"
+  }
+ ],
+ "controls": [
+  {
+   "control": "CONTROL (must FAIL) the orchestrator read a source's raw data by itself",
+   "expected": "FAIL",
+   "observed": "FAIL",
+   "detail": "HTTP 403, then 403"
+  },
+  {
+   "control": "CONTROL (must FAIL) the orchestrator granted itself access to a source",
+   "expected": "FAIL",
+   "observed": "FAIL",
+   "detail": "HTTP 403"
+  },
+  {
+   "control": "CONTROL (must FAIL) a client that declined although its descriptors match was counted as participating",
+   "expected": "FAIL",
+   "observed": "FAIL",
+   "detail": "participants ['P-NAT', 'P-TFC-AGG']"
+  },
+  {
+   "control": "CONTROL (must FAIL) a replayed update (an earlier round's update sent again) was accepted",
+   "expected": "FAIL",
+   "observed": "FAIL",
+   "detail": "excluded: [['unknown-task', 'wrong-round', 'stale-model', 'replay', 'not-selected']]"
+  },
+  {
+   "control": "CONTROL (must FAIL) a model version that was aggregated but not deployed shows as active",
+   "expected": "FAIL",
+   "observed": "FAIL",
+   "detail": "active 1, the target reports 1"
+  },
+  {
+   "control": "CONTROL (must FAIL) a model package whose digest does not match was activated",
+   "expected": "FAIL",
+   "observed": "FAIL",
+   "detail": "verdict refused, active 1"
+  },
+  {
+   "control": "CONTROL (must FAIL) an update from a revoked source was accepted",
+   "expected": "FAIL",
+   "observed": "FAIL",
+   "detail": "accepted ['P-NAT', 'P-TFC-S1']"
+  },
+  {
+   "control": "CONTROL (must FAIL) a poisoned update (outside the stated bound) was accepted",
+   "expected": "FAIL",
+   "observed": "FAIL",
+   "detail": "accepted ['P-NAT']"
+  },
+  {
+   "control": "CONTROL (must FAIL) a round below quorum still published a model",
+   "expected": "FAIL",
+   "observed": "FAIL",
+   "detail": "global model still v3; aggregator holds ['v1', 'v2', 'v3']"
+  }
+ ],
+ "not_run": [
+  {
+   "row": "signature of the update: not run, waits for the founder's ruling on lab keys",
+   "result": "NOT-RUN",
+   "reason": "no key material is created, stored or read by this code; binding is by digests, the CSE-recorded creator and access control policies"
+  },
+  {
+   "row": "TD_MEC_FL_01 step 3: deploy the Trusted FL Client as a MEC app",
+   "result": "NOT-RUN",
+   "reason": "its logic runs inside this driver's process; it is registered at the MEC 011 candidate as an application instance (step 4), not deployed as a package"
+  },
+  {
+   "row": "TD_MEC_FL_01 steps 5 and 6: a MEC proxy path for a MEC-native / non-oneM2M device",
+   "result": "NOT-RUN",
+   "reason": "no proxy path is built"
+  },
+  {
+   "row": "TD_MEC_FL_01 step 7: all three device classes enumerable",
+   "result": "NOT-RUN",
+   "reason": "two classes are, each represented by a simulated source; the third needs the proxy path. TD_MEC_FL_01 as a whole is therefore not passed"
+  },
+  {
+   "row": "TD_MEC_FL_01 pre-condition: TD_MEC_REG_03 passed for the FL Orchestrator AE",
+   "result": "NOT-RUN",
+   "reason": "not run here"
+  },
+  {
+   "row": "TD_MEC_FL_02 pre-condition: TD_MEC_FL_01 has passed",
+   "result": "NOT-RUN",
+   "reason": "it has not (see above); the ten steps were run on simulated sources"
+  },
+  {
+   "row": "TD_MEC_FL_03: comparison of deployment modes",
+   "result": "NOT-RUN",
+   "reason": "one mode was run: aggregator AE on the edge MN-CSE, orchestrator AE on the IN-CSE"
+  },
+  {
+   "row": "any row with a real device",
+   "result": "NOT-RUN",
+   "reason": "every source is simulated; whether a simulated device meets TD_MEC_FL_01 is an open question to the organisers"
+  },
+  {
+   "row": "a gate against a wrong update inside the bound",
+   "result": "NOT-RUN",
+   "reason": "not built; the bound stops a gross outlier and nothing subtler"
+  },
+  {
+   "row": "recompute of a client's update from its dataset by a second implementation",
+   "result": "NOT-RUN",
+   "reason": "not built; the aggregate is recomputed, a client's own training step is not"
+  }
+ ],
+ "not_shown": [
+  "a device taking part in a round: the phones produced the observations and nothing else; registration, policy, notification, training and upload are done by threads of this driver; every client and target is simulated",
+  "an authenticated originator: the lab CSEs take the X-M2M-Origin header as given, over plain HTTP on loopback, so 'the CSE recorded this creator' holds between honest parties and binds nobody who lies about its originator",
+  "a signature on an update, a policy, a package or this record",
+  "separate machines or networks: 'edge', 'centre', 'domain A / B' and 'another operator's host' are resource trees and originator names on one PC; 'raw data does not leave' says which trees and originators hold observations",
+  "that the simulated numbers resemble a device: they follow a fixed integer rule chosen in fl_core.sim_series",
+  "model quality: the held-out set is simulated too, and a later round may not lower the held-out error",
+  "protection against what an update or a digest gives away about the data it was made from",
+  "removal of an accepted contribution from an aggregate (listed under retention as not reversible)",
+  "a wrong update inside the bound being caught",
+  "the TR's own wording checked by this run's author: the TR extract could not be opened in this session, so the eight checks and the attribute lists follow the fact reader's quotations in federation_result.json",
+  "agreement with any test suite: this is a demonstration of mechanisms, not a conformance claim"
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "mode": "aggregatedSources",
+   "reads": {
+    "flTfc": {
+     "status": 200,
+     "digest": "591cd2c3964fe9f9ad86b3ba2edfb6bdeb753353b03ab1d3d1aae430d62656ef"
+    },
+    "flNat": {
+     "status": 200,
+     "digest": "591cd2c3964fe9f9ad86b3ba2edfb6bdeb753353b03ab1d3d1aae430d62656ef"
+    }
+   },
+   "reads_after": {
+    "flTfc": {
+     "status": 200,
+     "digest": "b5ede96f9fe93d04c53ea441659e32703a2e8f19b0231773356e46175fc6abb1"
+    },
+    "flNat": {
+     "status": 200,
+     "digest": "b5ede96f9fe93d04c53ea441659e32703a2e8f19b0231773356e46175fc6abb1"
+    }
+   },
+   "temp": [
+    {
+     "ref": "flTfc/flTmp/ds-agg-v1",
+     "dataset": "ds-agg",
+     "created": 201,
+     "deleted": 200,
+     "readback": 404
+    }
+   ],
+   "candidates": [
+    {
+     "participantId": "P-TFC-AGG",
+     "clientAERef": "CflTfc",
+     "discovered": true,
+     "capability": {
+      "canTrain": true,
+      "enabled": true
+     },
+     "readiness": {
+      "applicationRunning": true,
+      "authorizedLocalDataAccessible": true,
+      "canAcceptTask": true,
+      "credentialsAndCoordinatorConfigured": true,
+      "frameworkInitialized": true,
+      "modelAccessible": true
+     },
+     "decision": "accepted",
+     "authorized": true
+    },
+    {
+     "participantId": "P-NAT",
+     "clientAERef": "CflNat",
+     "discovered": true,
+     "capability": {
+      "canTrain": true,
+      "enabled": true
+     },
+     "readiness": {
+      "applicationRunning": true,
+      "authorizedLocalDataAccessible": true,
+      "canAcceptTask": true,
+      "credentialsAndCoordinatorConfigured": true,
+      "frameworkInitialized": true,
+      "modelAccessible": true
+     },
+     "decision": "accepted",
+     "authorized": true
+    },
+    {
+     "participantId": "P-DEC",
+     "clientAERef": "CflDec",
+     "discovered": true,
+     "capability": {
+      "canTrain": true,
+      "enabled": true
+     },
+     "readiness": {
+      "applicationRunning": true,
+      "authorizedLocalDataAccessible": true,
+      "canAcceptTask": true,
+      "credentialsAndCoordinatorConfigured": true,
+      "frameworkInitialized": true,
+      "modelAccessible": true
+     },
+     "decision": "declined",
+     "authorized": true
+    }
+   ],
+   "capability_refs": {
+    "P-TFC-AGG": "cse-mn-a/flTfc/flCap",
+    "P-NAT": "cse-mn-a/flNat/flCap",
+    "P-DEC": "cse-mn-a/flDec/flCap"
+   },
+   "discovered": [
+    "cse-mn-a/flDec/flCap",
+    "cse-mn-a/flNat/flCap",
+    "cse-mn-a/flSrc1/flCap",
+    "cse-mn-a/flSrc2/flCap",
+    "cse-mn-a/flTfc/flCap"
+   ],
+   "selection": {
+    "selected": [
+     "P-NAT",
+     "P-TFC-AGG"
+    ],
+    "rejected": {
+     "P-DEC": [
+      "declined"
+     ]
+    },
+    "descriptors_match": [
+     "P-DEC",
+     "P-NAT",
+     "P-TFC-AGG"
+    ]
+   },
+   "selected": [
+    "P-NAT",
+    "P-TFC-AGG"
+   ],
+   "notifications": [
+    {
+     "endpoint": "flTfc",
+     "taskId": "op-fl-1-r1-P-TFC-AGG",
+     "selectedClient": "CflTfc",
+     "bytes": 1159
+    },
+    {
+     "endpoint": "flNat",
+     "taskId": "op-fl-1-r1-P-TFC-AGG",
+     "selectedClient": "CflTfc",
+     "bytes": 1159
+    },
+    {
+     "endpoint": "flNat",
+     "taskId": "op-fl-1-r1-P-NAT",
+     "selectedClient": "CflNat",
+     "bytes": 1147
+    },
+    {
+     "endpoint": "flTfc",
+     "taskId": "op-fl-1-r1-P-NAT",
+     "selectedClient": "CflNat",
+     "bytes": 1147
+    }
+   ],
+   "collected": [
+    "a3be496d95bd80bfaa756897e949b2bd730037005bafdaeb3b8b91de7b64be0a",
+    "1bdf3a9ce92c5a3c12c00637603dce6fd915f1dafe3dcacdfadc840fe927f9d9"
+   ],
+   "source_state": {
+    "flSrc1": "active",
+    "flSrc2": "active",
+    "flNat": "active",
+    "flDec": "active"
+   },
+   "versions_before": [],
+   "loss_before": 350,
+   "loss_after": 220,
+   "agg_published": 201,
+   "versions_after": [
+    "v1"
+   ],
+   "record": {
+    "accepted": [
+     {
+      "created_ms": 1795106883194,
+      "delta": [
+       46,
+       11,
+       39
+      ],
+      "n": 8,
+      "participantId": "P-NAT",
+      "updateDigest": "1bdf3a9ce92c5a3c12c00637603dce6fd915f1dafe3dcacdfadc840fe927f9d9"
+     },
+     {
+      "created_ms": 1795106883157,
+      "delta": [
+       71,
+       231,
+       0
+      ],
+      "n": 16,
+      "participantId": "P-TFC-AGG",
+      "updateDigest": "a3be496d95bd80bfaa756897e949b2bd730037005bafdaeb3b8b91de7b64be0a"
+     }
+    ],
+    "deadline_ms": 1795106887065,
+    "excluded": [],
+    "missing": [],
+    "modelInDigest": "591cd2c3964fe9f9ad86b3ba2edfb6bdeb753353b03ab1d3d1aae430d62656ef",
+    "modelOutDigest": "b5ede96f9fe93d04c53ea441659e32703a2e8f19b0231773356e46175fc6abb1",
+    "operationRef": "op-fl-1",
+    "quorum": {
+     "accepted": 2,
+     "met": true,
+     "needed": 2,
+     "selected": 2
+    },
+    "round": 1,
+    "seen": [
+     "1bdf3a9ce92c5a3c12c00637603dce6fd915f1dafe3dcacdfadc840fe927f9d9",
+     "a3be496d95bd80bfaa756897e949b2bd730037005bafdaeb3b8b91de7b64be0a"
+    ],
+    "selected": [
+     "P-TFC-AGG",
+     "P-NAT"
+    ],
+    "sim": true,
+    "state": "COMPLETED",
+    "w_in": [
+     0,
+     0,
+     0
+    ],
+    "w_out": [
+     63,
+     158,
+     13
+    ],
+    "weightingBasis": "effectiveSampleCount"
+   },
+   "verify": [],
+   "redistributed": 201,
+   "time_s": 0.24066916698939167,
+   "bytes": 18536,
+   "clients": [
+    {
+     "participantId": "P-TFC-AGG",
+     "verify": [],
+     "samples": 16,
+     "status": 201,
+     "read": {
+      "flSrc1": 200,
+      "flSrc2": 200
+     },
+     "dataset": {
+      "datasetId": "ds-agg",
+      "datasetVersion": "1",
+      "sourceDescriptorRefs": [
+       "flSrc1",
+       "flSrc2"
+      ],
+      "processingProfileRef": "estimed.fl.env-slots.v1",
+      "processingPolicyVersionRefs": [
+       "flSrc1-policy@1",
+       "flSrc2-policy@2"
+      ],
+      "datasetProvenanceRef": "6f344380a1da69409e41659b4a2c841a0fb96fdeb9ffe5a9ebbb085facb4c27d",
+      "validSampleCount": 16,
+      "effectiveSampleCount": 16,
+      "sampleCountMethod": "aligned-pairs.v1",
+      "datasetDigest": "99523ca9ef0668515fab331cd601259a3af29ecf0198ff469d1aea38c057084d",
+      "datasetLifecycleState": "valid",
+      "retentionPolicyRef": "temporary copies deleted when the round closes",
+      "participantMode": "aggregatedSources",
+      "dropped": {
+       "dropped_unaligned": 0,
+       "dropped_gap": 0,
+       "dropped_duplicate": 0
+      },
+      "sim": true
+     },
+     "dataset_status": 201,
+     "profile": {
+      "participantId": "P-TFC-AGG",
+      "operationRef": "op-fl-1",
+      "clientAERef": "CflTfc",
+      "participantMode": "aggregatedSources",
+      "datasetRef": "ds-agg",
+      "datasetVersion": "1",
+      "sourceBindingRefs": [
+       "flSrc1",
+       "flSrc2"
+      ],
+      "representedSourceCount": 2,
+      "effectiveSampleCount": 16,
+      "sampleCountMethod": "aligned-pairs.v1",
+      "overlapPolicyRef": "a source's window is used once per dataset",
+      "weightingPolicyRef": "effectiveSampleCount",
+      "trainingTaskRefs": [
+       "op-fl-1-r1-P-TFC-AGG"
+      ],
+      "contributionStatus": "submitted",
+      "sim": true
+     }
+    },
+    {
+     "participantId": "P-NAT",
+     "verify": [],
+     "samples": 8,
+     "status": 201,
+     "read": {
+      "flNat": 200
+     },
+     "dataset": {
+      "datasetId": "ds-nat",
+      "datasetVersion": "1",
+      "sourceDescriptorRefs": [
+       "flNat"
+      ],
+      "processingProfileRef": "estimed.fl.env-slots.v1",
+      "processingPolicyVersionRefs": [
+       "own-data"
+      ],
+      "datasetProvenanceRef": "33964f966c4bf3b9a4ef298450d8a1a57eca848f73c3b120eb174161f95ec0aa",
+      "validSampleCount": 8,
+      "effectiveSampleCount": 8,
+      "sampleCountMethod": "aligned-pairs.v1",
+      "datasetDigest": "d7f2749b9d5d53da3127c3310f2db65ddf2580db305a6209853ae201c8181a7f",
+      "datasetLifecycleState": "valid",
+      "retentionPolicyRef": "temporary copies deleted when the round closes",
+      "participantMode": "singleSource",
+      "dropped": {
+       "dropped_unaligned": 0,
+       "dropped_gap": 0,
+       "dropped_duplicate": 0
+      },
+      "sim": true
+     },
+     "dataset_status": 201,
+     "profile": {
+      "participantId": "P-NAT",
+      "operationRef": "op-fl-1",
+      "clientAERef": "CflNat",
+      "participantMode": "singleSource",
+      "datasetRef": "ds-nat",
+      "datasetVersion": "1",
+      "sourceBindingRefs": [
+       "flNat"
+      ],
+      "representedSourceCount": 1,
+      "effectiveSampleCount": 8,
+      "sampleCountMethod": "aligned-pairs.v1",
+      "overlapPolicyRef": "a source's window is used once per dataset",
+      "weightingPolicyRef": "effectiveSampleCount",
+      "trainingTaskRefs": [
+       "op-fl-1-r1-P-NAT"
+      ],
+      "contributionStatus": "submitted",
+      "sim": true
+     }
+    }
+   ],
+   "uploads": [
+    {
+     "participantId": "P-TFC-AGG",
+     "status": 201,
+     "ty": 4,
+     "creator": "CflTfc",
+     "clientAERef": "CflTfc",
+     "updateDigest": "a3be496d95bd80bfaa756897e949b2bd730037005bafdaeb3b8b91de7b64be0a",
+     "taskId": "op-fl-1-r1-P-TFC-AGG",
+     "datasetRef": "ds-agg"
+    },
+    {
+     "participantId": "P-NAT",
+     "status": 201,
+     "ty": 4,
+     "creator": "CflNat",
+     "clientAERef": "CflNat",
+     "updateDigest": "1bdf3a9ce92c5a3c12c00637603dce6fd915f1dafe3dcacdfadc840fe927f9d9",
+     "taskId": "op-fl-1-r1-P-NAT",
+     "datasetRef": "ds-nat"
+    }
+   ],
+   "task_ids": [
+    "op-fl-1-r1-P-TFC-AGG",
+    "op-fl-1-r1-P-NAT"
+   ]
+  },
+  {
+   "round": 2,
+   "mode": "independentSources",
+   "reads": {
+    "flTfc": {
+     "status": 200,
+     "digest": "b5ede96f9fe93d04c53ea441659e32703a2e8f19b0231773356e46175fc6abb1"
+    }
+   },
+   "reads_after": {
+    "flTfc": {
+     "status": 200,
+     "digest": "42c6cdf4742f5d530e265715d620b59ca318830e88544b3e88aec4644dfe2190"
+    },
+    "flNat": {
+     "status": 200,
+     "digest": "42c6cdf4742f5d530e265715d620b59ca318830e88544b3e88aec4644dfe2190"
+    }
+   },
+   "temp": [
+    {
+     "ref": "flTfc/flTmp/ds-s1-v2",
+     "dataset": "ds-s1",
+     "created": 201,
+     "deleted": 200,
+     "readback": 404
+    },
+    {
+     "ref": "flTfc/flTmp/ds-s2-v2",
+     "dataset": "ds-s2",
+     "created": 201,
+     "deleted": 200,
+     "readback": 404
+    }
+   ],
+   "candidates": [
+    {
+     "participantId": "P-TFC-S1",
+     "clientAERef": "CflTfc",
+     "discovered": true,
+     "capability": {
+      "canTrain": true,
+      "enabled": true
+     },
+     "readiness": {
+      "applicationRunning": true,
+      "authorizedLocalDataAccessible": true,
+      "canAcceptTask": true,
+      "credentialsAndCoordinatorConfigured": true,
+      "frameworkInitialized": true,
+      "modelAccessible": true
+     },
+     "decision": "accepted",
+     "authorized": true
+    },
+    {
+     "participantId": "P-TFC-S2",
+     "clientAERef": "CflTfc",
+     "discovered": true,
+     "capability": {
+      "canTrain": true,
+      "enabled": true
+     },
+     "readiness": {
+      "applicationRunning": true,
+      "authorizedLocalDataAccessible": true,
+      "canAcceptTask": true,
+      "credentialsAndCoordinatorConfigured": true,
+      "frameworkInitialized": true,
+      "modelAccessible": true
+     },
+     "decision": "accepted",
+     "authorized": true
+    },
+    {
+     "participantId": "P-NAT",
+     "clientAERef": "CflNat",
+     "discovered": true,
+     "capability": {
+      "canTrain": true,
+      "enabled": true
+     },
+     "readiness": {
+      "applicationRunning": true,
+      "authorizedLocalDataAccessible": true,
+      "canAcceptTask": true,
+      "credentialsAndCoordinatorConfigured": true,
+      "frameworkInitialized": true,
+      "modelAccessible": true
+     },
+     "decision": "accepted",
+     "authorized": true
+    },
+    {
+     "participantId": "P-DEC",
+     "clientAERef": "CflDec",
+     "discovered": true,
+     "capability": {
+      "canTrain": true,
+      "enabled": true
+     },
+     "readiness": {
+      "applicationRunning": true,
+      "authorizedLocalDataAccessible": true,
+      "canAcceptTask": true,
+      "credentialsAndCoordinatorConfigured": true,
+      "frameworkInitialized": true,
+      "modelAccessible": true
+     },
+     "decision": "declined",
+     "authorized": true
+    }
+   ],
+   "capability_refs": {
+    "P-TFC-S1": "cse-mn-a/flTfc/flCap",
+    "P-TFC-S2": "cse-mn-a/flTfc/flCap",
+    "P-NAT": "cse-mn-a/flNat/flCap",
+    "P-DEC": "cse-mn-a/flDec/flCap"
+   },
+   "discovered": [
+    "cse-mn-a/flDec/flCap",
+    "cse-mn-a/flNat/flCap",
+    "cse-mn-a/flSrc1/flCap",
+    "cse-mn-a/flSrc2/flCap",
+    "cse-mn-a/flTfc/flCap"
+   ],
+   "selection": {
+    "selected": [
+     "P-NAT",
+     "P-TFC-S1",
+     "P-TFC-S2"
+    ],
+    "rejected": {
+     "P-DEC": [
+      "declined"
+     ]
+    },
+    "descriptors_match": [
+     "P-DEC",
+     "P-NAT",
+     "P-TFC-S1",
+     "P-TFC-S2"
+    ]
+   },
+   "selected": [
+    "P-NAT",
+    "P-TFC-S1",
+    "P-TFC-S2"
+   ],
+   "notifications": [
+    {
+     "endpoint": "flNat",
+     "taskId": "op-fl-1-r2-P-TFC-S1",
+     "selectedClient": "CflTfc",
+     "bytes": 1156
+    },
+    {
+     "endpoint": "flNat",
+     "taskId": "op-fl-1-r2-P-TFC-S2",
+     "selectedClient": "CflTfc",
+     "bytes": 1156
+    },
+    {
+     "endpoint": "flTfc",
+     "taskId": "op-fl-1-r2-P-TFC-S1",
+     "selectedClient": "CflTfc",
+     "bytes": 1156
+    },
+    {
+     "endpoint": "flTfc",
+     "taskId": "op-fl-1-r2-P-TFC-S2",
+     "selectedClient": "CflTfc",
+     "bytes": 1156
+    },
+    {
+     "endpoint": "flNat",
+     "taskId": "op-fl-1-r2-P-NAT",
+     "selectedClient": "CflNat",
+     "bytes": 1147
+    },
+    {
+     "endpoint": "flTfc",
+     "taskId": "op-fl-1-r2-P-NAT",
+     "selectedClient": "CflNat",
+     "bytes": 1147
+    }
+   ],
+   "replayed": {
+    "status": 201,
+    "updateDigest": "a3be496d95bd80bfaa756897e949b2bd730037005bafdaeb3b8b91de7b64be0a"
+   },
+   "collected": [
+    "6848a2d48125968ee271e79801f54cbee18c4880b9810f4110939bca59fa4b42",
+    "6d6912a4f47a8c63b75a5ad217ed48b817338c3b6c59b911f64be4430f13ae6d",
+    "a3be496d95bd80bfaa756897e949b2bd730037005bafdaeb3b8b91de7b64be0a"
+   ],
+   "source_state": {
+    "flSrc1": "active",
+    "flSrc2": "active",
+    "flNat": "active",
+    "flDec": "active"
+   },
+   "versions_before": [
+    "v1"
+   ],
+   "loss_before": 220,
+   "loss_after": 428,
+   "agg_published": 201,
+   "versions_after": [
+    "v1",
+    "v2"
+   ],
+   "record": {
+    "accepted": [
+     {
+      "created_ms": 1795106883675,
+      "delta": [
+       22,
+       72,
+       0
+      ],
+      "n": 17,
+      "participantId": "P-TFC-S1",
+      "updateDigest": "6848a2d48125968ee271e79801f54cbee18c4880b9810f4110939bca59fa4b42"
+     },
+     {
+      "created_ms": 1795106883730,
+      "delta": [
+       28,
+       55,
+       0
+      ],
+      "n": 17,
+      "participantId": "P-TFC-S2",
+      "updateDigest": "6d6912a4f47a8c63b75a5ad217ed48b817338c3b6c59b911f64be4430f13ae6d"
+     }
+    ],
+    "deadline_ms": 1795106887543,
+    "excluded": [
+     {
+      "participantId": "P-TFC-AGG",
+      "reasons": [
+       "unknown-task",
+       "wrong-round",
+       "stale-model",
+       "replay",
+       "not-selected"
+      ],
+      "updateDigest": "a3be496d95bd80bfaa756897e949b2bd730037005bafdaeb3b8b91de7b64be0a"
+     }
+    ],
+    "missing": [
+     {
+      "participantId": "P-NAT",
+      "reasons": [
+       "no-update-by-deadline"
+      ]
+     }
+    ],
+    "modelInDigest": "b5ede96f9fe93d04c53ea441659e32703a2e8f19b0231773356e46175fc6abb1",
+    "modelOutDigest": "42c6cdf4742f5d530e265715d620b59ca318830e88544b3e88aec4644dfe2190",
+    "operationRef": "op-fl-1",
+    "quorum": {
+     "accepted": 2,
+     "met": true,
+     "needed": 2,
+     "selected": 3
+    },
+    "round": 2,
+    "seen": [
+     "1bdf3a9ce92c5a3c12c00637603dce6fd915f1dafe3dcacdfadc840fe927f9d9",
+     "6848a2d48125968ee271e79801f54cbee18c4880b9810f4110939bca59fa4b42",
+     "6d6912a4f47a8c63b75a5ad217ed48b817338c3b6c59b911f64be4430f13ae6d",
+     "a3be496d95bd80bfaa756897e949b2bd730037005bafdaeb3b8b91de7b64be0a"
+    ],
+    "selected": [
+     "P-TFC-S1",
+     "P-TFC-S2",
+     "P-NAT"
+    ],
+    "sim": true,
+    "state": "COMPLETED",
+    "w_in": [
+     63,
+     158,
+     13
+    ],
+    "w_out": [
+     88,
+     222,
+     13
+    ],
+    "weightingBasis": "effectiveSampleCount"
+   },
+   "verify": [],
+   "redistributed": 201,
+   "time_s": 4.52133153702016,
+   "bytes": 28284,
+   "clients": [
+    {
+     "participantId": "P-TFC-S1",
+     "verify": [],
+     "samples": 17,
+     "status": 201,
+     "read": {
+      "flSrc1": 200
+     },
+     "dataset": {
+      "datasetId": "ds-s1",
+      "datasetVersion": "2",
+      "sourceDescriptorRefs": [
+       "flSrc1"
+      ],
+      "processingProfileRef": "estimed.fl.env-slots.v1",
+      "processingPolicyVersionRefs": [
+       "flSrc1-policy@1"
+      ],
+      "datasetProvenanceRef": "cfcbea5a2f6b9e4761ecdd5a5f2f355e00b99f462ec1f455838bc38910c5f1a1",
+      "validSampleCount": 17,
+      "effectiveSampleCount": 17,
+      "sampleCountMethod": "aligned-pairs.v1",
+      "datasetDigest": "30ca06aa706ee30788f1d076bba4dd119c862cff59e9de46a26aef43538fe76f",
+      "datasetLifecycleState": "valid",
+      "retentionPolicyRef": "temporary copies deleted when the round closes",
+      "participantMode": "independentSources",
+      "dropped": {
+       "dropped_unaligned": 0,
+       "dropped_gap": 0,
+       "dropped_duplicate": 0
+      },
+      "sim": true
+     },
+     "dataset_status": 201,
+     "profile": {
+      "participantId": "P-TFC-S1",
+      "operationRef": "op-fl-1",
+      "clientAERef": "CflTfc",
+      "participantMode": "independentSources",
+      "datasetRef": "ds-s1",
+      "datasetVersion": "2",
+      "sourceBindingRefs": [
+       "flSrc1"
+      ],
+      "representedSourceCount": 1,
+      "effectiveSampleCount": 17,
+      "sampleCountMethod": "aligned-pairs.v1",
+      "overlapPolicyRef": "a source's window is used once per dataset",
+      "weightingPolicyRef": "effectiveSampleCount",
+      "trainingTaskRefs": [
+       "op-fl-1-r2-P-TFC-S1"
+      ],
+      "contributionStatus": "submitted",
+      "sim": true
+     }
+    },
+    {
+     "participantId": "P-TFC-S2",
+     "verify": [],
+     "samples": 17,
+     "status": 201,
+     "read": {
+      "flSrc2": 200
+     },
+     "dataset": {
+      "datasetId": "ds-s2",
+      "datasetVersion": "2",
+      "sourceDescriptorRefs": [
+       "flSrc2"
+      ],
+      "processingProfileRef": "estimed.fl.env-slots.v1",
+      "processingPolicyVersionRefs": [
+       "flSrc2-policy@2"
+      ],
+      "datasetProvenanceRef": "cba0d83cc5e0c810c9a018f41a8f01b2ced13138f0ceb37e3c19888f3fff64ff",
+      "validSampleCount": 17,
+      "effectiveSampleCount": 17,
+      "sampleCountMethod": "aligned-pairs.v1",
+      "datasetDigest": "9a094b1697778aad033680f16f555212953bd88418ad7deb73a1ca3f4f151dec",
+      "datasetLifecycleState": "valid",
+      "retentionPolicyRef": "temporary copies deleted when the round closes",
+      "participantMode": "independentSources",
+      "dropped": {
+       "dropped_unaligned": 0,
+       "dropped_gap": 0,
+       "dropped_duplicate": 0
+      },
+      "sim": true
+     },
+     "dataset_status": 201,
+     "profile": {
+      "participantId": "P-TFC-S2",
+      "operationRef": "op-fl-1",
+      "clientAERef": "CflTfc",
+      "participantMode": "independentSources",
+      "datasetRef": "ds-s2",
+      "datasetVersion": "2",
+      "sourceBindingRefs": [
+       "flSrc2"
+      ],
+      "representedSourceCount": 1,
+      "effectiveSampleCount": 17,
+      "sampleCountMethod": "aligned-pairs.v1",
+      "overlapPolicyRef": "a source's window is used once per dataset",
+      "weightingPolicyRef": "effectiveSampleCount",
+      "trainingTaskRefs": [
+       "op-fl-1-r2-P-TFC-S2"
+      ],
+      "contributionStatus": "submitted",
+      "sim": true
+     }
+    },
+    {
+     "participantId": "P-NAT",
+     "dropped": true,
+     "why": "simulated dropout: no answer after the notification"
+    }
+   ],
+   "uploads": [
+    {
+     "participantId": "P-TFC-S1",
+     "status": 201,
+     "ty": 4,
+     "creator": "CflTfc",
+     "clientAERef": "CflTfc",
+     "updateDigest": "6848a2d48125968ee271e79801f54cbee18c4880b9810f4110939bca59fa4b42",
+     "taskId": "op-fl-1-r2-P-TFC-S1",
+     "datasetRef": "ds-s1"
+    },
+    {
+     "participantId": "P-TFC-S2",
+     "status": 201,
+     "ty": 4,
+     "creator": "CflTfc",
+     "clientAERef": "CflTfc",
+     "updateDigest": "6d6912a4f47a8c63b75a5ad217ed48b817338c3b6c59b911f64be4430f13ae6d",
+     "taskId": "op-fl-1-r2-P-TFC-S2",
+     "datasetRef": "ds-s2"
+    }
+   ],
+   "task_ids": [
+    "op-fl-1-r2-P-TFC-S1",
+    "op-fl-1-r2-P-TFC-S2",
+    "op-fl-1-r2-P-NAT"
+   ]
+  },
+  {
+   "round": 3,
+   "mode": "independentSources",
+   "reads": {
+    "flTfc": {
+     "status": 200,
+     "digest": "42c6cdf4742f5d530e265715d620b59ca318830e88544b3e88aec4644dfe2190"
+    },
+    "flNat": {
+     "status": 200,
+     "digest": "42c6cdf4742f5d530e265715d620b59ca318830e88544b3e88aec4644dfe2190"
+    }
+   },
+   "reads_after": {
+    "flTfc": {
+     "status": 200,
+     "digest": "803a379de26f5ab09ddb165d0dbc56bb799c33d323f698a9c8df56bbe52c9e15"
+    },
+    "flNat": {
+     "status": 200,
+     "digest": "803a379de26f5ab09ddb165d0dbc56bb799c33d323f698a9c8df56bbe52c9e15"
+    }
+   },
+   "temp": [
+    {
+     "ref": "flTfc/flTmp/ds-s1-v3",
+     "dataset": "ds-s1",
+     "created": 201,
+     "deleted": 200,
+     "readback": 404
+    },
+    {
+     "ref": "flTfc/flTmp/ds-s2-v3",
+     "dataset": "ds-s2",
+     "created": 201,
+     "deleted": 200,
+     "readback": 404
+    }
+   ],
+   "candidates": [
+    {
+     "participantId": "P-TFC-S1",
+     "clientAERef": "CflTfc",
+     "discovered": true,
+     "capability": {
+      "canTrain": true,
+      "enabled": true
+     },
+     "readiness": {
+      "applicationRunning": true,
+      "authorizedLocalDataAccessible": true,
+      "canAcceptTask": true,
+      "credentialsAndCoordinatorConfigured": true,
+      "frameworkInitialized": true,
+      "modelAccessible": true
+     },
+     "decision": "accepted",
+     "authorized": true
+    },
+    {
+     "participantId": "P-TFC-S2",
+     "clientAERef": "CflTfc",
+     "discovered": true,
+     "capability": {
+      "canTrain": true,
+      "enabled": true
+     },
+     "readiness": {
+      "applicationRunning": true,
+      "authorizedLocalDataAccessible": true,
+      "canAcceptTask": true,
+      "credentialsAndCoordinatorConfigured": true,
+      "frameworkInitialized": true,
+      "modelAccessible": true
+     },
+     "decision": "accepted",
+     "authorized": true
+    },
+    {
+     "participantId": "P-NAT",
+     "clientAERef": "CflNat",
+     "discovered": true,
+     "capability": {
+      "canTrain": true,
+      "enabled": true
+     },
+     "readiness": {
+      "applicationRunning": true,
+      "authorizedLocalDataAccessible": true,
+      "canAcceptTask": true,
+      "credentialsAndCoordinatorConfigured": true,
+      "frameworkInitialized": true,
+      "modelAccessible": true
+     },
+     "decision": "accepted",
+     "authorized": true
+    },
+    {
+     "participantId": "P-DEC",
+     "clientAERef": "CflDec",
+     "discovered": true,
+     "capability": {
+      "canTrain": true,
+      "enabled": true
+     },
+     "readiness": {
+      "applicationRunning": true,
+      "authorizedLocalDataAccessible": true,
+      "canAcceptTask": true,
+      "credentialsAndCoordinatorConfigured": true,
+      "frameworkInitialized": true,
+      "modelAccessible": true
+     },
+     "decision": "declined",
+     "authorized": true
+    }
+   ],
+   "capability_refs": {
+    "P-TFC-S1": "cse-mn-a/flTfc/flCap",
+    "P-TFC-S2": "cse-mn-a/flTfc/flCap",
+    "P-NAT": "cse-mn-a/flNat/flCap",
+    "P-DEC": "cse-mn-a/flDec/flCap"
+   },
+   "discovered": [
+    "cse-mn-a/flDec/flCap",
+    "cse-mn-a/flNat/flCap",
+    "cse-mn-a/flSrc1/flCap",
+    "cse-mn-a/flSrc2/flCap",
+    "cse-mn-a/flTfc/flCap"
+   ],
+   "selection": {
+    "selected": [
+     "P-NAT",
+     "P-TFC-S1",
+     "P-TFC-S2"
+    ],
+    "rejected": {
+     "P-DEC": [
+      "declined"
+     ]
+    },
+    "descriptors_match": [
+     "P-DEC",
+     "P-NAT",
+     "P-TFC-S1",
+     "P-TFC-S2"
+    ]
+   },
+   "selected": [
+    "P-NAT",
+    "P-TFC-S1",
+    "P-TFC-S2"
+   ],
+   "notifications": [
+    {
+     "endpoint": "flTfc",
+     "taskId": "op-fl-1-r3-P-TFC-S1",
+     "selectedClient": "CflTfc",
+     "bytes": 1156
+    },
+    {
+     "endpoint": "flNat",
+     "taskId": "op-fl-1-r3-P-TFC-S1",
+     "selectedClient": "CflTfc",
+     "bytes": 1156
+    },
+    {
+     "endpoint": "flNat",
+     "taskId": "op-fl-1-r3-P-TFC-S2",
+     "selectedClient": "CflTfc",
+     "bytes": 1156
+    },
+    {
+     "endpoint": "flTfc",
+     "taskId": "op-fl-1-r3-P-TFC-S2",
+     "selectedClient": "CflTfc",
+     "bytes": 1156
+    },
+    {
+     "endpoint": "flTfc",
+     "taskId": "op-fl-1-r3-P-NAT",
+     "selectedClient": "CflNat",
+     "bytes": 1147
+    },
+    {
+     "endpoint": "flNat",
+     "taskId": "op-fl-1-r3-P-NAT",
+     "selectedClient": "CflNat",
+     "bytes": 1147
+    }
+   ],
+   "revocation": {
+    "source": "flSrc2",
+    "affected": "P-TFC-S2",
+    "policy": 201,
+    "acp": 200,
+    "read_before": 200,
+    "read_after": 403,
+    "invalid_posted": 201,
+    "policy_version": "3"
+   },
+   "collected": [
+    "37c2bf2daba917d1548e478eae498877ac6c5255649b8bf64b9972c0aa3c648a",
+    "e8faf8734426cf463d1fef959618bef63fc52f8d0560281c399f4b13d27f0b3d",
+    "a5d87d4bd448d14d41775516194d187d0af3f44f0f3fd67ba1786d3701979cfc"
+   ],
+   "source_state": {
+    "flSrc1": "active",
+    "flSrc2": "revoked",
+    "flNat": "active",
+    "flDec": "active"
+   },
+   "versions_before": [
+    "v1",
+    "v2"
+   ],
+   "loss_before": 428,
+   "loss_after": 261,
+   "agg_published": 201,
+   "versions_after": [
+    "v1",
+    "v2",
+    "v3"
+   ],
+   "record": {
+    "accepted": [
+     {
+      "created_ms": 1795106888538,
+      "delta": [
+       -81,
+       -57,
+       18
+      ],
+      "n": 26,
+      "participantId": "P-NAT",
+      "updateDigest": "a5d87d4bd448d14d41775516194d187d0af3f44f0f3fd67ba1786d3701979cfc"
+     },
+     {
+      "created_ms": 1795106888412,
+      "delta": [
+       6,
+       5,
+       4
+      ],
+      "n": 26,
+      "participantId": "P-TFC-S1",
+      "updateDigest": "37c2bf2daba917d1548e478eae498877ac6c5255649b8bf64b9972c0aa3c648a"
+     }
+    ],
+    "deadline_ms": 1795106892261,
+    "excluded": [
+     {
+      "participantId": "P-TFC-S2",
+      "reasons": [
+       "dataset-invalid",
+       "source-revoked"
+      ],
+      "updateDigest": "e8faf8734426cf463d1fef959618bef63fc52f8d0560281c399f4b13d27f0b3d"
+     }
+    ],
+    "missing": [],
+    "modelInDigest": "42c6cdf4742f5d530e265715d620b59ca318830e88544b3e88aec4644dfe2190",
+    "modelOutDigest": "803a379de26f5ab09ddb165d0dbc56bb799c33d323f698a9c8df56bbe52c9e15",
+    "operationRef": "op-fl-1",
+    "quorum": {
+     "accepted": 2,
+     "met": true,
+     "needed": 2,
+     "selected": 3
+    },
+    "round": 3,
+    "seen": [
+     "1bdf3a9ce92c5a3c12c00637603dce6fd915f1dafe3dcacdfadc840fe927f9d9",
+     "37c2bf2daba917d1548e478eae498877ac6c5255649b8bf64b9972c0aa3c648a",
+     "6848a2d48125968ee271e79801f54cbee18c4880b9810f4110939bca59fa4b42",
+     "6d6912a4f47a8c63b75a5ad217ed48b817338c3b6c59b911f64be4430f13ae6d",
+     "a3be496d95bd80bfaa756897e949b2bd730037005bafdaeb3b8b91de7b64be0a",
+     "a5d87d4bd448d14d41775516194d187d0af3f44f0f3fd67ba1786d3701979cfc"
+    ],
+    "selected": [
+     "P-TFC-S1",
+     "P-TFC-S2",
+     "P-NAT"
+    ],
+    "sim": true,
+    "state": "COMPLETED",
+    "w_in": [
+     88,
+     222,
+     13
+    ],
+    "w_out": [
+     51,
+     196,
+     24
+    ],
+    "weightingBasis": "effectiveSampleCount"
+   },
+   "verify": [],
+   "redistributed": 201,
+   "time_s": 0.47694084100658074,
+   "bytes": 34037,
+   "clients": [
+    {
+     "participantId": "P-TFC-S1",
+     "verify": [],
+     "samples": 26,
+     "status": 201,
+     "read": {
+      "flSrc1": 200
+     },
+     "dataset": {
+      "datasetId": "ds-s1",
+      "datasetVersion": "3",
+      "sourceDescriptorRefs": [
+       "flSrc1"
+      ],
+      "processingProfileRef": "estimed.fl.env-slots.v1",
+      "processingPolicyVersionRefs": [
+       "flSrc1-policy@1"
+      ],
+      "datasetProvenanceRef": "06c9acfcb58eef919dba9f90501d9797424742a4daa212c80ca99973f751fd76",
+      "validSampleCount": 26,
+      "effectiveSampleCount": 26,
+      "sampleCountMethod": "aligned-pairs.v1",
+      "datasetDigest": "36305490ceb3c5c6af0477e6048787ce79817b7bd0db4737d22860c4f5348d09",
+      "datasetLifecycleState": "valid",
+      "retentionPolicyRef": "temporary copies deleted when the round closes",
+      "participantMode": "independentSources",
+      "dropped": {
+       "dropped_unaligned": 0,
+       "dropped_gap": 0,
+       "dropped_duplicate": 0
+      },
+      "sim": true
+     },
+     "dataset_status": 201,
+     "profile": {
+      "participantId": "P-TFC-S1",
+      "operationRef": "op-fl-1",
+      "clientAERef": "CflTfc",
+      "participantMode": "independentSources",
+      "datasetRef": "ds-s1",
+      "datasetVersion": "3",
+      "sourceBindingRefs": [
+       "flSrc1"
+      ],
+      "representedSourceCount": 1,
+      "effectiveSampleCount": 26,
+      "sampleCountMethod": "aligned-pairs.v1",
+      "overlapPolicyRef": "a source's window is used once per dataset",
+      "weightingPolicyRef": "effectiveSampleCount",
+      "trainingTaskRefs": [
+       "op-fl-1-r3-P-TFC-S1"
+      ],
+      "contributionStatus": "submitted",
+      "sim": true
+     }
+    },
+    {
+     "participantId": "P-TFC-S2",
+     "verify": [],
+     "samples": 26,
+     "status": 201,
+     "read": {
+      "flSrc2": 200
+     },
+     "dataset": {
+      "datasetId": "ds-s2",
+      "datasetVersion": "3",
+      "sourceDescriptorRefs": [
+       "flSrc2"
+      ],
+      "processingProfileRef": "estimed.fl.env-slots.v1",
+      "processingPolicyVersionRefs": [
+       "flSrc2-policy@2"
+      ],
+      "datasetProvenanceRef": "12fe8a27d857dfa16d12586379c7ecc48c5bb13b746699498158b17a91a885d2",
+      "validSampleCount": 26,
+      "effectiveSampleCount": 26,
+      "sampleCountMethod": "aligned-pairs.v1",
+      "datasetDigest": "47d4074053496236f00b1fa209e10e9ebe188dbbc149ca4b0d497f8c82d95753",
+      "datasetLifecycleState": "valid",
+      "retentionPolicyRef": "temporary copies deleted when the round closes",
+      "participantMode": "independentSources",
+      "dropped": {
+       "dropped_unaligned": 0,
+       "dropped_gap": 0,
+       "dropped_duplicate": 0
+      },
+      "sim": true
+     },
+     "dataset_status": 201,
+     "profile": {
+      "participantId": "P-TFC-S2",
+      "operationRef": "op-fl-1",
+      "clientAERef": "CflTfc",
+      "participantMode": "independentSources",
+      "datasetRef": "ds-s2",
+      "datasetVersion": "3",
+      "sourceBindingRefs": [
+       "flSrc2"
+      ],
+      "representedSourceCount": 1,
+      "effectiveSampleCount": 26,
+      "sampleCountMethod": "aligned-pairs.v1",
+      "overlapPolicyRef": "a source's window is used once per dataset",
+      "weightingPolicyRef": "effectiveSampleCount",
+      "trainingTaskRefs": [
+       "op-fl-1-r3-P-TFC-S2"
+      ],
+      "contributionStatus": "submitted",
+      "sim": true
+     }
+    },
+    {
+     "participantId": "P-NAT",
+     "verify": [],
+     "samples": 26,
+     "status": 201,
+     "read": {
+      "flNat": 200
+     },
+     "dataset": {
+      "datasetId": "ds-nat",
+      "datasetVersion": "3",
+      "sourceDescriptorRefs": [
+       "flNat"
+      ],
+      "processingProfileRef": "estimed.fl.env-slots.v1",
+      "processingPolicyVersionRefs": [
+       "own-data"
+      ],
+      "datasetProvenanceRef": "91aee9976dc248d01d9917bfc709e6e2a580f559ce18426d73fea28371175d17",
+      "validSampleCount": 26,
+      "effectiveSampleCount": 26,
+      "sampleCountMethod": "aligned-pairs.v1",
+      "datasetDigest": "ffb8cbe269de233fa30bdf97581f61f0ef15a0bb4e8160fd335876aeeab06aa5",
+      "datasetLifecycleState": "valid",
+      "retentionPolicyRef": "temporary copies deleted when the round closes",
+      "participantMode": "singleSource",
+      "dropped": {
+       "dropped_unaligned": 0,
+       "dropped_gap": 0,
+       "dropped_duplicate": 0
+      },
+      "sim": true
+     },
+     "dataset_status": 201,
+     "profile": {
+      "participantId": "P-NAT",
+      "operationRef": "op-fl-1",
+      "clientAERef": "CflNat",
+      "participantMode": "singleSource",
+      "datasetRef": "ds-nat",
+      "datasetVersion": "3",
+      "sourceBindingRefs": [
+       "flNat"
+      ],
+      "representedSourceCount": 1,
+      "effectiveSampleCount": 26,
+      "sampleCountMethod": "aligned-pairs.v1",
+      "overlapPolicyRef": "a source's window is used once per dataset",
+      "weightingPolicyRef": "effectiveSampleCount",
+      "trainingTaskRefs": [
+       "op-fl-1-r3-P-NAT"
+      ],
+      "contributionStatus": "submitted",
+      "sim": true
+     }
+    }
+   ],
+   "uploads": [
+    {
+     "participantId": "P-TFC-S1",
+     "status": 201,
+     "ty": 4,
+     "creator": "CflTfc",
+     "clientAERef": "CflTfc",
+     "updateDigest": "37c2bf2daba917d1548e478eae498877ac6c5255649b8bf64b9972c0aa3c648a",
+     "taskId": "op-fl-1-r3-P-TFC-S1",
+     "datasetRef": "ds-s1"
+    },
+    {
+     "participantId": "P-TFC-S2",
+     "status": 201,
+     "ty": 4,
+     "creator": "CflTfc",
+     "clientAERef": "CflTfc",
+     "updateDigest": "e8faf8734426cf463d1fef959618bef63fc52f8d0560281c399f4b13d27f0b3d",
+     "taskId": "op-fl-1-r3-P-TFC-S2",
+     "datasetRef": "ds-s2"
+    },
+    {
+     "participantId": "P-NAT",
+     "status": 201,
+     "ty": 4,
+     "creator": "CflNat",
+     "clientAERef": "CflNat",
+     "updateDigest": "a5d87d4bd448d14d41775516194d187d0af3f44f0f3fd67ba1786d3701979cfc",
+     "taskId": "op-fl-1-r3-P-NAT",
+     "datasetRef": "ds-nat"
+    }
+   ],
+   "task_ids": [
+    "op-fl-1-r3-P-TFC-S1",
+    "op-fl-1-r3-P-TFC-S2",
+    "op-fl-1-r3-P-NAT"
+   ]
+  },
+  {
+   "round": 4,
+   "mode": "independentSources",
+   "reads": {
+    "flTfc": {
+     "status": 200,
+     "digest": "803a379de26f5ab09ddb165d0dbc56bb799c33d323f698a9c8df56bbe52c9e15"
+    },
+    "flNat": {
+     "status": 200,
+     "digest": "803a379de26f5ab09ddb165d0dbc56bb799c33d323f698a9c8df56bbe52c9e15"
+    }
+   },
+   "reads_after": {},
+   "temp": [
+    {
+     "ref": "flTfc/flTmp/ds-s1-v4",
+     "dataset": "ds-s1",
+     "created": 201,
+     "deleted": 200,
+     "readback": 404
+    }
+   ],
+   "candidates": [
+    {
+     "participantId": "P-TFC-S1",
+     "clientAERef": "CflTfc",
+     "discovered": true,
+     "capability": {
+      "canTrain": true,
+      "enabled": true
+     },
+     "readiness": {
+      "applicationRunning": true,
+      "authorizedLocalDataAccessible": true,
+      "canAcceptTask": true,
+      "credentialsAndCoordinatorConfigured": true,
+      "frameworkInitialized": true,
+      "modelAccessible": true
+     },
+     "decision": "accepted",
+     "authorized": true
+    },
+    {
+     "participantId": "P-TFC-S2",
+     "clientAERef": "CflTfc",
+     "discovered": true,
+     "capability": {
+      "canTrain": true,
+      "enabled": true
+     },
+     "readiness": {
+      "applicationRunning": true,
+      "authorizedLocalDataAccessible": true,
+      "canAcceptTask": true,
+      "credentialsAndCoordinatorConfigured": true,
+      "frameworkInitialized": true,
+      "modelAccessible": true
+     },
+     "decision": "accepted",
+     "authorized": false
+    },
+    {
+     "participantId": "P-NAT",
+     "clientAERef": "CflNat",
+     "discovered": true,
+     "capability": {
+      "canTrain": true,
+      "enabled": true
+     },
+     "readiness": {
+      "applicationRunning": true,
+      "authorizedLocalDataAccessible": true,
+      "canAcceptTask": true,
+      "credentialsAndCoordinatorConfigured": true,
+      "frameworkInitialized": true,
+      "modelAccessible": true
+     },
+     "decision": "accepted",
+     "authorized": true
+    },
+    {
+     "participantId": "P-DEC",
+     "clientAERef": "CflDec",
+     "discovered": true,
+     "capability": {
+      "canTrain": true,
+      "enabled": true
+     },
+     "readiness": {
+      "applicationRunning": true,
+      "authorizedLocalDataAccessible": true,
+      "canAcceptTask": true,
+      "credentialsAndCoordinatorConfigured": true,
+      "frameworkInitialized": true,
+      "modelAccessible": true
+     },
+     "decision": "declined",
+     "authorized": true
+    }
+   ],
+   "capability_refs": {
+    "P-TFC-S1": "cse-mn-a/flTfc/flCap",
+    "P-TFC-S2": "cse-mn-a/flTfc/flCap",
+    "P-NAT": "cse-mn-a/flNat/flCap",
+    "P-DEC": "cse-mn-a/flDec/flCap"
+   },
+   "discovered": [
+    "cse-mn-a/flDec/flCap",
+    "cse-mn-a/flNat/flCap",
+    "cse-mn-a/flSrc1/flCap",
+    "cse-mn-a/flSrc2/flCap",
+    "cse-mn-a/flTfc/flCap"
+   ],
+   "selection": {
+    "selected": [
+     "P-NAT",
+     "P-TFC-S1"
+    ],
+    "rejected": {
+     "P-DEC": [
+      "declined"
+     ],
+     "P-TFC-S2": [
+      "not-authorized"
+     ]
+    },
+    "descriptors_match": [
+     "P-DEC",
+     "P-NAT",
+     "P-TFC-S1"
+    ]
+   },
+   "selected": [
+    "P-NAT",
+    "P-TFC-S1"
+   ],
+   "notifications": [
+    {
+     "endpoint": "flTfc",
+     "taskId": "op-fl-1-r4-P-TFC-S1",
+     "selectedClient": "CflTfc",
+     "bytes": 1156
+    },
+    {
+     "endpoint": "flNat",
+     "taskId": "op-fl-1-r4-P-NAT",
+     "selectedClient": "CflNat",
+     "bytes": 1148
+    },
+    {
+     "endpoint": "flNat",
+     "taskId": "op-fl-1-r4-P-TFC-S1",
+     "selectedClient": "CflTfc",
+     "bytes": 1156
+    },
+    {
+     "endpoint": "flTfc",
+     "taskId": "op-fl-1-r4-P-NAT",
+     "selectedClient": "CflNat",
+     "bytes": 1148
+    }
+   ],
+   "collected": [
+    "46fa67699a88188d55671235bc3c4a809670b44d6b71f3afb08f5706f8c93aef",
+    "86fa6b5f788ff005244a2c13bfd6358fbb00cea82d99c025ff7b92ec17799823"
+   ],
+   "source_state": {
+    "flSrc1": "active",
+    "flSrc2": "revoked",
+    "flNat": "active",
+    "flDec": "active"
+   },
+   "versions_before": [
+    "v1",
+    "v2",
+    "v3"
+   ],
+   "versions_after": [
+    "v1",
+    "v2",
+    "v3"
+   ],
+   "record": {
+    "accepted": [
+     {
+      "created_ms": 1795106889013,
+      "delta": [
+       -45,
+       -42,
+       12
+      ],
+      "n": 26,
+      "participantId": "P-NAT",
+      "updateDigest": "86fa6b5f788ff005244a2c13bfd6358fbb00cea82d99c025ff7b92ec17799823"
+     }
+    ],
+    "deadline_ms": 1795106892811,
+    "excluded": [
+     {
+      "participantId": "P-TFC-S1",
+      "reasons": [
+       "out-of-bound"
+      ],
+      "updateDigest": "46fa67699a88188d55671235bc3c4a809670b44d6b71f3afb08f5706f8c93aef"
+     }
+    ],
+    "missing": [],
+    "modelInDigest": "803a379de26f5ab09ddb165d0dbc56bb799c33d323f698a9c8df56bbe52c9e15",
+    "modelOutDigest": null,
+    "operationRef": "op-fl-1",
+    "quorum": {
+     "accepted": 1,
+     "met": false,
+     "needed": 2,
+     "selected": 2
+    },
+    "round": 4,
+    "seen": [
+     "1bdf3a9ce92c5a3c12c00637603dce6fd915f1dafe3dcacdfadc840fe927f9d9",
+     "37c2bf2daba917d1548e478eae498877ac6c5255649b8bf64b9972c0aa3c648a",
+     "6848a2d48125968ee271e79801f54cbee18c4880b9810f4110939bca59fa4b42",
+     "6d6912a4f47a8c63b75a5ad217ed48b817338c3b6c59b911f64be4430f13ae6d",
+     "86fa6b5f788ff005244a2c13bfd6358fbb00cea82d99c025ff7b92ec17799823",
+     "a3be496d95bd80bfaa756897e949b2bd730037005bafdaeb3b8b91de7b64be0a",
+     "a5d87d4bd448d14d41775516194d187d0af3f44f0f3fd67ba1786d3701979cfc"
+    ],
+    "selected": [
+     "P-TFC-S1",
+     "P-NAT"
+    ],
+    "sim": true,
+    "state": "FAILED_QUORUM",
+    "w_in": [
+     51,
+     196,
+     24
+    ],
+    "w_out": null,
+    "weightingBasis": "effectiveSampleCount"
+   },
+   "verify": [],
+   "time_s": 0.3802668639982585,
+   "bytes": 33698,
+   "clients": [
+    {
+     "participantId": "P-TFC-S1",
+     "verify": [],
+     "samples": 26,
+     "status": 201,
+     "read": {
+      "flSrc1": 200
+     },
+     "dataset": {
+      "datasetId": "ds-s1",
+      "datasetVersion": "4",
+      "sourceDescriptorRefs": [
+       "flSrc1"
+      ],
+      "processingProfileRef": "estimed.fl.env-slots.v1",
+      "processingPolicyVersionRefs": [
+       "flSrc1-policy@1"
+      ],
+      "datasetProvenanceRef": "06c9acfcb58eef919dba9f90501d9797424742a4daa212c80ca99973f751fd76",
+      "validSampleCount": 26,
+      "effectiveSampleCount": 26,
+      "sampleCountMethod": "aligned-pairs.v1",
+      "datasetDigest": "36305490ceb3c5c6af0477e6048787ce79817b7bd0db4737d22860c4f5348d09",
+      "datasetLifecycleState": "valid",
+      "retentionPolicyRef": "temporary copies deleted when the round closes",
+      "participantMode": "independentSources",
+      "dropped": {
+       "dropped_unaligned": 0,
+       "dropped_gap": 0,
+       "dropped_duplicate": 0
+      },
+      "sim": true
+     },
+     "dataset_status": 201,
+     "profile": {
+      "participantId": "P-TFC-S1",
+      "operationRef": "op-fl-1",
+      "clientAERef": "CflTfc",
+      "participantMode": "independentSources",
+      "datasetRef": "ds-s1",
+      "datasetVersion": "4",
+      "sourceBindingRefs": [
+       "flSrc1"
+      ],
+      "representedSourceCount": 1,
+      "effectiveSampleCount": 26,
+      "sampleCountMethod": "aligned-pairs.v1",
+      "overlapPolicyRef": "a source's window is used once per dataset",
+      "weightingPolicyRef": "effectiveSampleCount",
+      "trainingTaskRefs": [
+       "op-fl-1-r4-P-TFC-S1"
+      ],
+      "contributionStatus": "submitted",
+      "sim": true
+     }
+    },
+    {
+     "participantId": "P-NAT",
+     "verify": [],
+     "samples": 26,
+     "status": 201,
+     "read": {
+      "flNat": 200
+     },
+     "dataset": {
+      "datasetId": "ds-nat",
+      "datasetVersion": "4",
+      "sourceDescriptorRefs": [
+       "flNat"
+      ],
+      "processingProfileRef": "estimed.fl.env-slots.v1",
+      "processingPolicyVersionRefs": [
+       "own-data"
+      ],
+      "datasetProvenanceRef": "91aee9976dc248d01d9917bfc709e6e2a580f559ce18426d73fea28371175d17",
+      "validSampleCount": 26,
+      "effectiveSampleCount": 26,
+      "sampleCountMethod": "aligned-pairs.v1",
+      "datasetDigest": "ffb8cbe269de233fa30bdf97581f61f0ef15a0bb4e8160fd335876aeeab06aa5",
+      "datasetLifecycleState": "valid",
+      "retentionPolicyRef": "temporary copies deleted when the round closes",
+      "participantMode": "singleSource",
+      "dropped": {
+       "dropped_unaligned": 0,
+       "dropped_gap": 0,
+       "dropped_duplicate": 0
+      },
+      "sim": true
+     },
+     "dataset_status": 201,
+     "profile": {
+      "participantId": "P-NAT",
+      "operationRef": "op-fl-1",
+      "clientAERef": "CflNat",
+      "participantMode": "singleSource",
+      "datasetRef": "ds-nat",
+      "datasetVersion": "4",
+      "sourceBindingRefs": [
+       "flNat"
+      ],
+      "representedSourceCount": 1,
+      "effectiveSampleCount": 26,
+      "sampleCountMethod": "aligned-pairs.v1",
+      "overlapPolicyRef": "a source's window is used once per dataset",
+      "weightingPolicyRef": "effectiveSampleCount",
+      "trainingTaskRefs": [
+       "op-fl-1-r4-P-NAT"
+      ],
+      "contributionStatus": "submitted",
+      "sim": true
+     }
+    }
+   ],
+   "uploads": [
+    {
+     "participantId": "P-TFC-S1",
+     "status": 201,
+     "ty": 4,
+     "creator": "CflTfc",
+     "clientAERef": "CflTfc",
+     "updateDigest": "46fa67699a88188d55671235bc3c4a809670b44d6b71f3afb08f5706f8c93aef",
+     "taskId": "op-fl-1-r4-P-TFC-S1",
+     "datasetRef": "ds-s1"
+    },
+    {
+     "participantId": "P-NAT",
+     "status": 201,
+     "ty": 4,
+     "creator": "CflNat",
+     "clientAERef": "CflNat",
+     "updateDigest": "86fa6b5f788ff005244a2c13bfd6358fbb00cea82d99c025ff7b92ec17799823",
+     "taskId": "op-fl-1-r4-P-NAT",
+     "datasetRef": "ds-nat"
+    }
+   ],
+   "task_ids": [
+    "op-fl-1-r4-P-TFC-S1",
+    "op-fl-1-r4-P-NAT"
+   ]
+  }
+ ],
+ "cleanup": {
+  "sub flSub-flNat": 200,
+  "sub flSub-flTfc": 200,
+  "flTfc2": 200,
+  "flDec": 200,
+  "flNat": 200,
+  "flTfc": 200,
+  "flSrc2": 200,
+  "flSrc1": 200,
+  "flAgg": 200,
+  "flOrch": 200,
+  "left_on_the_CSEs": [],
+  "mec011_confirm_termination": 204,
+  "mec011_service": 204,
+  "mec011_registration": 204,
+  "mec011_process": "started by this run and stopped"
+ },
+ "run": {
+  "argv": [
+   "/home/edgefollow/edgefollow-lab/.venv/bin/python",
+   "estimed_poc/fl_run.py",
+   "--sources",
+   "/home/edgefollow/estimed-run/sitting_b/fl_capture_1.json",
+   "--prereg-sha256",
+   "6b10749058c77ab26ee43412e48fca2412f18f07a4720a6ecfe6f30fd293a18e",
+   "--go",
+   "6b107490"
+  ],
+  "cwd": "/home/edgefollow/edgefollow",
+  "commit": "971d8718295a81734229594e4c43cfcbd0a2c753",
+  "uncommitted_paths": 4,
+  "files_sha256": {
+   "phone/estimed_poc2.py": "6948ea68df922f10c12628d8221bdcdd353686dda4c542650046320c54cb5e34",
+   "phone/estimed_poc.py": "12a721a6589e5d9df74ee62a5a1167af99b48cfc7eaf173081ac9d764c2210f9",
+   "phone/sim_phone.py": "bb408c167c0ec00409606e35b9f08e2135c618cb1d1ef6a85586f07c97ef3d74",
+   "phone/mec012_phone.py": "011d4870efc71dbe42bb7414ba55e93f4e2371c48d094ced17c110b426b6a62c",
+   "phone/mec013_phone.py": "ecc26a8eb65b5d9c5ea089b3ebc2313af2d7f8c84ea3b7507e225be8621d2344",
+   "phone/device_state.py": "12edbe8121543d7d459090601d3578e3fb7b6195a79b52c0a2e1a0c50ac524c9",
+   "phone/onem2m_acp.py": "2e70112dc67ebebade1c5ae248b0a1e03bafcbad844178fa0e80096a3b72925f",
+   "estimed/handover.py": "f1ed29421427e521b715efb341a3105f1b7ca39443aec3591545d06e5e356d4a",
+   "estimed/scenario.py": "7f78beccb019f576293124fbc52d8215078b0037e6072616dfc27e8be100a070",
+   "demo/mec040.py": "c314fb13b0022f01542a1e4326b50744a48c1840ddf3a1c6e578fbacfa1ac96d",
+   "estimed_poc/orchestrator.py": "ec17455e5d9978b9d966b8cc0263974a300d2dd98d4620fa234cd6364160d6fa",
+   "estimed_poc/district_app.py": "e80a39275867320d82e3d39c80480b0a8c062e902355e1ee44704ced8822d293",
+   "estimed_poc/mec011_district.py": "db93a150369fbd4b60b1282ca3915f967222fb601ed26d83e604f2b4b6765f33",
+   "/home/edgefollow/edgefollow/mec011_appsupport/candidate.py": "a36e1616b75d97da18f5193445aa2ce1701a681ee871ec11ca4e3f580b706534",
+   "estimed_poc/fl_core.py": "1191aae38b9741b5b03b07343683ea7b519837523c943834327b6cad42af4b9b",
+   "estimed_poc/fl_run.py": "667143a49d520af1c75c746382d7c3ed0d9423f3fa2731538c7e9bb1e799ee99",
+   "estimed_poc/test_fl.py": "b7170188b33225dcf5cc57c0c222a67e0346cc669f9a29db0ccc24ddc18c82e4",
+   "estimed_poc/fl_capture.py": "fbb85a57d7dd865b443a9f619ee71973cc86f27513ed2de303fd2a0e97b61711"
+  },
+  "acme": "2026.5.3",
+  "at_utc": "2026-11-19T16:48:09Z",
+  "python": {
+   "version": "3.13.15",
+   "executable": "/usr/bin/python3.13",
+   "sha256": "aa7caff7dcabb09abdb8610f820186e71064351711eeb4882328705c33878f8f"
+  }
+ },
+ "raw": {
+  "requests": 546,
+  "leftovers_removed_at_start": [],
+  "trace_format": "n originator operation target ty=type -> HTTP status, bytes of request plus response body, 'edge-cloud' if counted as such | purpose",
+  "trace": [
+   "1 CAdmin GET cse-in ty=- -> 200 743B | topology check",
+   "2 CAdmin GET cse-mn-a ty=- -> 200 751B | topology check",
+   "3 CAdmin GET cse-mn-b ty=- -> 200 751B | topology check",
+   "4 CAdmin GET cse-in/flOrch ty=- -> 404 54B | leftover check",
+   "5 CAdmin GET cse-mn-a/flAgg ty=- -> 404 55B | leftover check",
+   "6 CAdmin GET cse-mn-a/flTfc ty=- -> 404 55B | leftover check",
+   "7 CAdmin GET cse-mn-b/flTfc2 ty=- -> 404 56B | leftover check",
+   "8 CAdmin GET cse-mn-a/flNat ty=- -> 404 55B | leftover check",
+   "9 CAdmin GET cse-mn-a/flDec ty=- -> 404 55B | leftover check",
+   "10 CAdmin GET cse-mn-a/flSrc1 ty=- -> 404 56B | leftover check",
+   "11 CAdmin GET cse-mn-a/flSrc2 ty=- -> 404 56B | leftover check",
+   "12 CAdmin GET cse-in/flOrch ty=- -> 404 54B",
+   "13 CAdmin GET cse-mn-a/flAgg ty=- -> 404 55B",
+   "14 CAdmin GET cse-mn-a/flTfc ty=- -> 404 55B",
+   "15 CAdmin GET cse-mn-b/flTfc2 ty=- -> 404 56B",
+   "16 CAdmin GET cse-mn-a/flNat ty=- -> 404 55B",
+   "17 CAdmin GET cse-mn-a/flDec ty=- -> 404 55B",
+   "18 CAdmin GET cse-mn-a/flSrc1 ty=- -> 404 56B",
+   "19 CAdmin GET cse-mn-a/flSrc2 ty=- -> 404 56B",
+   "20 CflOrch POST cse-in ty=2 -> 201 441B | register flOrch",
+   "21 CflOrch POST cse-in/flOrch ty=1 -> 201 569B | flOrch access policy (meta)",
+   "22 CflOrch POST cse-in/flOrch ty=1 -> 201 419B | flOrch access policy (data)",
+   "23 CflOrch PUT cse-in/flOrch ty=- -> 200 364B | flOrch: metadata policy on the AE",
+   "24 CflOrch POST cse-in/flOrch ty=3 -> 201 280B | flOrch/ops",
+   "25 CflOrch POST cse-in/flOrch ty=3 -> 201 284B | flOrch/tasks",
+   "26 CflOrch POST cse-in/flOrch ty=3 -> 201 284B | flOrch/model",
+   "27 CflOrch POST cse-in/flOrch ty=3 -> 201 286B | flOrch/deploy",
+   "28 CflAgg POST cse-mn-a ty=2 -> 201 435B | register flAgg",
+   "29 CflAgg POST cse-mn-a/flAgg ty=1 -> 201 544B | flAgg access policy (meta)",
+   "30 CflAgg POST cse-mn-a/flAgg ty=1 -> 201 500B | flAgg access policy (data)",
+   "31 CflAgg PUT cse-mn-a/flAgg ty=- -> 200 361B | flAgg: metadata policy on the AE",
+   "32 CflAgg POST cse-mn-a/flAgg ty=3 -> 201 287B | flAgg/updates",
+   "33 CflAgg POST cse-mn-a/flAgg ty=3 -> 201 285B | flAgg/models",
+   "34 CflAgg POST cse-mn-a/flAgg ty=3 -> 201 285B | flAgg/rounds",
+   "35 CflSrc1 POST cse-mn-a ty=2 -> 201 441B | register flSrc1",
+   "36 CflSrc1 POST cse-mn-a/flSrc1 ty=1 -> 201 623B | flSrc1 access policy (meta)",
+   "37 CflSrc1 POST cse-mn-a/flSrc1 ty=1 -> 201 443B | flSrc1 access policy (data)",
+   "38 CflSrc1 PUT cse-mn-a/flSrc1 ty=- -> 200 365B | flSrc1: metadata policy on the AE",
+   "39 CflSrc1 POST cse-mn-a/flSrc1 ty=3 -> 201 280B | flSrc1/env",
+   "40 CflSrc1 POST cse-mn-a/flSrc1 ty=3 -> 201 286B | flSrc1/flMeta",
+   "41 CflSrc1 POST cse-mn-a/flSrc1 ty=3 -> 201 290B | flSrc1/flPolicy",
+   "42 CflSrc1 POST cse-mn-a/flSrc1 ty=28 -> 201 685B | flSrc1/flCap (capability profile)",
+   "43 CflSrc1 POST cse-mn-a/flSrc1 ty=28 -> 201 555B | flSrc1/flCompute (capability profile)",
+   "44 CflSrc2 POST cse-mn-a ty=2 -> 201 441B | register flSrc2",
+   "45 CflSrc2 POST cse-mn-a/flSrc2 ty=1 -> 201 623B | flSrc2 access policy (meta)",
+   "46 CflSrc2 POST cse-mn-a/flSrc2 ty=1 -> 201 443B | flSrc2 access policy (data)",
+   "47 CflSrc2 PUT cse-mn-a/flSrc2 ty=- -> 200 365B | flSrc2: metadata policy on the AE",
+   "48 CflSrc2 POST cse-mn-a/flSrc2 ty=3 -> 201 280B | flSrc2/env",
+   "49 CflSrc2 POST cse-mn-a/flSrc2 ty=3 -> 201 286B | flSrc2/flMeta",
+   "50 CflSrc2 POST cse-mn-a/flSrc2 ty=3 -> 201 290B | flSrc2/flPolicy",
+   "51 CflSrc2 POST cse-mn-a/flSrc2 ty=28 -> 201 685B | flSrc2/flCap (capability profile)",
+   "52 CflSrc2 POST cse-mn-a/flSrc2 ty=28 -> 201 555B | flSrc2/flCompute (capability profile)",
+   "53 CflTfc POST cse-mn-a ty=2 -> 201 529B | register flTfc",
+   "54 CflTfc POST cse-mn-a/flTfc ty=1 -> 201 552B | flTfc access policy (meta)",
+   "55 CflTfc POST cse-mn-a/flTfc ty=1 -> 201 414B | flTfc access policy (data)",
+   "56 CflTfc PUT cse-mn-a/flTfc ty=- -> 200 408B | flTfc: metadata policy on the AE",
+   "57 CflTfc POST cse-mn-a/flTfc ty=3 -> 201 285B | flTfc/flMeta",
+   "58 CflTfc POST cse-mn-a/flTfc ty=3 -> 201 289B | flTfc/flStatus",
+   "59 CflTfc POST cse-mn-a/flTfc ty=3 -> 201 283B | flTfc/flTmp",
+   "60 CflTfc POST cse-mn-a/flTfc ty=28 -> 201 676B | flTfc/flCap (capability profile)",
+   "61 CflTfc POST cse-mn-a/flTfc ty=28 -> 201 596B | flTfc/flCompute (capability profile)",
+   "62 CflNat POST cse-mn-a ty=2 -> 201 427B | register flNat",
+   "63 CflNat POST cse-mn-a/flNat ty=1 -> 201 504B | flNat access policy (meta)",
+   "64 CflNat POST cse-mn-a/flNat ty=1 -> 201 414B | flNat access policy (data)",
+   "65 CflNat PUT cse-mn-a/flNat ty=- -> 200 357B | flNat: metadata policy on the AE",
+   "66 CflNat POST cse-mn-a/flNat ty=3 -> 201 279B | flNat/env",
+   "67 CflNat POST cse-mn-a/flNat ty=3 -> 201 285B | flNat/flMeta",
+   "68 CflNat POST cse-mn-a/flNat ty=3 -> 201 289B | flNat/flStatus",
+   "69 CflNat POST cse-mn-a/flNat ty=28 -> 201 666B | flNat/flCap (capability profile)",
+   "70 CflNat POST cse-mn-a/flNat ty=28 -> 201 592B | flNat/flCompute (capability profile)",
+   "71 CflDec POST cse-mn-a ty=2 -> 201 427B | register flDec",
+   "72 CflDec POST cse-mn-a/flDec ty=1 -> 201 504B | flDec access policy (meta)",
+   "73 CflDec POST cse-mn-a/flDec ty=1 -> 201 414B | flDec access policy (data)",
+   "74 CflDec PUT cse-mn-a/flDec ty=- -> 200 357B | flDec: metadata policy on the AE",
+   "75 CflDec POST cse-mn-a/flDec ty=3 -> 201 279B | flDec/env",
+   "76 CflDec POST cse-mn-a/flDec ty=3 -> 201 285B | flDec/flMeta",
+   "77 CflDec POST cse-mn-a/flDec ty=3 -> 201 289B | flDec/flStatus",
+   "78 CflDec POST cse-mn-a/flDec ty=28 -> 201 666B | flDec/flCap (capability profile)",
+   "79 CflDec POST cse-mn-a/flDec ty=28 -> 201 592B | flDec/flCompute (capability profile)",
+   "80 CflSrc1 POST cse-mn-a/flSrc1/flMeta ty=4 -> 201 1551B | data suitability description",
+   "81 CflSrc2 POST cse-mn-a/flSrc2/flMeta ty=4 -> 201 1551B | data suitability description",
+   "82 CflSrc1 POST cse-mn-a/flSrc1/env ty=4 -> 201 637B | a captured device observation, posted by the host bridge",
+   "83 CflSrc1 POST cse-mn-a/flSrc1/env ty=4 -> 201 516B | a captured device observation, posted by the host bridge",
+   "84 CflSrc1 POST cse-mn-a/flSrc1/env ty=4 -> 201 516B | a captured device observation, posted by the host bridge",
+   "85 CflSrc1 POST cse-mn-a/flSrc1/env ty=4 -> 201 516B | a captured device observation, posted by the host bridge",
+   "86 CflSrc1 POST cse-mn-a/flSrc1/env ty=4 -> 201 516B | a captured device observation, posted by the host bridge",
+   "87 CflSrc1 POST cse-mn-a/flSrc1/env ty=4 -> 201 516B | a captured device observation, posted by the host bridge",
+   "88 CflSrc1 POST cse-mn-a/flSrc1/env ty=4 -> 201 516B | a captured device observation, posted by the host bridge",
+   "89 CflSrc1 POST cse-mn-a/flSrc1/env ty=4 -> 201 516B | a captured device observation, posted by the host bridge",
+   "90 CflSrc1 POST cse-mn-a/flSrc1/env ty=4 -> 201 516B | a captured device observation, posted by the host bridge",
+   "91 CflSrc2 POST cse-mn-a/flSrc2/env ty=4 -> 201 603B | a captured device observation, posted by the host bridge",
+   "92 CflSrc2 POST cse-mn-a/flSrc2/env ty=4 -> 201 571B | a captured device observation, posted by the host bridge",
+   "93 CflSrc2 POST cse-mn-a/flSrc2/env ty=4 -> 201 571B | a captured device observation, posted by the host bridge",
+   "94 CflSrc2 POST cse-mn-a/flSrc2/env ty=4 -> 201 571B | a captured device observation, posted by the host bridge",
+   "95 CflSrc2 POST cse-mn-a/flSrc2/env ty=4 -> 201 601B | a captured device observation, posted by the host bridge",
+   "96 CflSrc2 POST cse-mn-a/flSrc2/env ty=4 -> 201 603B | a captured device observation, posted by the host bridge",
+   "97 CflSrc2 POST cse-mn-a/flSrc2/env ty=4 -> 201 571B | a captured device observation, posted by the host bridge",
+   "98 CflSrc2 POST cse-mn-a/flSrc2/env ty=4 -> 201 571B | a captured device observation, posted by the host bridge",
+   "99 CflSrc2 POST cse-mn-a/flSrc2/env ty=4 -> 201 571B | a captured device observation, posted by the host bridge",
+   "100 CflNat POST cse-mn-a/flNat/env ty=4 -> 201 645B | a simulated observation",
+   "101 CflNat POST cse-mn-a/flNat/env ty=4 -> 201 645B | a simulated observation",
+   "102 CflNat POST cse-mn-a/flNat/env ty=4 -> 201 645B | a simulated observation",
+   "103 CflNat POST cse-mn-a/flNat/env ty=4 -> 201 645B | a simulated observation",
+   "104 CflNat POST cse-mn-a/flNat/env ty=4 -> 201 645B | a simulated observation",
+   "105 CflNat POST cse-mn-a/flNat/env ty=4 -> 201 645B | a simulated observation",
+   "106 CflNat POST cse-mn-a/flNat/env ty=4 -> 201 645B | a simulated observation",
+   "107 CflNat POST cse-mn-a/flNat/env ty=4 -> 201 645B | a simulated observation",
+   "108 CflNat POST cse-mn-a/flNat/env ty=4 -> 201 645B | a simulated observation",
+   "109 CflDec POST cse-mn-a/flDec/env ty=4 -> 201 645B | a simulated observation",
+   "110 CflDec POST cse-mn-a/flDec/env ty=4 -> 201 645B | a simulated observation",
+   "111 CflDec POST cse-mn-a/flDec/env ty=4 -> 201 645B | a simulated observation",
+   "112 CflDec POST cse-mn-a/flDec/env ty=4 -> 201 645B | a simulated observation",
+   "113 CflDec POST cse-mn-a/flDec/env ty=4 -> 201 645B | a simulated observation",
+   "114 CflDec POST cse-mn-a/flDec/env ty=4 -> 201 645B | a simulated observation",
+   "115 CflDec POST cse-mn-a/flDec/env ty=4 -> 201 645B | a simulated observation",
+   "116 CflDec POST cse-mn-a/flDec/env ty=4 -> 201 645B | a simulated observation",
+   "117 CflDec POST cse-mn-a/flDec/env ty=4 -> 201 645B | a simulated observation",
+   "118 CflOrch POST cse-in/flOrch/ops ty=4 -> 201 615B",
+   "119 CflOrch POST cse-in/flOrch/model ty=4 -> 201 731B | initial global model",
+   "120 CflTfc GET cse-in/flOrch/model/v0 ty=- -> 200 451B edge-cloud | readiness: model",
+   "121 CflTfc GET cse-in/flOrch/ops/la ty=- -> 200 405B edge-cloud | readiness: coordinator",
+   "122 CflTfc GET cse-mn-a/flSrc1/env/la ty=- -> 403 56B | readiness: data",
+   "123 CflTfc POST cse-mn-a/flTfc/flStatus ty=4 -> 201 927B",
+   "124 CflTfc POST cse-mn-a/flTfc/flMeta ty=4 -> 201 1917B",
+   "125 CflOrch GET cse-mn-a?fu=1&ty=28&lbl=fl:profile ty=- -> 200 136B edge-cloud | discovery: capability profiles by label",
+   "126 CflOrch GET cse-mn-a/flDec/flCap ty=- -> 200 416B edge-cloud | discovery: read a profile",
+   "127 CflOrch GET cse-mn-a/flDec/flCompute ty=- -> 200 379B edge-cloud | discovery: read a profile",
+   "128 CflOrch GET cse-mn-a/flNat/flCap ty=- -> 200 416B edge-cloud | discovery: read a profile",
+   "129 CflOrch GET cse-mn-a/flNat/flCompute ty=- -> 200 379B edge-cloud | discovery: read a profile",
+   "130 CflOrch GET cse-mn-a/flSrc1/flCap ty=- -> 200 426B edge-cloud | discovery: read a profile",
+   "131 CflOrch GET cse-mn-a/flSrc1/flCompute ty=- -> 200 361B edge-cloud | discovery: read a profile",
+   "132 CflOrch GET cse-mn-a/flSrc1/flMeta/la ty=- -> 200 873B edge-cloud | discovery: source metadata",
+   "133 CflOrch GET cse-mn-a/flSrc2/flCap ty=- -> 200 426B edge-cloud | discovery: read a profile",
+   "134 CflOrch GET cse-mn-a/flSrc2/flCompute ty=- -> 200 361B edge-cloud | discovery: read a profile",
+   "135 CflOrch GET cse-mn-a/flSrc2/flMeta/la ty=- -> 200 873B edge-cloud | discovery: source metadata",
+   "136 CflOrch GET cse-mn-a/flTfc/flCap ty=- -> 200 421B edge-cloud | discovery: read a profile",
+   "137 CflOrch GET cse-mn-a/flTfc/flCompute ty=- -> 200 381B edge-cloud | discovery: read a profile",
+   "138 CflOrch GET cse-mn-a?fu=1&ty=4 ty=- -> 200 178B edge-cloud | discovery of contentInstances by the orchestrator",
+   "139 CflNat GET cse-mn-a/flNat/flCap ty=- -> 200 416B",
+   "140 CflNat GET cse-mn-a/flNat/flCompute ty=- -> 200 379B",
+   "141 CflNat POST cse-mn-a/flNat ty=28 -> 400 134B | a specialisation the CSE does not know",
+   "142 CflOrch GET cse-mn-a/flTfc ty=- -> 200 369B edge-cloud | the client's AE",
+   "143 CflAuthA POST cse-mn-a/flSrc1/flPolicy ty=4 -> 201 1431B | policy 1 by the authority of lab-domain-A",
+   "144 CflAuthB POST cse-mn-a/flSrc2/flPolicy ty=4 -> 201 1461B | policy 1 by the authority of lab-domain-B",
+   "145 CflOrch GET cse-mn-a/flSrc1/flPolicy/la ty=- -> 200 816B edge-cloud | latest data-use policy",
+   "146 CflOrch GET cse-mn-a/flSrc2/flPolicy/la ty=- -> 200 831B edge-cloud | latest data-use policy",
+   "147 CflOrch POST cse-in/flOrch/ops ty=4 -> 201 1099B",
+   "148 CflTfc GET cse-mn-a/flSrc2/env/la ty=- -> 403 56B | the client's read while the definition is refused",
+   "149 CflAuthB POST cse-mn-a/flSrc2/flPolicy ty=4 -> 201 1431B | policy 2 by the authority of lab-domain-B",
+   "150 CflOrch GET cse-mn-a/flSrc1/flPolicy/la ty=- -> 200 816B edge-cloud | latest data-use policy",
+   "151 CflOrch GET cse-mn-a/flSrc2/flPolicy/la ty=- -> 200 816B edge-cloud | latest data-use policy",
+   "152 CflOrch POST cse-in/flOrch/ops ty=4 -> 201 1019B",
+   "153 CflAuthA PUT cse-mn-a/flSrc2/flDataAcp ty=- -> 403 187B | domain A's authority tries to open domain B's source",
+   "154 CflAuthA PUT cse-mn-a/flSrc1/flDataAcp ty=- -> 200 427B | lab-domain-A authority sets the readers of flSrc1/env",
+   "155 CflAuthB PUT cse-mn-a/flSrc2/flDataAcp ty=- -> 200 427B | lab-domain-B authority sets the readers of flSrc2/env",
+   "156 CflTfc GET cse-in/flOrch/model/v0 ty=- -> 200 451B edge-cloud | readiness: model",
+   "157 CflTfc GET cse-in/flOrch/ops/la ty=- -> 200 607B edge-cloud | readiness: coordinator",
+   "158 CflTfc GET cse-mn-a/flSrc1/env/la ty=- -> 200 355B | readiness: data",
+   "159 CflTfc POST cse-mn-a/flTfc/flStatus ty=4 -> 201 893B",
+   "160 CflOrch GET cse-mn-a/flSrc1/env/la ty=- -> 403 56B edge-cloud | the orchestrator tries to read observations",
+   "161 CflOrch PUT cse-mn-a/flSrc1/flDataAcp ty=- -> 403 197B edge-cloud | the orchestrator tries to grant itself access",
+   "162 CflOrch GET cse-mn-a/flSrc1/env/la ty=- -> 403 56B edge-cloud | the orchestrator reads again after its attempt",
+   "163 CflTfc GET cse-in/flOrch/ops/la ty=- -> 200 607B edge-cloud | the client reads the operation",
+   "164 CflTfc POST cse-mn-a/flTfc/flStatus ty=4 -> 201 524B",
+   "165 CflNat GET cse-in/flOrch/model/v0 ty=- -> 200 451B edge-cloud | readiness: model",
+   "166 CflNat GET cse-in/flOrch/ops/la ty=- -> 200 607B edge-cloud | readiness: coordinator",
+   "167 CflNat GET cse-mn-a/flNat/env/la ty=- -> 200 420B | readiness: data",
+   "168 CflNat POST cse-mn-a/flNat/flStatus ty=4 -> 201 893B",
+   "169 CflNat GET cse-in/flOrch/ops/la ty=- -> 200 607B edge-cloud | the client reads the operation",
+   "170 CflNat POST cse-mn-a/flNat/flStatus ty=4 -> 201 524B",
+   "171 CflDec GET cse-in/flOrch/model/v0 ty=- -> 200 451B edge-cloud | readiness: model",
+   "172 CflDec GET cse-in/flOrch/ops/la ty=- -> 200 607B edge-cloud | readiness: coordinator",
+   "173 CflDec GET cse-mn-a/flDec/env/la ty=- -> 200 420B | readiness: data",
+   "174 CflDec POST cse-mn-a/flDec/flStatus ty=4 -> 201 893B",
+   "175 CflDec GET cse-in/flOrch/ops/la ty=- -> 200 607B edge-cloud | the client reads the operation",
+   "176 CflDec POST cse-mn-a/flDec/flStatus ty=4 -> 201 524B",
+   "177 CflOrch GET cse-mn-a?fu=1&ty=28&lbl=fl:profile ty=- -> 200 136B edge-cloud | discovery: capability profiles by label",
+   "178 CflOrch GET cse-mn-a/flSrc1/flPolicy/la ty=- -> 200 816B edge-cloud | latest data-use policy",
+   "179 CflOrch GET cse-mn-a/flSrc2/flPolicy/la ty=- -> 200 816B edge-cloud | latest data-use policy",
+   "180 CflOrch GET cse-mn-a/flTfc/flCap ty=- -> 200 421B edge-cloud | capability profile",
+   "181 CflOrch GET cse-mn-a/flTfc/flStatus?rcn=4 ty=- -> 200 1677B edge-cloud | client status",
+   "182 CflOrch GET cse-mn-a/flNat/flCap ty=- -> 200 416B edge-cloud | capability profile",
+   "183 CflOrch GET cse-mn-a/flNat/flStatus?rcn=4 ty=- -> 200 1127B edge-cloud | client status",
+   "184 CflOrch GET cse-mn-a/flDec/flCap ty=- -> 200 416B edge-cloud | capability profile",
+   "185 CflOrch GET cse-mn-a/flDec/flStatus?rcn=4 ty=- -> 200 1127B edge-cloud | client status",
+   "186 CflOrch POST cse-in/flOrch/tasks ty=23 -> 201 366B | subscription that notifies flNat",
+   "187 CflOrch POST cse-in/flOrch/tasks ty=23 -> 201 366B | subscription that notifies flTfc",
+   "188 CflOrch POST cse-in/flOrch/ops ty=4 -> 201 863B | the orchestrator commits the binding",
+   "189 CflOrch POST cse-in/flOrch/tasks ty=4 -> 201 2003B | task",
+   "190 CflOrch POST cse-in/flOrch/ops ty=4 -> 201 763B | the orchestrator commits the binding",
+   "191 CflOrch POST cse-in/flOrch/tasks ty=4 -> 201 1979B | task",
+   "192 CflTfc GET cse-mn-a/flSrc1/flPolicy/la ty=- -> 200 816B | latest data-use policy",
+   "193 CflTfc GET cse-mn-a/flSrc2/flPolicy/la ty=- -> 200 816B | latest data-use policy",
+   "194 CflTfc GET cse-in/flOrch/model/v0 ty=- -> 200 451B edge-cloud | the model the task names",
+   "195 CflTfc GET cse-mn-a/flSrc1/env?rcn=4 ty=- -> 200 3399B | observations for training",
+   "196 CflTfc GET cse-mn-a/flSrc2/env?rcn=4 ty=- -> 200 3638B | observations for training",
+   "197 CflTfc POST cse-mn-a/flTfc/flMeta ty=4 -> 201 1943B | dataset record (no samples)",
+   "198 CflTfc POST cse-mn-a/flTfc/flTmp ty=4 -> 201 2792B | temporary copy inside the edge domain",
+   "199 CflTfc POST cse-mn-a/flAgg/updates ty=4 -> 201 1403B | model update",
+   "200 CflTfc POST cse-mn-a/flTfc/flMeta ty=4 -> 201 1527B | participant profile",
+   "201 CflTfc POST cse-mn-a/flTfc/flStatus ty=4 -> 201 577B",
+   "202 CflNat GET cse-in/flOrch/model/v0 ty=- -> 200 451B edge-cloud | the model the task names",
+   "203 CflNat GET cse-mn-a/flNat/env?rcn=4 ty=- -> 200 3923B | observations for training",
+   "204 CflNat POST cse-mn-a/flNat/flMeta ty=4 -> 201 1847B | dataset record (no samples)",
+   "205 CflNat POST cse-mn-a/flAgg/updates ty=4 -> 201 1385B | model update",
+   "206 CflNat POST cse-mn-a/flNat/flMeta ty=4 -> 201 1473B | participant profile",
+   "207 CflNat POST cse-mn-a/flNat/flStatus ty=4 -> 201 567B",
+   "208 CflAgg GET cse-mn-a/flAgg/updates?rcn=4 ty=- -> 200 1816B | collect updates",
+   "209 CflAgg GET cse-mn-a/flSrc1/flPolicy/la ty=- -> 200 816B | latest data-use policy",
+   "210 CflAgg GET cse-mn-a/flSrc2/flPolicy/la ty=- -> 200 816B | latest data-use policy",
+   "211 CflAgg GET cse-mn-a/flTfc/flMeta?rcn=4 ty=- -> 200 3198B | dataset records",
+   "212 CflAgg GET cse-mn-a/flNat/flMeta?rcn=4 ty=- -> 200 2078B | dataset records",
+   "213 CflAgg GET cse-in/flOrch/tasks?rcn=4 ty=- -> 200 2385B edge-cloud | this round's tasks",
+   "214 CflAgg GET cse-in/flOrch/model/v0 ty=- -> 200 451B edge-cloud | the round's input model",
+   "215 CflAgg POST cse-mn-a/flAgg/rounds ty=4 -> 201 2482B | round record",
+   "216 CflAgg GET cse-mn-a/flAgg/models?rcn=4 ty=- -> 200 229B | model versions",
+   "217 CflAgg POST cse-mn-a/flAgg/models ty=4 -> 201 1823B | aggregated model",
+   "218 CflAgg GET cse-mn-a/flAgg/models?rcn=4 ty=- -> 200 1230B | model versions",
+   "219 CflOrch GET cse-mn-a/flAgg/rounds/r1 ty=- -> 200 1327B edge-cloud | round record",
+   "220 CflOrch GET cse-mn-a/flAgg/models/v1 ty=- -> 200 997B edge-cloud | aggregated model",
+   "221 CflOrch POST cse-in/flOrch/model ty=4 -> 201 739B | redistribution",
+   "222 CflTfc GET cse-in/flOrch/model/v1 ty=- -> 200 455B edge-cloud | the new model",
+   "223 CflNat GET cse-in/flOrch/model/v1 ty=- -> 200 455B edge-cloud | the new model",
+   "224 CflTfc DELETE cse-mn-a/flTfc/flTmp/ds-agg-v1 ty=- -> 200 0B | retention: delete the temporary copy",
+   "225 CflTfc GET cse-mn-a/flTfc/flTmp/ds-agg-v1 ty=- -> 404 71B | retention: read back",
+   "226 CflSrc1 GET cse-mn-a/flSrc1/env?rcn=4 ty=- -> 200 3399B | the source reads its own observations",
+   "227 CflOrch GET cse-in/flOrch/ops?rcn=4 ty=- -> 200 2855B",
+   "228 CflOrch GET cse-in/flOrch/tasks?rcn=4 ty=- -> 200 2894B",
+   "229 CflOrch GET cse-in/flOrch/model?rcn=4 ty=- -> 200 1128B",
+   "230 CflOrch GET cse-in/flOrch/deploy?rcn=4 ty=- -> 200 230B",
+   "231 CflAgg GET cse-mn-a/flAgg/updates?rcn=4 ty=- -> 200 1816B",
+   "232 CflAgg GET cse-mn-a/flAgg/models?rcn=4 ty=- -> 200 1230B",
+   "233 CflAgg GET cse-mn-a/flAgg/rounds?rcn=4 ty=- -> 200 1561B",
+   "234 CflTfc GET cse-mn-a/flAgg/updates?rcn=4 ty=- -> 403 88B | a client tries to read the others' updates",
+   "235 CflOrch GET cse-mn-a/flTfc/flMeta?rcn=4 ty=- -> 200 3198B edge-cloud | the published dataset record",
+   "236 CflOrch POST cse-in/flOrch/deploy ty=4 -> 201 993B | model package",
+   "237 CflNat GET cse-in/flOrch/deploy/pkg-v1 ty=- -> 200 582B edge-cloud | the target fetches the package",
+   "238 CflNat GET cse-mn-a/flAgg/models/v1 ty=- -> 200 997B | the digest the aggregator published",
+   "239 CflNat POST cse-mn-a/flNat/flStatus ty=4 -> 201 927B | activation report",
+   "240 CflOrch GET cse-mn-a/flAgg/models?rcn=4 ty=- -> 200 1230B edge-cloud | published versions",
+   "241 CflOrch GET cse-mn-a/flNat/flStatus?rcn=4 ty=- -> 200 2047B edge-cloud | activation records",
+   "242 CflSrc1 POST cse-mn-a/flSrc1/env ty=4 -> 201 517B | a captured device observation, posted by the host bridge",
+   "243 CflSrc1 POST cse-mn-a/flSrc1/env ty=4 -> 201 517B | a captured device observation, posted by the host bridge",
+   "244 CflSrc1 POST cse-mn-a/flSrc1/env ty=4 -> 201 517B | a captured device observation, posted by the host bridge",
+   "245 CflSrc1 POST cse-mn-a/flSrc1/env ty=4 -> 201 638B | a captured device observation, posted by the host bridge",
+   "246 CflSrc1 POST cse-mn-a/flSrc1/env ty=4 -> 201 517B | a captured device observation, posted by the host bridge",
+   "247 CflSrc1 POST cse-mn-a/flSrc1/env ty=4 -> 201 517B | a captured device observation, posted by the host bridge",
+   "248 CflSrc1 POST cse-mn-a/flSrc1/env ty=4 -> 201 517B | a captured device observation, posted by the host bridge",
+   "249 CflSrc1 POST cse-mn-a/flSrc1/env ty=4 -> 201 517B | a captured device observation, posted by the host bridge",
+   "250 CflSrc1 POST cse-mn-a/flSrc1/env ty=4 -> 201 517B | a captured device observation, posted by the host bridge",
+   "251 CflSrc2 POST cse-mn-a/flSrc2/env ty=4 -> 201 572B | a captured device observation, posted by the host bridge",
+   "252 CflSrc2 POST cse-mn-a/flSrc2/env ty=4 -> 201 604B | a captured device observation, posted by the host bridge",
+   "253 CflSrc2 POST cse-mn-a/flSrc2/env ty=4 -> 201 604B | a captured device observation, posted by the host bridge",
+   "254 CflSrc2 POST cse-mn-a/flSrc2/env ty=4 -> 201 604B | a captured device observation, posted by the host bridge",
+   "255 CflSrc2 POST cse-mn-a/flSrc2/env ty=4 -> 201 602B | a captured device observation, posted by the host bridge",
+   "256 CflSrc2 POST cse-mn-a/flSrc2/env ty=4 -> 201 602B | a captured device observation, posted by the host bridge",
+   "257 CflSrc2 POST cse-mn-a/flSrc2/env ty=4 -> 201 572B | a captured device observation, posted by the host bridge",
+   "258 CflSrc2 POST cse-mn-a/flSrc2/env ty=4 -> 201 572B | a captured device observation, posted by the host bridge",
+   "259 CflSrc2 POST cse-mn-a/flSrc2/env ty=4 -> 201 572B | a captured device observation, posted by the host bridge",
+   "260 CflNat POST cse-mn-a/flNat/env ty=4 -> 201 646B | a simulated observation",
+   "261 CflNat POST cse-mn-a/flNat/env ty=4 -> 201 646B | a simulated observation",
+   "262 CflNat POST cse-mn-a/flNat/env ty=4 -> 201 646B | a simulated observation",
+   "263 CflNat POST cse-mn-a/flNat/env ty=4 -> 201 646B | a simulated observation",
+   "264 CflNat POST cse-mn-a/flNat/env ty=4 -> 201 646B | a simulated observation",
+   "265 CflNat POST cse-mn-a/flNat/env ty=4 -> 201 646B | a simulated observation",
+   "266 CflNat POST cse-mn-a/flNat/env ty=4 -> 201 646B | a simulated observation",
+   "267 CflNat POST cse-mn-a/flNat/env ty=4 -> 201 646B | a simulated observation",
+   "268 CflNat POST cse-mn-a/flNat/env ty=4 -> 201 646B | a simulated observation",
+   "269 CflDec POST cse-mn-a/flDec/env ty=4 -> 201 646B | a simulated observation",
+   "270 CflDec POST cse-mn-a/flDec/env ty=4 -> 201 646B | a simulated observation",
+   "271 CflDec POST cse-mn-a/flDec/env ty=4 -> 201 646B | a simulated observation",
+   "272 CflDec POST cse-mn-a/flDec/env ty=4 -> 201 646B | a simulated observation",
+   "273 CflDec POST cse-mn-a/flDec/env ty=4 -> 201 646B | a simulated observation",
+   "274 CflDec POST cse-mn-a/flDec/env ty=4 -> 201 646B | a simulated observation",
+   "275 CflDec POST cse-mn-a/flDec/env ty=4 -> 201 646B | a simulated observation",
+   "276 CflDec POST cse-mn-a/flDec/env ty=4 -> 201 646B | a simulated observation",
+   "277 CflDec POST cse-mn-a/flDec/env ty=4 -> 201 646B | a simulated observation",
+   "278 CflOrch GET cse-mn-a?fu=1&ty=28&lbl=fl:profile ty=- -> 200 136B edge-cloud | discovery: capability profiles by label",
+   "279 CflOrch GET cse-mn-a/flSrc1/flPolicy/la ty=- -> 200 816B edge-cloud | latest data-use policy",
+   "280 CflOrch GET cse-mn-a/flSrc2/flPolicy/la ty=- -> 200 816B edge-cloud | latest data-use policy",
+   "281 CflOrch GET cse-mn-a/flTfc/flCap ty=- -> 200 421B edge-cloud | capability profile",
+   "282 CflOrch GET cse-mn-a/flTfc/flStatus?rcn=4 ty=- -> 200 2052B edge-cloud | client status",
+   "283 CflOrch GET cse-mn-a/flTfc/flCap ty=- -> 200 421B edge-cloud | capability profile",
+   "284 CflOrch GET cse-mn-a/flTfc/flStatus?rcn=4 ty=- -> 200 2052B edge-cloud | client status",
+   "285 CflOrch GET cse-mn-a/flNat/flCap ty=- -> 200 416B edge-cloud | capability profile",
+   "286 CflOrch GET cse-mn-a/flNat/flStatus?rcn=4 ty=- -> 200 2047B edge-cloud | client status",
+   "287 CflOrch GET cse-mn-a/flDec/flCap ty=- -> 200 416B edge-cloud | capability profile",
+   "288 CflOrch GET cse-mn-a/flDec/flStatus?rcn=4 ty=- -> 200 1127B edge-cloud | client status",
+   "289 CflOrch POST cse-in/flOrch/ops ty=4 -> 201 797B | the orchestrator commits the binding",
+   "290 CflOrch POST cse-in/flOrch/tasks ty=4 -> 201 1997B | task",
+   "291 CflOrch POST cse-in/flOrch/ops ty=4 -> 201 797B | the orchestrator commits the binding",
+   "292 CflOrch POST cse-in/flOrch/tasks ty=4 -> 201 1997B | task",
+   "293 CflOrch POST cse-in/flOrch/ops ty=4 -> 201 763B | the orchestrator commits the binding",
+   "294 CflOrch POST cse-in/flOrch/tasks ty=4 -> 201 1979B | task",
+   "295 CflTfc GET cse-mn-a/flSrc1/flPolicy/la ty=- -> 200 816B | latest data-use policy",
+   "296 CflTfc GET cse-mn-a/flSrc2/flPolicy/la ty=- -> 200 816B | latest data-use policy",
+   "297 CflTfc GET cse-in/flOrch/model/v1 ty=- -> 200 455B edge-cloud | the model the task names",
+   "298 CflTfc GET cse-mn-a/flSrc1/env?rcn=4 ty=- -> 200 6568B | observations for training",
+   "299 CflTfc POST cse-mn-a/flTfc/flMeta ty=4 -> 201 1877B | dataset record (no samples)",
+   "300 CflTfc POST cse-mn-a/flTfc/flTmp ty=4 -> 201 2968B | temporary copy inside the edge domain",
+   "301 CflTfc POST cse-mn-a/flAgg/updates ty=4 -> 201 1395B | model update",
+   "302 CflTfc POST cse-mn-a/flTfc/flMeta ty=4 -> 201 1499B | participant profile",
+   "303 CflTfc POST cse-mn-a/flTfc/flStatus ty=4 -> 201 575B",
+   "304 CflTfc GET cse-in/flOrch/model/v1 ty=- -> 200 455B edge-cloud | the model the task names",
+   "305 CflTfc GET cse-mn-a/flSrc2/env?rcn=4 ty=- -> 200 7075B | observations for training",
+   "306 CflTfc POST cse-mn-a/flTfc/flMeta ty=4 -> 201 1877B | dataset record (no samples)",
+   "307 CflTfc POST cse-mn-a/flTfc/flTmp ty=4 -> 201 2900B | temporary copy inside the edge domain",
+   "308 CflTfc POST cse-mn-a/flAgg/updates ty=4 -> 201 1395B | model update",
+   "309 CflTfc POST cse-mn-a/flTfc/flMeta ty=4 -> 201 1499B | participant profile",
+   "310 CflTfc POST cse-mn-a/flTfc/flStatus ty=4 -> 201 575B",
+   "311 CflTfc POST cse-mn-a/flAgg/updates ty=4 -> 201 1403B | CONTROL: a round-1 update sent again",
+   "312 CflAgg GET cse-mn-a/flAgg/updates?rcn=4 ty=- -> 200 4179B | collect updates",
+   "313 CflAgg GET cse-mn-a/flAgg/updates?rcn=4 ty=- -> 200 4179B | collect updates",
+   "314 CflAgg GET cse-mn-a/flAgg/updates?rcn=4 ty=- -> 200 4179B | collect updates",
+   "315 CflAgg GET cse-mn-a/flAgg/updates?rcn=4 ty=- -> 200 4179B | collect updates",
+   "316 CflAgg GET cse-mn-a/flAgg/updates?rcn=4 ty=- -> 200 4179B | collect updates",
+   "317 CflAgg GET cse-mn-a/flAgg/updates?rcn=4 ty=- -> 200 4179B | collect updates",
+   "318 CflAgg GET cse-mn-a/flAgg/updates?rcn=4 ty=- -> 200 4179B | collect updates",
+   "319 CflAgg GET cse-mn-a/flAgg/updates?rcn=4 ty=- -> 200 4179B | collect updates",
+   "320 CflAgg GET cse-mn-a/flAgg/updates?rcn=4 ty=- -> 200 4179B | collect updates",
+   "321 CflAgg GET cse-mn-a/flAgg/updates?rcn=4 ty=- -> 200 4179B | collect updates",
+   "322 CflAgg GET cse-mn-a/flAgg/updates?rcn=4 ty=- -> 200 4179B | collect updates",
+   "323 CflAgg GET cse-mn-a/flAgg/updates?rcn=4 ty=- -> 200 4179B | collect updates",
+   "324 CflAgg GET cse-mn-a/flAgg/updates?rcn=4 ty=- -> 200 4179B | collect updates",
+   "325 CflAgg GET cse-mn-a/flAgg/updates?rcn=4 ty=- -> 200 4179B | collect updates",
+   "326 CflAgg GET cse-mn-a/flAgg/updates?rcn=4 ty=- -> 200 4179B | collect updates",
+   "327 CflAgg GET cse-mn-a/flAgg/updates?rcn=4 ty=- -> 200 4179B | collect updates",
+   "328 CflAgg GET cse-mn-a/flAgg/updates?rcn=4 ty=- -> 200 4179B | collect updates",
+   "329 CflAgg GET cse-mn-a/flSrc1/flPolicy/la ty=- -> 200 816B | latest data-use policy",
+   "330 CflAgg GET cse-mn-a/flSrc2/flPolicy/la ty=- -> 200 816B | latest data-use policy",
+   "331 CflAgg GET cse-mn-a/flTfc/flMeta?rcn=4 ty=- -> 200 6920B | dataset records",
+   "332 CflAgg GET cse-mn-a/flNat/flMeta?rcn=4 ty=- -> 200 2078B | dataset records",
+   "333 CflAgg GET cse-in/flOrch/tasks?rcn=4 ty=- -> 200 5595B edge-cloud | this round's tasks",
+   "334 CflAgg GET cse-in/flOrch/model/v1 ty=- -> 200 455B edge-cloud | the round's input model",
+   "335 CflAgg POST cse-mn-a/flAgg/rounds ty=4 -> 201 3380B | round record",
+   "336 CflAgg GET cse-mn-a/flAgg/models?rcn=4 ty=- -> 200 1230B | model versions",
+   "337 CflAgg POST cse-mn-a/flAgg/models ty=4 -> 201 1829B | aggregated model",
+   "338 CflAgg GET cse-mn-a/flAgg/models?rcn=4 ty=- -> 200 2220B | model versions",
+   "339 CflOrch GET cse-mn-a/flAgg/rounds/r2 ty=- -> 200 1776B edge-cloud | round record",
+   "340 CflOrch GET cse-mn-a/flAgg/models/v2 ty=- -> 200 1000B edge-cloud | aggregated model",
+   "341 CflOrch POST cse-in/flOrch/model ty=4 -> 201 739B | redistribution",
+   "342 CflTfc GET cse-in/flOrch/model/v2 ty=- -> 200 455B edge-cloud | the new model",
+   "343 CflNat GET cse-in/flOrch/model/v2 ty=- -> 200 455B edge-cloud | the new model",
+   "344 CflTfc DELETE cse-mn-a/flTfc/flTmp/ds-s1-v2 ty=- -> 200 0B | retention: delete the temporary copy",
+   "345 CflTfc GET cse-mn-a/flTfc/flTmp/ds-s1-v2 ty=- -> 404 70B | retention: read back",
+   "346 CflTfc DELETE cse-mn-a/flTfc/flTmp/ds-s2-v2 ty=- -> 200 0B | retention: delete the temporary copy",
+   "347 CflTfc GET cse-mn-a/flTfc/flTmp/ds-s2-v2 ty=- -> 404 70B | retention: read back",
+   "348 CflOrch GET cse-mn-a/flAgg/models?rcn=4 ty=- -> 200 2220B edge-cloud | published versions",
+   "349 CflOrch GET cse-mn-a/flNat/flStatus?rcn=4 ty=- -> 200 2047B edge-cloud | activation records",
+   "350 CflOrch POST cse-in/flOrch/deploy ty=4 -> 201 1001B | model package",
+   "351 CflNat GET cse-in/flOrch/deploy/pkg-v2-bad ty=- -> 200 586B edge-cloud | the target fetches the package",
+   "352 CflNat GET cse-mn-a/flAgg/models/v2 ty=- -> 200 1000B | the digest the aggregator published",
+   "353 CflNat POST cse-mn-a/flNat/flStatus ty=4 -> 201 963B | activation report",
+   "354 CflOrch GET cse-mn-a/flAgg/models?rcn=4 ty=- -> 200 2220B edge-cloud | published versions",
+   "355 CflOrch GET cse-mn-a/flNat/flStatus?rcn=4 ty=- -> 200 2616B edge-cloud | activation records",
+   "356 CflSrc1 POST cse-mn-a/flSrc1/env ty=4 -> 201 517B | a captured device observation, posted by the host bridge",
+   "357 CflSrc1 POST cse-mn-a/flSrc1/env ty=4 -> 201 638B | a captured device observation, posted by the host bridge",
+   "358 CflSrc1 POST cse-mn-a/flSrc1/env ty=4 -> 201 517B | a captured device observation, posted by the host bridge",
+   "359 CflSrc1 POST cse-mn-a/flSrc1/env ty=4 -> 201 517B | a captured device observation, posted by the host bridge",
+   "360 CflSrc1 POST cse-mn-a/flSrc1/env ty=4 -> 201 517B | a captured device observation, posted by the host bridge",
+   "361 CflSrc1 POST cse-mn-a/flSrc1/env ty=4 -> 201 517B | a captured device observation, posted by the host bridge",
+   "362 CflSrc1 POST cse-mn-a/flSrc1/env ty=4 -> 201 517B | a captured device observation, posted by the host bridge",
+   "363 CflSrc1 POST cse-mn-a/flSrc1/env ty=4 -> 201 517B | a captured device observation, posted by the host bridge",
+   "364 CflSrc1 POST cse-mn-a/flSrc1/env ty=4 -> 201 517B | a captured device observation, posted by the host bridge",
+   "365 CflSrc2 POST cse-mn-a/flSrc2/env ty=4 -> 201 604B | a captured device observation, posted by the host bridge",
+   "366 CflSrc2 POST cse-mn-a/flSrc2/env ty=4 -> 201 604B | a captured device observation, posted by the host bridge",
+   "367 CflSrc2 POST cse-mn-a/flSrc2/env ty=4 -> 201 604B | a captured device observation, posted by the host bridge",
+   "368 CflSrc2 POST cse-mn-a/flSrc2/env ty=4 -> 201 602B | a captured device observation, posted by the host bridge",
+   "369 CflSrc2 POST cse-mn-a/flSrc2/env ty=4 -> 201 604B | a captured device observation, posted by the host bridge",
+   "370 CflSrc2 POST cse-mn-a/flSrc2/env ty=4 -> 201 604B | a captured device observation, posted by the host bridge",
+   "371 CflSrc2 POST cse-mn-a/flSrc2/env ty=4 -> 201 602B | a captured device observation, posted by the host bridge",
+   "372 CflSrc2 POST cse-mn-a/flSrc2/env ty=4 -> 201 604B | a captured device observation, posted by the host bridge",
+   "373 CflSrc2 POST cse-mn-a/flSrc2/env ty=4 -> 201 604B | a captured device observation, posted by the host bridge",
+   "374 CflNat POST cse-mn-a/flNat/env ty=4 -> 201 646B | a simulated observation",
+   "375 CflNat POST cse-mn-a/flNat/env ty=4 -> 201 646B | a simulated observation",
+   "376 CflNat POST cse-mn-a/flNat/env ty=4 -> 201 646B | a simulated observation",
+   "377 CflNat POST cse-mn-a/flNat/env ty=4 -> 201 646B | a simulated observation",
+   "378 CflNat POST cse-mn-a/flNat/env ty=4 -> 201 646B | a simulated observation",
+   "379 CflNat POST cse-mn-a/flNat/env ty=4 -> 201 646B | a simulated observation",
+   "380 CflNat POST cse-mn-a/flNat/env ty=4 -> 201 646B | a simulated observation",
+   "381 CflNat POST cse-mn-a/flNat/env ty=4 -> 201 646B | a simulated observation",
+   "382 CflNat POST cse-mn-a/flNat/env ty=4 -> 201 646B | a simulated observation",
+   "383 CflDec POST cse-mn-a/flDec/env ty=4 -> 201 646B | a simulated observation",
+   "384 CflDec POST cse-mn-a/flDec/env ty=4 -> 201 646B | a simulated observation",
+   "385 CflDec POST cse-mn-a/flDec/env ty=4 -> 201 646B | a simulated observation",
+   "386 CflDec POST cse-mn-a/flDec/env ty=4 -> 201 646B | a simulated observation",
+   "387 CflDec POST cse-mn-a/flDec/env ty=4 -> 201 646B | a simulated observation",
+   "388 CflDec POST cse-mn-a/flDec/env ty=4 -> 201 646B | a simulated observation",
+   "389 CflDec POST cse-mn-a/flDec/env ty=4 -> 201 646B | a simulated observation",
+   "390 CflDec POST cse-mn-a/flDec/env ty=4 -> 201 646B | a simulated observation",
+   "391 CflDec POST cse-mn-a/flDec/env ty=4 -> 201 646B | a simulated observation",
+   "392 CflOrch GET cse-mn-a?fu=1&ty=28&lbl=fl:profile ty=- -> 200 136B edge-cloud | discovery: capability profiles by label",
+   "393 CflOrch GET cse-mn-a/flSrc1/flPolicy/la ty=- -> 200 816B edge-cloud | latest data-use policy",
+   "394 CflOrch GET cse-mn-a/flSrc2/flPolicy/la ty=- -> 200 816B edge-cloud | latest data-use policy",
+   "395 CflOrch GET cse-mn-a/flTfc/flCap ty=- -> 200 421B edge-cloud | capability profile",
+   "396 CflOrch GET cse-mn-a/flTfc/flStatus?rcn=4 ty=- -> 200 2801B edge-cloud | client status",
+   "397 CflOrch GET cse-mn-a/flTfc/flCap ty=- -> 200 421B edge-cloud | capability profile",
+   "398 CflOrch GET cse-mn-a/flTfc/flStatus?rcn=4 ty=- -> 200 2801B edge-cloud | client status",
+   "399 CflOrch GET cse-mn-a/flNat/flCap ty=- -> 200 416B edge-cloud | capability profile",
+   "400 CflOrch GET cse-mn-a/flNat/flStatus?rcn=4 ty=- -> 200 2616B edge-cloud | client status",
+   "401 CflOrch GET cse-mn-a/flDec/flCap ty=- -> 200 416B edge-cloud | capability profile",
+   "402 CflOrch GET cse-mn-a/flDec/flStatus?rcn=4 ty=- -> 200 1127B edge-cloud | client status",
+   "403 CflOrch POST cse-in/flOrch/ops ty=4 -> 201 797B | the orchestrator commits the binding",
+   "404 CflOrch POST cse-in/flOrch/tasks ty=4 -> 201 1997B | task",
+   "405 CflOrch POST cse-in/flOrch/ops ty=4 -> 201 798B | the orchestrator commits the binding",
+   "406 CflOrch POST cse-in/flOrch/tasks ty=4 -> 201 1997B | task",
+   "407 CflOrch POST cse-in/flOrch/ops ty=4 -> 201 764B | the orchestrator commits the binding",
+   "408 CflOrch POST cse-in/flOrch/tasks ty=4 -> 201 1979B | task",
+   "409 CflTfc GET cse-mn-a/flSrc1/flPolicy/la ty=- -> 200 816B | latest data-use policy",
+   "410 CflTfc GET cse-mn-a/flSrc2/flPolicy/la ty=- -> 200 816B | latest data-use policy",
+   "411 CflTfc GET cse-in/flOrch/model/v2 ty=- -> 200 455B edge-cloud | the model the task names",
+   "412 CflTfc GET cse-mn-a/flSrc1/env?rcn=4 ty=- -> 200 9734B | observations for training",
+   "413 CflTfc POST cse-mn-a/flTfc/flMeta ty=4 -> 201 1877B | dataset record (no samples)",
+   "414 CflTfc POST cse-mn-a/flTfc/flTmp ty=4 -> 201 4304B | temporary copy inside the edge domain",
+   "415 CflTfc POST cse-mn-a/flAgg/updates ty=4 -> 201 1391B | model update",
+   "416 CflTfc POST cse-mn-a/flTfc/flMeta ty=4 -> 201 1499B | participant profile",
+   "417 CflTfc POST cse-mn-a/flTfc/flStatus ty=4 -> 201 575B",
+   "418 CflTfc GET cse-in/flOrch/model/v2 ty=- -> 200 455B edge-cloud | the model the task names",
+   "419 CflTfc GET cse-mn-a/flSrc2/env?rcn=4 ty=- -> 200 10574B | observations for training",
+   "420 CflTfc POST cse-mn-a/flTfc/flMeta ty=4 -> 201 1878B | dataset record (no samples)",
+   "421 CflTfc POST cse-mn-a/flTfc/flTmp ty=4 -> 201 4196B | temporary copy inside the edge domain",
+   "422 CflTfc POST cse-mn-a/flAgg/updates ty=4 -> 201 1395B | model update",
+   "423 CflTfc POST cse-mn-a/flTfc/flMeta ty=4 -> 201 1500B | participant profile",
+   "424 CflTfc POST cse-mn-a/flTfc/flStatus ty=4 -> 201 575B",
+   "425 CflNat GET cse-in/flOrch/model/v2 ty=- -> 200 455B edge-cloud | the model the task names",
+   "426 CflNat GET cse-mn-a/flNat/env?rcn=4 ty=- -> 200 11305B | observations for training",
+   "427 CflNat POST cse-mn-a/flNat/flMeta ty=4 -> 201 1851B | dataset record (no samples)",
+   "428 CflNat POST cse-mn-a/flAgg/updates ty=4 -> 201 1391B | model update",
+   "429 CflNat POST cse-mn-a/flNat/flMeta ty=4 -> 201 1475B | participant profile",
+   "430 CflNat POST cse-mn-a/flNat/flStatus ty=4 -> 201 569B",
+   "431 CflAuthB POST cse-mn-a/flSrc2/flPolicy ty=4 -> 201 1433B | policy 3 by the authority of lab-domain-B",
+   "432 CflAuthB PUT cse-mn-a/flSrc2/flDataAcp ty=- -> 200 359B | lab-domain-B authority sets the readers of flSrc2/env",
+   "433 CflTfc GET cse-mn-a/flSrc2/env/la ty=- -> 403 56B | the client's read after the revocation",
+   "434 CflTfc POST cse-mn-a/flTfc/flMeta ty=4 -> 201 1882B | the client marks the dataset invalid",
+   "435 CflAgg GET cse-mn-a/flAgg/updates?rcn=4 ty=- -> 200 6533B | collect updates",
+   "436 CflAgg GET cse-mn-a/flSrc1/flPolicy/la ty=- -> 200 816B | latest data-use policy",
+   "437 CflAgg GET cse-mn-a/flSrc2/flPolicy/la ty=- -> 200 817B | latest data-use policy",
+   "438 CflAgg GET cse-mn-a/flTfc/flMeta?rcn=4 ty=- -> 200 11674B | dataset records",
+   "439 CflAgg GET cse-mn-a/flNat/flMeta?rcn=4 ty=- -> 200 3914B | dataset records",
+   "440 CflAgg GET cse-in/flOrch/tasks?rcn=4 ty=- -> 200 8805B edge-cloud | this round's tasks",
+   "441 CflAgg GET cse-in/flOrch/model/v2 ty=- -> 200 455B edge-cloud | the round's input model",
+   "442 CflAgg POST cse-mn-a/flAgg/rounds ty=4 -> 201 3428B | round record",
+   "443 CflAgg GET cse-mn-a/flAgg/models?rcn=4 ty=- -> 200 2220B | model versions",
+   "444 CflAgg POST cse-mn-a/flAgg/models ty=4 -> 201 1823B | aggregated model",
+   "445 CflAgg GET cse-mn-a/flAgg/models?rcn=4 ty=- -> 200 3206B | model versions",
+   "446 CflOrch GET cse-mn-a/flAgg/rounds/r3 ty=- -> 200 1800B edge-cloud | round record",
+   "447 CflOrch GET cse-mn-a/flAgg/models/v3 ty=- -> 200 997B edge-cloud | aggregated model",
+   "448 CflOrch POST cse-in/flOrch/model ty=4 -> 201 739B | redistribution",
+   "449 CflTfc GET cse-in/flOrch/model/v3 ty=- -> 200 455B edge-cloud | the new model",
+   "450 CflNat GET cse-in/flOrch/model/v3 ty=- -> 200 455B edge-cloud | the new model",
+   "451 CflTfc DELETE cse-mn-a/flTfc/flTmp/ds-s1-v3 ty=- -> 200 0B | retention: delete the temporary copy",
+   "452 CflTfc GET cse-mn-a/flTfc/flTmp/ds-s1-v3 ty=- -> 404 70B | retention: read back",
+   "453 CflTfc DELETE cse-mn-a/flTfc/flTmp/ds-s2-v3 ty=- -> 200 0B | retention: delete the temporary copy",
+   "454 CflTfc GET cse-mn-a/flTfc/flTmp/ds-s2-v3 ty=- -> 404 70B | retention: read back",
+   "455 CflOrch GET cse-mn-a/flTfc/flMeta?rcn=4 ty=- -> 200 11674B edge-cloud | dataset records",
+   "456 CflAgg GET cse-mn-a/flSrc1/flPolicy/la ty=- -> 200 816B | latest data-use policy",
+   "457 CflAgg GET cse-mn-a/flSrc2/flPolicy/la ty=- -> 200 817B | latest data-use policy",
+   "458 CflOrch POST cse-in/flOrch/deploy ty=4 -> 201 993B | model package",
+   "459 CflNat GET cse-in/flOrch/deploy/pkg-v3 ty=- -> 200 582B edge-cloud | the target fetches the package",
+   "460 CflNat GET cse-mn-a/flAgg/models/v3 ty=- -> 200 997B | the digest the aggregator published",
+   "461 CflNat POST cse-mn-a/flNat/flStatus ty=4 -> 201 921B | activation report",
+   "462 CflOrch GET cse-mn-a/flAgg/models?rcn=4 ty=- -> 200 3206B edge-cloud | published versions",
+   "463 CflOrch GET cse-mn-a/flNat/flStatus?rcn=4 ty=- -> 200 3534B edge-cloud | activation records",
+   "464 CflOrch GET cse-mn-a?fu=1&ty=28&lbl=fl:profile ty=- -> 200 136B edge-cloud | discovery: capability profiles by label",
+   "465 CflOrch GET cse-mn-a/flSrc1/flPolicy/la ty=- -> 200 816B edge-cloud | latest data-use policy",
+   "466 CflOrch GET cse-mn-a/flSrc2/flPolicy/la ty=- -> 200 817B edge-cloud | latest data-use policy",
+   "467 CflOrch GET cse-mn-a/flTfc/flCap ty=- -> 200 421B edge-cloud | capability profile",
+   "468 CflOrch GET cse-mn-a/flTfc/flStatus?rcn=4 ty=- -> 200 3549B edge-cloud | client status",
+   "469 CflOrch GET cse-mn-a/flTfc/flCap ty=- -> 200 421B edge-cloud | capability profile",
+   "470 CflOrch GET cse-mn-a/flTfc/flStatus?rcn=4 ty=- -> 200 3549B edge-cloud | client status",
+   "471 CflOrch GET cse-mn-a/flNat/flCap ty=- -> 200 416B edge-cloud | capability profile",
+   "472 CflOrch GET cse-mn-a/flNat/flStatus?rcn=4 ty=- -> 200 3534B edge-cloud | client status",
+   "473 CflOrch GET cse-mn-a/flDec/flCap ty=- -> 200 416B edge-cloud | capability profile",
+   "474 CflOrch GET cse-mn-a/flDec/flStatus?rcn=4 ty=- -> 200 1127B edge-cloud | client status",
+   "475 CflOrch POST cse-in/flOrch/ops ty=4 -> 201 798B | the orchestrator commits the binding",
+   "476 CflOrch POST cse-in/flOrch/tasks ty=4 -> 201 1997B | task",
+   "477 CflOrch POST cse-in/flOrch/ops ty=4 -> 201 764B | the orchestrator commits the binding",
+   "478 CflOrch POST cse-in/flOrch/tasks ty=4 -> 201 1980B | task",
+   "479 CflTfc GET cse-mn-a/flSrc1/flPolicy/la ty=- -> 200 816B | latest data-use policy",
+   "480 CflTfc GET cse-mn-a/flSrc2/flPolicy/la ty=- -> 200 817B | latest data-use policy",
+   "481 CflTfc GET cse-in/flOrch/model/v3 ty=- -> 200 455B edge-cloud | the model the task names",
+   "482 CflTfc GET cse-mn-a/flSrc1/env?rcn=4 ty=- -> 200 9734B | observations for training",
+   "483 CflTfc POST cse-mn-a/flTfc/flMeta ty=4 -> 201 1878B | dataset record (no samples)",
+   "484 CflTfc POST cse-mn-a/flTfc/flTmp ty=4 -> 201 4304B | temporary copy inside the edge domain",
+   "485 CflTfc POST cse-mn-a/flAgg/updates ty=4 -> 201 1401B | model update",
+   "486 CflTfc POST cse-mn-a/flTfc/flMeta ty=4 -> 201 1500B | participant profile",
+   "487 CflTfc POST cse-mn-a/flTfc/flStatus ty=4 -> 201 575B",
+   "488 CflNat GET cse-in/flOrch/model/v3 ty=- -> 200 455B edge-cloud | the model the task names",
+   "489 CflNat GET cse-mn-a/flNat/env?rcn=4 ty=- -> 200 11305B | observations for training",
+   "490 CflNat POST cse-mn-a/flNat/flMeta ty=4 -> 201 1851B | dataset record (no samples)",
+   "491 CflNat POST cse-mn-a/flAgg/updates ty=4 -> 201 1392B | model update",
+   "492 CflNat POST cse-mn-a/flNat/flMeta ty=4 -> 201 1475B | participant profile",
+   "493 CflNat POST cse-mn-a/flNat/flStatus ty=4 -> 201 569B",
+   "494 CflAgg GET cse-mn-a/flAgg/updates?rcn=4 ty=- -> 200 8109B | collect updates",
+   "495 CflAgg GET cse-mn-a/flSrc1/flPolicy/la ty=- -> 200 816B | latest data-use policy",
+   "496 CflAgg GET cse-mn-a/flSrc2/flPolicy/la ty=- -> 200 817B | latest data-use policy",
+   "497 CflAgg GET cse-mn-a/flTfc/flMeta?rcn=4 ty=- -> 200 13537B | dataset records",
+   "498 CflAgg GET cse-mn-a/flNat/flMeta?rcn=4 ty=- -> 200 5750B | dataset records",
+   "499 CflAgg GET cse-in/flOrch/tasks?rcn=4 ty=- -> 200 10945B edge-cloud | this round's tasks",
+   "500 CflAgg GET cse-in/flOrch/model/v3 ty=- -> 200 455B edge-cloud | the round's input model",
+   "501 CflAgg POST cse-mn-a/flAgg/rounds ty=4 -> 201 2984B | round record",
+   "502 CflAgg GET cse-mn-a/flAgg/models?rcn=4 ty=- -> 200 3206B | model versions",
+   "503 CflAgg GET cse-mn-a/flAgg/models?rcn=4 ty=- -> 200 3206B | model versions",
+   "504 CflOrch GET cse-mn-a/flAgg/rounds/r4 ty=- -> 200 1578B edge-cloud | round record",
+   "505 CflTfc DELETE cse-mn-a/flTfc/flTmp/ds-s1-v4 ty=- -> 200 0B | retention: delete the temporary copy",
+   "506 CflTfc GET cse-mn-a/flTfc/flTmp/ds-s1-v4 ty=- -> 404 70B | retention: read back",
+   "507 CflTfc2 POST cse-mn-b ty=2 -> 201 425B | register flTfc2",
+   "508 CflTfc2 POST cse-mn-b/flTfc2 ty=1 -> 201 513B | flTfc2 access policy (meta)",
+   "509 CflTfc2 POST cse-mn-b/flTfc2 ty=1 -> 201 419B | flTfc2 access policy (data)",
+   "510 CflTfc2 PUT cse-mn-b/flTfc2 ty=- -> 200 357B | flTfc2: metadata policy on the AE",
+   "511 CflTfc2 POST cse-mn-b/flTfc2 ty=3 -> 201 286B | flTfc2/flMeta",
+   "512 CflTfc2 POST cse-mn-b/flTfc2/flMeta ty=4 -> 201 1729B",
+   "513 CflOrch GET cse-mn-a/flSrc1/flPolicy/la ty=- -> 200 816B edge-cloud | latest data-use policy",
+   "514 CflOrch GET cse-mn-a/flSrc2/flPolicy/la ty=- -> 200 817B edge-cloud | latest data-use policy",
+   "515 CflTfc2 GET cse-mn-a/flSrc1/env/la ty=- -> 403 56B | the moved client's read before a fresh authorisation",
+   "516 CflAuthA POST cse-mn-a/flSrc1/flPolicy ty=4 -> 201 1481B | policy 2 by the authority of lab-domain-A",
+   "517 CflAuthA PUT cse-mn-a/flSrc1/flDataAcp ty=- -> 200 449B | lab-domain-A authority sets the readers of flSrc1/env",
+   "518 CflTfc2 GET cse-mn-a/flSrc1/env/la ty=- -> 200 356B | the moved client's read after it",
+   "519 CflOrch GET cse-mn-a/flSrc1/flPolicy/la ty=- -> 200 841B edge-cloud | latest data-use policy",
+   "520 CflOrch GET cse-mn-a/flSrc2/flPolicy/la ty=- -> 200 817B edge-cloud | latest data-use policy",
+   "521 CflOrch GET cse-in/flOrch/ops?rcn=4 ty=- -> 200 6690B",
+   "522 CflOrch GET cse-in/flOrch/tasks?rcn=4 ty=- -> 200 11454B",
+   "523 CflOrch GET cse-in/flOrch/model?rcn=4 ty=- -> 200 2016B",
+   "524 CflOrch GET cse-in/flOrch/deploy?rcn=4 ty=- -> 200 1962B",
+   "525 CflAgg GET cse-mn-a/flAgg/updates?rcn=4 ty=- -> 200 8109B",
+   "526 CflAgg GET cse-mn-a/flAgg/models?rcn=4 ty=- -> 200 3206B",
+   "527 CflAgg GET cse-mn-a/flAgg/rounds?rcn=4 ty=- -> 200 6682B",
+   "528 CflOrch GET cse-mn-a/flSrc2/env/la ty=- -> 403 56B edge-cloud | the orchestrator's read at the end",
+   "529 CflOrch DELETE cse-in/flOrch/tasks/flSub-flNat ty=- -> 200 0B | cleanup",
+   "530 CflOrch DELETE cse-in/flOrch/tasks/flSub-flTfc ty=- -> 200 0B | cleanup",
+   "531 CflTfc2 DELETE cse-mn-b/flTfc2 ty=- -> 200 0B | cleanup: the AE and everything under it",
+   "532 CflDec DELETE cse-mn-a/flDec ty=- -> 200 0B | cleanup: the AE and everything under it",
+   "533 CflNat DELETE cse-mn-a/flNat ty=- -> 200 0B | cleanup: the AE and everything under it",
+   "534 CflTfc DELETE cse-mn-a/flTfc ty=- -> 200 0B | cleanup: the AE and everything under it",
+   "535 CflSrc2 DELETE cse-mn-a/flSrc2 ty=- -> 200 0B | cleanup: the AE and everything under it",
+   "536 CflSrc1 DELETE cse-mn-a/flSrc1 ty=- -> 200 0B | cleanup: the AE and everything under it",
+   "537 CflAgg DELETE cse-mn-a/flAgg ty=- -> 200 0B | cleanup: the AE and everything under it",
+   "538 CflOrch DELETE cse-in/flOrch ty=- -> 200 0B | cleanup: the AE and everything under it",
+   "539 CAdmin GET cse-in/flOrch ty=- -> 404 54B | cleanup check",
+   "540 CAdmin GET cse-mn-a/flAgg ty=- -> 404 55B | cleanup check",
+   "541 CAdmin GET cse-mn-a/flTfc ty=- -> 404 55B | cleanup check",
+   "542 CAdmin GET cse-mn-b/flTfc2 ty=- -> 404 56B | cleanup check",
+   "543 CAdmin GET cse-mn-a/flNat ty=- -> 404 55B | cleanup check",
+   "544 CAdmin GET cse-mn-a/flDec ty=- -> 404 55B | cleanup check",
+   "545 CAdmin GET cse-mn-a/flSrc1 ty=- -> 404 56B | cleanup check",
+   "546 CAdmin GET cse-mn-a/flSrc2 ty=- -> 404 56B | cleanup check"
+  ]
+ }
+}

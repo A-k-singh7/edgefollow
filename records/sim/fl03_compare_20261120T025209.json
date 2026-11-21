@@ -1,0 +1,252 @@
+{
+ "record": "estimed.fl.fl03-compare.v1",
+ "td": "TD_MEC_FL_03",
+ "sim": true,
+ "device": "none: every source is simulated",
+ "verdict": "PARTIAL",
+ "table_refused": null,
+ "verdict_scope": "PARTIAL at most: steps 1 to 6 and 9 ran on simulated sources on one PC; steps 7 and 8 are NOT-RUN. FAIL when one of the three runs did not pass or left a cell of the table empty.",
+ "steps": {
+  "1-2": "the centralised run",
+  "3-4": "the hierarchical run",
+  "5-6": "the edge-only run",
+  "7-8": "NOT-RUN (not_run)",
+  "9": "this table"
+ },
+ "table": {
+  "columns": [
+   "mode",
+   "orchestrator",
+   "aggregator",
+   "run_verdict",
+   "round_time_s",
+   "median_round_time_s",
+   "edge_cloud_bytes_per_round",
+   "edge_cloud_bytes_rounds_1_to_3",
+   "edge_cloud_bytes_whole_run",
+   "bytes_cse_in",
+   "bytes_cse_mn_a",
+   "bytes_cse_mn_b",
+   "bytes_mec011_a",
+   "results_file"
+  ],
+  "rows": [
+   {
+    "mode": "centralised",
+    "orchestrator": "cse-in",
+    "aggregator": "cse-in",
+    "run_verdict": "PASS",
+    "round_time_s": [
+     "0.438",
+     "4.569",
+     "0.721"
+    ],
+    "median_round_time_s": "0.721",
+    "edge_cloud_bytes_per_round": [
+     37602,
+     49458,
+     59084
+    ],
+    "edge_cloud_bytes_rounds_1_to_3": 146144,
+    "edge_cloud_bytes_whole_run": 306490,
+    "bytes_cse_in": 422213,
+    "bytes_cse_mn_a": 669826,
+    "bytes_cse_mn_b": 10523,
+    "bytes_mec011_a": 13749,
+    "results_file": "/home/edgefollow/estimed-run/sim/fl_sim_centralised_20261120T025209.json"
+   },
+   {
+    "mode": "hierarchical",
+    "orchestrator": "cse-in",
+    "aggregator": "cse-mn-a",
+    "run_verdict": "PASS",
+    "round_time_s": [
+     "0.467",
+     "4.568",
+     "0.781"
+    ],
+    "median_round_time_s": "0.781",
+    "edge_cloud_bytes_per_round": [
+     31387,
+     41229,
+     47505
+    ],
+    "edge_cloud_bytes_rounds_1_to_3": 120121,
+    "edge_cloud_bytes_whole_run": 270637,
+    "bytes_cse_in": 203232,
+    "bytes_cse_mn_a": 885655,
+    "bytes_cse_mn_b": 10523,
+    "bytes_mec011_a": 13749,
+    "results_file": "/home/edgefollow/estimed-run/sim/fl_sim_hierarchical_20261120T025209.json"
+   },
+   {
+    "mode": "edge-only",
+    "orchestrator": "cse-mn-a",
+    "aggregator": "cse-mn-a",
+    "run_verdict": "PASS",
+    "round_time_s": [
+     "0.434",
+     "4.585",
+     "0.706"
+    ],
+    "median_round_time_s": "0.706",
+    "edge_cloud_bytes_per_round": [
+     0,
+     0,
+     0
+    ],
+    "edge_cloud_bytes_rounds_1_to_3": 0,
+    "edge_cloud_bytes_whole_run": 0,
+    "bytes_cse_in": 4683,
+    "bytes_cse_mn_a": 1088190,
+    "bytes_cse_mn_b": 10527,
+    "bytes_mec011_a": 13755,
+    "results_file": "/home/edgefollow/estimed-run/sim/fl_sim_edge-only_20261120T025209.json"
+   }
+  ]
+ },
+ "runs": [
+  {
+   "mode": "centralised",
+   "exit": 0,
+   "verdict": "PASS",
+   "file": "/home/edgefollow/estimed-run/sim/fl_sim_centralised_20261120T025209.json",
+   "sha256": "8f2e1f867b04089799febeb932de9ff7b3311bbd1b257b4004aaadf1ae1c4f94"
+  },
+  {
+   "mode": "hierarchical",
+   "exit": 0,
+   "verdict": "PASS",
+   "file": "/home/edgefollow/estimed-run/sim/fl_sim_hierarchical_20261120T025209.json",
+   "sha256": "f2afd72cfafb6463b5a6e586e9c24c8a2f09571f6292453ffd1c24a9ead1957b"
+  },
+  {
+   "mode": "edge-only",
+   "exit": 0,
+   "verdict": "PASS",
+   "file": "/home/edgefollow/estimed-run/sim/fl_sim_edge-only_20261120T025209.json",
+   "sha256": "da99153ed861ff44a614f1442bd6f616b7c0dbd6c4b1bbc3d03bec24fea1bbfc"
+  }
+ ],
+ "placement": {
+  "centralised": {
+   "flSrc1": "cse-mn-a",
+   "flSrc2": "cse-mn-a",
+   "flTfc": "cse-mn-a",
+   "flNat": "cse-mn-a",
+   "flDec": "cse-mn-a",
+   "flTfc2": "cse-mn-b",
+   "CflAuthA": "cse-mn-a",
+   "CflAuthB": "cse-mn-a",
+   "flOrch": "cse-in",
+   "flAgg": "cse-in"
+  },
+  "hierarchical": {
+   "flSrc1": "cse-mn-a",
+   "flSrc2": "cse-mn-a",
+   "flTfc": "cse-mn-a",
+   "flNat": "cse-mn-a",
+   "flDec": "cse-mn-a",
+   "flTfc2": "cse-mn-b",
+   "CflAuthA": "cse-mn-a",
+   "CflAuthB": "cse-mn-a",
+   "flOrch": "cse-in",
+   "flAgg": "cse-mn-a"
+  },
+  "edge-only": {
+   "flSrc1": "cse-mn-a",
+   "flSrc2": "cse-mn-a",
+   "flTfc": "cse-mn-a",
+   "flNat": "cse-mn-a",
+   "flDec": "cse-mn-a",
+   "flTfc2": "cse-mn-b",
+   "CflAuthA": "cse-mn-a",
+   "CflAuthB": "cse-mn-a",
+   "flOrch": "cse-mn-a",
+   "flAgg": "cse-mn-a"
+  }
+ },
+ "sides": {
+  "cse-in": "cloud",
+  "cse-mn-a": "edge",
+  "cse-mn-b": "edge",
+  "mec011-a": "edge"
+ },
+ "definitions": {
+  "bytes": "every HTTP request the driver sends and every response it receives, counted at the client side as they go over the socket: request line + header lines + blank line + body once the socket has taken them (a request whose connection is refused counts 0); status line + header lines + blank line + body as read from it. Each call is attributed to (the party that makes it, found from X-M2M-Origin; the endpoint it is sent to)",
+  "edge_cloud": "a call that joins the two sides: a party at the edge calling the IN-CSE, or a party in the cloud calling an edge CSE (cse-mn-a, cse-mn-b, the MEC 011 of district A); plus the notifications a CSE on one side sends to a client's endpoint on the other",
+  "retargeted": "a call sent to the IN-CSE with an SP-relative or absolute address of an edge CSE: one call, its bytes as the client counted them added once to edge-cloud and once to the IN-CSE; the IN-CSE's own hop to the edge is not seen by the client and not counted. This driver sends none",
+  "notifications": "each request a CSE sends to /fl/<client> and the listener's answer, as read and written at the listener; attributed to (the CSE holding the orchestrator's <tasks>, the client)",
+  "harness": "CAdmin's topology, leftover and cleanup checks, the removal of a leftover AE of an earlier run (sent under that AE's own originator, so no admin right is used) and the MEC 011 liveness and listing probes: counted per CSE, never edge-cloud",
+  "unmapped": "a call whose originator is in no table: not the harness; counted at the CSE it was sent to, listed by name, never edge-cloud (its side is not known), and it makes the FL_03 recording step fail",
+  "per_cse": "whole run: calls by the endpoint they were sent to, notifications by the CSE that sent them",
+  "round_bytes": "the calls and notifications made inside run_round, from the orchestrator's discovery to the deletion of the temporary copies",
+  "round_time": "time.monotonic_ns from just before the round's first task is sent to the orchestrator's <tasks> to the 201 for the new global model in the orchestrator's <model> (the redistribution), in whole microseconds; a round that published no model has none",
+  "median": "over the rounds of one run that have a round time; of an even number, the mean of the middle two, rounded down",
+  "caveat": "one PC, loopback: this is bytes counted at the client, not a network measurement (no packet capture, nothing below HTTP, 'edge' and 'cloud' are ports on one host); the round time on loopback says little about real latency"
+ },
+ "not_run": [
+  {
+   "row": "TD_MEC_FL_03 steps 7 and 8: hybrid handover + FL (MEC_CFG_04), the FL Client hosted as a MEC app, one round during or right after a handover",
+   "result": "NOT-RUN",
+   "reason": "not built: the Trusted FL Client is deployed as a MEC app through our MEC 010-2 candidate (TD_MEC_FL_01 step 3), but as a process on this host, not on an edge VM, its training still runs in this driver, and no handover runs during a round"
+  },
+  {
+   "row": "TD_MEC_FL_03 pre-condition: TD_MEC_FL_02 has passed for at least one mode, with real devices",
+   "result": "NOT-RUN",
+   "reason": "TD_MEC_FL_02's ten steps run in each mode on top of TD_MEC_FL_01's onboarding in the same run, but every device is simulated, so TD_MEC_FL_01 and TD_MEC_FL_02 are PARTIAL, not passed"
+  },
+  {
+   "row": "TD_MEC_FL_03 pre-condition: aggregation at the MEC (an aggregator as a MEC app)",
+   "result": "NOT-RUN",
+   "reason": "the edge aggregator is an AE on MN-CSE-A, not a MEC application"
+  }
+ ],
+ "not_shown": [
+  "TD_MEC_FL_03 as a whole: at most PARTIAL, because every data source is simulated and steps 7 and 8 did not run",
+  "bandwidth on a network: the bytes are counted at the client on one PC over loopback, not captured on a link; 'edge' and 'cloud' are ports on one host",
+  "latency: a round time on loopback says little about a round over a real edge-cloud link",
+  "a difference in round time between the modes: none can be read from these round times, because the driver sets them, not the placement. Round 2 lasts its 4.0 s window, since a client drops out and the aggregator waits for the deadline, looking for updates every 0.25 s; rounds 1 and 3 are the driver's own calls made one after another on one host over loopback, with no link between 'edge' and 'cloud' to make a call to the IN-CSE slower than one to an MN-CSE. Round times that agree across the modes are therefore expected",
+  "that the edge-cloud numbers are a finding about the modes: for the same simulated work they follow from where the table puts the two parties; the run shows the counting and that each mode runs with its controls holding"
+ ],
+ "run": {
+  "argv": [
+   "/home/edgefollow/edgefollow-lab/.venv/bin/python",
+   "estimed_poc/fl_run.py",
+   "--compare"
+  ],
+  "cwd": "/home/edgefollow/edgefollow",
+  "commit": "1bad29469bd56a7809d28e2089717dd1f5add3b0",
+  "uncommitted_paths": 9,
+  "files_sha256": {
+   "phone/estimed_poc2.py": "6948ea68df922f10c12628d8221bdcdd353686dda4c542650046320c54cb5e34",
+   "phone/estimed_poc.py": "12a721a6589e5d9df74ee62a5a1167af99b48cfc7eaf173081ac9d764c2210f9",
+   "phone/sim_phone.py": "66f1427b48b54cada2e0ef076074f9562341451dd75200be1ae9ce394e3fed40",
+   "phone/mec012_phone.py": "ef3d868ebe889cab58035e6067ed238827106e559b28536e546bdd120cd8888f",
+   "phone/mec013_phone.py": "ecc26a8eb65b5d9c5ea089b3ebc2313af2d7f8c84ea3b7507e225be8621d2344",
+   "phone/device_state.py": "2f617c430065c4007e0346ccc426e013e7da595eb932a506c363742933f541e5",
+   "phone/onem2m_acp.py": "2e70112dc67ebebade1c5ae248b0a1e03bafcbad844178fa0e80096a3b72925f",
+   "estimed/handover.py": "f1ed29421427e521b715efb341a3105f1b7ca39443aec3591545d06e5e356d4a",
+   "estimed/scenario.py": "7f78beccb019f576293124fbc52d8215078b0037e6072616dfc27e8be100a070",
+   "demo/mec040.py": "c314fb13b0022f01542a1e4326b50744a48c1840ddf3a1c6e578fbacfa1ac96d",
+   "estimed_poc/orchestrator.py": "ec17455e5d9978b9d966b8cc0263974a300d2dd98d4620fa234cd6364160d6fa",
+   "estimed_poc/district_app.py": "e80a39275867320d82e3d39c80480b0a8c062e902355e1ee44704ced8822d293",
+   "estimed_poc/mec011_district.py": "db93a150369fbd4b60b1282ca3915f967222fb601ed26d83e604f2b4b6765f33",
+   "/home/edgefollow/edgefollow/mec011_appsupport/candidate.py": "a36e1616b75d97da18f5193445aa2ce1701a681ee871ec11ca4e3f580b706534",
+   "estimed_poc/fl_core.py": "113eece96a5a1392a7b3e8d97bf587c5ea57a7777a452e3895022348f3c1c214",
+   "estimed_poc/fl_run.py": "53462c500594a506f9c0af663f7f5e85614c9db09b35e7fc1140bafb6b8030a5",
+   "estimed_poc/test_fl.py": "917b3fa23bcfc8db26317fe9ca079186946a6690642857fae522eb4111f3d96b",
+   "estimed_poc/fl_capture.py": "fbb85a57d7dd865b443a9f619ee71973cc86f27513ed2de303fd2a0e97b61711",
+   "estimed_poc/fl_platform.py": "3d76f3a0772b0bd69c98ebb8da38547f4e6da1338b3f434ced0344c8d3543909",
+   "estimed_poc/mec_pinned.py": "7ffa67f77ae82b64104eee5ee0e7feefd17d51617373fa1c914b97ab2f4a84f7",
+   "estimed_poc/apps/fl_orch/appd.json": "e35fa97c0409431e0192c3bab28eaac548011cc3ffe4dd1d127ebf59bbbfa6fe",
+   "estimed_poc/apps/fl_orch/fl_app.py": "0d22bd4141900259ec273207df3c8411c51dbf93e368bfe6f2753de2873d074f",
+   "estimed_poc/apps/fl_tfc/appd.json": "59f6bad118b5444758d4531e329d1a3456da91eb546f11589397cd85d70e576d",
+   "estimed_poc/apps/fl_tfc/fl_app.py": "0d22bd4141900259ec273207df3c8411c51dbf93e368bfe6f2753de2873d074f",
+   "estimed_poc/apps/fl_proxy/appd.json": "e4ed980a49796b818c926d088cb408c93b1ff61a14bdcdfd8f0611c9c43721a8",
+   "estimed_poc/apps/fl_proxy/fl_app.py": "0d22bd4141900259ec273207df3c8411c51dbf93e368bfe6f2753de2873d074f"
+  },
+  "acme": "2026.5.3",
+  "at_utc": "2026-11-20T01:52:52Z"
+ }
+}

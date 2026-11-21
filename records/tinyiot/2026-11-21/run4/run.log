@@ -1,0 +1,33 @@
+=== prepare 03:15:00
+  routes: {"m2m:uril": []}
+  CSEBaseAnnc before: {"m2m:uril": ["cse-in/estimed.example.com_cse-mn-a", "cse-in/estimed.example.com_cse-mn-b"]}
+=== swap 03:15:00
+  stale id-mn-b at IN: DELETE 200
+  tinyIoT MN-B up and registered
+--- PART A, complete: no workaround, one tinyIoT process throughout
+=== a1_handover_acme_to_tinyiot 03:15:02
+--- a1_handover_acme_to_tinyiot exit 0:   RESULT: PASS
+    routes now: {"m2m:uril": ["cse-in/cbA_2AmWP1h2qX/aeA_olWHqTNGxd"]}
+=== a2_handover_tinyiot_to_acme 03:15:02
+--- a2_handover_tinyiot_to_acme exit 0:   RESULT: PASS
+    routes now: {"m2m:uril": []}
+=== a3_scenario_mn_b_tinyiot 03:15:03
+--- a3_scenario_mn_b_tinyiot exit 0:       "ok": true,
+    routes now: {"m2m:uril": ["cse-in/cbA_2AmWP1h2qX/aeA_KXeKUK61qY"]}
+    CSEBaseAnnc: {"m2m:uril": ["cse-in/estimed.example.com_cse-mn-a", "cse-in/estimed.example.com_cse-mn-b", "cse-in/cbA_2AmWP1h2qX"]}
+=== reset before the restore
+  routes: {"m2m:uril": []}
+=== restore 03:15:03
+  stopped tinyIoT 2596602
+  stale id-mn-b at IN: DELETE 200
+  DELETE cse-in/cbA_2AmWP1h2qX (lnk /id-mn-b/cse-mn-b): 200
+  ACME MN-B back and registered (03:15:08)
+  routes after restore: {"m2m:uril": []}
+  CSEBaseAnnc after restore: {"m2m:uril": ["cse-in/estimed.example.com_cse-mn-a", "cse-in/estimed.example.com_cse-mn-b"]}
+=== c1_handover_all_acme_after 03:15:08
+--- c1_handover_all_acme_after exit 0:   RESULT: PASS
+    routes now: {"m2m:uril": ["cse-in/estimed.example.com_cse-mn-b/aeA_MIqmhDAads"]}
+=== final reset
+  routes at the end: {"m2m:uril": []}
+lab: PIDS CHANGED {'in': 1547356, 'mn-a': 1548137, 'mn-b': 2590676} -> {'in': 1547356, 'mn-a': 1548137, 'mn-b': 2597721} APPENDED +4591 bytes (same inode, old content is an exact prefix) /home/edgefollow/estimed-run/mn-b/logs/cse-estimed.example.com-id-mn-b.log: [3307541, 21709, '5050c762f3fafbab3a871d0655b15
+=== DONE 03:15:08

@@ -1,0 +1,71 @@
+diff --git a/source/server/config.h b/source/server/config.h
+index 679ad30..ff54608 100644
+--- a/source/server/config.h
++++ b/source/server/config.h
+@@ -3,22 +3,22 @@
+ #include "logger.h"
+ 
+ // IN_CSE, MN_CSE
+-#define SERVER_TYPE IN_CSE
++#define SERVER_TYPE MN_CSE
+ 
+ // #define NIC_NAME "eth0"
+ #define SERVER_IP "127.0.0.1"
+-#define SERVER_PORT "3000"
+-#define CSE_BASE_NAME "TinyIoT"
+-#define CSE_BASE_RI "tinyiot"
+-#define CSE_BASE_SP_ID "tinyiot.example.com"
+-#define CSE_RVI RVI_3
++#define SERVER_PORT "8202"
++#define CSE_BASE_NAME "cse-mn-b"
++#define CSE_BASE_RI "id-mn-b"
++#define CSE_BASE_SP_ID "estimed.example.com"
++#define CSE_RVI RVI_4
+ 
+ #if SERVER_TYPE == MN_CSE
+-#define REMOTE_CSE_ID ""
+-#define REMOTE_CSE_NAME ""
+-#define REMOTE_CSE_HOST ""
+-#define REMOTE_CSE_SP_ID ""
+-#define REMOTE_CSE_PORT 0
++#define REMOTE_CSE_ID "/id-in"
++#define REMOTE_CSE_NAME "cse-in"
++#define REMOTE_CSE_HOST "127.0.0.1"
++#define REMOTE_CSE_SP_ID "estimed.example.com"
++#define REMOTE_CSE_PORT 8200
+ #endif
+ 
+ // Database Settings
+@@ -26,8 +26,8 @@
+ #define DB_POSTGRESQL 2
+ 
+ // Select Database Type: DB_SQLITE or DB_POSTGRESQL
+-// #define DB_TYPE DB_SQLITE
+-#define DB_TYPE DB_POSTGRESQL
++#define DB_TYPE DB_SQLITE
++// #define DB_TYPE DB_POSTGRESQL
+ 
+ 
+ #if DB_TYPE == DB_POSTGRESQL
+@@ -59,7 +59,7 @@
+ 
+ // Set allowed remote CSE ID
+ // To allow all remote CSE ID, set to "/*"
+-#define ALLOWED_REMOTE_CSE_ID "/id-in,/id-mn"
++#define ALLOWED_REMOTE_CSE_ID "/id-in"
+ 
+ // Run server in mono Thread
+ // 0 → multi-thread, 1 → mono-thread
+diff --git a/source/server/httpd.c b/source/server/httpd.c
+index a8e2200..a96e5c5 100644
+--- a/source/server/httpd.c
++++ b/source/server/httpd.c
+@@ -102,7 +102,7 @@ void start_server(const char *port)
+     memset(&addr, 0, sizeof(addr));
+     // create socket
+     addr.sin_family = AF_INET;
+-    inet_pton(AF_INET, "0.0.0.0", &(addr.sin_addr.s_addr));
++    inet_pton(AF_INET, SERVER_IP, &(addr.sin_addr.s_addr)); /* LAB: loopback only */
+     addr.sin_port = htons(atoi(port));
+     listenfd = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
+     int option = 1;

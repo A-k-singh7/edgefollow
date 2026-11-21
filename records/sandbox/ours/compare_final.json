@@ -1,0 +1,533 @@
+[
+ {
+  "api": "Application Mobility Service REST API",
+  "root": "amsi/v1",
+  "path": "/app_mobility_services",
+  "version_etsi": "3.1.1",
+  "etsi": "200 (3/3 ok)",
+  "ours": 200,
+  "ours_candidate": "mec021",
+  "ours_keys": [
+   "<list>"
+  ],
+  "class": "AGREE-OK"
+ },
+ {
+  "api": "Application Mobility Service REST API",
+  "root": "amsi/v1",
+  "path": "/queries/adjacent_app_instances",
+  "version_etsi": "3.1.1",
+  "etsi": "501 (0/3 ok)",
+  "ours": 200,
+  "ours_candidate": "mec021",
+  "ours_keys": [
+   "<list>",
+   "appDId",
+   "appInstanceId",
+   "appInstanceName",
+   "commLinkType"
+  ],
+  "class": "OURS-ONLY-OK"
+ },
+ {
+  "api": "Bandwidth Management REST API",
+  "root": "bwm/v1",
+  "path": "/bw_allocations",
+  "version_etsi": "3.1.1",
+  "etsi": "200 (8/8 ok)",
+  "ours": 200,
+  "ours_candidate": "mec015_tm",
+  "ours_keys": [
+   "<list>"
+  ],
+  "class": "AGREE-OK"
+ },
+ {
+  "api": "Bandwidth Management REST API",
+  "root": "bwm/v1",
+  "path": "/subscriptions",
+  "version_etsi": "3.1.1",
+  "etsi": "501 (0/8 ok)",
+  "ours": 404,
+  "ours_candidate": "mec015_tm",
+  "ours_keys": "{\"detail\":\"Not Found\"}",
+  "class": "BOTH-NOT-OK"
+ },
+ {
+  "api": "Device Application Interface REST API",
+  "root": "dev_app/v1",
+  "path": "/app_list",
+  "version_etsi": "3.1.1",
+  "etsi": "200 (9/9 ok)",
+  "ours": 200,
+  "ours_candidate": "mec016",
+  "ours_keys": [
+   "appList"
+  ],
+  "class": "AGREE-OK"
+ },
+ {
+  "api": "Federation Service REST API",
+  "root": "fed_enablement/v1",
+  "path": "/fed_resources/systems",
+  "version_etsi": "3.2.1",
+  "etsi": "404 (0/3 ok)",
+  "ours": 404,
+  "ours_candidate": "mec040",
+  "ours_keys": "{\"detail\":\"Not Found\"}",
+  "class": "BOTH-NOT-OK"
+ },
+ {
+  "api": "Federation Service REST API",
+  "root": "fed_enablement/v1",
+  "path": "/subscriptions",
+  "version_etsi": "3.2.1",
+  "etsi": "200 (3/3 ok)",
+  "ours": 404,
+  "ours_candidate": "mec040",
+  "ours_keys": "{\"detail\":\"Not Found\"}",
+  "class": "ETSI-ONLY-OK"
+ },
+ {
+  "api": "IOT APIs REST API",
+  "root": "iots/v1",
+  "path": "/registered_devices",
+  "version_etsi": "3.1.1",
+  "etsi": "404 (0/2 ok)",
+  "ours": 200,
+  "ours_candidate": "mec033",
+  "ours_keys": [
+   "<list>"
+  ],
+  "class": "OURS-ONLY-OK"
+ },
+ {
+  "api": "IOT APIs REST API",
+  "root": "iots/v1",
+  "path": "/registered_iot_platforms",
+  "version_etsi": "3.1.1",
+  "etsi": "404 (0/2 ok)",
+  "ours": 200,
+  "ours_candidate": "mec033",
+  "ours_keys": [
+   "<list>"
+  ],
+  "class": "OURS-ONLY-OK"
+ },
+ {
+  "api": "Location Service REST API",
+  "root": "location/v3",
+  "path": "/queries/users",
+  "version_etsi": "3.1.1",
+  "etsi": "200 (11/11 ok)",
+  "ours": 200,
+  "ours_candidate": "mec013_look",
+  "ours_keys": [
+   "resourceURL",
+   "user"
+  ],
+  "class": "AGREE-OK"
+ },
+ {
+  "api": "Location Service REST API",
+  "root": "location/v3",
+  "path": "/queries/zones",
+  "version_etsi": "3.1.1",
+  "etsi": "200 (11/11 ok)",
+  "ours": 200,
+  "ours_candidate": "mec013_look",
+  "ours_keys": [
+   "zoneList"
+  ],
+  "class": "AGREE-OK"
+ },
+ {
+  "api": "Location Service REST API",
+  "root": "location/v3",
+  "path": "/queries/zones/{zoneId}",
+  "version_etsi": "3.1.1",
+  "etsi": "200 (11/11 ok)",
+  "ours": 200,
+  "ours_candidate": "mec013_look",
+  "ours_keys": [
+   "zoneInfo"
+  ],
+  "class": "AGREE-OK"
+ },
+ {
+  "api": "Location Service REST API",
+  "root": "location/v3",
+  "path": "/queries/zones/{zoneId}/accessPoints",
+  "version_etsi": "3.1.1",
+  "etsi": "200 (11/11 ok)",
+  "ours": 404,
+  "ours_candidate": "mec013_look",
+  "ours_keys": "{\"detail\":\"Not Found\"}",
+  "class": "ETSI-ONLY-OK"
+ },
+ {
+  "api": "Location Service REST API",
+  "root": "location/v3",
+  "path": "/queries/zones/{zoneId}/accessPoints/{accessPointId}",
+  "version_etsi": "3.1.1",
+  "etsi": "200 (11/11 ok)",
+  "ours": 404,
+  "ours_candidate": "mec013_look",
+  "ours_keys": "{\"detail\":\"Not Found\"}",
+  "class": "ETSI-ONLY-OK"
+ },
+ {
+  "api": "Location Service REST API",
+  "root": "location/v3",
+  "path": "/subscriptions/area",
+  "version_etsi": "3.1.1",
+  "etsi": "200 (11/11 ok)",
+  "ours": 200,
+  "ours_candidate": "mec013_sub",
+  "ours_keys": [
+   "resourceURL",
+   "subscription"
+  ],
+  "class": "AGREE-OK"
+ },
+ {
+  "api": "Location Service REST API",
+  "root": "location/v3",
+  "path": "/subscriptions/distance",
+  "version_etsi": "3.1.1",
+  "etsi": "200 (11/11 ok)",
+  "ours": 200,
+  "ours_candidate": "mec013_sub",
+  "ours_keys": [
+   "resourceURL",
+   "subscription"
+  ],
+  "class": "AGREE-OK"
+ },
+ {
+  "api": "Location Service REST API",
+  "root": "location/v3",
+  "path": "/subscriptions/users",
+  "version_etsi": "3.1.1",
+  "etsi": "200 (11/11 ok)",
+  "ours": 200,
+  "ours_candidate": "mec013_sub",
+  "ours_keys": [
+   "resourceURL",
+   "subscription"
+  ],
+  "class": "AGREE-OK"
+ },
+ {
+  "api": "Location Service REST API",
+  "root": "location/v3",
+  "path": "/subscriptions/zones",
+  "version_etsi": "3.1.1",
+  "etsi": "200 (11/11 ok)",
+  "ours": 200,
+  "ours_candidate": "mec013_sub",
+  "ours_keys": [
+   "resourceURL",
+   "subscription"
+  ],
+  "class": "AGREE-OK"
+ },
+ {
+  "api": "MEC Application Support API",
+  "root": "mec_app_support/v2",
+  "path": "/timing/current_time",
+  "version_etsi": "3.1.1",
+  "etsi": "200 (11/11 ok)",
+  "ours": 200,
+  "ours_candidate": "mec011_appsupport",
+  "ours_keys": [
+   "nanoSeconds",
+   "seconds",
+   "timeSourceStatus"
+  ],
+  "class": "AGREE-OK"
+ },
+ {
+  "api": "MEC Application Support API",
+  "root": "mec_app_support/v2",
+  "path": "/timing/timing_caps",
+  "version_etsi": "3.1.1",
+  "etsi": "200 (11/11 ok)",
+  "ours": 200,
+  "ours_candidate": "mec011_appsupport",
+  "ours_keys": [
+   "ntpServers",
+   "timeStamp"
+  ],
+  "class": "AGREE-OK"
+ },
+ {
+  "api": "MEC CAPIF Management API",
+  "root": "service-apis/v1",
+  "path": "/allServiceAPIs",
+  "version_etsi": "3.2.1",
+  "etsi": "200 (11/11 ok)",
+  "ours": 200,
+  "ours_candidate": "mec011_capif",
+  "ours_keys": [
+   "<list>",
+   "apiId",
+   "apiName",
+   "serviceAPICategory"
+  ],
+  "class": "AGREE-OK"
+ },
+ {
+  "api": "MEC Service Management API",
+  "root": "mec_service_mgmt/v1",
+  "path": "/resource_uri_allocated_by_MEC_platform",
+  "version_etsi": "3.1.1",
+  "etsi": "404 (0/11 ok)",
+  "ours": 404,
+  "ours_candidate": "mec011_svcmgmt2",
+  "ours_keys": "Not Found",
+  "class": "BOTH-NOT-OK"
+ },
+ {
+  "api": "MEC Service Management API",
+  "root": "mec_service_mgmt/v1",
+  "path": "/services",
+  "version_etsi": "3.1.1",
+  "etsi": "200 (11/11 ok)",
+  "ours": 200,
+  "ours_candidate": "mec011_svcmgmt2",
+  "ours_keys": [
+   "<list>",
+   "serInstanceId",
+   "serName",
+   "serializer",
+   "state",
+   "transportInfo",
+   "version"
+  ],
+  "class": "AGREE-OK"
+ },
+ {
+  "api": "MEC Service Management API",
+  "root": "mec_service_mgmt/v1",
+  "path": "/transports",
+  "version_etsi": "3.1.1",
+  "etsi": "200 (11/11 ok)",
+  "ours": 200,
+  "ours_candidate": "mec011_svcmgmt2",
+  "ours_keys": [
+   "<list>",
+   "description",
+   "endpoint",
+   "id",
+   "name",
+   "protocol",
+   "security",
+   "type",
+   "version"
+  ],
+  "class": "AGREE-OK"
+ },
+ {
+  "api": "Multi-access Traffic Steering REST API",
+  "root": "mts/v1",
+  "path": "/mts_capability_info",
+  "version_etsi": "3.1.1",
+  "etsi": "200 (8/8 ok)",
+  "ours": 200,
+  "ours_candidate": "mec015_mts",
+  "ours_keys": [
+   "mtsAccessInfo",
+   "mtsMode",
+   "timeStamp"
+  ],
+  "class": "AGREE-OK"
+ },
+ {
+  "api": "Multi-access Traffic Steering REST API",
+  "root": "mts/v1",
+  "path": "/mts_sessions",
+  "version_etsi": "3.1.1",
+  "etsi": "200 (8/8 ok)",
+  "ours": 200,
+  "ours_candidate": "mec015_mts",
+  "ours_keys": [
+   "<list>"
+  ],
+  "class": "AGREE-OK"
+ },
+ {
+  "api": "Radio Network Information Service REST API",
+  "root": "rni/v2",
+  "path": "/queries/layer2_meas",
+  "version_etsi": "2.2.1",
+  "etsi": "200 (8/8 ok)",
+  "ours": 200,
+  "ours_candidate": "mec012",
+  "ours_keys": [
+   "cellInfo",
+   "timeStamp"
+  ],
+  "class": "AGREE-OK"
+ },
+ {
+  "api": "Radio Network Information Service REST API",
+  "root": "rni/v2",
+  "path": "/queries/rab_info",
+  "version_etsi": "2.2.1",
+  "etsi": "200 (8/8 ok)",
+  "ours": 200,
+  "ours_candidate": "mec012",
+  "ours_keys": [
+   "appInstanceId",
+   "cellUserInfo",
+   "requestId",
+   "timeStamp"
+  ],
+  "class": "AGREE-OK"
+ },
+ {
+  "api": "Radio Network Information Service REST API",
+  "root": "rni/v2",
+  "path": "/queries/s1_bearer_info",
+  "version_etsi": "2.2.1",
+  "etsi": "501 (0/8 ok)",
+  "ours": 200,
+  "ours_candidate": "mec012",
+  "ours_keys": [
+   "s1UeInfo",
+   "timeStamp"
+  ],
+  "class": "OURS-ONLY-OK"
+ },
+ {
+  "api": "Radio Network Information Service REST API",
+  "root": "rni/v2",
+  "path": "/subscriptions",
+  "version_etsi": "2.2.1",
+  "etsi": "200 (8/8 ok)",
+  "ours": 200,
+  "ours_candidate": "mec012",
+  "ours_keys": [
+   "_links"
+  ],
+  "class": "AGREE-OK"
+ },
+ {
+  "api": "SENSORS SHARING APIs REST API",
+  "root": "sens/v1",
+  "path": "/queries/sensor_discovery",
+  "version_etsi": "3.1.1",
+  "etsi": "400 (0/2 ok)",
+  "ours": 200,
+  "ours_candidate": "mec046",
+  "ours_keys": [
+   "<list>",
+   "sensorCharacteristicList",
+   "sensorIdentifier",
+   "sensorPosition",
+   "sensorPropertyList",
+   "sensorType"
+  ],
+  "class": "OURS-ONLY-OK"
+ },
+ {
+  "api": "SENSORS SHARING APIs REST API",
+  "root": "sens/v1",
+  "path": "/subscriptions/sensor_discovery",
+  "version_etsi": "3.1.1",
+  "etsi": "200 (2/2 ok)",
+  "ours": 200,
+  "ours_candidate": "mec046",
+  "ours_keys": [
+   "_links"
+  ],
+  "class": "AGREE-OK"
+ },
+ {
+  "api": "SENSORS SHARING APIs REST API",
+  "root": "sens/v1",
+  "path": "/subscriptions/sensor_status",
+  "version_etsi": "3.1.1",
+  "etsi": "200 (2/2 ok)",
+  "ours": 200,
+  "ours_candidate": "mec046",
+  "ours_keys": [
+   "_links"
+  ],
+  "class": "AGREE-OK"
+ },
+ {
+  "api": "V2X Information Service REST API",
+  "root": "vis/v2",
+  "path": "/subscriptions",
+  "version_etsi": "3.2.2",
+  "etsi": "400 (0/4 ok)",
+  "ours": 200,
+  "ours_candidate": "mec030",
+  "ours_keys": [
+   "_links"
+  ],
+  "class": "OURS-ONLY-OK"
+ },
+ {
+  "api": "WLAN Access Information Service REST API",
+  "root": "wai/v2",
+  "path": "/measurements",
+  "version_etsi": "2.3.1",
+  "etsi": "501 (0/8 ok)",
+  "ours": 200,
+  "ours_candidate": "mec028",
+  "ours_keys": [
+   "_links"
+  ],
+  "class": "OURS-ONLY-OK"
+ },
+ {
+  "api": "WLAN Access Information Service REST API",
+  "root": "wai/v2",
+  "path": "/queries/ap/ap_information",
+  "version_etsi": "2.3.1",
+  "etsi": "200 (8/8 ok)",
+  "ours": 200,
+  "ours_candidate": "mec028",
+  "ours_keys": [
+   "<list>",
+   "apId",
+   "apLocation",
+   "bssLoad",
+   "timeStamp"
+  ],
+  "class": "AGREE-OK"
+ },
+ {
+  "api": "WLAN Access Information Service REST API",
+  "root": "wai/v2",
+  "path": "/queries/sta/sta_information",
+  "version_etsi": "2.3.1",
+  "etsi": "200 (8/8 ok)",
+  "ours": 200,
+  "ours_candidate": "mec028",
+  "ours_keys": [
+   "<list>",
+   "apAssociated",
+   "rssi",
+   "staId",
+   "timeStamp"
+  ],
+  "class": "AGREE-OK"
+ },
+ {
+  "api": "WLAN Access Information Service REST API",
+  "root": "wai/v2",
+  "path": "/subscriptions",
+  "version_etsi": "2.3.1",
+  "etsi": "200 (8/8 ok)",
+  "ours": 200,
+  "ours_candidate": "mec028",
+  "ours_keys": [
+   "_links"
+  ],
+  "class": "AGREE-OK"
+ }
+]

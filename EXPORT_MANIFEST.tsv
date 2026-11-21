@@ -1,0 +1,229 @@
+# EdgeFollow public tree: every file with the SHA-256 of its published bytes, written by the export. gate.py fails on any file not listed here or not matching its hash.
+path	sha256	bytes	licence	transforms
+LICENSE	cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30	11358	see LICENSE / LICENSES	-
+LICENSES/CC-BY-4.0.txt	f0dc9c73d43b853c99581ec01c0541fd117401548120b6238684b323487b475a	564	see LICENSE / LICENSES	-
+NOTICE	4649857befbfc390385b13cc93eef974e94c5c0f3d0df8e7e823c5e2cf6711c6	2899	see LICENSE / LICENSES	-
+README.md	2d2203f3a06d22b76d56114190affa8a259ce055a81851c9a660f383fed46c72	11225	CC BY 4.0 (own text/figure)	-
+demo/mec040.py	ed5733e1912e93000efc1c9d63464972efb910063ab90a3a180f2f121b75f833	11550	Apache-2.0 (own code)	-
+docs/REPRODUCE.md	51be994266009e4004eb8f9437d1c15782c670fddb58d8f83077f29e3886a677	7104	CC BY 4.0 (own text/figure)	-
+docs/article/ARTICLE.md	08966a3d9a2e424f5817c18f53ca05169a16e5d4457bf3a1000608f277ff386b	45677	CC BY 4.0 (own text/figure)	-
+docs/article/figure1_architecture.png	1274a78c0ea4bbd300273487a98ac5f359a3492a79a2e83db0db46724cebf076	240899	CC BY 4.0 (own text/figure)	-
+docs/article/figure1_architecture.svg	13ee42840d0742801f030a7c4698c2fb09f0c881733dca937d78ccad4e7f3968	9693	CC BY 4.0 (own text/figure)	-
+docs/article/figure2_resource_tree.png	6c4e194c10f214ed7d98d5eb0993ee70af541f625b82b4d45cef3f15ddb561a0	360194	CC BY 4.0 (own text/figure)	-
+docs/article/figure2_resource_tree.svg	f79f4dc518954f26ef067cfd7fd390b33654d2459f1b5e9a8bdc66c06515dc86	19126	CC BY 4.0 (own text/figure)	-
+docs/article/figure3_handover_sequence.png	f50616df4f78cf1689e7995b897b01c23f37d2e4e3ce694df11b801e48052953	252583	CC BY 4.0 (own text/figure)	-
+docs/article/figure3_handover_sequence.svg	302ed696c6cd71bf4950188a5ef7d92b63c7a9d4dfc5fae6b2059bf1d4eff6b2	10382	CC BY 4.0 (own text/figure)	-
+docs/article/figure_deployment_options.png	99c6e9efa50dfb01214039fce793bf839e19a64c702c5d8b4ebe9386f3b40ac1	64440	CC BY 4.0 (own text/figure)	-
+docs/article/figure_deployment_options.svg	3a7b5b507b7e885dabe58d1bb7de2296f3c6356de46b922f74aad10ad27c63fa	7948	CC BY 4.0 (own text/figure)	-
+docs/article/figure_onem2m_mec.png	d1a11cf3233be65012944a6ee61b6ff517d7fe1942f2df754ffbede7d4d0814e	97708	CC BY 4.0 (own text/figure)	-
+docs/article/figure_onem2m_mec.svg	2803a97f5eecce59cd76bba7b81acfa1234d20b12429efaf870bbfe6ad662831	11997	CC BY 4.0 (own text/figure)	-
+docs/article/figure_protocols.png	f980112f66df12ee48bd0a10f39efc4595f64a6f876170015df4f0054b878da9	72459	CC BY 4.0 (own text/figure)	-
+docs/article/figure_protocols.svg	80afba9083f75fb1c137bb7f20eb3179f69fda47aad7bd5eb9ce75df9b653a7b	8066	CC BY 4.0 (own text/figure)	-
+docs/article/figure_route_checks.png	6c5f8cdb0e24d790b6c980483ba6fd733b67db4bb713201f7af8e23f90765c1b	103585	CC BY 4.0 (own text/figure)	-
+docs/article/figure_route_checks.svg	79d7badf337dee8f3490e2acf8110c46339c3adb90a40090d16d3c434f7a6393	8075	CC BY 4.0 (own text/figure)	-
+docs/article/figure_sandbox_driven.png	3255e5f95cd233215d23c46fe768ece12da9de3232375854516061d046895b08	84136	CC BY 4.0 (own text/figure)	-
+docs/article/figure_sandbox_driven.svg	89e4840b230707d02bbc02bc9791ceedf96be65354b6089886652f4455aeb8ee	7062	CC BY 4.0 (own text/figure)	-
+docs/article/figure_two_implementations.png	4d645a04e29ce04f00cdff29ab9d96467213e53cf6c4b0b5eeeda5c3ebc6dfb1	67695	CC BY 4.0 (own text/figure)	-
+docs/article/figure_two_implementations.svg	6292d4a4119c86a18cc7d3d14f1223a4c450797daab367de7961a24ebe87748f	5166	CC BY 4.0 (own text/figure)	-
+docs/article/make_figure2.py	de16ca833a846930c62664d330d60b91cde4e6a7785222d1b1db9e58ad187460	5679	Apache-2.0 (own code)	-
+docs/article/make_figure3.py	82aef41aec079fce9ef05df265aa48bb646e23fe9593fed38bd78e159c40b907	6467	Apache-2.0 (own code)	-
+docs/article/make_figures_v4.py	8cdfd76df8be3703161971ff2c9c7cd52a02cb2384ad18940fcc21895df91298	19424	Apache-2.0 (own code)	-
+docs/figures/figure1_architecture.png	1274a78c0ea4bbd300273487a98ac5f359a3492a79a2e83db0db46724cebf076	240899	CC BY 4.0 (own text/figure)	-
+docs/figures/figure2_resource_tree.png	6c4e194c10f214ed7d98d5eb0993ee70af541f625b82b4d45cef3f15ddb561a0	360194	CC BY 4.0 (own text/figure)	-
+docs/figures/figure3_handover_sequence.png	f50616df4f78cf1689e7995b897b01c23f37d2e4e3ce694df11b801e48052953	252583	CC BY 4.0 (own text/figure)	-
+estimed/README.md	b36b48246afad90c15d5d2a62a9a303e7d0f7a7166ae50d44725e841a31339a0	8937	CC BY 4.0 (own text/figure)	release.env_prefix,release.home,release.lab_venv
+estimed/RUNBOOK.md	d71ea54d02afd7e0669626a50c62653dc3e682f60c417515dcacc5d4fea89e78	11606	CC BY 4.0 (own text/figure)	release.home,release.lab_venv
+estimed/TESTPLAN_COVERAGE.md	0525260c17e4906159999c81167d9e3cb1e7abedf17aa7b5f0c82c38ab51c176	15904	CC BY 4.0 (own text/figure)	person.branch_of_repo,release.home,release.lab_venv,release.phone_branch
+estimed/apps/cse_consumer/appd.json	7edc35a354dba650f6817701e445ad6223db778d66a257cf41b7b43666b11d53	1835	Apache-2.0 (own code/descriptor)	-
+estimed/apps/cse_consumer/discover.py	4f5dcca4bddd9bfbe78c655eceb53f17fcf17df062e3d81b87a66e14c95697f7	7800	Apache-2.0 (own code/descriptor)	-
+estimed/apps/cse_consumer/sensor_ae.py	27a241ffa909dfd87fb37612cd8b528fdad15e5c9d69f0f15b6c6ff6d64c244e	7678	Apache-2.0 (own code/descriptor)	-
+estimed/apps/edge_agent/README.md	714800b50066e1e65271b1a13e9d2e17b78f30b3ecef657f8659f0e568b1364a	7687	CC BY 4.0 (own text/figure)	-
+estimed/apps/edge_agent/agent.py	543b8d3aaf40c4e21551c8d9905e8427c189a88ec0ba9de927eaf2d4a392fea2	17224	Apache-2.0 (own code)	-
+estimed/apps/edge_agent/mcp_stdio.py	97250950ea67ba8e1f41812be9d3fb00858da3d6f6e7f15546e69d3d067b92c3	13674	Apache-2.0 (own code)	-
+estimed/apps/edge_agent/mec_server.py	d80de8eec9d7a7d7e4b6d194f343baefcaafeb463ba6d690d761c663b80517ce	4635	Apache-2.0 (own code)	-
+estimed/apps/edge_agent/onem2m_server.py	e54fe3e4d07838a9429d9c6ebc6f0fd653ba0a6f166a6e19c37573a1ee3b8d61	16835	Apache-2.0 (own code)	-
+estimed/apps/mec_ipe/appd.json	3c0b8a9db8157321c322dfae1aba6f4355abd67140b182e91e879e9c8c5d6272	1454	Apache-2.0 (own code/descriptor)	-
+estimed/apps/mec_ipe/handover.py	7ddf664554cade8acc087673764f942f224fe3e8b8e7dfe659926d4ed95a0315	45384	Apache-2.0 (own code/descriptor)	-
+estimed/apps/mec_ipe/mec_ipe.py	54fcc820c6c0013757b6632b88ac3a3c9d1db148b108fcb6744b5ae8e7a65ea2	15067	Apache-2.0 (own code/descriptor)	-
+estimed/apps/mec_ipe/mec_ipe_app.py	67a8ba0daa91d1a1f6bdd438ea8a64d1057db5bc1d7dbb227558a9fe1337e148	8238	Apache-2.0 (own code/descriptor)	-
+estimed/apps/mn_cse/appd.json	1edbab01abd6121308b2e5f8cc0fa85537eeffc7f05edde531e48af8a63fa1cd	1590	Apache-2.0 (own code/descriptor)	release.home
+estimed/apps/mn_cse/mn-c.ini	569239e311299fcdb965fc3a2314f8cc8aad75a4793a0ffdba041a7cca998b53	1341	Apache-2.0 (own code/descriptor)	release.home
+estimed/apps/mn_cse/mn_cse.py	767275610bbdf08adc6da2122b63849c14e64ee6e91b131b1e66288ea73b1252	13886	Apache-2.0 (own code/descriptor)	-
+estimed/apps/sensor_ae/appd.json	f5ad800c32c739949e3d6bf5d34b8a05dcb1cefbebbf04d41d3aecd28d8e1a99	964	Apache-2.0 (own code/descriptor)	-
+estimed/apps/sensor_ae/sensor_ae.py	27a241ffa909dfd87fb37612cd8b528fdad15e5c9d69f0f15b6c6ff6d64c244e	7678	Apache-2.0 (own code/descriptor)	-
+estimed/apps/vru_warning/vru_warning.py	bf20bd57ff885da78b7f830a61760c604fe7661205ef13f74e0399346a04d234	42453	Apache-2.0 (own code)	-
+estimed/clean_rerun.py	4e76c89f13f8d85ca187d13030da2848587ed7429ba592149ef7310dba44220f	42327	Apache-2.0 (own code)	release.home,release.private_lab
+estimed/conf/in.ini	8d6d880aead3baf07f56ab76225863e8a0ae9ee8ccd54bf76deab94a753a3349	1699	Apache-2.0 (own code)	release.home
+estimed/conf/mn-a.ini	ce4524d3a3508405dfaaba120c021c79ac7b129cfd1b8f785083dcedd28837d0	962	Apache-2.0 (own code)	release.home
+estimed/conf/mn-b.ini	af515a1e6b2e3455944ed7d82ca2e143b9715e951089ce7aa69d3b1fd9e1850e	962	Apache-2.0 (own code)	release.home
+estimed/handover.py	7ddf664554cade8acc087673764f942f224fe3e8b8e7dfe659926d4ed95a0315	45384	Apache-2.0 (own code)	-
+estimed/kpi_record.py	313928c62437e3dce2d4a17f0eb8333ea1513929196a273c65ae11f95857e0be	40499	Apache-2.0 (own code)	-
+estimed/mec_app_deploy.py	305eea0aa94fc73781ad5ec6f7d2622ca0e4af1772e57479b082acc379661896	21442	Apache-2.0 (own code)	-
+estimed/mec_ipe.py	54fcc820c6c0013757b6632b88ac3a3c9d1db148b108fcb6744b5ae8e7a65ea2	15067	Apache-2.0 (own code)	-
+estimed/mec_services.sh	b58a516ab6b385bf50f765277516599632b8af8e485546000bb3f732da6ab045	4663	Apache-2.0 (own code)	-
+estimed/proto_bench/README.md	9fe2795ac8f1aad7ecc58bbd78c1f9a87311a8bd9aadb3c13afba8119b65f48d	5989	CC BY 4.0 (own text/figure)	-
+estimed/proto_bench/coap_min.py	deefb253569cb21041b566e5375cd8a0a6ac34f83339a4cd516cc83c6c1028f6	8092	Apache-2.0 (own code)	-
+estimed/proto_bench/make_public.py	3b4945bf8d40bbcb9c821f504d89ca0f0aecfeb83c495afa977093c9da8bcb54	5993	Apache-2.0 (own code)	-
+estimed/proto_bench/proto_bench.py	d996cbc35457e44ab882c40393daba17256408e221a31a247fbe9616ee959313	140752	Apache-2.0 (own code)	-
+estimed/proto_bench/report_numbers.py	59a9a3c3f757b62a77ad73af02e1aca7d98a8299f078c60b863aa806a4f63c12	5006	Apache-2.0 (own code)	-
+estimed/proto_bench/test_proto_bench.py	6c2783dbfb9439c1e8dfdf32e8cbd766974825a2612333042ff2000d818d47b4	24462	Apache-2.0 (own code)	-
+estimed/requirements.txt	672ea7a9e30ded160dea56f354c658f995cd0d7f90d08107c94caa39d715b95e	401	Apache-2.0 (own code)	release.home,release.security_rules
+estimed/run_topology.sh	5f961cebb16ed42dd1d5dca4fa6ae754d125ff5c184214831ef64e7cac5e5da6	6013	Apache-2.0 (own code)	release.home
+estimed/sandbox_follow.py	9c124bf96b430299cfbee1cd21835481c7113eced1165279ad42fc10403f0f7f	16279	Apache-2.0 (own code)	-
+estimed/scenario.py	369dc392ef9fd0830b723c5ef91e6a6a6a036680860b3fa4e4b0df4e3285a7bf	10826	Apache-2.0 (own code)	release.env_prefix
+estimed/stop_topology.sh	a1d8df951c9a58127f3361484f3be9ae01ffd0862a5d02aaa477d213aaa2b533	2022	Apache-2.0 (own code)	release.home
+estimed/tests/conftest.py	1703a1f91efcdc1c3ecb51fec0c03c5bda041cb11340a18873c81d87fa9018c1	8543	Apache-2.0 (own code)	release.home,release.lab_venv
+estimed/tests/test_clean_rerun.py	4f4278a3f4b239d72c7c6191ef6e66460f0f67b2f6ac47f4244cd60c963cf05c	22629	Apache-2.0 (own code)	release.home,release.lab_venv,release.private_lab
+estimed/tests/test_edge_agent.py	fa05877a9bc6aa2c25c92ec91f9173436b8ab9e0282344f23f5773310b504160	52399	Apache-2.0 (own code)	-
+estimed/tests/test_estimed_testplan.py	65ed00c025533033b47edb71b1ddfe49b75c33c1c54b4ff0834237c13522082b	26815	Apache-2.0 (own code)	-
+estimed/tests/test_handover_before_offline.py	29444c176afa00795b3349c8bc436a2de934cac57fa64865e06ff68e5e3b3b8e	20551	Apache-2.0 (own code)	release.home,release.lab_venv
+estimed/tests/test_handover_offline.py	699bd2b0d0d35e859e13c98c276f001c2049e09d70611f2651f381d9742bea03	12570	Apache-2.0 (own code)	release.home,release.lab_venv
+estimed/tests/test_kpi_record.py	d6ecc362c14198098c0ac4389971284d824dd4f2df1b248b2b6a599c842afff5	33701	Apache-2.0 (own code)	release.home,release.lab_venv
+estimed/tests/test_lab_config.py	57c6f38d7f13c774e75790ed561ba920506c97428022f76beda8e7e14fe6a64d	2141	Apache-2.0 (own code)	release.home,release.lab_venv
+estimed/tests/test_lab_scripts.py	cea8e7153d3a08dbe60c4d064563d58d364729af54fd8888915d2830f1a2e29f	25971	Apache-2.0 (own code)	-
+estimed/tests/test_mec_services_sh.py	1ceea3d615907b78106e1aecc0a22fa5322d21bca473b337d8d94324973b89fb	8608	Apache-2.0 (own code)	-
+estimed/tests/test_sandbox_follow.py	4f14142359ebd03501159ce69c7c0fd613147579c8310a741b65116e8da41e02	21478	Apache-2.0 (own code)	release.home
+estimed/tests/test_tr0086_annex_a.py	e54fad1c33475f7aed51de656669bf823dea2c27890931951ec4a5b0d687177f	8330	Apache-2.0 (own code)	-
+estimed/tests/test_tr0086_bringup.py	72f808331509f9038ce5919e2960faa8e23039f3b629190beda84cabbd14d2d7	6969	Apache-2.0 (own code)	person.branch_of_repo
+estimed/tests/test_tr0086_handover.py	48205dafbcd8fc8a879a9dd51dd4751350268fd2093d65e9f77be8bb14dc3a85	36500	Apache-2.0 (own code)	-
+estimed/tests/test_tr0086_location.py	988e94365c39d72236143fea33319a821fcf092e884e37edf1208a54dddc62a1	21869	Apache-2.0 (own code)	-
+estimed/tests/test_tr0086_mec_app.py	762e3c79974f17a908d008a00849d5cfa773105e7be5f2e2291599680cf7ddf0	6685	Apache-2.0 (own code)	-
+estimed/tests/test_tr0086_mec_app_deploy.py	7e5a43b2f51d100a3d66a0c89fb0c2011324afed55c45593567178b3deef1191	48407	Apache-2.0 (own code)	-
+estimed/tests/test_tr0086_option_a.py	9b11b7da0dfcfd1309fe52efad857a7bbb644d64924f6884ff6b26663f2e104c	48402	Apache-2.0 (own code)	-
+estimed/tests/test_tr0086_options_c_d.py	5f0b23b352a835b069ef1979d3ef6ea9d45be51afc5904e7ce859ed42b00f1fd	87122	Apache-2.0 (own code)	release.home
+estimed/tests/test_tr0086_registration.py	6ebf0955082c7fa9184e51c2409ba0ef220a1e013ab432248459131b080d1688	5257	Apache-2.0 (own code)	-
+estimed/tests/test_tr0086_tls_basic_auth.py	2e79dc43cfe34ce994da1350b026938419198a96386ee2d501d672f4da3cdf6c	67678	Apache-2.0 (own code)	person.branch_phrase,release.home
+estimed/tests/test_vm_rerun.py	1cf4e989a9aaea7fd94ec22ef6b677c2e3dc3b745ef812b0284d3448d2164b9f	161636	Apache-2.0 (own code)	release.home,release.login,release.login_possessive,release.private_lab,release.run_media
+estimed/tests/test_vru_warning.py	d75dd5435b75eadd381af5f86291c26ac922d6175facaa4899292750a990aec2	104915	Apache-2.0 (own code)	release.home,release.lab_venv
+estimed/vm_rerun.py	ac1853a4f354dc5ebff013b50597bb42269c0a82bef225d18d764e41d57510af	152106	Apache-2.0 (own code)	release.home,release.lab_name,release.login,release.run_media
+estimed_poc/PLAYBOOK_FAILURES.md	5d6e7001bab8261ad3f3a04cd23e1e68b763b7fb9ba397d473bdd0af462abbc9	6009	CC BY 4.0 (own text/figure)	-
+estimed_poc/apps/fl_orch/appd.json	e35fa97c0409431e0192c3bab28eaac548011cc3ffe4dd1d127ebf59bbbfa6fe	1451	Apache-2.0 (own code/descriptor)	-
+estimed_poc/apps/fl_orch/fl_app.py	0d22bd4141900259ec273207df3c8411c51dbf93e368bfe6f2753de2873d074f	16321	Apache-2.0 (own code/descriptor)	-
+estimed_poc/apps/fl_proxy/appd.json	e4ed980a49796b818c926d088cb408c93b1ff61a14bdcdfd8f0611c9c43721a8	1668	Apache-2.0 (own code/descriptor)	-
+estimed_poc/apps/fl_proxy/fl_app.py	0d22bd4141900259ec273207df3c8411c51dbf93e368bfe6f2753de2873d074f	16321	Apache-2.0 (own code/descriptor)	-
+estimed_poc/apps/fl_tfc/appd.json	59f6bad118b5444758d4531e329d1a3456da91eb546f11589397cd85d70e576d	1415	Apache-2.0 (own code/descriptor)	-
+estimed_poc/apps/fl_tfc/fl_app.py	0d22bd4141900259ec273207df3c8411c51dbf93e368bfe6f2753de2873d074f	16321	Apache-2.0 (own code/descriptor)	-
+estimed_poc/dev02_run.py	0cd05deff265d68ebc49fc5a4074ec32616203c205844db537d2979e6334a0de	41452	Apache-2.0 (own code)	release.home,release.lab_venv
+estimed_poc/fl_capture.py	bcabec50380ec2dd2eba6306ef9aa13d243b17f4b7215856977402d64eefe6c6	19476	Apache-2.0 (own code)	app_id.dotted,device_tag,release.home
+estimed_poc/fl_core.py	8f82e26772c122aea5b5c59590add656ad4dff8e8adfaafac0b4baeb6d83a425	87446	Apache-2.0 (own code)	-
+estimed_poc/fl_platform.py	3d76f3a0772b0bd69c98ebb8da38547f4e6da1338b3f434ced0344c8d3543909	22438	Apache-2.0 (own code)	-
+estimed_poc/fl_run.py	63f7a23fabad0939cfda9d57da05d1af3bd380ea83a89549fdba157cc05749e2	181444	Apache-2.0 (own code)	release.home,release.lab_venv
+estimed_poc/mec_pinned.py	25bd98cc2ec942173e3eaedf224d2290f8769e745095220bb53b3a5eb6b1ebb6	5472	Apache-2.0 (own code)	release.checkout_root,release.home,release.source_tree
+estimed_poc/policy_core.py	6f549b3a5f4ed7ece227af5a004f79b4bd3e144c4355a02b7ea55b770b56eb3e	12901	Apache-2.0 (own code)	-
+estimed_poc/policy_run.py	a5852dae3b033220226753c93489c60ddbf74494d113a7e57f4b0987f6ba63d6	48262	Apache-2.0 (own code)	release.home
+estimed_poc/run_poc2.sh	633b493ab18ecc2b70cbc31a9c76519c235746d16323445e7e3dd0132c4c1bce	5975	Apache-2.0 (own code)	app_id.dotted,device_tag,release.home,release.lab_venv,release.worktree_root,serial.driver_default
+estimed_poc/test_dev02.py	7fb35e3bfc144ecba0b434e63e9b85530d68095a4adf75c5792fc7092cc3a03e	42916	Apache-2.0 (own code)	device_tag,release.home,release.test_plmn_mcc,release.test_plmn_mnc,release.test_plmn_pair
+estimed_poc/test_fl.py	28eacc23fa5ebdc14a71da5a3185a95eb576ac4705094c24837d60e90f68f3e9	213666	Apache-2.0 (own code)	release.checkout_root,release.fl_history,release.home,release.main_tree,release.outside_path
+estimed_poc/test_fl_capture.py	cf63327882cb39a0d2ab02c95e289c3585861ac5b7c489a4c9fcf589c979bbbe	12343	Apache-2.0 (own code)	release.home
+estimed_poc/test_policy.py	9dc79893b99083c98c63037e871b3ecf5c26df9b2d5e1790833b54f77a9ad7e8	27027	Apache-2.0 (own code)	-
+mec010p2/candidate.py	eac38db2c40324d7bc0c6ac767d11ad7e7f5c07c002f66e63621c5c0e39003d0	31016	Apache-2.0 (own code)	-
+mec011_appsupport/candidate.py	7701b3cc592024f0894a2891290cd78b21d0d920c92872929cb58f3e50283e59	23392	Apache-2.0 (own code)	sandbox_id
+mec012/candidate.py	eb92d88bff9ca67894cf50fe48bd279e0e5c2f180446b8cdfa82f5317e020c37	15866	Apache-2.0 (own code)	-
+mec013_look/candidate.py	2e91d063b1505405c76eadb526971b6209edd5625edec61deadd6f5baf08e19d	22984	Apache-2.0 (own code)	-
+mec013_look/test_candidate_zones.py	f76125eb8967b62b7e11aeadd0af78f459e30a17040128942542143215026477	16507	Apache-2.0 (own code)	release.home,release.lab_venv
+mec013_sub/candidate.py	29b065e851606b17dee564116d995dd8e828fd383d558962426e9c6e9d452899	15759	Apache-2.0 (own code)	-
+mec046/candidate.py	586c52089111257680313f2813558d640222430735ca9a5efeadcd9139380ff1	36345	Apache-2.0 (own code)	campus.fixture,release.model_prefix
+phone/SITTING_B_2026-11-19_SUMMARY.md	f0acd888746a6936901b673910280a455e10958772d60553367b93d83d279193	7308	CC BY 4.0 (own text/figure)	-
+phone/attest_verify_android.py	393072abf35108534be302341ba4c3ce715d8c87e3a7094375151f2a2bb896da	33013	Apache-2.0 (own code)	release.evidence_dir
+phone/device_state.py	df70726945106e70defa19abe872f7d6e14016ec16bfdd3fcf5e3f46d5f7fb78	8681	Apache-2.0 (own code)	device_tag
+phone/estimed_poc2.py	5fd37037c8b9431fcba2e70373c15d0e1c1bde87638ba35685c592f66380aa5b	90710	Apache-2.0 (own code)	app_id.dotted,device_tag,release.checkout_root,release.home,release.lab_venv
+phone/lib_guard.sh	a7a3b444c1329062d2080e750ba5ec29fcba9ef235f48af83af923b9a3c62390	4619	Apache-2.0 (own code)	app_id.dotted
+phone/loc_check.py	b98942633a512977839a71c4ecb7241ec5112fc779fdb704cf62671b76c0984d	16600	Apache-2.0 (own code)	-
+phone/mec012_phone.py	bf73ebc9a4b552e4e4e91fe42623b4ddd53319bde93d6da528fbb587238dbcb4	14968	Apache-2.0 (own code)	device_tag,release.test_plmn_pair
+phone/mec013_phone.py	40eb34a91501bd203a15a035b6e641b4266096231fbed62a63ed7fa83df718fe	4321	Apache-2.0 (own code)	device_tag
+phone/mec013sub_phone.py	3312e5aaf5fa7cc353a9fcc7e25dfc8a7fb0224605817673d7baa94de970ca60	13802	Apache-2.0 (own code)	-
+phone/mec046_phone.py	4076cfa4ea6b669050da4177ac7967fc53f7b893bb37b47b5ed04de5b2b1d3e5	17493	Apache-2.0 (own code)	release.checkout_root,release.home,release.model_prefix
+phone/onem2m_acp.py	36dd995b2680aea6f5ef281b64aff88fa9534f70977402a4c23e34a7d191a608	2714	Apache-2.0 (own code)	device_tag
+phone/probe_app/.gitignore	b52761cef7d1569eaad14b2458309a7d56178a31018d90731c6c1987f0ac35d1	33	Apache-2.0 (own code)	-
+phone/probe_app/AndroidManifest.xml	290de2610fdd8bef6afc9e5c18f6c6dccedde31d4c567e87b3f97b93e4ff1437	2328	Apache-2.0 (own code)	app_id.dotted
+phone/probe_app/README.md	703e99a71a440081ee45bb6385e36291fb32155ac04f5c881bba4546e97e3a88	1300	CC BY 4.0 (own text/figure)	-
+phone/probe_app/V19_NOTES.md	525207b248cd36251178c8912727756d6f74a11b20691a3d3cf812c9b6869317	14959	CC BY 4.0 (own text/figure)	app_id.dotted,device_tag
+phone/probe_app/V20_NOTES.md	b264d3927d6ef0b0364b5971fb02ad75ec160c8f7bd00bcfe63f9adb7c41057c	7507	CC BY 4.0 (own text/figure)	app_id.dotted,device_tag,release.backup_name
+phone/probe_app/build.sh	eb9182f6b8015be5af2e0d3a62a0b482f8614103b74d15ad7856143449201a8d	1517	Apache-2.0 (own code)	app_id.slashed,release.home
+phone/probe_app/build_v20.sh	2ab4fc1c94a5536785483cbdf1adfc68c3e9d3a334219156da2c31c2eda108fc	1658	Apache-2.0 (own code)	app_id.slashed,release.home
+phone/probe_app/res/xml/network_security_config.xml	e9b1d30370a100d23967c6f0461b9861e5731b4bf3cec42189f06a2995ea854d	556	Apache-2.0 (own code)	-
+phone/probe_app/src/org/edgefollow/probe/ClockCli.java	14400345ceb8bbc0b5bd4e0689deff60f5cf42b42c331717a787f174026f1eb0	1282	Apache-2.0 (own code)	app_id.dotted,app_id.path
+phone/probe_app/src/org/edgefollow/probe/LiveService.java	e20c08a99b187e1053913f40f4383c3b1b18f54b9f3425ad6ea242103b70db0c	29047	Apache-2.0 (own code)	app_id.dotted,app_id.path,device_tag
+phone/probe_app/src/org/edgefollow/probe/Main.java	0aa5e786ff3759a804dc998585906b0b8cd3c9b82f5ab9a4775e601d9849e409	58897	Apache-2.0 (own code)	app_id.dotted,app_id.path,device_tag,probe.mode_dispatch,probe.mode_section,probe.mode_usage,release.checkout_root
+phone/reauth.py	af21af80a20b6530ae85889ef7d163605ca638938630fbd011b8ab8e85eeb098	25304	Apache-2.0 (own code)	-
+phone/sim_phone.py	66f1427b48b54cada2e0ef076074f9562341451dd75200be1ae9ce394e3fed40	16026	Apache-2.0 (own code)	-
+phone/test_attest_verify_android.py	fa2c082ce00f26ba21c450555a65185e89af8cd28f61237183eb7334247d5b9e	19237	Apache-2.0 (own code)	serial.test_literal
+phone/test_en303645.py	e359c71b68786a0536c5f215313ee937774688e6db261328f2146917b640ad1f	9420	Apache-2.0 (own code)	device_tag,release.home,release.lab_venv
+phone/test_estimed_poc.py	6f5d7f88707872eab0a9e1691c8db72c53e36ab5373efa024b424776af0d8478	56102	Apache-2.0 (own code)	release.home
+phone/test_loc_check.py	5da260d67eeec7fe624e0377a705a7725a921bd848cbd09940f6cdee23d17c0f	6558	Apache-2.0 (own code)	-
+phone/test_phone_mec013_zones.py	6ee109e7e31adee125688f3d8581644b042b134a7c228a8b68e6a6e72b3efeaa	9042	Apache-2.0 (own code)	release.home,release.lab_venv
+phone/test_phone_mec013sub.py	a40cc21445761c8796a818016a41645f97987544221cb87362b5433ff881711c	9054	Apache-2.0 (own code)	release.home,release.lab_venv
+phone/test_phone_mec046.py	2bb4e2ea4d56a41c3fda35bee3eb56e8ab242d40e763da3e9a0900df0fc1d50d	41285	Apache-2.0 (own code)	device_tag,release.home,release.lab_venv,release.model_prefix
+phone/test_reauth.py	c49c86ac0e0f5d2fb0ca299ac8ba01a3ec1a5af79bbede9b4842d4063181351b	39302	Apache-2.0 (own code)	release.home
+phone/test_sim_phone.py	19768bf8682ab0df7a12ea75939fdda7c50bcdb189338ae017865f60020c47d6	20968	Apache-2.0 (own code)	-
+phone/test_tls_front.py	0bcf718ce310f4cd543d7a71bc4b7acb7a1fe492dcf1f7959aad209112cd5199	100167	Apache-2.0 (own code)	app_id.slashed,release.home,release.lab_venv
+phone/tls_front.py	4608a660b36dafd89acc445c2b1a53070ed3829171e4d33dee182473e608db61	56095	Apache-2.0 (own code)	app_id.slashed
+records/README.md	7a7d0cd193e88c63de1da74952de37bc65ef7354b0a99fcfd0b7d2ea3b5bea85	2979	CC BY 4.0 (own text/figure)	-
+records/ats/run_sweep_20261119.log	5e093d494de26668763b23ed2218fba60247b4bbdf880e433f933f3300f236ed	422	CC BY 4.0 (own run record; publish only after scrub)	release.home,release.lab_venv
+records/ats/run_sweep_20261119.sh	1291190943b5f49d14e75cd42014038db1b71730a7070013ed472dcc30d846fd	1574	Apache-2.0 (own code)	release.checkout_root,release.home,release.lab_venv
+records/ats/sweep_2026-10-20-fixed.txt	5d5242aee9ae133b4e8df9634f92cf55fa4c6e5e5ef55fdfb6e384df012e62a4	2262	CC BY 4.0 (own run record; publish only after scrub)	-
+records/ats/sweep_2026-10-20.txt	6769719bb6e94c8e9ec878664862258a09cd2d4908b04adf9cceee770dfae236	2262	CC BY 4.0 (own run record; publish only after scrub)	-
+records/ats/sweep_2026-11-19.txt	5d5242aee9ae133b4e8df9634f92cf55fa4c6e5e5ef55fdfb6e384df012e62a4	2262	CC BY 4.0 (own run record; publish only after scrub)	-
+records/proto/proto_bench_20261121T033502Z_public.json	f9432b754543c03de1857175f8d414046ec90e69ced70c9845dbb28dddcc1f39	4251346	CC BY 4.0 (own run record; publish only after scrub)	-
+records/proto/proto_bench_20261121T033502Z_public.md	acd4fab84af7fd63019de76f272b881eee663f31a82bed171c7dcaa1393b447c	23259	CC BY 4.0 (own run record; publish only after scrub)	-
+records/sandbox/matrix/4g-5g-macro-v2x-fed.json	eb10f39fb1bd2a0b7c20aff0149357c7167d9e3b36906ad801d0774d8b69077f	11475	CC BY 4.0 (own run record; publish only after scrub)	release.home
+records/sandbox/matrix/4g-5g-macro-v2x.json	f1e81b0937b8f164f182e6348124f5d0f5e9d958a6fe56cb9183857ba95b8339	10657	CC BY 4.0 (own run record; publish only after scrub)	release.home
+records/sandbox/matrix/4g-5g-mc-v2x-fed-iot.json	73457f702303286e82fe8415f29283dcffb9fe4d9716cf797d24f8370efe96f5	22839	CC BY 4.0 (own run record; publish only after scrub)	release.home
+records/sandbox/matrix/4g-5g-wifi-macro.json	d75c5099298e2a585c7b050c600369276859c145390f69bd97e0d28bf66016c7	9865	CC BY 4.0 (own run record; publish only after scrub)	release.home
+records/sandbox/matrix/4g-macro.json	286aadb0fec26cc74bb24980d5de6f9eb94074ce4201a152fea3572f1984a758	9939	CC BY 4.0 (own run record; publish only after scrub)	release.home
+records/sandbox/matrix/4g-wifi-macro.json	110ea1368800ba519be38b2d133ff586b156f7bc4a686c62406bc8a3e8b0f7f3	9847	CC BY 4.0 (own run record; publish only after scrub)	release.home
+records/sandbox/matrix/dual-mep-4g-5g-wifi-macro.json	8c9d79f2498d0db8faf2f383577d1506966acb5bbc1a163dd291b01966b45eb7	15921	CC BY 4.0 (own run record; publish only after scrub)	release.home
+records/sandbox/matrix/dual-mep-short-path.json	f515a695d8fc7fdad4ea5c4a004a60025520c480780778337a5d961f95efc51d	15871	CC BY 4.0 (own run record; publish only after scrub)	release.home
+records/sandbox/matrix/summary.txt	9176974b72b6015153ee0f1447df98726c86a722c5bccc20b7afad44cc4f64f6	1008	CC BY 4.0 (own run record; publish only after scrub)	-
+records/sandbox/ours/compare_final.json	7844854eee0a825e8a7b5a4f505d1b5076c1fd147d27710b7c529730d6fd1408	11118	CC BY 4.0 (own run record; publish only after scrub)	-
+records/sandbox/sandbox_follow_20261120T233338Z.json	1e5109513b5976250c44b1016f258d4c6b47aab4a7ccc23cac698f2e81000069	34825	CC BY 4.0 (own run record; publish only after scrub)	-
+records/sandbox/sandbox_follow_20261121T010245Z.json	3b4eb1ac4b36c515e28165b96d85f394a8a796b16c8db7d75bbe1197bd9f0c16	3974	CC BY 4.0 (own run record; publish only after scrub)	-
+records/sandbox/sandbox_follow_4g-5g-macro-v2x-fed_20261121T025332.json	049be5924125c31e91081e0b0d7905d4f147693816001b0e7f92bad76c7cecaf	5922	CC BY 4.0 (own run record; publish only after scrub)	-
+records/sandbox/sandbox_follow_4g-5g-macro-v2x_20261121T024102.json	146b1f660b7a62936ffcc22a7fa0e52ab33fdc4acaa60d5c1f8e4833404b4aa7	3607	CC BY 4.0 (own run record; publish only after scrub)	-
+records/sandbox/sandbox_follow_4g-5g-mc-v2x-fed-iot_20261121T024517.json	e22fdd20062c28d1d83c5234e2486c4c6a37da2f9f1eef12e670484b98cd1f69	1759	CC BY 4.0 (own run record; publish only after scrub)	-
+records/sandbox/sandbox_follow_4g-5g-wifi-macro_20261121T023055.json	4d721eed53ff6a52d13537fcbfa63c20436f46db988f6d8a1bed3108f7744414	2043	CC BY 4.0 (own run record; publish only after scrub)	-
+records/sandbox/sandbox_follow_4g-macro_20261121T023504.json	e6f92db9fdb59ff055e3e7728c5cc935567da17e44afdd1b1582652c227bf541	4786	CC BY 4.0 (own run record; publish only after scrub)	-
+records/sandbox/sandbox_follow_4g-wifi-macro_20261121T022237.json	58d99c479d509bb24219b483c5336c764ce31727469bc0aa89d4435412348be1	2038	CC BY 4.0 (own run record; publish only after scrub)	-
+records/sandbox/sandbox_follow_dual-mep-4g-5g-wifi-macro_20261121T022647.json	4076a5c2b30680b4c13396d8b8234cf1cc3fb8c9d4b6eb28e7361045c3161491	2044	CC BY 4.0 (own run record; publish only after scrub)	-
+records/sandbox/sandbox_follow_dual-mep-short-path_20261121T024920.json	eae2f706eb18b1dfdffb474fa8e405fe7a9f9a1373940b8e7f2acca15b782401	2119	CC BY 4.0 (own run record; publish only after scrub)	-
+records/sim/clean_rerun_reference_2026-11-19.json	1c58709d672aac9c70d83e42f991a222427da18922fd19b99ecd82244e87f60b	40656	CC BY 4.0 (own run record; publish only after scrub)	records.json_keys,release.checkout_root,release.home,release.login
+records/sim/fl03_compare_20261120T025209.json	e0160e9b21b5cdee9e5db79fd6606c7bc2cc1d5448a1c8f6ec014c7b7ee98e00	12021	CC BY 4.0 (own run record; publish only after scrub)	release.checkout_root,release.home,release.lab_venv,release.worktree_root
+records/sim/fl_sim_centralised_20261120T025209.json	56dde4d3073e055f56c44f0f0c1b2d07a7314a226d8d2253c8aeb9a00d996170	201111	CC BY 4.0 (own run record; publish only after scrub)	release.checkout_root,release.home,release.lab_venv,release.worktree_root
+records/sim/fl_sim_edge-only_20261120T025209.json	66b3c19ade4b5fe6a5562ea1dfece3bc8f45f820f69c367f09ee1bc8ef554407	199013	CC BY 4.0 (own run record; publish only after scrub)	release.checkout_root,release.home,release.lab_venv,release.worktree_root
+records/sim/fl_sim_hierarchical_20261120T025209.json	4681de82c164c1065734f3d9a1158633a1ff9944eff5d3b1feeaeef825ce3a41	200742	CC BY 4.0 (own run record; publish only after scrub)	release.checkout_root,release.home,release.lab_venv,release.worktree_root
+records/sim/policy_sim_20261120T114134.json	e4bc55e13650242bdd5ee49d7cba903d60c5e14ede208faeb6f7d2a7c9b7f79c	36007	CC BY 4.0 (own run record; publish only after scrub)	release.checkout_root,release.home,release.lab_venv,release.worktree_root
+records/sim/vm_rerun_20261120T092249Z.json	fa3d922edb7e47a23ec17457903a85a7d931fa0b22bbb22a29370a5ae3fdf299	53114	CC BY 4.0 (own run record; publish only after scrub)	records.home_paths,release.home,release.lab_name,release.lab_venv,release.login,release.private_lab,release.run_media
+records/sim/vm_rerun_20261121T054608Z.json	0e47cc8e518d76a578c65293daba50dab1199ca053bea016d680ef8c45bb85cf	56998	CC BY 4.0 (own run record; publish only after scrub)	records.home_paths,release.home,release.lab_name,release.lab_venv,release.login,release.private_lab,release.run_media
+records/sitting_b/en303645_results.json	f1cb1c67082354b67d63326443d1213c58b27a918530f90104211ea09205f555	2344	CC BY 4.0 (own run record; publish only after scrub)	-
+records/sitting_b/fl_capture_1.json	9a7d65c47a8eda1f5f3f1d28525424adb8d3ad2118df14b13bbc2d62bcae0ea4	18147	CC BY 4.0 (own run record; publish only after scrub)	-
+records/sitting_b/fl_dev_20261119T174801.json	f8921003774647c9291e0ee1301f9c3cff2ebd9583958d036c2af36d6adb51b7	128300	CC BY 4.0 (own run record; publish only after scrub)	release.checkout_root,release.home,release.lab_venv,release.worktree_root
+records/sitting_b/hack_test_en303645.log	e212afce488b5bf501b9f16c9f58b9a040049c350d09eb212c2132e33ee91656	1942	CC BY 4.0 (own run record; publish only after scrub)	-
+records/sitting_b/hack_test_phone_mec013sub.log	4ae2971d213c414d807355490262e03e9d24a90678ece6f167981da1a474a553	1358	CC BY 4.0 (own run record; publish only after scrub)	records.phone_distance
+records/sitting_b/loc_check_1.json	aacb2c7ff79b2ef62c6bc8586062f11aca000058297105e6c112ae657a1f5d2c	5923	CC BY 4.0 (own run record; publish only after scrub)	device_tag,release.checkout_root,release.home,release.lab_venv,release.worktree_root
+records/sitting_b/mec046_1.json	db568e8d67dc9240fb09f85f80986a051a5b80990b2643070b13f833c91cc73a	11605	CC BY 4.0 (own run record; publish only after scrub)	release.model_prefix
+records/sitting_b/poc2_run1.json	ca844cf07daf62bc1958064e3bef8bf247f739ef58c13fcdec2279b0a277035c	16240	CC BY 4.0 (own run record; publish only after scrub)	cell.id,cell.mcc,cell.mnc,cell.tac,device_tag,release.checkout_root,release.home,release.lab_venv,release.worktree_root
+records/sitting_b/poc2_run2.json	3bf77eda8b1ab893132dadad8dbbaf7fa5ae7d0c2e870be7bfe93ca053cf7a23	16307	CC BY 4.0 (own run record; publish only after scrub)	cell.id,cell.mcc,cell.mnc,cell.tac,device_tag,release.checkout_root,release.home,release.lab_venv,release.worktree_root
+records/sitting_b/poc2_run3.json	d4c17f2dfedbe695d5cba081b331e0d1d742c2d06bcaa12ac7777d19f40828b4	16316	CC BY 4.0 (own run record; publish only after scrub)	cell.id,cell.mcc,cell.mnc,cell.tac,device_tag,release.checkout_root,release.home,release.lab_venv,release.worktree_root
+records/sitting_b/poc2_run4.json	68c95282a1f27ecfcb535d23a97d157cbce312560330223fbd76823ef801da56	16719	CC BY 4.0 (own run record; publish only after scrub)	cell.id,cell.mcc,cell.mnc,cell.tac,device_tag,release.checkout_root,release.home,release.lab_venv,release.worktree_root
+records/sitting_b/reauth_1.json	1a97bd203f951a42626bd86b02b27b536292db5c63604d57f93ccf9cf925730c	8142	CC BY 4.0 (own run record; publish only after scrub)	device_tag,release.checkout_root,release.home,release.lab_venv,release.worktree_root
+records/sitting_b/suites_run.txt	22119e33b6b73b6db1d8c3622f80c3009cfec501206e428967fe1aeb0f47b4e9	712	CC BY 4.0 (own run record; publish only after scrub)	-
+records/test_tls_front_20261120.txt	f7a70c5c64321ab54b5f6a559342be8fac50b50dac73a0c5e3dd84616e29f1b5	29746	CC BY 4.0 (own run record; publish only after scrub)	release.home,release.worktree_root
+records/tinyiot/2026-11-21/reverse.py	3d3c9ba8761a68d98f40743c1d6f64b6e536ecdcc64ad0a2e009cdc684041952	1632	Apache-2.0 (own code)	release.checkout_root,release.home
+records/tinyiot/2026-11-21/run2/run.log	dc59f98fa96e3562b21d9372df05031502bf4db4e7f85dc77d7b6f12635f4162	1467	CC BY 4.0 (own run record; publish only after scrub)	release.home
+records/tinyiot/2026-11-21/run2/t1_handover_acme_to_tinyiot.out	e18fc7370a7b81e7170bd582debceefff7fc83c641f383527f6d6f1d3e4797fc	609	CC BY 4.0 (own run record; publish only after scrub)	-
+records/tinyiot/2026-11-21/run2/t2_handover_tinyiot_to_acme.out	824e1d337a6621877f6c09108b834e8005e2da10d2a8a05ecb635e361d171aec	598	CC BY 4.0 (own run record; publish only after scrub)	-
+records/tinyiot/2026-11-21/run4.sh	6db9804cb993fd1342bf6c0ccb3bb4741ec1f363642347b904cee0a6669b7f38	4271	Apache-2.0 (own code)	records.scratch_dir,release.checkout_root,release.home,release.lab_venv
+records/tinyiot/2026-11-21/run4/a1_handover_acme_to_tinyiot.out	b0ce79985571d79bc20e1844b005f8846ad0c72e04c7262cef59204c35d815c3	609	CC BY 4.0 (own run record; publish only after scrub)	-
+records/tinyiot/2026-11-21/run4/a2_handover_tinyiot_to_acme.out	206511171b57c65af31135ab5d10a6c789e0b42369b31ce21b82d5eda97e6d1e	619	CC BY 4.0 (own run record; publish only after scrub)	-
+records/tinyiot/2026-11-21/run4/a3_scenario_mn_b_tinyiot.out	65e9bd0089dd5fc4c109083b073dc531c4d87f615d4dfcb7e4b11dbcdf74bc11	1567	CC BY 4.0 (own run record; publish only after scrub)	-
+records/tinyiot/2026-11-21/run4/acme-mn-b-restart.log	a8f05102e5b8b4bdc203807f0a54a7c223192057fa051847bf611ea6c718b807	147	CC BY 4.0 (own run record; publish only after scrub)	-
+records/tinyiot/2026-11-21/run4/run.log	f0dd20c5d70ec83dc1b6c7569da49830d034bbcc42c4c3170b8cc612c6cef34f	1876	CC BY 4.0 (own run record; publish only after scrub)	release.home
+records/tinyiot/2026-11-21/run4/swap.out	a3cb8ba3fb2a5d732ba9a67557347940c1f8ef88fe860d65ac5ac6a06251cde9	143	CC BY 4.0 (own run record; publish only after scrub)	-
+records/tinyiot/2026-11-21/run4/tinyiot-stdout.log	b60729b9f69f52a7dea684c7f7755d19c577f7b1de1b84d6cdf71bd45459dc0a	364647	CC BY 4.0 (own run record: tinyIoT's log output of this run, not its source)	-
+records/tinyiot/RESULTS-2026-10-19.md	2e46427e948f874fd26def0df3f21f1d686dd4b980949b6893e698071ff7fb30	1888	CC BY 4.0 (own run record; publish only after scrub)	release.checkout_root
+records/tinyiot/scenario_tinyiot.txt	fdfe14ce066710b93a7a3ed33d3f9c36dfeb643eeb355d8956983e237a88d0e2	1002	CC BY 4.0 (own run record; publish only after scrub)	-
+records/tinyiot/scenario_tinyiot_unfixed.txt	b84d96bdde1274f7890f3baf49af5ebb0d8b2098c7905bf1cabacc04a3455baf	1049	CC BY 4.0 (own run record; publish only after scrub)	-
+records/tinyiot/swap_mn_b.sh	cc4587d7b39bb75952aa36d952f4c399096e1ec04910d37801df29ddbdfba3a9	1339	Apache-2.0 (own code)	release.home
+records/tinyiot/tinyiot-lab.patch	59e0816c4f07e33b0da19ee8e32eaee4cc2dc5b7dee730ed382fd0facb76743b	2097	patch of tinyIoT (BSD-3-Clause, tinyIoT Contributors): context lines are theirs; redistributable with their notice	-
+requirements/cse.txt	2b06732b674972f27d0aae3902d7f5f8819f4eb717dda88364091d3e9f79977a	112	Apache-2.0 (own code)	-
+requirements/lab.txt	ae77380ddb85e2bc549779e9e9d79090ef30b2447c701a2e4bde0e1d8ac49804	632	Apache-2.0 (own code)	-

@@ -1,0 +1,1729 @@
+{
+ "kind": "vm_rerun",
+ "td": "TD_MEC_OBS_03",
+ "attempt": 1,
+ "result": "PASS",
+ "stamp": "20261121T054608Z",
+ "started_utc": "2026-11-21T05:46:14Z",
+ "finished_utc": "2026-11-21T05:48:32Z",
+ "obs03_steps": [
+  {
+   "step": 1,
+   "text": "A developer with no prior VM configuration follows the runbooks to bootstrap the VM (TD_MEC_PF_01).",
+   "verdict": "PASS",
+   "why": "every install block and every bootstrap block exited 0, and TD_MEC_PF_01 passed"
+  },
+  {
+   "step": 2,
+   "text": "Bootstrap completes without requiring steps outside the runbook.",
+   "verdict": "PASS",
+   "why": "only the runbook's blocks ran, besides the harness steps listed"
+  },
+  {
+   "step": 3,
+   "text": "Developer runs automated scripts for TD_MEC_REG_01 through TD_MEC_DEV_01.",
+   "verdict": "PASS",
+   "why": "all five test blocks were run"
+  },
+  {
+   "step": 4,
+   "text": "All scripted tests pass and produce the same KPI results as the original execution.",
+   "verdict": "PASS",
+   "why": "every declared test passed, the KPIs equal the reference's, and clean_rerun.py's own verdict in the VM is PASS"
+  },
+  {
+   "step": 5,
+   "text": "Total time from clean VM to passing TD_MEC_DEV_01 is within the target onboarding budget.",
+   "verdict": "PASS",
+   "why": "at most 133 s from QEMU's start to this host receiving the record of TD_MEC_DEV_01 passed (this host's clock), budget 1800 s"
+  }
+ ],
+ "budget": {
+  "value_s": 1800.0,
+  "reason": "ours, written 2026-11-20 before the first VM run; the test plan names no number. 900 s is the runbook's own budget for empty directory -> TD_MEC_DEV_01 passed with the environments already installed (33 s measured on this PC on 2026-11-18); the other 900 s are for what a clean VM adds: boot and cloud-init, fetching the code, and the install blocks downloading the CSE, the test runner and their dependencies from PyPI. Half an hour is one sitting for a developer onboarding.",
+  "vm_rerun_committed_at_head": true,
+  "from": "QEMU process start, this host's clock",
+  "to": "this host's receipt of the VM's clean_rerun record (cr_record.json, the guest's first upload; it can only exist after TD_MEC_DEV_01 ended), this host's clock",
+  "is": "an upper bound: it also holds clean_rerun's shutdown and controls; the VM's clock is not used",
+  "elapsed_s": 133.1,
+  "console_guest_done_s": 134.0,
+  "guest_claim_s": 121.6,
+  "guest_claim_is": "the VM's own log of the td-dev-01 block (whole-second start plus 1 s plus its duration) moved onto this host's clock with the offset at the uploads; reported, never compared",
+  "guest_clock_offset": {
+   "median_s": -0.368,
+   "min_s": -0.373,
+   "max_s": -0.365,
+   "n": 20
+  },
+  "clean_rerun_in_vm_t_last_s": 32.459
+ },
+ "base_image": {
+  "source": "/run/media/edgefollow/data/estimed-vm-2026-11-20/debian-13-genericcloud-amd64.qcow2",
+  "path": "<vm-private-dir>/20261121T054608Z/base.qcow2",
+  "bytes": 344260608,
+  "sha512": "37cb32b320820417eb04b335afcf489bfb4cecce4a957190d09cb2bffbe02b56a1cadd62d78c6ead92aa7839d5ea65e4260f994bbb4b54490df59fdf11ee1d97",
+  "listed": "37cb32b320820417eb04b335afcf489bfb4cecce4a957190d09cb2bffbe02b56a1cadd62d78c6ead92aa7839d5ea65e4260f994bbb4b54490df59fdf11ee1d97",
+  "ok": true,
+  "copy_read_back_sha512": "37cb32b320820417eb04b335afcf489bfb4cecce4a957190d09cb2bffbe02b56a1cadd62d78c6ead92aa7839d5ea65e4260f994bbb4b54490df59fdf11ee1d97",
+  "how": "hashed while copying, then read back once; mode 0400",
+  "sums_file": "/run/media/edgefollow/data/estimed-vm-2026-11-20/SHA512SUMS",
+  "sums_sha512": "a622cd7fac3d2073ad96af96543e70235fe860c36408c5da5d89c63b9187c19370f9f20258e21be50ba55bf3c436e429f2dbdca3232351a7686898f35d5d6cce",
+  "sha512_after": "37cb32b320820417eb04b335afcf489bfb4cecce4a957190d09cb2bffbe02b56a1cadd62d78c6ead92aa7839d5ea65e4260f994bbb4b54490df59fdf11ee1d97",
+  "unchanged": true,
+  "debian_build": "see SHA512SUMS and debian-13-genericcloud-amd64.json in /run/media/edgefollow/data/estimed-vm-2026-11-20",
+  "signature": "SHA512SUMS was not signature-checked"
+ },
+ "vm": {
+  "argv": [
+   "/usr/bin/systemd-run",
+   "--user",
+   "--scope",
+   "--quiet",
+   "-p",
+   "MemoryMax=5G",
+   "-p",
+   "MemorySwapMax=0",
+   "--",
+   "/usr/bin/qemu-system-x86_64",
+   "-name",
+   "estimed-vm-20261121T054608Z",
+   "-machine",
+   "q35,accel=kvm",
+   "-cpu",
+   "host",
+   "-smp",
+   "2",
+   "-m",
+   "4096",
+   "-nographic",
+   "-monitor",
+   "none",
+   "-serial",
+   "file:<vm-private-dir>/20261121T054608Z/serial.log",
+   "-no-reboot",
+   "-drive",
+   "file=<vm-private-dir>/20261121T054608Z/overlay.qcow2,if=virtio,format=qcow2",
+   "-netdev",
+   "user,id=n0,restrict=on,ipv6=off,guestfwd=tcp:10.0.2.100:8080-cmd:/usr/bin/python3 -I -B -S <vm-private-dir>/20261121T054608Z/relay.py 36765,guestfwd=tcp:10.0.2.101:3128-cmd:/usr/bin/python3 -I -B -S <vm-private-dir>/20261121T054608Z/relay.py 44873",
+   "-device",
+   "virtio-net-pci,netdev=n0",
+   "-smbios",
+   "type=1,serial=ds=nocloud;s=http://10.0.2.100:8080/",
+   "-device",
+   "virtio-rng-pci"
+  ],
+  "tools": {
+   "qemu": "/usr/bin/qemu-system-x86_64",
+   "qemu_img": "/usr/bin/qemu-img",
+   "systemd_run": "/usr/bin/systemd-run",
+   "qemu_version": [
+    "QEMU emulator version 11.1.2 (Debian 1:11.1.2+ds-3)"
+   ]
+  },
+  "memory_cap": "5G",
+  "overlay": "<vm-private-dir>/20261121T054608Z/overlay.qcow2",
+  "overlay_bytes_after": 771751936,
+  "serial_log": "<vm-private-dir>/20261121T054608Z/serial.log",
+  "wall_limit_s": 3000.0,
+  "watch": {
+   "exit_rc": 0,
+   "ended_host": 1795240110.142,
+   "killed": null,
+   "timed_out": false,
+   "powered_off_by_itself": true
+  },
+  "harness_lines": [
+   {
+    "t_host": 1795240001.121,
+    "since_vm_start_s": 27.0,
+    "line": "VMRERUN-PROGRESS harness-start"
+   },
+   {
+    "t_host": 1795240001.121,
+    "since_vm_start_s": 27.0,
+    "line": "VMRERUN-PROGRESS root-start"
+   },
+   {
+    "t_host": 1795240021.125,
+    "since_vm_start_s": 47.0,
+    "line": "VMRERUN-ROOT {\"blocks\":[{\"id\":\"install-system-packages\",\"sha256\":\"6be2171b25ba81672e1a42de2f52311669349a6e1690be814487cac21b9b3153\",\"rc\":0}],\"not_run\":[],\"error"
+   },
+   {
+    "t_host": 1795240021.125,
+    "since_vm_start_s": 47.0,
+    "line": "VMRERUN-PROGRESS root-done 0"
+   },
+   {
+    "t_host": 1795240021.125,
+    "since_vm_start_s": 47.0,
+    "line": "VMRERUN-PROGRESS guest-start"
+   },
+   {
+    "t_host": 1795240108.141,
+    "since_vm_start_s": 134.0,
+    "line": "VMRERUN-PROGRESS guest-done 0"
+   },
+   {
+    "t_host": 1795240108.141,
+    "since_vm_start_s": 134.0,
+    "line": "VMRERUN-SUMMARY {\"attempt\":1,\"guest_error\":null,\"root_missing\":false,\"installs\":[{\"id\":\"install-system-packages\",\"rc\":0,\"seconds\":19.748,\"as\":\"root\"},{\"id\":\"ins"
+   }
+  ],
+  "vm_seconds": 136.0,
+  "network": {
+   "netdev": "user,id=n0,restrict=on,ipv6=off,guestfwd=tcp:10.0.2.100:8080-cmd:/usr/bin/python3 -I -B -S <vm-private-dir>/20261121T054608Z/relay.py 36765,guestfwd=tcp:10.0.2.101:3128-cmd:/usr/bin/python3 -I -B -S <vm-private-dir>/20261121T054608Z/relay.py 44873",
+   "guestfwd": [
+    {
+     "in_vm": "10.0.2.100:8080",
+     "on_host": "127.0.0.1:36765",
+     "what": "the seed and upload server"
+    },
+    {
+     "in_vm": "10.0.2.101:3128",
+     "on_host": "127.0.0.1:44873",
+     "what": "the allow-listing proxy"
+    }
+   ],
+   "relay": {
+    "path": "<vm-private-dir>/20261121T054608Z/relay.py",
+    "sha256": "1681c79f66640edc71a158f586b05ab0393f2e317b88f7052745cfc19270254c",
+    "cmd": "/usr/bin/python3 -I -B -S <vm-private-dir>/20261121T054608Z/relay.py"
+   },
+   "proxy": {
+    "allow": [
+     "deb.debian.org:443",
+     "files.pythonhosted.org:443",
+     "pypi.org:443"
+    ],
+    "methods": [
+     "CONNECT"
+    ],
+    "caps": {
+     "bytes_per_tunnel": 536870912,
+     "bytes_per_run": 2147483648,
+     "tunnels_per_run": 1000,
+     "idle_s": 60.0,
+     "tunnel_lifetime_s": 1200.0,
+     "head_bytes": 8192,
+     "head_timeout_s": 10.0
+    },
+    "resolves": "on this host; a name that resolves to a non-public address is refused",
+    "summary": {
+     "tunnels": 6,
+     "refused": 4,
+     "bytes": 91031443,
+     "log_entries_dropped": 0
+    },
+    "log": [
+     {
+      "t_host": 1795240001.279,
+      "request": "CONNECT deb.debian.org:443 HTTP/1.1",
+      "target": "deb.debian.org:443",
+      "status": 200,
+      "why": "",
+      "ip": "2a04:4e42:6f::644",
+      "bytes_up": 5350,
+      "bytes_down": 28717319,
+      "seconds": 3.68,
+      "end": "eof"
+     },
+     {
+      "t_host": 1795240006.799,
+      "request": "CONNECT deb.debian.org:443 HTTP/1.1",
+      "target": "deb.debian.org:443",
+      "status": 200,
+      "why": "",
+      "ip": "2a04:4e42:6f::644",
+      "bytes_up": 3955,
+      "bytes_down": 22263038,
+      "seconds": 0.991,
+      "end": "eof"
+     },
+     {
+      "t_host": 1795240024.696,
+      "request": "CONNECT files.pythonhosted.org:443 HTTP/1.1",
+      "target": "files.pythonhosted.org:443",
+      "status": 200,
+      "why": "",
+      "ip": "2a04:4e42:600::223",
+      "bytes_up": 60054,
+      "bytes_down": 31341824,
+      "seconds": 24.87,
+      "end": "eof"
+     },
+     {
+      "t_host": 1795240024.385,
+      "request": "CONNECT pypi.org:443 HTTP/1.1",
+      "target": "pypi.org:443",
+      "status": 200,
+      "why": "",
+      "ip": "2a04:4e42:400::223",
+      "bytes_up": 30849,
+      "bytes_down": 2317408,
+      "seconds": 25.185,
+      "end": "eof"
+     },
+     {
+      "t_host": 1795240053.727,
+      "request": "CONNECT pypi.org:443 HTTP/1.1",
+      "target": "pypi.org:443",
+      "status": 200,
+      "why": "",
+      "ip": "2a04:4e42:400::223",
+      "bytes_up": 13486,
+      "bytes_down": 2165455,
+      "seconds": 8.304,
+      "end": "eof"
+     },
+     {
+      "t_host": 1795240054.031,
+      "request": "CONNECT files.pythonhosted.org:443 HTTP/1.1",
+      "target": "files.pythonhosted.org:443",
+      "status": 200,
+      "why": "",
+      "ip": "2a04:4e42:600::223",
+      "bytes_up": 19465,
+      "bytes_down": 4093240,
+      "seconds": 8.001,
+      "end": "eof"
+     },
+     {
+      "t_host": 1795240111.147,
+      "request": "CONNECT example.invalid:443 HTTP/1.1",
+      "target": "example.invalid:443",
+      "status": 403,
+      "why": "not on the allow-list",
+      "ip": null,
+      "bytes_up": 0,
+      "bytes_down": 0,
+      "seconds": 0.0,
+      "end": null
+     },
+     {
+      "t_host": 1795240111.148,
+      "request": "CONNECT pypi.org:80 HTTP/1.1",
+      "target": "pypi.org:80",
+      "status": 403,
+      "why": "not on the allow-list",
+      "ip": null,
+      "bytes_up": 0,
+      "bytes_down": 0,
+      "seconds": 0.0,
+      "end": null
+     },
+     {
+      "t_host": 1795240111.148,
+      "request": "CONNECT 192.0.2.1:443 HTTP/1.1",
+      "target": "192.0.2.1:443",
+      "status": 403,
+      "why": "not on the allow-list",
+      "ip": null,
+      "bytes_up": 0,
+      "bytes_down": 0,
+      "seconds": 0.0,
+      "end": null
+     },
+     {
+      "t_host": 1795240111.148,
+      "request": "GET http://pypi.org/ HTTP/1.1",
+      "target": null,
+      "status": 405,
+      "why": "GET is not CONNECT: this proxy only opens allow-listed tunnels",
+      "ip": null,
+      "bytes_up": 0,
+      "bytes_down": 0,
+      "seconds": 0.0,
+      "end": null
+     }
+    ]
+   },
+   "given_to": {
+    "install blocks": {
+     "HTTPS_PROXY": "http://10.0.2.101:3128",
+     "https_proxy": "http://10.0.2.101:3128"
+    },
+    "root=yes install blocks": {
+     "HTTPS_PROXY": "http://10.0.2.101:3128",
+     "https_proxy": "http://10.0.2.101:3128",
+     "APT_CONFIG": "/var/lib/vmrerun/apt-proxy.conf"
+    },
+    "apt": "only in the root=yes blocks, through APT_CONFIG: 'Acquire::http::Proxy \"http://10.0.2.101:3128\";\\nAcquire::https::Proxy \"http://10.0.2.101:3128\";\\n'",
+    "rerun block": "nothing"
+   },
+   "restrict": true,
+   "ipv6": false,
+   "ipv6_closed": {
+    "setting": "ipv6=off in the netdev line (QEMU's option that turns IPv6 off; libslirp's in6_enabled=0)",
+    "unreachable_over_ipv6": "everything: libslirp drops every IPv6 frame the VM sends and answers none (no router advertisement, neighbour, DHCPv6 or DNS answer), so over IPv6 the VM reaches neither this host ([::1], ::ffff:127.0.0.1) nor the LAN nor the IPv6 internet, on any port",
+    "reachable_over_ipv4": "only the two guestfwd targets 10.0.2.100:8080 and 10.0.2.101:3128 (restrict=on: the host alias 10.0.2.2 gets a reset, UDP is not delivered)",
+    "how_shown": "2026-11-20, before any VM run: this host's libslirp 4.9.5 loaded in-process (no QEMU), configured from the harness's netdev value (restricted=1, in6_enabled=0) with a guestfwd exec rule at 10.0.2.100; the second check's frames were fed to it unchanged: an IPv6 SYN to fec0::2 from the crafted source fec0:0:a00:264::1234, an IPv6 SYN to ::ffff:127.0.0.1, an IPv6 SYN from an ordinary source, IPv6 and IPv4 UDP. None opened a connection on this host and no IPv6 frame drew any frame back. Control: the netdev value before ipv6=off (in6_enabled=1) with the same frames opened host connections to [::1] and 127.0.0.1. After the guest's ARP, an IPv4 SYN to 10.0.2.100 still drew slirp's SYN-ACK and one to 10.0.2.2 a reset, in both configurations",
+    "not_shown": "QEMU itself was not run (not installed on this host when this was written): that -netdev ipv6=off reaches libslirp as in6_enabled=0 is taken from QEMU's documentation of the option, not observed here; in the run the VM's own IPv6 addresses are read, and one other than loopback or link-local is an integrity problem"
+   },
+   "statement": "restrict=on and ipv6=off: over IPv4 the VM reaches nothing on this host, its LAN or the internet except the two guestfwd targets; over IPv6 it reaches nothing at all; slirp's restricted mode gives it no DNS; no port of this host is forwarded into the VM"
+  }
+ },
+ "code": {
+  "tar": "served/code.tar",
+  "sha256": "7b625d1669a1d8a16121a05a12f97ab7b7f28cc9d8a83f9fba7f9e3dbb07d573",
+  "bytes": 2498560,
+  "head": "e481942a8b357250b8b64b691279c09991c2206e",
+  "head_date": "2026-11-21T06:45:20+01:00",
+  "synthetic_commit": "e7464e45c7fb98e51ef7a354cddb3e7064a39743",
+  "folders": [
+   "estimed",
+   "mec011_appsupport",
+   "mec010p2"
+  ],
+  "excluded": [
+   "estimed/private_lab"
+  ],
+  "file_count": 72,
+  "tree_sha256": "c2080f8751e6fdbf174a5da89195619be6b557a3730d5573e32fd4d3acc36fe6",
+  "differences_from_head": [
+   {
+    "path": "estimed/apps/cse_consumer/appd.json",
+    "status": "modified",
+    "delivered": false
+   },
+   {
+    "path": "estimed/apps/cse_consumer/sensor_ae.py",
+    "status": "modified",
+    "delivered": false
+   },
+   {
+    "path": "estimed/apps/mec_ipe/appd.json",
+    "status": "modified",
+    "delivered": false
+   },
+   {
+    "path": "estimed/apps/mec_ipe/mec_ipe_app.py",
+    "status": "modified",
+    "delivered": false
+   },
+   {
+    "path": "estimed/apps/mec_svc_ipe/mec_svc_ipe.py",
+    "status": "untracked",
+    "delivered": false
+   },
+   {
+    "path": "estimed/apps/mn_cse/appd.json",
+    "status": "modified",
+    "delivered": false
+   },
+   {
+    "path": "estimed/apps/mn_cse/mn_cse.py",
+    "status": "modified",
+    "delivered": false
+   },
+   {
+    "path": "estimed/apps/sensor_ae/appd.json",
+    "status": "modified",
+    "delivered": false
+   },
+   {
+    "path": "estimed/apps/sensor_ae/sensor_ae.py",
+    "status": "modified",
+    "delivered": false
+   },
+   {
+    "path": "estimed/conf/init-mec/mecSvc.ep",
+    "status": "untracked",
+    "delivered": false
+   },
+   {
+    "path": "estimed/conf/init-mec/mecSvc.fcp",
+    "status": "untracked",
+    "delivered": false
+   },
+   {
+    "path": "estimed/mec_app_deploy.py",
+    "status": "modified",
+    "delivered": false
+   },
+   {
+    "path": "estimed/tests/test_mec011_lifecycle.py",
+    "status": "untracked",
+    "delivered": false
+   },
+   {
+    "path": "estimed/tests/test_mec011_lifecycle_lab.py",
+    "status": "untracked",
+    "delivered": false
+   },
+   {
+    "path": "estimed/tests/test_mec_svc_oneM2M.py",
+    "status": "untracked",
+    "delivered": false
+   },
+   {
+    "path": "estimed/tests/test_tr0086_mec_app_deploy.py",
+    "status": "modified",
+    "delivered": false
+   },
+   {
+    "path": "estimed/tests/test_tr0086_option_a.py",
+    "status": "modified",
+    "delivered": false
+   },
+   {
+    "path": "estimed/tests/test_tr0086_options_c_d.py",
+    "status": "modified",
+    "delivered": false
+   },
+   {
+    "path": "mec011_appsupport/candidate.py",
+    "status": "modified",
+    "delivered": false
+   }
+  ],
+  "delivered_from_working_tree": [],
+  "staged_in": "/dev/shm/vm_rerun_stage_20261121T054608Z_k3jvo0en (tmpfs; removed once the tarball was written)",
+  "vs_reference_commit": {
+   "reference_commit": "411125a0c3ec9df9141fdea63ee4a745466405bc",
+   "files_differing_at_head": [
+    "estimed/README.md",
+    "estimed/RUNBOOK.md",
+    "estimed/TESTPLAN_COVERAGE.md",
+    "estimed/apps/cse_consumer/appd.json",
+    "estimed/apps/cse_consumer/discover.py",
+    "estimed/apps/cse_consumer/sensor_ae.py",
+    "estimed/apps/edge_agent/README.md",
+    "estimed/apps/edge_agent/agent.py",
+    "estimed/apps/edge_agent/mcp_stdio.py",
+    "estimed/apps/edge_agent/mec_server.py",
+    "estimed/apps/edge_agent/onem2m_server.py",
+    "estimed/apps/mec_ipe/appd.json",
+    "estimed/apps/mec_ipe/handover.py",
+    "estimed/apps/mec_ipe/mec_ipe.py",
+    "estimed/apps/mec_ipe/mec_ipe_app.py",
+    "estimed/apps/mn_cse/appd.json",
+    "estimed/apps/mn_cse/mn-c.ini",
+    "estimed/apps/mn_cse/mn_cse.py",
+    "estimed/apps/vru_warning/vru_warning.py",
+    "estimed/clean_rerun.py",
+    "estimed/handover.py",
+    "estimed/kpi_record.py",
+    "estimed/mec_services.sh",
+    "estimed/proto_bench/README.md",
+    "estimed/proto_bench/coap_min.py",
+    "estimed/proto_bench/make_public.py",
+    "estimed/proto_bench/proto_bench.py",
+    "estimed/proto_bench/report_numbers.py",
+    "estimed/proto_bench/test_proto_bench.py",
+    "estimed/run_topology.sh",
+    "estimed/sandbox_follow.py",
+    "estimed/stop_topology.sh",
+    "estimed/tests/conftest.py",
+    "estimed/tests/test_clean_rerun.py",
+    "estimed/tests/test_edge_agent.py",
+    "estimed/tests/test_handover_before_offline.py",
+    "estimed/tests/test_handover_offline.py",
+    "estimed/tests/test_kpi_record.py",
+    "estimed/tests/test_lab_scripts.py",
+    "estimed/tests/test_mec_services_sh.py",
+    "estimed/tests/test_sandbox_follow.py",
+    "estimed/tests/test_tr0086_handover.py",
+    "estimed/tests/test_tr0086_location.py",
+    "estimed/tests/test_tr0086_option_a.py",
+    "estimed/tests/test_tr0086_options_c_d.py",
+    "estimed/tests/test_tr0086_tls_basic_auth.py",
+    "estimed/tests/test_vm_rerun.py",
+    "estimed/tests/test_vru_warning.py",
+    "estimed/vm_rerun.py"
+   ]
+  }
+ },
+ "runbook": {
+  "sha256": "06c2a02aa400e503dfb4ce1123acb717bbccf501eecdcf41e66fdcea2a49d29b",
+  "install_plan": [
+   {
+    "id": "install-system-packages",
+    "sha256": "6be2171b25ba81672e1a42de2f52311669349a6e1690be814487cac21b9b3153"
+   },
+   {
+    "id": "install-cse-environment",
+    "sha256": "98916818b4d08cd01393eec4c5ab4bdd798cc0f9c0b6a6a74ebb01ab96b08e40"
+   },
+   {
+    "id": "install-test-environment",
+    "sha256": "c628132d84dc0001d233f017eb9cd51f3fff7decd720dab2e6ba9da8c3c9eb4f"
+   }
+  ],
+  "rerun_block": {
+   "id": "rerun",
+   "sha256": "fd3bb03d5e4419b9ee9a0f7e0b7d498dfc877f200212630b8ac39db8c6ef174e",
+   "text": ": runbook-step rerun phase=rerun && \\\ncd \"$ROOT\" && \"$PY\" -B estimed/clean_rerun.py rerun --reference /home/edgefollow/vm-harness/reference.json"
+  },
+  "rerun_cwd": "edgefollow's home; the block runs exactly as written (the harness adds no cd)",
+  "root_blocks": [
+   {
+    "id": "install-system-packages",
+    "sha256": "6be2171b25ba81672e1a42de2f52311669349a6e1690be814487cac21b9b3153",
+    "as": "root",
+    "rc": 0,
+    "rc_written_by": "root, on the console",
+    "rc_in_guest_json": 0,
+    "seconds": 19.748,
+    "ran": true
+   }
+  ],
+  "blocks_needing_root": [
+   {
+    "id": "install-system-packages",
+    "phase": "install",
+    "marker_root": true,
+    "names": []
+   }
+  ],
+  "root": "only the install blocks marked root=yes ran as root (the root step, started by run.sh); every other runbook block ran as edgefollow, who has no sudo",
+  "root_console_problems": [],
+  "diff_from_head": null,
+  "why_changed": null
+ },
+ "harness": {
+  "steps": {
+   "create-user": "cloud-init creates user edgefollow: password locked (none is set), no SSH key, no sudo and no admin group; no other user is created",
+   "no-ssh-keys": "cloud-init: password login off, root login off, the image's host keys deleted and none generated",
+   "power-off": "cloud-init power_state: power off once the harness script has ended",
+   "progress": "a progress line on the serial console",
+   "probe-root": "read-only facts as root: edgefollow's password state and groups, the files in /etc/ssh, edgefollow's home before delivery",
+   "fetch": "curl: code.tar, guest.py (this file) and reference.json from the host's seed server at 10.0.2.100:8080 (a guestfwd target)",
+   "check": "sha256sum --check of the three fetched files against the SHA-256s written in user-data",
+   "root-blocks": "as root (run.sh runs as root): vm_rerun.py root -- RUNBOOK.md and clean_rerun.py read from the checked code.tar into a folder of root's; ONLY the install blocks marked root=yes, in the runbook's order, each exactly as written through clean_rerun's Executor (bash -c, from /root), with exactly the environment PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin HOME=/root LANG=C.UTF-8, every name the runbook's variables block exports, HTTPS_PROXY and https_proxy (step proxy) and APT_CONFIG (step apt-proxy); their ids, SHA-256s and exit codes go to the serial console from root itself and to root_blocks.json. No other block is run as root",
+   "deliver": "as edgefollow: make ROOT (the runbook's variables-block value) and the harness folder, unpack code.tar into ROOT, copy the harness files (the guest reads the root step's root_blocks.json where root wrote it, mode 0644)",
+   "guest": "as edgefollow: vm_rerun.py guest -- facts read in-process, then the install blocks NOT marked root=yes and then the runbook's rerun block, each exactly as written through clean_rerun's Executor (bash -c, from edgefollow's home: the harness adds no cd; a cd inside a block runs), with exactly the environment PATH=/usr/local/bin:/usr/bin:/bin HOME=/home/edgefollow LANG=C.UTF-8 and every name the runbook's variables block exports (the install blocks also HTTPS_PROXY and https_proxy, step proxy); then the uploads. The guest driver itself starts with HOME USER LOGNAME PATH LANG only",
+   "proxy": "every install block's environment (root=yes or not), and nothing else's, gets HTTPS_PROXY and https_proxy = http://10.0.2.101:3128, this host's allow-listing CONNECT proxy: with restrict=on and ipv6=off the VM has no other way out. No runbook command is changed; the rerun block runs without it",
+   "apt-proxy": "the root blocks' environment, and nothing else's, gets APT_CONFIG=/var/lib/vmrerun/apt-proxy.conf, a file the root step writes: Acquire::http::Proxy and Acquire::https::Proxy = http://10.0.2.101:3128. apt reaches the image's https://deb.debian.org sources through CONNECT deb.debian.org:443",
+   "network": "QEMU user-mode networking with restrict=on, ipv6=off and exactly two guestfwd rules (the seed server and the proxy, each through a relay to one port on this host's 127.0.0.1); no port forward into the VM",
+   "summary": "the guest's summary as one line on the serial console"
+  },
+  "user_data_sha256": "b3a3eac9350550b4e9329e9074a4cef5f56ac6d87928e53a9001d1dfa3dc4ba2",
+  "user_data_file": "served/user-data",
+  "run_sh_template_sha256": "5c0e29ee15af48612bf954be7ce79f620ba544f18314e863c28bd8fabaa43239",
+  "guest_driver_sha256": "a3969a6eb52502ff983cd04f4a4550154a10be839f35f96bd00b636befda379a",
+  "seed_server": "127.0.0.1:36765",
+  "install_env_expected": {
+   "PATH": "/usr/local/bin:/usr/bin:/bin",
+   "HOME": "/home/edgefollow",
+   "LANG": "C.UTF-8",
+   "ROOT": "/home/edgefollow/estimed-lab/code",
+   "RUN": "/home/edgefollow/estimed-lab/run",
+   "OUT": "/home/edgefollow/estimed-lab/out",
+   "VENV": "/home/edgefollow/estimed-venv",
+   "PY": "/home/edgefollow/edgefollow-lab/.venv/bin/python",
+   "PYTHONDONTWRITEBYTECODE": "1",
+   "HTTPS_PROXY": "http://10.0.2.101:3128",
+   "https_proxy": "http://10.0.2.101:3128"
+  },
+  "rerun_env_expected": {
+   "PATH": "/usr/local/bin:/usr/bin:/bin",
+   "HOME": "/home/edgefollow",
+   "LANG": "C.UTF-8",
+   "ROOT": "/home/edgefollow/estimed-lab/code",
+   "RUN": "/home/edgefollow/estimed-lab/run",
+   "OUT": "/home/edgefollow/estimed-lab/out",
+   "VENV": "/home/edgefollow/estimed-venv",
+   "PY": "/home/edgefollow/edgefollow-lab/.venv/bin/python",
+   "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "root_env_expected": {
+   "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+   "HOME": "/root",
+   "LANG": "C.UTF-8",
+   "ROOT": "/home/edgefollow/estimed-lab/code",
+   "RUN": "/home/edgefollow/estimed-lab/run",
+   "OUT": "/home/edgefollow/estimed-lab/out",
+   "VENV": "/home/edgefollow/estimed-venv",
+   "PY": "/home/edgefollow/edgefollow-lab/.venv/bin/python",
+   "PYTHONDONTWRITEBYTECODE": "1",
+   "HTTPS_PROXY": "http://10.0.2.101:3128",
+   "https_proxy": "http://10.0.2.101:3128",
+   "APT_CONFIG": "/var/lib/vmrerun/apt-proxy.conf"
+  },
+  "apt_proxy_conf": "Acquire::http::Proxy \"http://10.0.2.101:3128\";\nAcquire::https::Proxy \"http://10.0.2.101:3128\";\n",
+  "server_log": [
+   {
+    "t_host": 1795239988.155,
+    "method": "GET",
+    "path": "/network-config",
+    "status": 404,
+    "bytes": 0,
+    "guest_time": null,
+    "name": null
+   },
+   {
+    "t_host": 1795239989.189,
+    "method": "GET",
+    "path": "/network-config",
+    "status": 404,
+    "bytes": 0,
+    "guest_time": null,
+    "name": null
+   },
+   {
+    "t_host": 1795239990.219,
+    "method": "GET",
+    "path": "/network-config",
+    "status": 404,
+    "bytes": 0,
+    "guest_time": null,
+    "name": null
+   },
+   {
+    "t_host": 1795239991.253,
+    "method": "GET",
+    "path": "/network-config",
+    "status": 404,
+    "bytes": 0,
+    "guest_time": null,
+    "name": null
+   },
+   {
+    "t_host": 1795239992.283,
+    "method": "GET",
+    "path": "/network-config",
+    "status": 404,
+    "bytes": 0,
+    "guest_time": null,
+    "name": null
+   },
+   {
+    "t_host": 1795239993.316,
+    "method": "GET",
+    "path": "/network-config",
+    "status": 404,
+    "bytes": 0,
+    "guest_time": null,
+    "name": null
+   },
+   {
+    "t_host": 1795239994.348,
+    "method": "GET",
+    "path": "/network-config",
+    "status": 404,
+    "bytes": 0,
+    "guest_time": null,
+    "name": null
+   },
+   {
+    "t_host": 1795239995.377,
+    "method": "GET",
+    "path": "/network-config",
+    "status": 404,
+    "bytes": 0,
+    "guest_time": null,
+    "name": null
+   },
+   {
+    "t_host": 1795239996.406,
+    "method": "GET",
+    "path": "/network-config",
+    "status": 404,
+    "bytes": 0,
+    "guest_time": null,
+    "name": null
+   },
+   {
+    "t_host": 1795239997.436,
+    "method": "GET",
+    "path": "/network-config",
+    "status": 404,
+    "bytes": 0,
+    "guest_time": null,
+    "name": null
+   },
+   {
+    "t_host": 1795239998.467,
+    "method": "GET",
+    "path": "/network-config",
+    "status": 404,
+    "bytes": 0,
+    "guest_time": null,
+    "name": null
+   },
+   {
+    "t_host": 1795239998.498,
+    "method": "GET",
+    "path": "/meta-data",
+    "status": 200,
+    "bytes": 65,
+    "guest_time": null,
+    "name": "meta-data"
+   },
+   {
+    "t_host": 1795239998.533,
+    "method": "GET",
+    "path": "/user-data",
+    "status": 200,
+    "bytes": 4264,
+    "guest_time": null,
+    "name": "user-data"
+   },
+   {
+    "t_host": 1795239998.565,
+    "method": "GET",
+    "path": "/vendor-data",
+    "status": 200,
+    "bytes": 0,
+    "guest_time": null,
+    "name": "vendor-data"
+   },
+   {
+    "t_host": 1795240000.816,
+    "method": "GET",
+    "path": "/code.tar",
+    "status": 200,
+    "bytes": 2498560,
+    "guest_time": null,
+    "name": "code.tar"
+   },
+   {
+    "t_host": 1795240000.863,
+    "method": "GET",
+    "path": "/guest.py",
+    "status": 200,
+    "bytes": 151811,
+    "guest_time": null,
+    "name": "guest.py"
+   },
+   {
+    "t_host": 1795240000.906,
+    "method": "GET",
+    "path": "/reference.json",
+    "status": 200,
+    "bytes": 40635,
+    "guest_time": null,
+    "name": "reference.json"
+   },
+   {
+    "t_host": 1795240107.19,
+    "method": "PUT",
+    "path": "/up/cr_record.json",
+    "status": 201,
+    "bytes": 70528,
+    "guest_time": 1795240106.817,
+    "name": "cr_record.json"
+   },
+   {
+    "t_host": 1795240107.221,
+    "method": "PUT",
+    "path": "/up/root_blocks.json",
+    "status": 201,
+    "bytes": 10181,
+    "guest_time": 1795240106.853,
+    "name": "root_blocks.json"
+   },
+   {
+    "t_host": 1795240107.25,
+    "method": "PUT",
+    "path": "/up/install_install-cse-environment.txt",
+    "status": 201,
+    "bytes": 14700,
+    "guest_time": 1795240106.884,
+    "name": "install_install-cse-environment.txt"
+   },
+   {
+    "t_host": 1795240107.279,
+    "method": "PUT",
+    "path": "/up/install_install-test-environment.txt",
+    "status": 201,
+    "bytes": 3930,
+    "guest_time": 1795240106.913,
+    "name": "install_install-test-environment.txt"
+   },
+   {
+    "t_host": 1795240107.308,
+    "method": "PUT",
+    "path": "/up/section6_output.txt",
+    "status": 201,
+    "bytes": 4653,
+    "guest_time": 1795240106.942,
+    "name": "section6_output.txt"
+   },
+   {
+    "t_host": 1795240107.339,
+    "method": "PUT",
+    "path": "/up/cr_bootstrap_check-prerequisites.txt",
+    "status": 201,
+    "bytes": 16,
+    "guest_time": 1795240106.972,
+    "name": "cr_bootstrap_check-prerequisites.txt"
+   },
+   {
+    "t_host": 1795240107.368,
+    "method": "PUT",
+    "path": "/up/cr_bootstrap_make-directories.txt",
+    "status": 201,
+    "bytes": 16,
+    "guest_time": 1795240107.002,
+    "name": "cr_bootstrap_make-directories.txt"
+   },
+   {
+    "t_host": 1795240107.402,
+    "method": "PUT",
+    "path": "/up/cr_bootstrap_start-topology.txt",
+    "status": 201,
+    "bytes": 257,
+    "guest_time": 1795240107.032,
+    "name": "cr_bootstrap_start-topology.txt"
+   },
+   {
+    "t_host": 1795240107.433,
+    "method": "PUT",
+    "path": "/up/cr_manifest.json",
+    "status": 201,
+    "bytes": 12755,
+    "guest_time": 1795240107.065,
+    "name": "cr_manifest.json"
+   },
+   {
+    "t_host": 1795240107.462,
+    "method": "PUT",
+    "path": "/up/cr_out_TD_MEC_DEV_01.stdout.txt",
+    "status": 201,
+    "bytes": 115,
+    "guest_time": 1795240107.096,
+    "name": "cr_out_TD_MEC_DEV_01.stdout.txt"
+   },
+   {
+    "t_host": 1795240107.493,
+    "method": "PUT",
+    "path": "/up/cr_out_TD_MEC_DEV_01.xml",
+    "status": 201,
+    "bytes": 4170,
+    "guest_time": 1795240107.125,
+    "name": "cr_out_TD_MEC_DEV_01.xml"
+   },
+   {
+    "t_host": 1795240107.525,
+    "method": "PUT",
+    "path": "/up/cr_out_TD_MEC_PF_01.stdout.txt",
+    "status": 201,
+    "bytes": 115,
+    "guest_time": 1795240107.156,
+    "name": "cr_out_TD_MEC_PF_01.stdout.txt"
+   },
+   {
+    "t_host": 1795240107.556,
+    "method": "PUT",
+    "path": "/up/cr_out_TD_MEC_PF_01.xml",
+    "status": 201,
+    "bytes": 1726,
+    "guest_time": 1795240107.189,
+    "name": "cr_out_TD_MEC_PF_01.xml"
+   },
+   {
+    "t_host": 1795240107.588,
+    "method": "PUT",
+    "path": "/up/cr_out_TD_MEC_REG_01.stdout.txt",
+    "status": 201,
+    "bytes": 114,
+    "guest_time": 1795240107.219,
+    "name": "cr_out_TD_MEC_REG_01.stdout.txt"
+   },
+   {
+    "t_host": 1795240107.618,
+    "method": "PUT",
+    "path": "/up/cr_out_TD_MEC_REG_01.xml",
+    "status": 201,
+    "bytes": 1401,
+    "guest_time": 1795240107.251,
+    "name": "cr_out_TD_MEC_REG_01.xml"
+   },
+   {
+    "t_host": 1795240107.651,
+    "method": "PUT",
+    "path": "/up/cr_out_TD_MEC_REG_02.stdout.txt",
+    "status": 201,
+    "bytes": 114,
+    "guest_time": 1795240107.282,
+    "name": "cr_out_TD_MEC_REG_02.stdout.txt"
+   },
+   {
+    "t_host": 1795240107.685,
+    "method": "PUT",
+    "path": "/up/cr_out_TD_MEC_REG_02.xml",
+    "status": 201,
+    "bytes": 1106,
+    "guest_time": 1795240107.314,
+    "name": "cr_out_TD_MEC_REG_02.xml"
+   },
+   {
+    "t_host": 1795240107.716,
+    "method": "PUT",
+    "path": "/up/cr_out_TD_MEC_REG_03.stdout.txt",
+    "status": 201,
+    "bytes": 195,
+    "guest_time": 1795240107.348,
+    "name": "cr_out_TD_MEC_REG_03.stdout.txt"
+   },
+   {
+    "t_host": 1795240107.746,
+    "method": "PUT",
+    "path": "/up/cr_out_TD_MEC_REG_03.xml",
+    "status": 201,
+    "bytes": 14290,
+    "guest_time": 1795240107.379,
+    "name": "cr_out_TD_MEC_REG_03.xml"
+   },
+   {
+    "t_host": 1795240107.775,
+    "method": "PUT",
+    "path": "/up/guest.json",
+    "status": 201,
+    "bytes": 9319,
+    "guest_time": 1795240107.41,
+    "name": "guest.json"
+   },
+   {
+    "t_host": 1795240110.143,
+    "method": "PUT",
+    "path": "/up/../escape",
+    "status": 400,
+    "bytes": 0,
+    "guest_time": null,
+    "name": null
+   },
+   {
+    "t_host": 1795240111.145,
+    "method": "PUT",
+    "path": "/up/oversize.bin",
+    "status": 413,
+    "bytes": 0,
+    "guest_time": null,
+    "name": null
+   },
+   {
+    "t_host": 1795240111.146,
+    "method": "DELETE",
+    "path": "/up/guest.json",
+    "status": 405,
+    "bytes": 0,
+    "guest_time": null,
+    "name": null
+   }
+  ]
+ },
+ "guest": {
+  "probes": {
+   "python3": "3.13.5",
+   "executable": "/usr/bin/python3",
+   "os_release": {
+    "PRETTY_NAME": "Debian GNU/Linux 13 (trixie)",
+    "VERSION_ID": "13",
+    "VERSION_CODENAME": "trixie"
+   },
+   "kernel": "6.12.117+deb13-cloud-amd64",
+   "cpus": 2,
+   "mem_total": "MemTotal:        4016556 kB",
+   "uid": 1000,
+   "groups": [
+    "edgefollow"
+   ],
+   "on_path": {
+    "bash": "/usr/bin/bash",
+    "curl": "/usr/bin/curl",
+    "setsid": "/usr/bin/setsid",
+    "python3": "/usr/bin/python3",
+    "git": "/usr/bin/git",
+    "sudo": "/usr/bin/sudo"
+   },
+   "ensurepip_importable": true,
+   "venv_importable": true,
+   "present_before_install": {
+    "/home/edgefollow/estimed-venv": false,
+    "/home/edgefollow/edgefollow-lab": false,
+    "/home/edgefollow/estimed-run": false
+   },
+   "lab_ports_listening": [],
+   "ipv6_addresses": [
+    {
+     "address": "::1",
+     "interface": "lo"
+    },
+    {
+     "address": "fe80::5054:ff:fe12:3456",
+     "interface": "enp0s2"
+    }
+   ],
+   "ssh": {
+    "edgefollow_ssh_dir": false,
+    "host_key_files": []
+   },
+   "root_probe": "edgefollow L 2026-11-21 0 99999 7 -1\nuid=1000(edgefollow) gid=1000(edgefollow) groups=1000(edgefollow)\ntotal 600\n-rw-r--r-- 1 root root 592383 May  6  2026 moduli\n-rw-r--r-- 1 root root   1668 May  6  2026 ssh_config\ndrwxr-xr-x 2 root root   4096 Nov 16 04:57 ssh_config.d\n-rw-r--r-- 1 root root    342 Feb 28  2020 ssh_import_id\n-rw-r--r-- 1 root root   3446 Nov 16 04:58 sshd_config\ndrwxr-xr-x 2 root root   4096 Nov 21 05:46 sshd_config.d\n.bash_logout\n.bashrc\n.profile\n"
+  },
+  "installs": [
+   {
+    "id": "install-system-packages",
+    "sha256": "6be2171b25ba81672e1a42de2f52311669349a6e1690be814487cac21b9b3153",
+    "rc": 0,
+    "seconds": 19.748,
+    "started_epoch": 1795240000.825,
+    "ended_epoch": 1795240020.574,
+    "as": "root"
+   },
+   {
+    "id": "install-cse-environment",
+    "sha256": "98916818b4d08cd01393eec4c5ab4bdd798cc0f9c0b6a6a74ebb01ab96b08e40",
+    "rc": 0,
+    "seconds": 28.727,
+    "started_epoch": 1795240020.814,
+    "ended_epoch": 1795240049.541,
+    "as": "edgefollow"
+   },
+   {
+    "id": "install-test-environment",
+    "sha256": "c628132d84dc0001d233f017eb9cd51f3fff7decd720dab2e6ba9da8c3c9eb4f",
+    "rc": 0,
+    "seconds": 12.412,
+    "started_epoch": 1795240049.541,
+    "ended_epoch": 1795240061.953,
+    "as": "edgefollow"
+   }
+  ],
+  "install_not_run": [],
+  "section6": {
+   "started": true,
+   "id": "rerun",
+   "sha256": "fd3bb03d5e4419b9ee9a0f7e0b7d498dfc877f200212630b8ac39db8c6ef174e",
+   "cwd": "/home/edgefollow",
+   "cwd_is": "edgefollow's home: the rerun block runs exactly as written, the harness adds no cd",
+   "timeout_s": 900,
+   "started_epoch": 1795240061.954,
+   "rc": 0,
+   "ended_epoch": 1795240106.815,
+   "seconds": 44.861,
+   "tail": ""
+  },
+  "guest_error": null,
+  "commands": [
+   {
+    "kind": "runbook",
+    "as": "root",
+    "id": "install-system-packages",
+    "sha256": "6be2171b25ba81672e1a42de2f52311669349a6e1690be814487cac21b9b3153",
+    "rc": 0,
+    "seconds": 19.748
+   },
+   {
+    "kind": "runbook",
+    "as": "edgefollow",
+    "id": "install-cse-environment",
+    "sha256": "98916818b4d08cd01393eec4c5ab4bdd798cc0f9c0b6a6a74ebb01ab96b08e40",
+    "rc": 0,
+    "seconds": 28.727
+   },
+   {
+    "kind": "runbook",
+    "as": "edgefollow",
+    "id": "install-test-environment",
+    "sha256": "c628132d84dc0001d233f017eb9cd51f3fff7decd720dab2e6ba9da8c3c9eb4f",
+    "rc": 0,
+    "seconds": 12.412
+   },
+   {
+    "kind": "runbook",
+    "as": "edgefollow",
+    "phase": "rerun",
+    "id": "rerun",
+    "sha256": "fd3bb03d5e4419b9ee9a0f7e0b7d498dfc877f200212630b8ac39db8c6ef174e",
+    "rc": 0,
+    "seconds": 44.861
+   }
+  ],
+  "uptime_at_start_s": 43.9,
+  "runbook_sha256": "06c2a02aa400e503dfb4ce1123acb717bbccf501eecdcf41e66fdcea2a49d29b",
+  "install_env": {
+   "PATH": "/usr/local/bin:/usr/bin:/bin",
+   "HOME": "/home/edgefollow",
+   "LANG": "C.UTF-8",
+   "ROOT": "/home/edgefollow/estimed-lab/code",
+   "RUN": "/home/edgefollow/estimed-lab/run",
+   "OUT": "/home/edgefollow/estimed-lab/out",
+   "VENV": "/home/edgefollow/estimed-venv",
+   "PY": "/home/edgefollow/edgefollow-lab/.venv/bin/python",
+   "PYTHONDONTWRITEBYTECODE": "1",
+   "HTTPS_PROXY": "http://10.0.2.101:3128",
+   "https_proxy": "http://10.0.2.101:3128"
+  },
+  "rerun_env": {
+   "PATH": "/usr/local/bin:/usr/bin:/bin",
+   "HOME": "/home/edgefollow",
+   "LANG": "C.UTF-8",
+   "ROOT": "/home/edgefollow/estimed-lab/code",
+   "RUN": "/home/edgefollow/estimed-lab/run",
+   "OUT": "/home/edgefollow/estimed-lab/out",
+   "VENV": "/home/edgefollow/estimed-venv",
+   "PY": "/home/edgefollow/edgefollow-lab/.venv/bin/python",
+   "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "root_step": {
+   "uid": 0,
+   "blocks": [
+    {
+     "id": "install-system-packages",
+     "sha256": "6be2171b25ba81672e1a42de2f52311669349a6e1690be814487cac21b9b3153",
+     "rc": 0,
+     "seconds": 19.748,
+     "started_epoch": 1795240000.825,
+     "ended_epoch": 1795240020.574,
+     "as": "root"
+    }
+   ],
+   "not_run": [],
+   "error": null,
+   "env": {
+    "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+    "HOME": "/root",
+    "LANG": "C.UTF-8",
+    "ROOT": "/home/edgefollow/estimed-lab/code",
+    "RUN": "/home/edgefollow/estimed-lab/run",
+    "OUT": "/home/edgefollow/estimed-lab/out",
+    "VENV": "/home/edgefollow/estimed-venv",
+    "PY": "/home/edgefollow/edgefollow-lab/.venv/bin/python",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "HTTPS_PROXY": "http://10.0.2.101:3128",
+    "https_proxy": "http://10.0.2.101:3128",
+    "APT_CONFIG": "/var/lib/vmrerun/apt-proxy.conf"
+   },
+   "cwd": "/root",
+   "runbook_sha256": "06c2a02aa400e503dfb4ce1123acb717bbccf501eecdcf41e66fdcea2a49d29b"
+  },
+  "root_missing": false
+ },
+ "blocks": [
+  {
+   "where": "VM: the root step (as root)",
+   "id": "install-system-packages",
+   "phase": "install",
+   "as": "root",
+   "rc": 0,
+   "seconds": 19.748
+  },
+  {
+   "where": "VM: vm_rerun guest (as edgefollow)",
+   "id": "install-cse-environment",
+   "phase": "install",
+   "as": "edgefollow",
+   "rc": 0,
+   "seconds": 28.727
+  },
+  {
+   "where": "VM: vm_rerun guest (as edgefollow)",
+   "id": "install-test-environment",
+   "phase": "install",
+   "as": "edgefollow",
+   "rc": 0,
+   "seconds": 12.412
+  },
+  {
+   "where": "VM: vm_rerun guest (as edgefollow)",
+   "id": "rerun",
+   "phase": "rerun",
+   "as": "edgefollow",
+   "rc": 0,
+   "seconds": 44.861
+  },
+  {
+   "where": "VM: clean_rerun.py (started by the rerun block)",
+   "id": "check-prerequisites",
+   "phase": "bootstrap",
+   "rc": 0,
+   "seconds": 0.003,
+   "started_utc": "2026-11-21T05:47:42Z"
+  },
+  {
+   "where": "VM: clean_rerun.py (started by the rerun block)",
+   "id": "make-directories",
+   "phase": "bootstrap",
+   "rc": 0,
+   "seconds": 0.006,
+   "started_utc": "2026-11-21T05:47:42Z"
+  },
+  {
+   "where": "VM: clean_rerun.py (started by the rerun block)",
+   "id": "start-topology",
+   "phase": "bootstrap",
+   "rc": 0,
+   "seconds": 7.499,
+   "started_utc": "2026-11-21T05:47:42Z"
+  },
+  {
+   "where": "VM: clean_rerun.py (started by the rerun block)",
+   "id": "td-pf-01",
+   "phase": "test",
+   "rc": 0,
+   "seconds": 1.654,
+   "started_utc": "2026-11-21T05:47:49Z"
+  },
+  {
+   "where": "VM: clean_rerun.py (started by the rerun block)",
+   "id": "td-reg-01",
+   "phase": "test",
+   "rc": 0,
+   "seconds": 0.785,
+   "started_utc": "2026-11-21T05:47:51Z"
+  },
+  {
+   "where": "VM: clean_rerun.py (started by the rerun block)",
+   "id": "td-reg-02",
+   "phase": "test",
+   "rc": 0,
+   "seconds": 1.495,
+   "started_utc": "2026-11-21T05:47:52Z"
+  },
+  {
+   "where": "VM: clean_rerun.py (started by the rerun block)",
+   "id": "td-reg-03",
+   "phase": "test",
+   "rc": 0,
+   "seconds": 10.47,
+   "started_utc": "2026-11-21T05:47:53Z"
+  },
+  {
+   "where": "VM: clean_rerun.py (started by the rerun block)",
+   "id": "td-dev-01",
+   "phase": "test",
+   "rc": 0,
+   "seconds": 10.363,
+   "started_utc": "2026-11-21T05:48:04Z"
+  },
+  {
+   "where": "VM: clean_rerun.py (started by the rerun block)",
+   "id": "stop-topology",
+   "phase": "shutdown",
+   "rc": 0,
+   "seconds": 4.219,
+   "started_utc": "2026-11-21T05:48:14Z"
+  }
+ ],
+ "tests_per_td": {
+  "TD_MEC_PF_01": {
+   "ok": true,
+   "declared": 12,
+   "ran": 12,
+   "passed": 12,
+   "failed": 0,
+   "error": 0,
+   "skipped": 0,
+   "problems": []
+  },
+  "TD_MEC_REG_01": {
+   "ok": true,
+   "declared": 9,
+   "ran": 9,
+   "passed": 9,
+   "failed": 0,
+   "error": 0,
+   "skipped": 0,
+   "problems": []
+  },
+  "TD_MEC_REG_02": {
+   "ok": true,
+   "declared": 6,
+   "ran": 6,
+   "passed": 6,
+   "failed": 0,
+   "error": 0,
+   "skipped": 0,
+   "problems": []
+  },
+  "TD_MEC_REG_03": {
+   "ok": true,
+   "declared": 89,
+   "ran": 89,
+   "passed": 89,
+   "failed": 0,
+   "error": 0,
+   "skipped": 0,
+   "problems": []
+  },
+  "TD_MEC_DEV_01": {
+   "ok": true,
+   "declared": 26,
+   "ran": 26,
+   "passed": 26,
+   "failed": 0,
+   "error": 0,
+   "skipped": 0,
+   "problems": []
+  }
+ },
+ "kpi": {
+  "reference_file": "/home/edgefollow/estimed-run/sim/clean_rerun_reference_2026-11-19.json",
+  "reference_sha256": "fca51e0fcb66cccfbb56bb288dfacdaf6d414623886dcaeb0c6da1ab46149649",
+  "reference_commit": "411125a0c3ec9df9141fdea63ee4a745466405bc",
+  "reference_utc": "2026-11-18T23:20:09Z",
+  "reference": {
+   "tests_passed": {
+    "TD_MEC_PF_01": [
+     12,
+     12
+    ],
+    "TD_MEC_REG_01": [
+     9,
+     9
+    ],
+    "TD_MEC_REG_02": [
+     6,
+     6
+    ],
+    "TD_MEC_REG_03": [
+     89,
+     89
+    ],
+    "TD_MEC_DEV_01": [
+     26,
+     26
+    ]
+   },
+   "cse_registration_success": [
+    2,
+    2
+   ]
+  },
+  "vm": {
+   "tests_passed": {
+    "TD_MEC_PF_01": [
+     12,
+     12
+    ],
+    "TD_MEC_REG_01": [
+     9,
+     9
+    ],
+    "TD_MEC_REG_02": [
+     6,
+     6
+    ],
+    "TD_MEC_REG_03": [
+     89,
+     89
+    ],
+    "TD_MEC_DEV_01": [
+     26,
+     26
+    ]
+   },
+   "cse_registration_success": [
+    2,
+    2
+   ]
+  },
+  "differences_recomputed_here": [],
+  "differences_in_vm": [],
+  "timings_s": {
+   "TD_MEC_PF_01": {
+    "reference": 1.299,
+    "vm": 1.654
+   },
+   "TD_MEC_REG_01": {
+    "reference": 0.581,
+    "vm": 0.785
+   },
+   "TD_MEC_REG_02": {
+    "reference": 1.329,
+    "vm": 1.495
+   },
+   "TD_MEC_REG_03": {
+    "reference": 10.528,
+    "vm": 10.47
+   },
+   "TD_MEC_DEV_01": {
+    "reference": 10.269,
+    "vm": 10.363
+   }
+  },
+  "compared": "tests passed per test description (with the ids), MN-CSE registration, resources left per CSE by type; timings are reported, never compared"
+ },
+ "clean_rerun_in_vm": {
+  "result": "PASS",
+  "rows": [
+   {
+    "row": "step 1: fresh copy made from the working tree, manifest written",
+    "ok": true,
+    "detail": "72 files, 1720902 bytes, commit e7464e45c7fb, 0 files differ from it; tree c2080f8751e6fdbf"
+   },
+   {
+    "row": "step 1: the copy is what the manifest says before anything runs",
+    "ok": true,
+    "detail": ""
+   },
+   {
+    "row": "pre-test: the run directory is new or empty (no node state is reused)",
+    "ok": true,
+    "detail": "/home/edgefollow/estimed-run/clean/20261121T054742Z/run"
+   },
+   {
+    "row": "pre-test: nothing of the lab is running (no CSE or MEC port answers)",
+    "ok": true,
+    "detail": ""
+   },
+   {
+    "row": "pre-test: the two installed environments hold the versions the runbook's install blocks name (reused, not created)",
+    "ok": true,
+    "detail": "acmecse==2026.5.3, fastapi==0.139.0, pytest==9.1.1, uvicorn==0.51.0"
+   },
+   {
+    "row": "the reference ran the same test commands as this runbook holds",
+    "ok": true,
+    "detail": "reference PASS of 2026-11-18T23:20:09Z"
+   },
+   {
+    "row": "step 1/2: bootstrap step check-prerequisites from the runbook exits 0",
+    "ok": true,
+    "detail": "0.003 s; "
+   },
+   {
+    "row": "step 1/2: bootstrap step make-directories from the runbook exits 0",
+    "ok": true,
+    "detail": "0.006 s; "
+   },
+   {
+    "row": "step 1/2: bootstrap step start-topology from the runbook exits 0",
+    "ok": true,
+    "detail": "7.499 s;   logs: /home/edgefollow/estimed-run/clean/20261121T054742Z/run/<node>/logs/"
+   },
+   {
+    "row": "step 2: after the runbook's bootstrap steps alone, every MN-CSE is registered both ways",
+    "ok": true,
+    "detail": "2/2"
+   },
+   {
+    "row": "step 3/4: TD_MEC_PF_01 -- every one of the 12 declared tests ran and passed",
+    "ok": true,
+    "detail": "12/12 passed, 12 ran, 1.654 s"
+   },
+   {
+    "row": "step 3/4: TD_MEC_REG_01 -- every one of the 9 declared tests ran and passed",
+    "ok": true,
+    "detail": "9/9 passed, 9 ran, 0.785 s"
+   },
+   {
+    "row": "step 3/4: TD_MEC_REG_02 -- every one of the 6 declared tests ran and passed",
+    "ok": true,
+    "detail": "6/6 passed, 6 ran, 1.495 s"
+   },
+   {
+    "row": "step 3/4: TD_MEC_REG_03 -- every one of the 89 declared tests ran and passed",
+    "ok": true,
+    "detail": "89/89 passed, 89 ran, 10.47 s"
+   },
+   {
+    "row": "step 3/4: TD_MEC_DEV_01 -- every one of the 26 declared tests ran and passed",
+    "ok": true,
+    "detail": "26/26 passed, 26 ran, 10.363 s"
+   },
+   {
+    "row": "step 3: all five test descriptions were run",
+    "ok": true,
+    "detail": "TD_MEC_PF_01, TD_MEC_REG_01, TD_MEC_REG_02, TD_MEC_REG_03, TD_MEC_DEV_01"
+   },
+   {
+    "row": "the copy is unchanged after the tests (nothing was written into the code)",
+    "ok": true,
+    "detail": ""
+   },
+   {
+    "row": "shutdown step stop-topology from the runbook exits 0",
+    "ok": true,
+    "detail": "  in     1 process(es) stopped"
+   },
+   {
+    "row": "after shutdown nothing of the copy's lab answers",
+    "ok": true,
+    "detail": ""
+   },
+   {
+    "row": "step 2: the commands executed are the runbook's run steps, each once, in order, and nothing else",
+    "ok": true,
+    "detail": ""
+   },
+   {
+    "row": "step 4: the KPIs that are equal by construction are equal to the reference run's",
+    "ok": true,
+    "detail": ""
+   },
+   {
+    "row": "step 5: empty directory to TD_MEC_DEV_01 passed within the budget of 900 s (ours)",
+    "ok": true,
+    "detail": "32.459 s"
+   },
+   {
+    "row": "after the controls nothing of the copy's lab answers",
+    "ok": true,
+    "detail": ""
+   }
+  ],
+  "controls": [
+   {
+    "row": "CONTROL (must FAIL) with the bootstrap steps taken out of the runbook, TD_MEC_PF_01 still passes",
+    "passed": false,
+    "failed_as_it_must": true,
+    "detail": "4/12 passed; 8 error: test_5_2_4_1_5_plain_get_is_rejected[no-onem2m-headers], test_5_2_4_1_5_plain_get_is_rejected[origin-only], test_5_2_4_1_5_plain_get_is_rejected[no-request-id], test_5_2_4_1_5_control_well_formed_get_reaches_the_in, test_5_2_4_4_ev"
+   },
+   {
+    "row": "CONTROL (must FAIL) a command that is not in the runbook was executed",
+    "passed": false,
+    "failed_as_it_must": true,
+    "detail": ""
+   },
+   {
+    "row": "CONTROL (must FAIL) an executed-command log with one foreign entry is accepted",
+    "passed": false,
+    "failed_as_it_must": true,
+    "detail": ""
+   },
+   {
+    "row": "CONTROL (must FAIL) a copy in which a file was changed after the manifest was written is accepted",
+    "passed": false,
+    "failed_as_it_must": true,
+    "detail": "changed: estimed/conf/in.ini"
+   },
+   {
+    "row": "CONTROL (must FAIL) a run directory with old state is accepted",
+    "passed": false,
+    "failed_as_it_must": true,
+    "detail": "/home/edgefollow/estimed-run/clean/20261121T054742Z/run is not empty: a rerun starts from a directory with nothing in it"
+   },
+   {
+    "row": "CONTROL (must FAIL) a skipped test is counted as passed",
+    "passed": false,
+    "failed_as_it_must": true,
+    "detail": "11/12 passed, 1 skipped"
+   },
+   {
+    "row": "CONTROL (must FAIL) the KPI comparison passes when one test description's count differs",
+    "passed": false,
+    "failed_as_it_must": true,
+    "detail": "tests_passed TD_MEC_DEV_01: reference 26/26 against rerun 25/26"
+   }
+  ],
+  "not_run": [
+   {
+    "row": "pre-test condition: a fresh VM with no prior oneM2M or MEC configuration",
+    "result": "NOT-RUN",
+    "reason": "this PC has no VM tool and containers are off; what ran is a fresh copy of the code on the same host with a new, empty run directory and no lab process running"
+   },
+   {
+    "row": "a fresh install of the two interpreter environments (RUNBOOK.md install blocks)",
+    "result": "NOT-RUN",
+    "reason": "nothing is installed from the network here; both environments are the installed ones, checked against the versions the install blocks name"
+   }
+  ],
+  "verdict_problems_read_here": [],
+  "executed_problems_checked_here": [],
+  "note": "its NOT-RUN rows are fixed text written for this PC"
+ },
+ "controls": [
+  {
+   "row": "CONTROL (must FAIL) the seed server took an upload whose name has a path component",
+   "passed": false,
+   "detail": "HTTP 400"
+  },
+  {
+   "row": "CONTROL (must FAIL) the seed server took an upload over its size cap",
+   "passed": false,
+   "detail": "HTTP 413"
+  },
+  {
+   "row": "CONTROL (must FAIL) the seed server answered a DELETE",
+   "passed": false,
+   "detail": "HTTP 405"
+  },
+  {
+   "row": "CONTROL (must FAIL) the proxy opened a tunnel to a host not on the allow-list (example.invalid:443)",
+   "passed": false,
+   "detail": "HTTP/1.1 403 Forbidden"
+  },
+  {
+   "row": "CONTROL (must FAIL) the proxy opened a tunnel to an allowed host on another port (pypi.org:80)",
+   "passed": false,
+   "detail": "HTTP/1.1 403 Forbidden"
+  },
+  {
+   "row": "CONTROL (must FAIL) the proxy opened a tunnel to an address literal (192.0.2.1:443)",
+   "passed": false,
+   "detail": "HTTP/1.1 403 Forbidden"
+  },
+  {
+   "row": "CONTROL (must FAIL) the proxy opened a plain GET through it (not CONNECT)",
+   "passed": false,
+   "detail": "HTTP/1.1 405 Method Not Allowed"
+  },
+  {
+   "row": "CONTROL (must FAIL) with TD_MEC_DEV_01 taken out of the VM's results, step 5 is PASS",
+   "passed": false,
+   "detail": "NOT-RUN"
+  },
+  {
+   "row": "CONTROL (must FAIL) step 5 is PASS when this host received the record 1 s after the budget",
+   "passed": false,
+   "detail": "FAIL"
+  },
+  {
+   "row": "CONTROL (must FAIL) the verdict is PASS with step 3 NOT-RUN and the other four PASS",
+   "passed": false,
+   "detail": ""
+  },
+  {
+   "row": "CONTROL (must FAIL) the KPI comparison finds nothing when TD_MEC_DEV_01's count is one less (the VM against the reference)",
+   "passed": false,
+   "detail": "tests_passed TD_MEC_DEV_01: reference 26/26 against rerun 25/26"
+  },
+  {
+   "row": "CONTROL (must FAIL) the uploads verify against a summary naming another guest.json",
+   "passed": false,
+   "detail": "uploads: guest.json is not the one the console summary names"
+  },
+  {
+   "row": "CONTROL (must FAIL) the VM's clean_rerun record with its result set to FAIL is accepted",
+   "passed": false,
+   "detail": "clean_rerun.py in the VM says 'PLANTED-FAIL', not PASS"
+  },
+  {
+   "row": "CONTROL (must FAIL) the VM's executed-command log with one foreign entry is accepted here",
+   "passed": false,
+   "detail": "not in the runbook: planted-by-hand"
+  },
+  {
+   "row": "CONTROL (must FAIL) step 2 is PASS with one planted executed problem",
+   "passed": false,
+   "detail": "FAIL"
+  },
+  {
+   "row": "CONTROL (must FAIL) step 4 is PASS with one planted verdict problem",
+   "passed": false,
+   "detail": "FAIL"
+  }
+ ],
+ "integrity_problems": [],
+ "console_problems": [],
+ "previous_attempt": null,
+ "does_not_show": [
+  "one VM type: QEMU with KVM on this PC (i7-6700HQ), 2 vCPUs, 4 GB, an 8 GB overlay disk, user-mode networking with restrict=on",
+  "one base image: the Debian 13 genericcloud amd64 cloud image; no other distribution or image was tried",
+  "Debian's SHA512SUMS is not signature-checked: the image is compared with the SHA512SUMS file downloaded next to it from the same server; its OpenPGP signature (SHA512SUMS.sign) was not verified",
+  "pip pulls the dependencies of the pinned packages unpinned from PyPI during the run; another day can resolve other versions, and a PyPI or network outage would fail the install blocks",
+  "a script followed the runbook, not a human: it ran the blocks exactly as written and cannot misread the prose around them, so text a person would trip over is not tested",
+  "the original execution (the reference) was made on this host from the working tree of 2026-11-18; the VM ran HEAD (see code.vs_reference_commit for the files that differ)",
+  "the VM reached only the seed server and the allow-listing proxy (pypi.org:443, files.pythonhosted.org:443, deb.debian.org:443), both on this host through guestfwd over IPv4; it had no DNS (slirp's restricted mode drops it), so the proxy resolved names here and refused non-public addresses. A developer's VM with a full internet connection has none of these limits: a block that fetches from another host fails here",
+  "IPv6 was off (ipv6=off): restrict=on alone let a crafted IPv6 SYN open host connections in libslirp 4.9.5. That ipv6=off closes it was shown with this host's libslirp run in-process (in6_enabled=0, the value QEMU's ipv6=off sets), not with QEMU, which was not installed when the harness was written; the VM's own list of IPv6 addresses is read in the run and an address other than loopback or link-local is an integrity problem",
+  "apt is given the proxy only in the root-marked install blocks, through APT_CONFIG; the image's apt sources are https://deb.debian.org (read from the image), so apt uses CONNECT deb.debian.org:443. apt over http:// would get 405 from this CONNECT-only proxy, and a mirror other than deb.debian.org would get 403",
+  "unattended-upgrades and systemd-timesyncd are not disabled by any harness step: with restrict=on, ipv6=off and APT_CONFIG set only in the root blocks' environment neither can fetch or sync from the network, but they may still run and take CPU or the dpkg lock; the runbook's root block waits for the dpkg lock (DPkg::Lock::Timeout), and whether apt-get update also waits for the package-list lock with that option was not checked here",
+  "the whole in-VM evidence chain but the root blocks' console line (the guest driver, clean_rerun.py, the uploads, summary.json) runs as edgefollow, the same user as the code under test: a program that lies could forge a consistent PASS inside the VM. This host checks what it can (hashes of the delivered code and runbook, the executed-command log against the delivered runbook, its own clock), not the honesty of what ran in the VM",
+  "the VM's clock is used for no verdict: step 5's time is an upper bound, from QEMU's start to this host's receipt of the VM's clean_rerun record, so it also holds clean_rerun's shutdown and controls after TD_MEC_DEV_01",
+  "the base image was copied, and hashed while copying, into a 0700 folder of this user on a local filesystem and re-hashed after the run; a process of this same user could change and restore the copy during the run, which the re-hash after it cannot see",
+  "the rerun block ran from edgefollow's home directory, exactly as written: the harness adds no cd, and a cd inside the block runs. clean_rerun.py reads no phase=rerun block (its parser refuses any phase but variables, install, bootstrap, test and shutdown in a shell fence), so the block sits in a fence clean_rerun.py skips and the harness alone recognises it, with clean_rerun's marker and && rules",
+  "clean_rerun.py's own two NOT-RUN rows are fixed text written for this PC; inside the VM both are covered by this record (the VM is fresh, and the install blocks were run)"
+ ],
+ "files": {
+  "private_run_dir": "<vm-private-dir>/20261121T054608Z",
+  "evidence_copy": "/run/media/edgefollow/data/estimed-vm-2026-11-20/runs/20261121T054608Z",
+  "kept_only_in_the_private_folder": [
+   "base.qcow2",
+   "overlay.qcow2"
+  ],
+  "uploads": "results/"
+ }
+}

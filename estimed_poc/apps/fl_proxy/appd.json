@@ -1,0 +1,75 @@
+{
+  "appName": "estimed-fl-proxy-path",
+  "appDVersion": "1",
+  "appProvider": "ESTIMED lab",
+  "appSoftVersion": "0.1.0",
+  "appDescription": "The MEC proxy path (TD_MEC_FL_01 steps 5 and 6): takes plain HTTP/JSON records from the devices configured here and writes each, as sent, into the oneM2M tree under its own AE on MN-CSE-A. The device is identified by the id in the path only.",
+  "entryPoint": {
+    "runtime": "python3",
+    "file": "fl_app.py",
+    "args": [
+      "--instance",
+      "{instance}"
+    ]
+  },
+  "files": {
+    "fl_app.py": "0d22bd4141900259ec273207df3c8411c51dbf93e368bfe6f2753de2873d074f"
+  },
+  "mecServicesRequired": [
+    {
+      "serName": "mec_app_support",
+      "version": "v2"
+    },
+    {
+      "serName": "mec_service_mgmt",
+      "version": "v1"
+    }
+  ],
+  "onem2m": {
+    "mnCse": "cse-mn-a",
+    "api": "Nestimed.flproxy",
+    "originator": "CflProxy",
+    "rn": "flProxy",
+    "acp": {
+      "rn": "flMetaAcp",
+      "readers": [
+        "CflOrch",
+        "CflProxyCheck"
+      ]
+    },
+    "container": "flConfig"
+  },
+  "fl": {
+    "role": "proxy",
+    "service": "fl-proxy-path",
+    "readerOps": 34,
+    "labels": [
+      "fl:proxy",
+      "fl:role:proxy",
+      "fl:sim:true"
+    ],
+    "listen": "127.0.0.1:0",
+    "dataAcp": {
+      "rn": "flDataAcp",
+      "readers": [
+        "CflProxyCheck"
+      ],
+      "ops": 34
+    },
+    "devices": [
+      {
+        "deviceId": "devPx1",
+        "class": "proxy-path",
+        "fields": [
+          "t",
+          "battery_pct",
+          "battery_temp_c",
+          "light",
+          "proximity",
+          "sim"
+        ],
+        "maxBytes": 1024
+      }
+    ]
+  }
+}

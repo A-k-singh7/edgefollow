@@ -1,0 +1,55 @@
+{
+  "appName": "estimed-fl-orchestrator",
+  "appDVersion": "1",
+  "appProvider": "ESTIMED lab",
+  "appSoftVersion": "0.1.0",
+  "appDescription": "The FL Orchestrator AE as a MEC application (TD_MEC_FL_01 pre-condition: TD_MEC_REG_03 for the orchestrator). It registers the AE, its metadata policy and its baseline container; the orchestration logic runs in the driver under the same originator. The CSE named here is the test plan's (MEC_CFG_03: the orchestrator at the cloud IN-CSE); the run writes a copy naming cse-mn-a for edge-only mode.",
+  "entryPoint": {
+    "runtime": "python3",
+    "file": "fl_app.py",
+    "args": [
+      "--instance",
+      "{instance}"
+    ]
+  },
+  "files": {
+    "fl_app.py": "0d22bd4141900259ec273207df3c8411c51dbf93e368bfe6f2753de2873d074f"
+  },
+  "mecServicesRequired": [
+    {
+      "serName": "mec_app_support",
+      "version": "v2"
+    },
+    {
+      "serName": "mec_service_mgmt",
+      "version": "v1"
+    }
+  ],
+  "onem2m": {
+    "mnCse": "cse-in",
+    "api": "Nestimed.fl",
+    "originator": "CflOrch",
+    "rn": "flOrch",
+    "acp": {
+      "rn": "flMetaAcp",
+      "readers": [
+        "CflTfc",
+        "CflTfc2",
+        "CflNat",
+        "CflDec",
+        "CflAgg"
+      ]
+    },
+    "container": "ops"
+  },
+  "fl": {
+    "role": "orchestrator",
+    "service": "fl-orchestrator",
+    "readerOps": 34,
+    "labels": [
+      "fl:participant",
+      "fl:role:orchestrator",
+      "fl:sim:true"
+    ]
+  }
+}

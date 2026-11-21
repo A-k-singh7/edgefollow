@@ -1,0 +1,220 @@
+{
+ "script": "sandbox_follow.py",
+ "mec013": "<sandbox>",
+ "ue": "10.10.0.1",
+ "started_utc": "2026-11-21T01:42:10Z",
+ "lab": {
+  "ok": true,
+  "statuses": [
+   201,
+   201,
+   201,
+   201,
+   201
+  ]
+ },
+ "zone_a": "zone03",
+ "zone_b": "zone02",
+ "period_s": 2.0,
+ "polls": [
+  {
+   "t": 0.0,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-6"
+  },
+  {
+   "t": 2.216,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-6"
+  },
+  {
+   "t": 4.326,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-6"
+  },
+  {
+   "t": 6.431,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-6"
+  },
+  {
+   "t": 8.543,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-6"
+  },
+  {
+   "t": 10.649,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-6"
+  },
+  {
+   "t": 12.764,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-6"
+  },
+  {
+   "t": 14.866,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-6"
+  },
+  {
+   "t": 16.973,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-6"
+  },
+  {
+   "t": 19.078,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-6"
+  },
+  {
+   "t": 21.181,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-6"
+  },
+  {
+   "t": 23.29,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-6"
+  },
+  {
+   "t": 25.395,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-6"
+  },
+  {
+   "t": 27.5,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-6"
+  },
+  {
+   "t": 29.602,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-6"
+  },
+  {
+   "t": 31.705,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-6"
+  },
+  {
+   "t": 33.81,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-6"
+  },
+  {
+   "t": 35.918,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-6"
+  },
+  {
+   "t": 38.018,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-6"
+  },
+  {
+   "t": 40.129,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-7"
+  },
+  {
+   "t": 42.239,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-7"
+  },
+  {
+   "t": 44.349,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-7"
+  },
+  {
+   "t": 46.464,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-7"
+  },
+  {
+   "t": 48.567,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-7"
+  },
+  {
+   "t": 50.683,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-7"
+  },
+  {
+   "t": 52.798,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-7"
+  },
+  {
+   "t": 54.904,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-7"
+  },
+  {
+   "t": 57.012,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-7"
+  },
+  {
+   "t": 59.126,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-7"
+  },
+  {
+   "t": 61.244,
+   "zone": "zone03",
+   "poa": "4g-macro-cell-7"
+  },
+  {
+   "t": 63.361,
+   "zone": "zone02",
+   "poa": "4g-macro-cell-5"
+  }
+ ],
+ "steps": [
+  {
+   "step": "the sandbox's MEC 013 reports the UE",
+   "ok": true,
+   "detail": "{\"zone\": \"zone03\", \"poa\": \"4g-macro-cell-6\"}"
+  },
+  {
+   "step": "the UE is in zone A before the trigger is armed",
+   "ok": true,
+   "detail": "poa 4g-macro-cell-6"
+  },
+  {
+   "step": "the UE was seen in zone A for 30 polls before the change",
+   "ok": true,
+   "detail": "at least 3 required"
+  },
+  {
+   "step": "the UE entered zone B: the move starts",
+   "ok": true,
+   "detail": "between t=61.244 s and t=63.361 s"
+  },
+  {
+   "step": "after the move: edge B holds every sample, edge A 404, IN-CSE routes to B",
+   "ok": true,
+   "detail": "{\"moved\": true, \"samples_on_b\": 3, \"edge_a_status\": 404, \"route\": [\"/id-mn-b\"]}"
+  }
+ ],
+ "result": "COMPLETED",
+ "failed_polls": 0,
+ "zone_change": {
+  "last_in_a_t": 61.244,
+  "first_in_b_t": 63.361,
+  "poa_b": "4g-macro-cell-5"
+ },
+ "move": {
+  "ok": true,
+  "moved": true,
+  "samples_on_b": 3,
+  "edge_a_status": 404,
+  "route": [
+   "/id-mn-b"
+  ],
+  "duration_s": 0.269
+ }
+}

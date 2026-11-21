@@ -1,0 +1,11 @@
+Creative Commons Attribution 4.0 International (CC BY 4.0)
+
+The documentation, figures and records of this repository (the files under docs/ and records/, every *.md file,
+and the figures) are licensed under the Creative Commons Attribution 4.0 International License.
+
+The full legal code is published at https://creativecommons.org/licenses/by/4.0/legalcode
+A human-readable summary is at https://creativecommons.org/licenses/by/4.0/
+
+Attribution: "EdgeFollow" by Ashish Kumar Singh, 2026.
+
+The source code is licensed under the Apache License 2.0 (see LICENSE).

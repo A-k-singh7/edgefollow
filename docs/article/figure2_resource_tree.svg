@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="690" viewBox="0 0 1440 690" xml:space="preserve">
+<rect width="1440" height="690" fill="#ffffff"/>
+<text x="28" y="40" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="bold" fill="#1d1d1d">EdgeFollow: the oneM2M resource tree, before the move</text>
+<rect x="28" y="60" width="456" height="507" rx="12" fill="#f7f8fa" stroke="#9aa5b1" stroke-width="1.4"/>
+<text x="44" y="86" font-family="DejaVu Sans, sans-serif" font-size="15" font-weight="bold" fill="#33475b">MN-CSE A (cse-mn-a): the devices</text>
+<text x="44" y="112" font-family="DejaVu Sans Mono, monospace" font-size="13.5"><tspan fill="#9aa5b1"></tspan><tspan fill="#1d1d1d" font-weight="bold">&lt;CSEBase&gt;</tspan><tspan fill="#1d1d1d" font-weight="bold"> cse-mn-a</tspan></text>
+<text x="44" y="135" font-family="DejaVu Sans Mono, monospace" font-size="13.5"><tspan fill="#9aa5b1">├─ </tspan><tspan fill="#1d1d1d" font-weight="bold">&lt;AE&gt;</tspan><tspan fill="#1d1d1d" font-weight="bold"> phone</tspan></text>
+<text x="470" y="135" text-anchor="end" font-family="DejaVu Sans, sans-serif" font-size="12.5" fill="#666">phone-A, the vehicle</text>
+<text x="44" y="158" font-family="DejaVu Sans Mono, monospace" font-size="13.5"><tspan fill="#9aa5b1">│  ├─ </tspan><tspan fill="#2e7d32" font-weight="bold">&lt;cnt&gt;</tspan><tspan fill="#1d1d1d" font-weight="bold"> imu</tspan></text>
+<text x="470" y="158" text-anchor="end" font-family="DejaVu Sans, sans-serif" font-size="12.5" fill="#666">motion</text>
+<text x="44" y="181" font-family="DejaVu Sans Mono, monospace" font-size="13.5"><tspan fill="#9aa5b1">│  ├─ </tspan><tspan fill="#2e7d32" font-weight="bold">&lt;cnt&gt;</tspan><tspan fill="#1d1d1d" font-weight="bold"> env</tspan></text>
+<text x="470" y="181" text-anchor="end" font-family="DejaVu Sans, sans-serif" font-size="12.5" fill="#666">environment</text>
+<text x="44" y="204" font-family="DejaVu Sans Mono, monospace" font-size="13.5"><tspan fill="#9aa5b1">│  ├─ </tspan><tspan fill="#2e7d32" font-weight="bold">&lt;cnt&gt;</tspan><tspan fill="#1d1d1d" font-weight="bold"> loc</tspan></text>
+<text x="470" y="204" text-anchor="end" font-family="DejaVu Sans, sans-serif" font-size="12.5" fill="#666">position</text>
+<text x="44" y="227" font-family="DejaVu Sans Mono, monospace" font-size="13.5"><tspan fill="#9aa5b1">│  ├─ </tspan><tspan fill="#2e7d32" font-weight="bold">&lt;cnt&gt;</tspan><tspan fill="#1d1d1d" font-weight="bold"> radio</tspan></text>
+<text x="470" y="227" text-anchor="end" font-family="DejaVu Sans, sans-serif" font-size="12.5" fill="#666">cell and signal</text>
+<text x="44" y="250" font-family="DejaVu Sans Mono, monospace" font-size="13.5"><tspan fill="#9aa5b1">│  │  └─ </tspan><tspan fill="#c25a00" font-weight="bold">&lt;sub&gt;</tspan><tspan fill="#1d1d1d" font-weight="bold"> (an app&#x27;s)</tspan></text>
+<text x="470" y="250" text-anchor="end" font-family="DejaVu Sans, sans-serif" font-size="12.5" fill="#666">notifies that app</text>
+<text x="44" y="273" font-family="DejaVu Sans Mono, monospace" font-size="13.5"><tspan fill="#9aa5b1">│  ├─ </tspan><tspan fill="#2e7d32" font-weight="bold">&lt;cnt&gt;</tspan><tspan fill="#1d1d1d" font-weight="bold"> wlan</tspan></text>
+<text x="470" y="273" text-anchor="end" font-family="DejaVu Sans, sans-serif" font-size="12.5" fill="#666">Wi-Fi</text>
+<text x="44" y="296" font-family="DejaVu Sans Mono, monospace" font-size="13.5"><tspan fill="#9aa5b1">│  ├─ </tspan><tspan fill="#2e7d32" font-weight="bold">&lt;cnt&gt;</tspan><tspan fill="#1d1d1d" font-weight="bold"> cmd</tspan></text>
+<text x="470" y="296" text-anchor="end" font-family="DejaVu Sans, sans-serif" font-size="12.5" fill="#666">commands to the phone</text>
+<text x="44" y="319" font-family="DejaVu Sans Mono, monospace" font-size="13.5"><tspan fill="#9aa5b1">│  │  └─ </tspan><tspan fill="#c25a00" font-weight="bold">&lt;sub&gt;</tspan><tspan fill="#1d1d1d" font-weight="bold"> cmdSub</tspan></text>
+<text x="470" y="319" text-anchor="end" font-family="DejaVu Sans, sans-serif" font-size="12.5" fill="#666">to the polling channel</text>
+<text x="44" y="342" font-family="DejaVu Sans Mono, monospace" font-size="13.5"><tspan fill="#9aa5b1">│  ├─ </tspan><tspan fill="#2e7d32" font-weight="bold">&lt;cnt&gt;</tspan><tspan fill="#1d1d1d" font-weight="bold"> ack</tspan></text>
+<text x="470" y="342" text-anchor="end" font-family="DejaVu Sans, sans-serif" font-size="12.5" fill="#666">answers of the phone</text>
+<text x="44" y="365" font-family="DejaVu Sans Mono, monospace" font-size="13.5"><tspan fill="#9aa5b1">│  ├─ </tspan><tspan fill="#6a1b9a" font-weight="bold">&lt;ts&gt;</tspan><tspan fill="#1d1d1d" font-weight="bold"> radioTs</tspan></text>
+<text x="470" y="365" text-anchor="end" font-family="DejaVu Sans, sans-serif" font-size="12.5" fill="#666">numbered radio samples</text>
+<text x="44" y="388" font-family="DejaVu Sans Mono, monospace" font-size="13.5"><tspan fill="#9aa5b1">│  └─ </tspan><tspan fill="#00838f" font-weight="bold">&lt;pch&gt;</tspan><tspan fill="#1d1d1d" font-weight="bold"> pch</tspan></text>
+<text x="470" y="388" text-anchor="end" font-family="DejaVu Sans, sans-serif" font-size="12.5" fill="#666">the phone fetches commands</text>
+<text x="44" y="411" font-family="DejaVu Sans Mono, monospace" font-size="13.5"><tspan fill="#9aa5b1">├─ </tspan><tspan fill="#b71c1c" font-weight="bold">&lt;acp&gt;</tspan><tspan fill="#1d1d1d" font-weight="bold"> phoneReadAcp</tspan></text>
+<text x="470" y="411" text-anchor="end" font-family="DejaVu Sans, sans-serif" font-size="12.5" fill="#666">owner: all; reader: read</text>
+<text x="44" y="434" font-family="DejaVu Sans Mono, monospace" font-size="13.5"><tspan fill="#9aa5b1">├─ </tspan><tspan fill="#1d1d1d" font-weight="bold">&lt;AE&gt;</tspan><tspan fill="#1d1d1d" font-weight="bold"> rsu</tspan></text>
+<text x="470" y="434" text-anchor="end" font-family="DejaVu Sans, sans-serif" font-size="12.5" fill="#666">phone-B, the roadside sensor</text>
+<text x="44" y="457" font-family="DejaVu Sans Mono, monospace" font-size="13.5"><tspan fill="#9aa5b1">│  └─ </tspan><tspan fill="#2e7d32" font-weight="bold">&lt;cnt&gt;</tspan><tspan fill="#1d1d1d" font-weight="bold"> imu, env, ...</tspan></text>
+<text x="470" y="457" text-anchor="end" font-family="DejaVu Sans, sans-serif" font-size="12.5" fill="#666">as phone-A</text>
+<text x="44" y="480" font-family="DejaVu Sans Mono, monospace" font-size="13.5"><tspan fill="#9aa5b1">└─ </tspan><tspan fill="#1d1d1d" font-weight="bold">&lt;AE&gt;</tspan><tspan fill="#1d1d1d" font-weight="bold"> mecPolicy</tspan></text>
+<text x="470" y="480" text-anchor="end" font-family="DejaVu Sans, sans-serif" font-size="12.5" fill="#666">the edge&#x27;s own rules</text>
+<text x="44" y="503" font-family="DejaVu Sans Mono, monospace" font-size="13.5"><tspan fill="#9aa5b1">   ├─ </tspan><tspan fill="#2e7d32" font-weight="bold">&lt;cnt&gt;</tspan><tspan fill="#1d1d1d" font-weight="bold"> constraint</tspan></text>
+<text x="470" y="503" text-anchor="end" font-family="DejaVu Sans, sans-serif" font-size="12.5" fill="#666">which targets it admits</text>
+<text x="44" y="526" font-family="DejaVu Sans Mono, monospace" font-size="13.5"><tspan fill="#9aa5b1">   └─ </tspan><tspan fill="#2e7d32" font-weight="bold">&lt;cnt&gt;</tspan><tspan fill="#1d1d1d" font-weight="bold"> violations</tspan></text>
+<rect x="504" y="60" width="428" height="507" rx="12" fill="#f7f8fa" stroke="#9aa5b1" stroke-width="1.4"/>
+<text x="520" y="86" font-family="DejaVu Sans, sans-serif" font-size="15" font-weight="bold" fill="#33475b">IN-CSE (cse-in): the cloud</text>
+<text x="520" y="112" font-family="DejaVu Sans Mono, monospace" font-size="13.5"><tspan fill="#9aa5b1"></tspan><tspan fill="#1d1d1d" font-weight="bold">&lt;CSEBase&gt;</tspan><tspan fill="#1d1d1d" font-weight="bold"> cse-in</tspan></text>
+<text x="520" y="135" font-family="DejaVu Sans Mono, monospace" font-size="13.5"><tspan fill="#9aa5b1">├─ </tspan><tspan fill="#555555" font-weight="bold">&lt;csr&gt;</tspan><tspan fill="#1d1d1d" font-weight="bold"> id-mn-a</tspan></text>
+<text x="918" y="135" text-anchor="end" font-family="DejaVu Sans, sans-serif" font-size="12.5" fill="#666">edge A, over Mcc</text>
+<text x="520" y="158" font-family="DejaVu Sans Mono, monospace" font-size="13.5"><tspan fill="#9aa5b1">│  └─ </tspan><tspan fill="#555555" font-weight="bold">&lt;AEAnnc&gt;</tspan><tspan fill="#1d1d1d" font-weight="bold"> phone</tspan></text>
+<text x="918" y="158" text-anchor="end" font-family="DejaVu Sans, sans-serif" font-size="12.5" fill="#666">the route to edge A</text>
+<text x="520" y="181" font-family="DejaVu Sans Mono, monospace" font-size="13.5"><tspan fill="#9aa5b1">├─ </tspan><tspan fill="#555555" font-weight="bold">&lt;csr&gt;</tspan><tspan fill="#1d1d1d" font-weight="bold"> id-mn-b</tspan></text>
+<text x="918" y="181" text-anchor="end" font-family="DejaVu Sans, sans-serif" font-size="12.5" fill="#666">edge B, over Mcc</text>
+<text x="520" y="204" font-family="DejaVu Sans Mono, monospace" font-size="13.5"><tspan fill="#9aa5b1">├─ </tspan><tspan fill="#1d1d1d" font-weight="bold">&lt;AE&gt;</tspan><tspan fill="#1d1d1d" font-weight="bold"> hoPolicy</tspan></text>
+<text x="918" y="204" text-anchor="end" font-family="DejaVu Sans, sans-serif" font-size="12.5" fill="#666">the handover rule</text>
+<text x="520" y="227" font-family="DejaVu Sans Mono, monospace" font-size="13.5"><tspan fill="#9aa5b1">│  ├─ </tspan><tspan fill="#2e7d32" font-weight="bold">&lt;cnt&gt;</tspan><tspan fill="#1d1d1d" font-weight="bold"> rule</tspan></text>
+<text x="918" y="227" text-anchor="end" font-family="DejaVu Sans, sans-serif" font-size="12.5" fill="#666">latest instance in force</text>
+<text x="520" y="250" font-family="DejaVu Sans Mono, monospace" font-size="13.5"><tspan fill="#9aa5b1">│  └─ </tspan><tspan fill="#2e7d32" font-weight="bold">&lt;cnt&gt;</tspan><tspan fill="#1d1d1d" font-weight="bold"> events</tspan></text>
+<text x="918" y="250" text-anchor="end" font-family="DejaVu Sans, sans-serif" font-size="12.5" fill="#666">one per event</text>
+<text x="520" y="273" font-family="DejaVu Sans Mono, monospace" font-size="13.5"><tspan fill="#9aa5b1">└─ </tspan><tspan fill="#1d1d1d" font-weight="bold">&lt;AE&gt;</tspan><tspan fill="#1d1d1d" font-weight="bold"> flOrch</tspan></text>
+<text x="918" y="273" text-anchor="end" font-family="DejaVu Sans, sans-serif" font-size="12.5" fill="#666">learning orchestrator</text>
+<text x="520" y="296" font-family="DejaVu Sans Mono, monospace" font-size="13.5"><tspan fill="#9aa5b1">   ├─ </tspan><tspan fill="#2e7d32" font-weight="bold">&lt;cnt&gt;</tspan><tspan fill="#1d1d1d" font-weight="bold"> tasks</tspan></text>
+<text x="918" y="296" text-anchor="end" font-family="DejaVu Sans, sans-serif" font-size="12.5" fill="#666">a sub per selected client</text>
+<text x="520" y="319" font-family="DejaVu Sans Mono, monospace" font-size="13.5"><tspan fill="#9aa5b1">   ├─ </tspan><tspan fill="#2e7d32" font-weight="bold">&lt;cnt&gt;</tspan><tspan fill="#1d1d1d" font-weight="bold"> ops</tspan></text>
+<text x="520" y="342" font-family="DejaVu Sans Mono, monospace" font-size="13.5"><tspan fill="#9aa5b1">   └─ </tspan><tspan fill="#2e7d32" font-weight="bold">&lt;cnt&gt;</tspan><tspan fill="#1d1d1d" font-weight="bold"> model, deploy</tspan></text>
+<rect x="952" y="60" width="460" height="507" rx="12" fill="#f7f8fa" stroke="#9aa5b1" stroke-width="1.4"/>
+<text x="968" y="86" font-family="DejaVu Sans, sans-serif" font-size="15" font-weight="bold" fill="#33475b">MN-CSE A: other applications</text>
+<text x="968" y="112" font-family="DejaVu Sans Mono, monospace" font-size="13.5"><tspan fill="#9aa5b1"></tspan><tspan fill="#1d1d1d" font-weight="bold">&lt;CSEBase&gt;</tspan><tspan fill="#1d1d1d" font-weight="bold"> cse-mn-a</tspan></text>
+<text x="968" y="135" font-family="DejaVu Sans Mono, monospace" font-size="13.5"><tspan fill="#9aa5b1">├─ </tspan><tspan fill="#1d1d1d" font-weight="bold">&lt;AE&gt;</tspan><tspan fill="#1d1d1d" font-weight="bold"> flNat</tspan></text>
+<text x="1398" y="135" text-anchor="end" font-family="DejaVu Sans, sans-serif" font-size="12.5" fill="#666">a learning device (simulated)</text>
+<text x="968" y="158" font-family="DejaVu Sans Mono, monospace" font-size="13.5"><tspan fill="#9aa5b1">│  ├─ </tspan><tspan fill="#1f5fa8" font-weight="bold">&lt;fcnt&gt;</tspan><tspan fill="#1d1d1d" font-weight="bold"> flCap</tspan></text>
+<text x="1398" y="158" text-anchor="end" font-family="DejaVu Sans, sans-serif" font-size="12.5" fill="#666">SDT dmCapability</text>
+<text x="968" y="181" font-family="DejaVu Sans Mono, monospace" font-size="13.5"><tspan fill="#9aa5b1">│  └─ </tspan><tspan fill="#1f5fa8" font-weight="bold">&lt;fcnt&gt;</tspan><tspan fill="#1d1d1d" font-weight="bold"> flCompute</tspan></text>
+<text x="1398" y="181" text-anchor="end" font-family="DejaVu Sans, sans-serif" font-size="12.5" fill="#666">SDT dmAgent</text>
+<text x="968" y="204" font-family="DejaVu Sans Mono, monospace" font-size="13.5"><tspan fill="#9aa5b1">├─ </tspan><tspan fill="#1d1d1d" font-weight="bold">&lt;AE&gt;</tspan><tspan fill="#1d1d1d" font-weight="bold"> flAgg</tspan></text>
+<text x="1398" y="204" text-anchor="end" font-family="DejaVu Sans, sans-serif" font-size="12.5" fill="#666">learning aggregator</text>
+<text x="968" y="227" font-family="DejaVu Sans Mono, monospace" font-size="13.5"><tspan fill="#9aa5b1">│  ├─ </tspan><tspan fill="#2e7d32" font-weight="bold">&lt;cnt&gt;</tspan><tspan fill="#1d1d1d" font-weight="bold"> updates</tspan></text>
+<text x="1398" y="227" text-anchor="end" font-family="DejaVu Sans, sans-serif" font-size="12.5" fill="#666">clients create; flAgg reads</text>
+<text x="968" y="250" font-family="DejaVu Sans Mono, monospace" font-size="13.5"><tspan fill="#9aa5b1">│  └─ </tspan><tspan fill="#2e7d32" font-weight="bold">&lt;cnt&gt;</tspan><tspan fill="#1d1d1d" font-weight="bold"> models, rounds</tspan></text>
+<text x="968" y="273" font-family="DejaVu Sans Mono, monospace" font-size="13.5"><tspan fill="#9aa5b1">└─ </tspan><tspan fill="#1d1d1d" font-weight="bold">&lt;AE&gt;</tspan><tspan fill="#1d1d1d" font-weight="bold"> mec-ipe</tspan></text>
+<text x="1398" y="273" text-anchor="end" font-family="DejaVu Sans, sans-serif" font-size="12.5" fill="#666">location proxy</text>
+<text x="968" y="296" font-family="DejaVu Sans Mono, monospace" font-size="13.5"><tspan fill="#9aa5b1">   ├─ </tspan><tspan fill="#b71c1c" font-weight="bold">&lt;acp&gt;</tspan><tspan fill="#1d1d1d" font-weight="bold"> operator</tspan></text>
+<text x="1398" y="296" text-anchor="end" font-family="DejaVu Sans, sans-serif" font-size="12.5" fill="#666">create only</text>
+<text x="968" y="319" font-family="DejaVu Sans Mono, monospace" font-size="13.5"><tspan fill="#9aa5b1">   ├─ </tspan><tspan fill="#b71c1c" font-weight="bold">&lt;acp&gt;</tspan><tspan fill="#1d1d1d" font-weight="bold"> requesters</tspan></text>
+<text x="1398" y="319" text-anchor="end" font-family="DejaVu Sans, sans-serif" font-size="12.5" fill="#666">create only</text>
+<text x="968" y="342" font-family="DejaVu Sans Mono, monospace" font-size="13.5"><tspan fill="#9aa5b1">   ├─ </tspan><tspan fill="#2e7d32" font-weight="bold">&lt;cnt&gt;</tspan><tspan fill="#1d1d1d" font-weight="bold"> ue-registry</tspan></text>
+<text x="1398" y="342" text-anchor="end" font-family="DejaVu Sans, sans-serif" font-size="12.5" fill="#666">operator writes</text>
+<text x="968" y="365" font-family="DejaVu Sans Mono, monospace" font-size="13.5"><tspan fill="#9aa5b1">   ├─ </tspan><tspan fill="#2e7d32" font-weight="bold">&lt;cnt&gt;</tspan><tspan fill="#1d1d1d" font-weight="bold"> location</tspan></text>
+<text x="1398" y="365" text-anchor="end" font-family="DejaVu Sans, sans-serif" font-size="12.5" fill="#666">operator requests</text>
+<text x="968" y="388" font-family="DejaVu Sans Mono, monospace" font-size="13.5"><tspan fill="#9aa5b1">   └─ </tspan><tspan fill="#2e7d32" font-weight="bold">&lt;cnt&gt;</tspan><tspan fill="#1d1d1d" font-weight="bold"> location-requests</tspan></text>
+<text x="1398" y="388" text-anchor="end" font-family="DejaVu Sans, sans-serif" font-size="12.5" fill="#666">device requests</text>
+<text x="28" y="616" font-family="DejaVu Sans Mono, monospace" font-size="13" font-weight="bold" fill="#2e7d32">&lt;cnt&gt;</text>
+<text x="75.0" y="616" font-family="DejaVu Sans, sans-serif" font-size="13" fill="#444">container</text>
+<text x="167.60000000000002" y="616" font-family="DejaVu Sans Mono, monospace" font-size="13" font-weight="bold" fill="#6a1b9a">&lt;ts&gt;</text>
+<text x="206.40000000000003" y="616" font-family="DejaVu Sans, sans-serif" font-size="13" fill="#444">timeSeries</text>
+<text x="306.40000000000003" y="616" font-family="DejaVu Sans Mono, monospace" font-size="13" font-weight="bold" fill="#00838f">&lt;pch&gt;</text>
+<text x="353.40000000000003" y="616" font-family="DejaVu Sans, sans-serif" font-size="13" fill="#444">pollingChannel</text>
+<text x="483.00000000000006" y="616" font-family="DejaVu Sans Mono, monospace" font-size="13" font-weight="bold" fill="#c25a00">&lt;sub&gt;</text>
+<text x="530.0" y="616" font-family="DejaVu Sans, sans-serif" font-size="13" fill="#444">subscription</text>
+<text x="644.8000000000001" y="616" font-family="DejaVu Sans Mono, monospace" font-size="13" font-weight="bold" fill="#b71c1c">&lt;acp&gt;</text>
+<text x="691.8000000000001" y="616" font-family="DejaVu Sans, sans-serif" font-size="13" fill="#444">access control policy</text>
+<text x="873.2" y="616" font-family="DejaVu Sans Mono, monospace" font-size="13" font-weight="bold" fill="#1f5fa8">&lt;fcnt&gt;</text>
+<text x="928.4000000000001" y="616" font-family="DejaVu Sans, sans-serif" font-size="13" fill="#444">flexContainer</text>
+<text x="1050.6000000000001" y="616" font-family="DejaVu Sans Mono, monospace" font-size="13" font-weight="bold" fill="#555555">&lt;csr&gt;</text>
+<text x="1097.6000000000001" y="616" font-family="DejaVu Sans, sans-serif" font-size="13" fill="#444">remoteCSE</text>
+<text x="1190.2000000000003" y="616" font-family="DejaVu Sans Mono, monospace" font-size="13" font-weight="bold" fill="#555555">&lt;AEAnnc&gt;</text>
+<text x="1261.8000000000002" y="616" font-family="DejaVu Sans, sans-serif" font-size="13" fill="#444">announced AE</text>
+<text x="28" y="650" font-family="DejaVu Sans, sans-serif" font-size="13" fill="#555">Names as in the lab code; a composite of the lab's runs. The phone's containers keep at most 2000 instances (mni). In the</text>
+<text x="28" y="669" font-family="DejaVu Sans, sans-serif" font-size="13" fill="#555">move, the AE "phone" goes to MN-CSE B with all its child resources, and its announced copy goes under id-mn-b at the IN-CSE.</text>
+</svg>

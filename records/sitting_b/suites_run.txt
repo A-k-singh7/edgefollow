@@ -1,0 +1,15 @@
+phone unlocked: starting
+phone-A at start: airplane=0 wifi=1 data=1 location=true
+test_phone_units|rc=0|RESULT: 35/35 checks pass
+test_phone_etsi|rc=1|
+test_phone_mec013sub|rc=0|RESULT: 18/18 checks pass
+test_phone_onem2m|rc=0|RESULT: 38/38 checks pass
+phone_handover|rc=0|RESULT: PASS  (14/14 steps)
+test_phone_mec016|rc=0|RESULT: 13/13 checks pass
+test_phone_mec021|rc=2|
+test_phone_mec033|rc=0|RESULT: 12/12 checks pass
+test_phone_onem2m_ts|rc=1|RESULT: 13/14 checks pass
+test_en303645|rc=0|RESULT: 13/13 checks pass   (FINDING checks PASS when the shortfall is demonstrated)
+ALL_DONE
+phone-A restored: airplane=0 wifi=1 data=1 location=true (was 0 1 1 true); reverse []
+location restored to: true (was true)

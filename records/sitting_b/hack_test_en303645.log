@@ -1,0 +1,21 @@
+== 5.1 no universal default passwords
+  PASS  [5.1-1] CONTROL an unknown originator cannot read the phone's location  -- 403
+  PASS  [5.1-1] FINDING anyone asserting the well-known admin originator 'CAdmin' reads the phone's precise location  -- ACME fullAccessAdmin=True, admin originator is a fixed string, never authenticated
+== 5.5 communicate securely
+  PASS  [5.5-1] FINDING the oneM2M edge serves the phone's data over plain HTTP (no TLS)
+  PASS  [5.5-5] FINDING a local program can write AS the phone (originator asserted, not authenticated)  -- 201
+  PASS  [5.5-1] FINDING the MEC Location API hands out the phone's location with NO client authentication  -- no OAuth2/mTLS on MEC 013 in this lab
+  PASS  [5.5-1] the QKD 014 SAE interface requires mutual TLS (evidence: test_phone_qkd cert-less/rogue controls)
+== 5.6 minimise exposed attack surfaces
+  PASS  [5.6-1] every lab service listens on loopback only  -- 11 ports checked
+  PASS  [5.6-4] FINDING the phone runs with USB debugging (a debug interface) enabled  -- required by this lab; a shipped device must not
+== 5.4 / 6 sensitive parameters and personal data at rest
+  PASS  [5.4-1] the edge keeps the phone's data in memory only (no plaintext location store on disk)
+  PASS  [6-4] OBSERVATION location history retained on the edge (bounded by mni)  -- up to 2000 samples x 5 s = 2.8 h of precise location
+== 5.11 make it easy for users to delete user data
+  PASS  [5.11-1] the device owner can erase ALL its data on the edge in one request (even the admin then finds none)  -- DELETE 200, afterwards 404
+== 5.9 resilience to outages
+  PASS  [5.9-1] after its data was erased, the phone re-establishes itself on the edge without help  -- 200
+  PASS  [5.9-2] after a real restart of the edge CSE (in-memory: everything lost) the phone recovers on its own  -- fresh data 4 s after restart
+
+RESULT: 13/13 checks pass   (FINDING checks PASS when the shortfall is demonstrated)

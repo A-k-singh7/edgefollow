@@ -1,0 +1,41 @@
+{
+  "appDVersion": "1",
+  "appName": "estimed-sensor-ae",
+  "appProvider": "ESTIMED lab",
+  "appSoftVersion": "0.1.0",
+  "appDescription": "A oneM2M sensor AE packaged as a MEC application (test plan TD_MEC_REG_03). It publishes one fixed reading; there is no sensor behind it.",
+  "entryPoint": {
+    "runtime": "python3",
+    "file": "sensor_ae.py",
+    "args": [
+      "--instance",
+      "{instance}"
+    ]
+  },
+  "files": {
+    "sensor_ae.py": "27a241ffa909dfd87fb37612cd8b528fdad15e5c9d69f0f15b6c6ff6d64c244e"
+  },
+  "mecServicesRequired": [
+    {
+      "serName": "mec_app_support",
+      "version": "v2"
+    },
+    {
+      "serName": "mec_service_mgmt",
+      "version": "v1"
+    }
+  ],
+  "onem2m": {
+    "mnCse": "cse-mn-a",
+    "api": "Nestimed.sensor",
+    "originator": "CestimedSensor",
+    "rn": "estimedSensor",
+    "acp": {
+      "rn": "sensorAcp",
+      "readers": [
+        "CestimedSensorReader"
+      ]
+    },
+    "container": "readings"
+  }
+}

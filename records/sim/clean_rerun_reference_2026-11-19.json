@@ -1,0 +1,667 @@
+{
+ "kind": "reference",
+ "result": "PASS",
+ "provenance": {
+  "script": "/home/edgefollow/edgefollow/estimed/clean_rerun.py",
+  "script_sha256": "e5aa10d54136141d57ee8c7c554ca816773cc12ca319a88617ae698f5c6da157",
+  "runbook": "/home/edgefollow/edgefollow/estimed/RUNBOOK.md",
+  "runbook_sha256": "91701bb0fb530e2fba84f16a78139787c4c53c32f1521e39bb34b65fdb61ffc8",
+  "plan": [
+   {
+    "id": "check-prerequisites",
+    "phase": "bootstrap",
+    "td": null,
+    "sha256": "9507e09f9f8d18e65b9336eea6253748fe958ef1c4c1c3b3125f89008d38bfef"
+   },
+   {
+    "id": "make-directories",
+    "phase": "bootstrap",
+    "td": null,
+    "sha256": "94110fd5a6765df75bf3a2b3aa150020c2ecb56bcdf7bfa73a4f68016bcbcf73"
+   },
+   {
+    "id": "start-topology",
+    "phase": "bootstrap",
+    "td": null,
+    "sha256": "82356e872bab2f0c24115154891da442b217be1773e25bdad538731e4a4f6ed5"
+   },
+   {
+    "id": "td-pf-01",
+    "phase": "test",
+    "td": "TD_MEC_PF_01",
+    "sha256": "5c9687ae58413d310cbcf43ba656a7e0ce7cbc7869194a21e0e60d31b3acb772"
+   },
+   {
+    "id": "td-reg-01",
+    "phase": "test",
+    "td": "TD_MEC_REG_01",
+    "sha256": "52782e5de8f6792aa2904197e3a9fbaa3e7c2ad6a0b9e96c210e8cef8d407f67"
+   },
+   {
+    "id": "td-reg-02",
+    "phase": "test",
+    "td": "TD_MEC_REG_02",
+    "sha256": "0354603abacd3cdcd8b2b9d52b43b72b55ad79773077528863202d6d0c2137a6"
+   },
+   {
+    "id": "td-reg-03",
+    "phase": "test",
+    "td": "TD_MEC_REG_03",
+    "sha256": "b783487481e0b59135078dc64c5483674119d3172436179f311298a993c5ad5e"
+   },
+   {
+    "id": "td-dev-01",
+    "phase": "test",
+    "td": "TD_MEC_DEV_01",
+    "sha256": "d8cf39b9704ac3347f20ddb75667c3a22357e0e46f66afe094069e98e4b50d14"
+   },
+   {
+    "id": "stop-topology",
+    "phase": "shutdown",
+    "td": null,
+    "sha256": "372d9783a81349b25c490e635dce1f326fff1105a0b006df9b3c075c785a6610"
+   }
+  ],
+  "host": "<host>",
+  "kernel": "7.2.11+deb14-amd64",
+  "python_of_this_script": "3.13.15",
+  "argv": [
+   "reference",
+   "--out",
+   "/home/edgefollow/estimed-run/clean_ref_out_2026-11-19",
+   "--results",
+   "/home/edgefollow/estimed-run/sim/clean_rerun_reference_2026-11-19.json"
+  ],
+  "utc": "2026-11-18T23:20:09Z",
+  "what": "fresh copy on the same host; no virtual machine, no container"
+ },
+ "commit": "411125a0c3ec9df9141fdea63ee4a745466405bc",
+ "differs_from_commit": [
+  {
+   "path": "estimed/kpi_record.py",
+   "status": "untracked",
+   "sha256": "a6948b49ca95abef4dd5e32ccf022d573951b57819e308624d55031948e92f83"
+  },
+  {
+   "path": "estimed/tests/test_kpi_record.py",
+   "status": "untracked",
+   "sha256": "ed00ccbe5716a5ffadc4cf9d4cc5c506c88a7c28c6b328daa2be2aec0ff0bd9a"
+  }
+ ],
+ "kpi": {
+  "tests_passed": {
+   "TD_MEC_PF_01": {
+    "numerator": 12,
+    "denominator": 12,
+    "N": 12,
+    "value": 100.0,
+    "ids": [
+     "estimed.tests.test_lab_config::test_one_acme_version_installed_pinned_and_documented",
+     "estimed.tests.test_lab_config::test_the_in_cse_database_is_described_as_it_is_configured",
+     "estimed.tests.test_tr0086_bringup::test_5_2_4_1_5_control_well_formed_get_reaches_the_in",
+     "estimed.tests.test_tr0086_bringup::test_5_2_4_1_5_plain_get_is_rejected[no-onem2m-headers]",
+     "estimed.tests.test_tr0086_bringup::test_5_2_4_1_5_plain_get_is_rejected[no-request-id]",
+     "estimed.tests.test_tr0086_bringup::test_5_2_4_1_5_plain_get_is_rejected[origin-only]",
+     "estimed.tests.test_tr0086_bringup::test_5_2_4_3_4_mec011_checks",
+     "estimed.tests.test_tr0086_bringup::test_5_2_4_4_control_the_in_reports_cst_1",
+     "estimed.tests.test_tr0086_bringup::test_5_2_4_4_every_mn_reports_cst_2",
+     "estimed.tests.test_tr0086_mec_app::test_5_2_mec011_api_answers",
+     "estimed.tests.test_tr0086_registration::test_5_2_control_unknown_csebase_is_not_found",
+     "estimed.tests.test_tr0086_registration::test_5_2_every_csebase_is_reachable"
+    ]
+   },
+   "TD_MEC_REG_01": {
+    "numerator": 9,
+    "denominator": 9,
+    "N": 9,
+    "value": 100.0,
+    "ids": [
+     "estimed.tests.test_tr0086_bringup::test_5_2_4_5_control_no_remotecse_under_the_csebase_name",
+     "estimed.tests.test_tr0086_bringup::test_5_2_4_5_control_the_ins_admin_is_not_the_mns_admin",
+     "estimed.tests.test_tr0086_bringup::test_5_2_4_5_in_discovers_one_remotecse_per_mn",
+     "estimed.tests.test_tr0086_bringup::test_5_2_4_5_in_reaches_each_mn_over_its_poa",
+     "estimed.tests.test_tr0086_bringup::test_5_2_4_5_reciprocal_remotecse_at_each_mn",
+     "estimed.tests.test_tr0086_bringup::test_5_2_4_5_remotecse_is_named_after_the_cse_id",
+     "estimed.tests.test_tr0086_registration::test_5_2_control_unregistered_csi_has_no_remotecse",
+     "estimed.tests.test_tr0086_registration::test_5_2_each_mn_holds_remotecse_for_the_in",
+     "estimed.tests.test_tr0086_registration::test_5_2_in_cse_holds_remotecse_for_each_mn"
+    ]
+   },
+   "TD_MEC_REG_02": {
+    "numerator": 6,
+    "denominator": 6,
+    "N": 6,
+    "value": 100.0,
+    "ids": [
+     "estimed.tests.test_estimed_testplan::test_td_mec_reg_02_control_incomplete_service_info_is_400[serName]",
+     "estimed.tests.test_estimed_testplan::test_td_mec_reg_02_control_incomplete_service_info_is_400[serializer]",
+     "estimed.tests.test_estimed_testplan::test_td_mec_reg_02_control_incomplete_service_info_is_400[state]",
+     "estimed.tests.test_estimed_testplan::test_td_mec_reg_02_control_incomplete_service_info_is_400[version]",
+     "estimed.tests.test_estimed_testplan::test_td_mec_reg_02_control_service_of_unknown_app_is_refused",
+     "estimed.tests.test_estimed_testplan::test_td_mec_reg_02_registered_app_is_discoverable"
+    ]
+   },
+   "TD_MEC_REG_03": {
+    "numerator": 89,
+    "denominator": 89,
+    "N": 89,
+    "value": 100.0,
+    "ids": [
+     "estimed.tests.test_tr0086_mec_app::test_5_4_ae_carries_its_mec_app_instance",
+     "estimed.tests.test_tr0086_mec_app::test_5_4_confirm_ready_without_valid_indication_is_400[None]",
+     "estimed.tests.test_tr0086_mec_app::test_5_4_confirm_ready_without_valid_indication_is_400[body0]",
+     "estimed.tests.test_tr0086_mec_app::test_5_4_confirm_ready_without_valid_indication_is_400[body1]",
+     "estimed.tests.test_tr0086_mec_app::test_5_4_confirm_termination_requires_operation_action",
+     "estimed.tests.test_tr0086_mec_app::test_5_4_control_confirm_ready_after_deregistration_is_404",
+     "estimed.tests.test_tr0086_mec_app::test_5_4_control_confirm_ready_for_unknown_instance_is_404",
+     "estimed.tests.test_tr0086_mec_app::test_5_4_control_owner_still_may_write",
+     "estimed.tests.test_tr0086_mec_app::test_5_4_control_stranger_may_not_read",
+     "estimed.tests.test_tr0086_mec_app::test_5_4_control_subscriber_may_not_write",
+     "estimed.tests.test_tr0086_mec_app::test_5_4_register_then_confirm_ready",
+     "estimed.tests.test_tr0086_mec_app::test_5_4_subscriber_may_read_output",
+     "estimed.tests.test_tr0086_mec_app::test_5_4_subscriber_may_subscribe",
+     "estimed.tests.test_tr0086_mec_app_deploy.TestDeployedSensorAe::test_td_mec_reg_03_mec_link_instance_listed_ready_and_named_by_the_ae",
+     "estimed.tests.test_tr0086_mec_app_deploy.TestDeployedSensorAe::test_td_mec_reg_03_step1_control_a_running_instance_and_its_package_cannot_be_removed",
+     "estimed.tests.test_tr0086_mec_app_deploy.TestDeployedSensorAe::test_td_mec_reg_03_step1_onboarded_and_instantiated_through_the_010_2_api",
+     "estimed.tests.test_tr0086_mec_app_deploy.TestDeployedSensorAe::test_td_mec_reg_03_step1_workload_is_its_own_process_started_from_the_package",
+     "estimed.tests.test_tr0086_mec_app_deploy.TestDeployedSensorAe::test_td_mec_reg_03_step2_3_ae_create_on_the_wire",
+     "estimed.tests.test_tr0086_mec_app_deploy.TestDeployedSensorAe::test_td_mec_reg_03_step4_ae_present_with_least_privilege_acp",
+     "estimed.tests.test_tr0086_mec_app_deploy.TestDeployedSensorAe::test_td_mec_reg_03_step4_control_stranger_and_reader_write_nothing",
+     "estimed.tests.test_tr0086_mec_app_deploy.TestDeployedSensorAe::test_td_mec_reg_03_step4_control_stranger_reads_nothing",
+     "estimed.tests.test_tr0086_mec_app_deploy.TestDeployedSensorAe::test_td_mec_reg_03_step5_baseline_container_was_created_by_the_ae",
+     "estimed.tests.test_tr0086_mec_app_deploy.TestDeployedSensorAe::test_td_mec_reg_03_step6_ae_may_create_read_update_delete_under_its_own_subtree",
+     "estimed.tests.test_tr0086_mec_app_deploy.TestDeployedSensorAe::test_td_mec_reg_03_step6_tree_is_exactly_what_the_descriptor_says",
+     "estimed.tests.test_tr0086_mec_app_deploy::test_agent_control_unknown_ids_are_refused_before_any_call",
+     "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_command_is_built_from_the_descriptor",
+     "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_content_that_differs_from_the_descriptor_is_refused[_plant_digest-sensor_ae.py]",
+     "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_content_that_differs_from_the_descriptor_is_refused[_plant_extra-json.py]",
+     "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_content_that_differs_from_the_descriptor_is_refused[_plant_missing-sensor_ae.py]",
+     "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_content_that_differs_from_the_descriptor_is_refused[_plant_symlink-sensor_ae.py]",
+     "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_identity_the_cse_could_not_take_as_written_is_refused[acp-value10]",
+     "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_identity_the_cse_could_not_take_as_written_is_refused[acp-value11]",
+     "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_identity_the_cse_could_not_take_as_written_is_refused[acp-value9]",
+     "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_identity_the_cse_could_not_take_as_written_is_refused[api-estimed.sensor]",
+     "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_identity_the_cse_could_not_take_as_written_is_refused[container-x?fu=1]",
+     "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_identity_the_cse_could_not_take_as_written_is_refused[mnCse-]",
+     "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_identity_the_cse_could_not_take_as_written_is_refused[originator-C]",
+     "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_identity_the_cse_could_not_take_as_written_is_refused[originator-Cab/cd]",
+     "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_identity_the_cse_could_not_take_as_written_is_refused[originator-SestimedSensor]",
+     "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_identity_the_cse_could_not_take_as_written_is_refused[originator-estimedSensor]",
+     "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_identity_the_cse_could_not_take_as_written_is_refused[rn-..]",
+     "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_identity_the_cse_could_not_take_as_written_is_refused[rn-a/b]",
+     "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_mec_service_the_platform_does_not_offer_is_refused[mec_app_support]",
+     "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_mec_service_the_platform_does_not_offer_is_refused[need0]",
+     "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_mec_service_the_platform_does_not_offer_is_refused[need1]",
+     "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_missing_descriptor_field_is_refused[appDVersion]",
+     "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_missing_descriptor_field_is_refused[appName]",
+     "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_missing_descriptor_field_is_refused[appProvider]",
+     "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_missing_descriptor_field_is_refused[appSoftVersion]",
+     "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_missing_descriptor_field_is_refused[entryPoint.args]",
+     "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_missing_descriptor_field_is_refused[entryPoint.file]",
+     "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_missing_descriptor_field_is_refused[entryPoint.runtime]",
+     "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_missing_descriptor_field_is_refused[entryPoint]",
+     "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_missing_descriptor_field_is_refused[files]",
+     "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_missing_descriptor_field_is_refused[mecServicesRequired]",
+     "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_missing_descriptor_field_is_refused[onem2m.acp.readers]",
+     "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_missing_descriptor_field_is_refused[onem2m.acp.rn]",
+     "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_missing_descriptor_field_is_refused[onem2m.acp]",
+     "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_missing_descriptor_field_is_refused[onem2m.api]",
+     "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_missing_descriptor_field_is_refused[onem2m.container]",
+     "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_missing_descriptor_field_is_refused[onem2m.mnCse]",
+     "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_missing_descriptor_field_is_refused[onem2m.originator]",
+     "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_missing_descriptor_field_is_refused[onem2m.rn]",
+     "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_missing_descriptor_field_is_refused[onem2m]",
+     "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_no_descriptor_or_not_json_is_refused",
+     "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_unknown_entry_point_is_refused[entry0-other.py]",
+     "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_unknown_entry_point_is_refused[entry1-sensor_ae.py]",
+     "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_unknown_entry_point_is_refused[entry2-/usr/bin/env]",
+     "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_unknown_entry_point_is_refused[entry3-bash]",
+     "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_unknown_entry_point_is_refused[entry4-args]",
+     "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_unknown_entry_point_is_refused[entry5-args]",
+     "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_digests_command_reports_and_refreshes_a_changed_package",
+     "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_sensor_ae_uses_the_standard_library_only",
+     "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_shipped_package_verifies_and_says_what_the_live_tests_expect",
+     "estimed.tests.test_tr0086_mec_app_deploy::test_td_mec_reg_03_control_disabled_package_is_not_instantiated",
+     "estimed.tests.test_tr0086_mec_app_deploy::test_td_mec_reg_03_control_instance_that_never_confirms_is_not_ready_and_is_removed",
+     "estimed.tests.test_tr0086_mec_app_deploy::test_td_mec_reg_03_control_nothing_is_left_after_terminate",
+     "estimed.tests.test_tr0086_mec_app_deploy::test_td_mec_reg_03_control_package_changed_after_onboarding_is_not_started[program and descriptor]",
+     "estimed.tests.test_tr0086_mec_app_deploy::test_td_mec_reg_03_control_package_changed_after_onboarding_is_not_started[program]",
+     "estimed.tests.test_tr0086_mec_app_deploy::test_td_mec_reg_03_control_package_for_an_mn_cse_the_platform_does_not_have_is_not_started",
+     "estimed.tests.test_tr0086_mec_app_deploy::test_td_mec_reg_03_control_package_with_a_wrong_digest_is_not_onboarded",
+     "estimed.tests.test_tr0086_mec_app_deploy::test_td_mec_reg_03_control_ready_workload_that_will_not_stop_is_killed_and_deregistered",
+     "estimed.tests.test_tr0086_mec_app_deploy::test_td_mec_reg_03_control_second_instance_with_the_same_originator_is_refused",
+     "estimed.tests.test_tr0086_mec_app_deploy::test_td_mec_reg_03_control_workload_that_ignores_the_stop_request_is_killed",
+     "estimed.tests.test_tr0086_mec_app_deploy::test_td_mec_reg_03_mec_link_listed_ready_only_after_the_app_confirmed",
+     "estimed.tests.test_tr0086_mec_app_deploy::test_td_mec_reg_03_step2_control_a_create_carrying_aei_in_pc_is_refused",
+     "estimed.tests.test_tr0086_mec_app_deploy::test_td_mec_reg_03_step3_control_app_does_not_go_ready_on_any_other_answer[_answer_another_aei-AE-ID: got 'Csomeone-else', need 'CestimedSensor']",
+     "estimed.tests.test_tr0086_mec_app_deploy::test_td_mec_reg_03_step3_control_app_does_not_go_ready_on_any_other_answer[_answer_rsc_2000-AE Create rsc: got 2000, need 2001]",
+     "estimed.tests.test_tr0086_mec_app_deploy::test_td_mec_reg_03_step4_control_package_naming_no_reader_admits_only_the_owner"
+    ]
+   },
+   "TD_MEC_DEV_01": {
+    "numerator": 26,
+    "denominator": 26,
+    "N": 26,
+    "value": 100.0,
+    "ids": [
+     "estimed.tests.test_tr0086_annex_a::test_a_2_10_a_command_the_device_raises_itself_notifies_too[option-A-on-the-IN]",
+     "estimed.tests.test_tr0086_annex_a::test_a_2_10_a_command_the_device_raises_itself_notifies_too[options-B-D-on-the-MN]",
+     "estimed.tests.test_tr0086_annex_a::test_a_2_2_control_policies_admit_only_whom_they_name[option-A-on-the-IN]",
+     "estimed.tests.test_tr0086_annex_a::test_a_2_2_control_policies_admit_only_whom_they_name[options-B-D-on-the-MN]",
+     "estimed.tests.test_tr0086_annex_a::test_a_2_3_each_container_carries_its_own_policy[option-A-on-the-IN]",
+     "estimed.tests.test_tr0086_annex_a::test_a_2_3_each_container_carries_its_own_policy[options-B-D-on-the-MN]",
+     "estimed.tests.test_tr0086_annex_a::test_a_2_4_command_subscription_is_verified_before_it_exists[option-A-on-the-IN]",
+     "estimed.tests.test_tr0086_annex_a::test_a_2_4_command_subscription_is_verified_before_it_exists[options-B-D-on-the-MN]",
+     "estimed.tests.test_tr0086_annex_a::test_a_2_4_control_unreachable_callback_creates_no_subscription[option-A-on-the-IN]",
+     "estimed.tests.test_tr0086_annex_a::test_a_2_4_control_unreachable_callback_creates_no_subscription[options-B-D-on-the-MN]",
+     "estimed.tests.test_tr0086_annex_a::test_a_2_7_latest_reading_of_one_container[option-A-on-the-IN]",
+     "estimed.tests.test_tr0086_annex_a::test_a_2_7_latest_reading_of_one_container[options-B-D-on-the-MN]",
+     "estimed.tests.test_tr0086_annex_a::test_a_2_8_control_a_stranger_cannot_read_through_the_group[option-A-on-the-IN]",
+     "estimed.tests.test_tr0086_annex_a::test_a_2_8_control_a_stranger_cannot_read_through_the_group[options-B-D-on-the-MN]",
+     "estimed.tests.test_tr0086_annex_a::test_a_2_8_latest_readings_of_all_members_in_one_request[option-A-on-the-IN]",
+     "estimed.tests.test_tr0086_annex_a::test_a_2_8_latest_readings_of_all_members_in_one_request[options-B-D-on-the-MN]",
+     "estimed.tests.test_tr0086_annex_a::test_a_2_9_a_controllers_command_reaches_the_device[option-A-on-the-IN]",
+     "estimed.tests.test_tr0086_annex_a::test_a_2_9_a_controllers_command_reaches_the_device[options-B-D-on-the-MN]",
+     "estimed.tests.test_tr0086_annex_a::test_a_2_9_control_telemetry_does_not_reach_the_command_subscriber[option-A-on-the-IN]",
+     "estimed.tests.test_tr0086_annex_a::test_a_2_9_control_telemetry_does_not_reach_the_command_subscriber[options-B-D-on-the-MN]",
+     "estimed.tests.test_tr0086_registration::test_5_3_ae_registration_assigns_aei",
+     "estimed.tests.test_tr0086_registration::test_5_3_control_api_without_n_or_r_prefix_is_refused",
+     "estimed.tests.test_tr0086_registration::test_5_3_control_cin_under_missing_container_is_not_found",
+     "estimed.tests.test_tr0086_registration::test_5_3_control_duplicate_registration_is_refused",
+     "estimed.tests.test_tr0086_registration::test_5_3_control_latest_of_empty_container_is_not_found",
+     "estimed.tests.test_tr0086_registration::test_5_3_telemetry_round_trip_through_latest"
+    ]
+   }
+  },
+  "cse_registration_success": {
+   "numerator": 2,
+   "denominator": 2,
+   "N": 2,
+   "value": 100.0,
+   "per_cse": {
+    "cse-mn-a": true,
+    "cse-mn-b": true
+   }
+  },
+  "resources_left": {
+   "TD_MEC_PF_01": {
+    "cse-in": {
+     "numerator": 0,
+     "denominator": 9,
+     "N": 9,
+     "left": {},
+     "removed": {}
+    },
+    "cse-mn-a": {
+     "numerator": 0,
+     "denominator": 5,
+     "N": 5,
+     "left": {},
+     "removed": {}
+    },
+    "cse-mn-b": {
+     "numerator": 0,
+     "denominator": 5,
+     "N": 5,
+     "left": {},
+     "removed": {}
+    }
+   },
+   "TD_MEC_REG_01": {
+    "cse-in": {
+     "numerator": 0,
+     "denominator": 9,
+     "N": 9,
+     "left": {},
+     "removed": {}
+    },
+    "cse-mn-a": {
+     "numerator": 0,
+     "denominator": 5,
+     "N": 5,
+     "left": {},
+     "removed": {}
+    },
+    "cse-mn-b": {
+     "numerator": 0,
+     "denominator": 5,
+     "N": 5,
+     "left": {},
+     "removed": {}
+    }
+   },
+   "TD_MEC_REG_02": {
+    "cse-in": {
+     "numerator": 0,
+     "denominator": 9,
+     "N": 9,
+     "left": {},
+     "removed": {}
+    },
+    "cse-mn-a": {
+     "numerator": 0,
+     "denominator": 5,
+     "N": 5,
+     "left": {},
+     "removed": {}
+    },
+    "cse-mn-b": {
+     "numerator": 0,
+     "denominator": 5,
+     "N": 5,
+     "left": {},
+     "removed": {}
+    }
+   },
+   "TD_MEC_REG_03": {
+    "cse-in": {
+     "numerator": 0,
+     "denominator": 9,
+     "N": 9,
+     "left": {},
+     "removed": {}
+    },
+    "cse-mn-a": {
+     "numerator": 0,
+     "denominator": 5,
+     "N": 5,
+     "left": {},
+     "removed": {}
+    },
+    "cse-mn-b": {
+     "numerator": 0,
+     "denominator": 5,
+     "N": 5,
+     "left": {},
+     "removed": {}
+    }
+   },
+   "TD_MEC_DEV_01": {
+    "cse-in": {
+     "numerator": 0,
+     "denominator": 9,
+     "N": 9,
+     "left": {},
+     "removed": {}
+    },
+    "cse-mn-a": {
+     "numerator": 0,
+     "denominator": 5,
+     "N": 5,
+     "left": {},
+     "removed": {}
+    },
+    "cse-mn-b": {
+     "numerator": 0,
+     "denominator": 5,
+     "N": 5,
+     "left": {},
+     "removed": {}
+    }
+   }
+  },
+  "timings_s": {
+   "TD_MEC_PF_01": 1.299,
+   "TD_MEC_REG_01": 0.581,
+   "TD_MEC_REG_02": 1.329,
+   "TD_MEC_REG_03": 10.528,
+   "TD_MEC_DEV_01": 10.269
+  }
+ },
+ "results": {
+  "TD_MEC_PF_01": {
+   "td": "TD_MEC_PF_01",
+   "step": "td-pf-01",
+   "ok": true,
+   "problems": [],
+   "declared": 12,
+   "ran": 12,
+   "ids": [
+    "estimed.tests.test_lab_config::test_one_acme_version_installed_pinned_and_documented",
+    "estimed.tests.test_lab_config::test_the_in_cse_database_is_described_as_it_is_configured",
+    "estimed.tests.test_tr0086_bringup::test_5_2_4_1_5_control_well_formed_get_reaches_the_in",
+    "estimed.tests.test_tr0086_bringup::test_5_2_4_1_5_plain_get_is_rejected[no-onem2m-headers]",
+    "estimed.tests.test_tr0086_bringup::test_5_2_4_1_5_plain_get_is_rejected[no-request-id]",
+    "estimed.tests.test_tr0086_bringup::test_5_2_4_1_5_plain_get_is_rejected[origin-only]",
+    "estimed.tests.test_tr0086_bringup::test_5_2_4_3_4_mec011_checks",
+    "estimed.tests.test_tr0086_bringup::test_5_2_4_4_control_the_in_reports_cst_1",
+    "estimed.tests.test_tr0086_bringup::test_5_2_4_4_every_mn_reports_cst_2",
+    "estimed.tests.test_tr0086_mec_app::test_5_2_mec011_api_answers",
+    "estimed.tests.test_tr0086_registration::test_5_2_control_unknown_csebase_is_not_found",
+    "estimed.tests.test_tr0086_registration::test_5_2_every_csebase_is_reachable"
+   ],
+   "summary_line": "12 passed in 0.89s",
+   "passed": 12,
+   "failed": 0,
+   "error": 0,
+   "skipped": 0
+  },
+  "TD_MEC_REG_01": {
+   "td": "TD_MEC_REG_01",
+   "step": "td-reg-01",
+   "ok": true,
+   "problems": [],
+   "declared": 9,
+   "ran": 9,
+   "ids": [
+    "estimed.tests.test_tr0086_bringup::test_5_2_4_5_control_no_remotecse_under_the_csebase_name",
+    "estimed.tests.test_tr0086_bringup::test_5_2_4_5_control_the_ins_admin_is_not_the_mns_admin",
+    "estimed.tests.test_tr0086_bringup::test_5_2_4_5_in_discovers_one_remotecse_per_mn",
+    "estimed.tests.test_tr0086_bringup::test_5_2_4_5_in_reaches_each_mn_over_its_poa",
+    "estimed.tests.test_tr0086_bringup::test_5_2_4_5_reciprocal_remotecse_at_each_mn",
+    "estimed.tests.test_tr0086_bringup::test_5_2_4_5_remotecse_is_named_after_the_cse_id",
+    "estimed.tests.test_tr0086_registration::test_5_2_control_unregistered_csi_has_no_remotecse",
+    "estimed.tests.test_tr0086_registration::test_5_2_each_mn_holds_remotecse_for_the_in",
+    "estimed.tests.test_tr0086_registration::test_5_2_in_cse_holds_remotecse_for_each_mn"
+   ],
+   "summary_line": "9 passed in 0.19s",
+   "passed": 9,
+   "failed": 0,
+   "error": 0,
+   "skipped": 0
+  },
+  "TD_MEC_REG_02": {
+   "td": "TD_MEC_REG_02",
+   "step": "td-reg-02",
+   "ok": true,
+   "problems": [],
+   "declared": 6,
+   "ran": 6,
+   "ids": [
+    "estimed.tests.test_estimed_testplan::test_td_mec_reg_02_control_incomplete_service_info_is_400[serName]",
+    "estimed.tests.test_estimed_testplan::test_td_mec_reg_02_control_incomplete_service_info_is_400[serializer]",
+    "estimed.tests.test_estimed_testplan::test_td_mec_reg_02_control_incomplete_service_info_is_400[state]",
+    "estimed.tests.test_estimed_testplan::test_td_mec_reg_02_control_incomplete_service_info_is_400[version]",
+    "estimed.tests.test_estimed_testplan::test_td_mec_reg_02_control_service_of_unknown_app_is_refused",
+    "estimed.tests.test_estimed_testplan::test_td_mec_reg_02_registered_app_is_discoverable"
+   ],
+   "summary_line": "6 passed in 0.94s",
+   "passed": 6,
+   "failed": 0,
+   "error": 0,
+   "skipped": 0
+  },
+  "TD_MEC_REG_03": {
+   "td": "TD_MEC_REG_03",
+   "step": "td-reg-03",
+   "ok": true,
+   "problems": [],
+   "declared": 89,
+   "ran": 89,
+   "ids": [
+    "estimed.tests.test_tr0086_mec_app::test_5_4_ae_carries_its_mec_app_instance",
+    "estimed.tests.test_tr0086_mec_app::test_5_4_confirm_ready_without_valid_indication_is_400[None]",
+    "estimed.tests.test_tr0086_mec_app::test_5_4_confirm_ready_without_valid_indication_is_400[body0]",
+    "estimed.tests.test_tr0086_mec_app::test_5_4_confirm_ready_without_valid_indication_is_400[body1]",
+    "estimed.tests.test_tr0086_mec_app::test_5_4_confirm_termination_requires_operation_action",
+    "estimed.tests.test_tr0086_mec_app::test_5_4_control_confirm_ready_after_deregistration_is_404",
+    "estimed.tests.test_tr0086_mec_app::test_5_4_control_confirm_ready_for_unknown_instance_is_404",
+    "estimed.tests.test_tr0086_mec_app::test_5_4_control_owner_still_may_write",
+    "estimed.tests.test_tr0086_mec_app::test_5_4_control_stranger_may_not_read",
+    "estimed.tests.test_tr0086_mec_app::test_5_4_control_subscriber_may_not_write",
+    "estimed.tests.test_tr0086_mec_app::test_5_4_register_then_confirm_ready",
+    "estimed.tests.test_tr0086_mec_app::test_5_4_subscriber_may_read_output",
+    "estimed.tests.test_tr0086_mec_app::test_5_4_subscriber_may_subscribe",
+    "estimed.tests.test_tr0086_mec_app_deploy.TestDeployedSensorAe::test_td_mec_reg_03_mec_link_instance_listed_ready_and_named_by_the_ae",
+    "estimed.tests.test_tr0086_mec_app_deploy.TestDeployedSensorAe::test_td_mec_reg_03_step1_control_a_running_instance_and_its_package_cannot_be_removed",
+    "estimed.tests.test_tr0086_mec_app_deploy.TestDeployedSensorAe::test_td_mec_reg_03_step1_onboarded_and_instantiated_through_the_010_2_api",
+    "estimed.tests.test_tr0086_mec_app_deploy.TestDeployedSensorAe::test_td_mec_reg_03_step1_workload_is_its_own_process_started_from_the_package",
+    "estimed.tests.test_tr0086_mec_app_deploy.TestDeployedSensorAe::test_td_mec_reg_03_step2_3_ae_create_on_the_wire",
+    "estimed.tests.test_tr0086_mec_app_deploy.TestDeployedSensorAe::test_td_mec_reg_03_step4_ae_present_with_least_privilege_acp",
+    "estimed.tests.test_tr0086_mec_app_deploy.TestDeployedSensorAe::test_td_mec_reg_03_step4_control_stranger_and_reader_write_nothing",
+    "estimed.tests.test_tr0086_mec_app_deploy.TestDeployedSensorAe::test_td_mec_reg_03_step4_control_stranger_reads_nothing",
+    "estimed.tests.test_tr0086_mec_app_deploy.TestDeployedSensorAe::test_td_mec_reg_03_step5_baseline_container_was_created_by_the_ae",
+    "estimed.tests.test_tr0086_mec_app_deploy.TestDeployedSensorAe::test_td_mec_reg_03_step6_ae_may_create_read_update_delete_under_its_own_subtree",
+    "estimed.tests.test_tr0086_mec_app_deploy.TestDeployedSensorAe::test_td_mec_reg_03_step6_tree_is_exactly_what_the_descriptor_says",
+    "estimed.tests.test_tr0086_mec_app_deploy::test_agent_control_unknown_ids_are_refused_before_any_call",
+    "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_command_is_built_from_the_descriptor",
+    "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_content_that_differs_from_the_descriptor_is_refused[_plant_digest-sensor_ae.py]",
+    "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_content_that_differs_from_the_descriptor_is_refused[_plant_extra-json.py]",
+    "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_content_that_differs_from_the_descriptor_is_refused[_plant_missing-sensor_ae.py]",
+    "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_content_that_differs_from_the_descriptor_is_refused[_plant_symlink-sensor_ae.py]",
+    "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_identity_the_cse_could_not_take_as_written_is_refused[acp-value10]",
+    "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_identity_the_cse_could_not_take_as_written_is_refused[acp-value11]",
+    "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_identity_the_cse_could_not_take_as_written_is_refused[acp-value9]",
+    "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_identity_the_cse_could_not_take_as_written_is_refused[api-estimed.sensor]",
+    "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_identity_the_cse_could_not_take_as_written_is_refused[container-x?fu=1]",
+    "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_identity_the_cse_could_not_take_as_written_is_refused[mnCse-]",
+    "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_identity_the_cse_could_not_take_as_written_is_refused[originator-C]",
+    "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_identity_the_cse_could_not_take_as_written_is_refused[originator-Cab/cd]",
+    "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_identity_the_cse_could_not_take_as_written_is_refused[originator-SestimedSensor]",
+    "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_identity_the_cse_could_not_take_as_written_is_refused[originator-estimedSensor]",
+    "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_identity_the_cse_could_not_take_as_written_is_refused[rn-..]",
+    "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_identity_the_cse_could_not_take_as_written_is_refused[rn-a/b]",
+    "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_mec_service_the_platform_does_not_offer_is_refused[mec_app_support]",
+    "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_mec_service_the_platform_does_not_offer_is_refused[need0]",
+    "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_mec_service_the_platform_does_not_offer_is_refused[need1]",
+    "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_missing_descriptor_field_is_refused[appDVersion]",
+    "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_missing_descriptor_field_is_refused[appName]",
+    "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_missing_descriptor_field_is_refused[appProvider]",
+    "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_missing_descriptor_field_is_refused[appSoftVersion]",
+    "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_missing_descriptor_field_is_refused[entryPoint.args]",
+    "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_missing_descriptor_field_is_refused[entryPoint.file]",
+    "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_missing_descriptor_field_is_refused[entryPoint.runtime]",
+    "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_missing_descriptor_field_is_refused[entryPoint]",
+    "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_missing_descriptor_field_is_refused[files]",
+    "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_missing_descriptor_field_is_refused[mecServicesRequired]",
+    "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_missing_descriptor_field_is_refused[onem2m.acp.readers]",
+    "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_missing_descriptor_field_is_refused[onem2m.acp.rn]",
+    "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_missing_descriptor_field_is_refused[onem2m.acp]",
+    "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_missing_descriptor_field_is_refused[onem2m.api]",
+    "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_missing_descriptor_field_is_refused[onem2m.container]",
+    "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_missing_descriptor_field_is_refused[onem2m.mnCse]",
+    "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_missing_descriptor_field_is_refused[onem2m.originator]",
+    "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_missing_descriptor_field_is_refused[onem2m.rn]",
+    "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_missing_descriptor_field_is_refused[onem2m]",
+    "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_no_descriptor_or_not_json_is_refused",
+    "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_unknown_entry_point_is_refused[entry0-other.py]",
+    "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_unknown_entry_point_is_refused[entry1-sensor_ae.py]",
+    "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_unknown_entry_point_is_refused[entry2-/usr/bin/env]",
+    "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_unknown_entry_point_is_refused[entry3-bash]",
+    "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_unknown_entry_point_is_refused[entry4-args]",
+    "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_control_unknown_entry_point_is_refused[entry5-args]",
+    "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_digests_command_reports_and_refreshes_a_changed_package",
+    "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_sensor_ae_uses_the_standard_library_only",
+    "estimed.tests.test_tr0086_mec_app_deploy::test_pkg_shipped_package_verifies_and_says_what_the_live_tests_expect",
+    "estimed.tests.test_tr0086_mec_app_deploy::test_td_mec_reg_03_control_disabled_package_is_not_instantiated",
+    "estimed.tests.test_tr0086_mec_app_deploy::test_td_mec_reg_03_control_instance_that_never_confirms_is_not_ready_and_is_removed",
+    "estimed.tests.test_tr0086_mec_app_deploy::test_td_mec_reg_03_control_nothing_is_left_after_terminate",
+    "estimed.tests.test_tr0086_mec_app_deploy::test_td_mec_reg_03_control_package_changed_after_onboarding_is_not_started[program and descriptor]",
+    "estimed.tests.test_tr0086_mec_app_deploy::test_td_mec_reg_03_control_package_changed_after_onboarding_is_not_started[program]",
+    "estimed.tests.test_tr0086_mec_app_deploy::test_td_mec_reg_03_control_package_for_an_mn_cse_the_platform_does_not_have_is_not_started",
+    "estimed.tests.test_tr0086_mec_app_deploy::test_td_mec_reg_03_control_package_with_a_wrong_digest_is_not_onboarded",
+    "estimed.tests.test_tr0086_mec_app_deploy::test_td_mec_reg_03_control_ready_workload_that_will_not_stop_is_killed_and_deregistered",
+    "estimed.tests.test_tr0086_mec_app_deploy::test_td_mec_reg_03_control_second_instance_with_the_same_originator_is_refused",
+    "estimed.tests.test_tr0086_mec_app_deploy::test_td_mec_reg_03_control_workload_that_ignores_the_stop_request_is_killed",
+    "estimed.tests.test_tr0086_mec_app_deploy::test_td_mec_reg_03_mec_link_listed_ready_only_after_the_app_confirmed",
+    "estimed.tests.test_tr0086_mec_app_deploy::test_td_mec_reg_03_step2_control_a_create_carrying_aei_in_pc_is_refused",
+    "estimed.tests.test_tr0086_mec_app_deploy::test_td_mec_reg_03_step3_control_app_does_not_go_ready_on_any_other_answer[_answer_another_aei-AE-ID: got 'Csomeone-else', need 'CestimedSensor']",
+    "estimed.tests.test_tr0086_mec_app_deploy::test_td_mec_reg_03_step3_control_app_does_not_go_ready_on_any_other_answer[_answer_rsc_2000-AE Create rsc: got 2000, need 2001]",
+    "estimed.tests.test_tr0086_mec_app_deploy::test_td_mec_reg_03_step4_control_package_naming_no_reader_admits_only_the_owner"
+   ],
+   "summary_line": "89 passed in 10.11s",
+   "passed": 89,
+   "failed": 0,
+   "error": 0,
+   "skipped": 0
+  },
+  "TD_MEC_DEV_01": {
+   "td": "TD_MEC_DEV_01",
+   "step": "td-dev-01",
+   "ok": true,
+   "problems": [],
+   "declared": 26,
+   "ran": 26,
+   "ids": [
+    "estimed.tests.test_tr0086_annex_a::test_a_2_10_a_command_the_device_raises_itself_notifies_too[option-A-on-the-IN]",
+    "estimed.tests.test_tr0086_annex_a::test_a_2_10_a_command_the_device_raises_itself_notifies_too[options-B-D-on-the-MN]",
+    "estimed.tests.test_tr0086_annex_a::test_a_2_2_control_policies_admit_only_whom_they_name[option-A-on-the-IN]",
+    "estimed.tests.test_tr0086_annex_a::test_a_2_2_control_policies_admit_only_whom_they_name[options-B-D-on-the-MN]",
+    "estimed.tests.test_tr0086_annex_a::test_a_2_3_each_container_carries_its_own_policy[option-A-on-the-IN]",
+    "estimed.tests.test_tr0086_annex_a::test_a_2_3_each_container_carries_its_own_policy[options-B-D-on-the-MN]",
+    "estimed.tests.test_tr0086_annex_a::test_a_2_4_command_subscription_is_verified_before_it_exists[option-A-on-the-IN]",
+    "estimed.tests.test_tr0086_annex_a::test_a_2_4_command_subscription_is_verified_before_it_exists[options-B-D-on-the-MN]",
+    "estimed.tests.test_tr0086_annex_a::test_a_2_4_control_unreachable_callback_creates_no_subscription[option-A-on-the-IN]",
+    "estimed.tests.test_tr0086_annex_a::test_a_2_4_control_unreachable_callback_creates_no_subscription[options-B-D-on-the-MN]",
+    "estimed.tests.test_tr0086_annex_a::test_a_2_7_latest_reading_of_one_container[option-A-on-the-IN]",
+    "estimed.tests.test_tr0086_annex_a::test_a_2_7_latest_reading_of_one_container[options-B-D-on-the-MN]",
+    "estimed.tests.test_tr0086_annex_a::test_a_2_8_control_a_stranger_cannot_read_through_the_group[option-A-on-the-IN]",
+    "estimed.tests.test_tr0086_annex_a::test_a_2_8_control_a_stranger_cannot_read_through_the_group[options-B-D-on-the-MN]",
+    "estimed.tests.test_tr0086_annex_a::test_a_2_8_latest_readings_of_all_members_in_one_request[option-A-on-the-IN]",
+    "estimed.tests.test_tr0086_annex_a::test_a_2_8_latest_readings_of_all_members_in_one_request[options-B-D-on-the-MN]",
+    "estimed.tests.test_tr0086_annex_a::test_a_2_9_a_controllers_command_reaches_the_device[option-A-on-the-IN]",
+    "estimed.tests.test_tr0086_annex_a::test_a_2_9_a_controllers_command_reaches_the_device[options-B-D-on-the-MN]",
+    "estimed.tests.test_tr0086_annex_a::test_a_2_9_control_telemetry_does_not_reach_the_command_subscriber[option-A-on-the-IN]",
+    "estimed.tests.test_tr0086_annex_a::test_a_2_9_control_telemetry_does_not_reach_the_command_subscriber[options-B-D-on-the-MN]",
+    "estimed.tests.test_tr0086_registration::test_5_3_ae_registration_assigns_aei",
+    "estimed.tests.test_tr0086_registration::test_5_3_control_api_without_n_or_r_prefix_is_refused",
+    "estimed.tests.test_tr0086_registration::test_5_3_control_cin_under_missing_container_is_not_found",
+    "estimed.tests.test_tr0086_registration::test_5_3_control_duplicate_registration_is_refused",
+    "estimed.tests.test_tr0086_registration::test_5_3_control_latest_of_empty_container_is_not_found",
+    "estimed.tests.test_tr0086_registration::test_5_3_telemetry_round_trip_through_latest"
+   ],
+   "summary_line": "26 passed in 9.85s",
+   "passed": 26,
+   "failed": 0,
+   "error": 0,
+   "skipped": 0
+  }
+ },
+ "executed": [
+  {
+   "id": "td-pf-01",
+   "sha256": "5c9687ae58413d310cbcf43ba656a7e0ce7cbc7869194a21e0e60d31b3acb772",
+   "rc": 0,
+   "seconds": 1.299,
+   "started_utc": "2026-11-18T23:19:45Z"
+  },
+  {
+   "id": "td-reg-01",
+   "sha256": "52782e5de8f6792aa2904197e3a9fbaa3e7c2ad6a0b9e96c210e8cef8d407f67",
+   "rc": 0,
+   "seconds": 0.581,
+   "started_utc": "2026-11-18T23:19:46Z"
+  },
+  {
+   "id": "td-reg-02",
+   "sha256": "0354603abacd3cdcd8b2b9d52b43b72b55ad79773077528863202d6d0c2137a6",
+   "rc": 0,
+   "seconds": 1.329,
+   "started_utc": "2026-11-18T23:19:47Z"
+  },
+  {
+   "id": "td-reg-03",
+   "sha256": "b783487481e0b59135078dc64c5483674119d3172436179f311298a993c5ad5e",
+   "rc": 0,
+   "seconds": 10.528,
+   "started_utc": "2026-11-18T23:19:48Z"
+  },
+  {
+   "id": "td-dev-01",
+   "sha256": "d8cf39b9704ac3347f20ddb75667c3a22357e0e46f66afe094069e98e4b50d14",
+   "rc": 0,
+   "seconds": 10.269,
+   "started_utc": "2026-11-18T23:19:58Z"
+  }
+ ]
+}

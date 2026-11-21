@@ -1,0 +1,187 @@
+{
+ "device": "adb",
+ "verdict": "PASS",
+ "aborted_at": null,
+ "measurements": {
+  "device": "adb",
+  "rules": {
+   "fresh_s": 30.0,
+   "agree_factor": 3.0,
+   "stale_s": 20.0,
+   "planted_deg": 1.0,
+   "samples_wanted": 6
+  },
+  "quality": {
+   "samples": 6,
+   "samples_without_a_fix": 0,
+   "per_source": [
+    {
+     "source": "fused",
+     "n": 6,
+     "incomplete": 0,
+     "acc_m": {
+      "min": 14.2,
+      "median": 73.0,
+      "max": 106.6
+     },
+     "age_s": {
+      "min": 0.3,
+      "median": 3.1,
+      "max": 28.0
+     }
+    },
+    {
+     "source": "gps",
+     "n": 3,
+     "incomplete": 0,
+     "acc_m": {
+      "min": 73.0,
+      "median": 86.2,
+      "max": 106.6
+     },
+     "age_s": {
+      "min": 0.3,
+      "median": 0.3,
+      "max": 0.3
+     }
+    },
+    {
+     "source": "network",
+     "n": 6,
+     "incomplete": 0,
+     "acc_m": {
+      "min": 43.7,
+      "median": 71.7,
+      "max": 71.7
+     },
+     "age_s": {
+      "min": 2.1,
+      "median": 12.1,
+      "max": 17.0
+     }
+    }
+   ]
+  },
+  "sources": {
+   "pairs_compared": 12,
+   "pairs_that_disagree": 0,
+   "flagged": [],
+   "pass_rule": "none: reported"
+  },
+  "left_behind": {
+   "owner_only_policy": 404,
+   "reader_reads_position": 200
+  },
+  "not_run": [],
+  "not_shown": [
+   "the device against the network: the lab's MEC 013 serves the phone's own fix",
+   "a mock location provider flagged by the phone: probe version 19 does not report it; the host sees only that two sources disagree",
+   "consent as a user dialogue: here it is the oneM2M access policy the device's originator sets, on a CSE that takes the originator header as given",
+   "that the stated accuracy is true: it is the phone's own figure"
+  ]
+ },
+ "run": {
+  "argv": [
+   "/home/edgefollow/edgefollow-lab/.venv/bin/python",
+   "/home/edgefollow/edgefollow/phone/loc_check.py",
+   "--device",
+   "adb",
+   "--results",
+   "/home/edgefollow/estimed-run/sitting_b/loc_check_1.json"
+  ],
+  "cwd": "/home/edgefollow/edgefollow",
+  "commit": "971d8718295a81734229594e4c43cfcbd0a2c753",
+  "uncommitted_paths": 4,
+  "files_sha256": {
+   "phone/estimed_poc2.py": "6948ea68df922f10c12628d8221bdcdd353686dda4c542650046320c54cb5e34",
+   "phone/estimed_poc.py": "12a721a6589e5d9df74ee62a5a1167af99b48cfc7eaf173081ac9d764c2210f9",
+   "phone/sim_phone.py": "bb408c167c0ec00409606e35b9f08e2135c618cb1d1ef6a85586f07c97ef3d74",
+   "phone/mec012_phone.py": "011d4870efc71dbe42bb7414ba55e93f4e2371c48d094ced17c110b426b6a62c",
+   "phone/mec013_phone.py": "ecc26a8eb65b5d9c5ea089b3ebc2313af2d7f8c84ea3b7507e225be8621d2344",
+   "phone/device_state.py": "12edbe8121543d7d459090601d3578e3fb7b6195a79b52c0a2e1a0c50ac524c9",
+   "phone/onem2m_acp.py": "2e70112dc67ebebade1c5ae248b0a1e03bafcbad844178fa0e80096a3b72925f",
+   "estimed/handover.py": "f1ed29421427e521b715efb341a3105f1b7ca39443aec3591545d06e5e356d4a",
+   "estimed/scenario.py": "7f78beccb019f576293124fbc52d8215078b0037e6072616dfc27e8be100a070",
+   "demo/mec040.py": "c314fb13b0022f01542a1e4326b50744a48c1840ddf3a1c6e578fbacfa1ac96d",
+   "estimed_poc/orchestrator.py": "ec17455e5d9978b9d966b8cc0263974a300d2dd98d4620fa234cd6364160d6fa",
+   "estimed_poc/district_app.py": "e80a39275867320d82e3d39c80480b0a8c062e902355e1ee44704ced8822d293",
+   "estimed_poc/mec011_district.py": "db93a150369fbd4b60b1282ca3915f967222fb601ed26d83e604f2b4b6765f33",
+   "/home/edgefollow/edgefollow/mec011_appsupport/candidate.py": "a36e1616b75d97da18f5193445aa2ce1701a681ee871ec11ca4e3f580b706534"
+  },
+  "acme": "2026.5.3",
+  "at_utc": "2026-11-19T16:18:31Z",
+  "mec": {
+   "mec013": "http://127.0.0.1:8401/location/v3",
+   "mec012": "http://127.0.0.1:8402/rni/v2",
+   "ue": "acr:phone-DEVC",
+   "callback": "http://127.0.0.1:8450"
+  }
+ },
+ "steps": [
+  {
+   "step": "the phone's AE is live on edge A and the reader may read its position container (real device)",
+   "pass": true,
+   "detail": "HTTP 200"
+  },
+  {
+   "step": "6 new position samples arrived in a row",
+   "pass": true,
+   "detail": "6 arrived"
+  },
+  {
+   "step": "every fix names its source and has an accuracy above 0 and an age",
+   "pass": true,
+   "detail": "15 fixes from ['fused', 'gps', 'network']; 0 samples without a fix; incomplete: []"
+  },
+  {
+   "step": "CONTROL (must FAIL) a fix planted about 111 km from the phone's own was not flagged",
+   "pass": false,
+   "detail": "planted HTTP 201, read back HTTP 200; flagged [(111199, 249), (111199, 249)] (m, bound m)"
+  },
+  {
+   "step": "the planted record is removed from the phone's container",
+   "pass": true,
+   "detail": "HTTP 200"
+  },
+  {
+   "step": "the position container carries the reader's policy and an owner-only policy exists",
+   "pass": true,
+   "detail": "acpi before ['acpV4S3knaHKS']; owner-only policy HTTP 201"
+  },
+  {
+   "step": "CONTROL (must FAIL) the reader still got the position after the owner withdrew it",
+   "pass": false,
+   "detail": "reader before 200, withdrawal HTTP 200, reader after 403; device_state: unavailable: HTTP Error 403: FORBIDDEN"
+  },
+  {
+   "step": "withdrawing the position leaves the radio data served and the owner's own access intact",
+   "pass": true,
+   "detail": "reader radio 200, owner position 200"
+  },
+  {
+   "step": "granted again, the position is served again",
+   "pass": true,
+   "detail": "grant HTTP 200, reader 200"
+  },
+  {
+   "step": "CONTROL (must FAIL) a position sample older than the limit was served as live",
+   "pass": false,
+   "detail": "served before the stop: True; after 27 s: stale: last sample 27 s old (20261119T161802,339241)"
+  },
+  {
+   "step": "with the stream running again the position is served again",
+   "pass": true,
+   "detail": "after 2 s"
+  },
+  {
+   "step": "the measurements written to the results file hold no coordinate",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "step": "CONTROL (must FAIL) the scan missed a coordinate planted in a copy of the measurements",
+   "pass": false,
+   "detail": ""
+  }
+ ]
+}

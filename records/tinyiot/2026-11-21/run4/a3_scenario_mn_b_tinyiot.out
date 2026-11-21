@@ -1,0 +1,56 @@
+     handover transaction 50941964cd82cbf7: /id-mn-a -> /id-mn-b
+{
+  "result": "PASS",
+  "steps": [
+    {
+      "step": "vehicle attached to edge A with telemetry",
+      "ok": true,
+      "detail": "3 samples, edges at IN-CSE: 2"
+    },
+    {
+      "step": "MEC 013 Location reports the vehicle",
+      "ok": true,
+      "detail": "zone=zone001 ap=ap01 pos={'latitude': 48.1351, 'longitude': 11.582}"
+    },
+    {
+      "step": "MEC 012 RNIS reports the serving cell",
+      "ok": true,
+      "detail": "cellId=6060606 requestId=rab-req-1"
+    },
+    {
+      "step": "MEC 040 federation lists peer systems",
+      "ok": true,
+      "detail": "SEED_SYS_1->http://127.0.0.1:8202; SEED_SYS_2->http://127.0.0.1:8201"
+    },
+    {
+      "step": "MEC 040 selects the peer system to hand over to",
+      "ok": true,
+      "detail": "SEED_SYS_1 (SYSTEM_PROVIDER) at http://127.0.0.1:8202"
+    },
+    {
+      "step": "peer endpoint resolves to a reachable edge CSE",
+      "ok": true,
+      "detail": "http://127.0.0.1:8202 -> cse-mn-b"
+    },
+    {
+      "step": "oneM2M subtree handed over to the peer edge",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "step": "telemetry intact on the peer edge",
+      "ok": true,
+      "detail": "3 samples: ['48.1351,11.5820', '48.1361,11.5835', '48.1372,11.5849']"
+    },
+    {
+      "step": "vehicle released from the origin edge",
+      "ok": true,
+      "detail": "HTTP 404"
+    },
+    {
+      "step": "IN-CSE still holds both edges",
+      "ok": true,
+      "detail": "['cse-in/id-mn-a', 'cse-in/id-mn-b']"
+    }
+  ]
+}

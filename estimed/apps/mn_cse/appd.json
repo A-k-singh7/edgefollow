@@ -1,0 +1,45 @@
+{
+  "appDVersion": "1",
+  "appName": "estimed-mn-cse",
+  "appProvider": "ESTIMED lab",
+  "appSoftVersion": "0.1.0",
+  "appDescription": "TR-0086 deployment option C: an ACME MN-CSE (installed on the host; this package carries its configuration mn-c.ini and the supervisor mn_cse.py) as a MEC application, registering over Mcc to the CSE named in onem2m.mnCse. For option D add appServiceProduced [{\"serName\": \"onem2m-mn-cse\", \"version\": \"4\"}]: the MN-CSE is then also offered as a MEC service whose endpoint is its CSEBase URI. Of the onem2m block, which mec_app_deploy requires of every package, mn_cse.py uses mnCse (its registrar), rn (its CSEBase name) and originator (its CSE's admin originator); api, acp and container are unused: it creates no AE.",
+  "entryPoint": {
+    "runtime": "python3",
+    "file": "mn_cse.py",
+    "args": [
+      "--instance",
+      "{instance}"
+    ]
+  },
+  "files": {
+    "mn-c.ini": "569239e311299fcdb965fc3a2314f8cc8aad75a4793a0ffdba041a7cca998b53",
+    "mn_cse.py": "767275610bbdf08adc6da2122b63849c14e64ee6e91b131b1e66288ea73b1252"
+  },
+  "mecServicesRequired": [
+    {
+      "serName": "mec_app_support",
+      "version": "v2"
+    },
+    {
+      "serName": "mec_service_mgmt",
+      "version": "v1"
+    }
+  ],
+  "acme": {
+    "program": "/home/edgefollow/estimed-venv/bin/acmecse",
+    "release": "2026.5.3",
+    "config": "mn-c.ini"
+  },
+  "onem2m": {
+    "mnCse": "cse-in",
+    "api": "Nunused",
+    "originator": "CAdmin",
+    "rn": "cse-mn-c",
+    "acp": {
+      "rn": "unused",
+      "readers": []
+    },
+    "container": "unused"
+  }
+}

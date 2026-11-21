@@ -1,0 +1,415 @@
+{
+ "format": "estimed.fl.capture.v1",
+ "origin": "device",
+ "made_at_utc": "2026-11-19T15:55:59Z",
+ "period_ms": 5000,
+ "slots": 27,
+ "slot0": 359020726,
+ "sources": {
+  "flSrc1": {
+   "label": "phone-A",
+   "ae": "phone",
+   "records": [
+    {
+     "slot": 0,
+     "ct": "20261119T155348,014453",
+     "con": "{\"light\":{\"n\":1,\"mean\":[14.991250038146973],\"last\":[14.991250038146973]},\"proximity\":{\"n\":0},\"battery_pct\":47,\"battery_temp_c\":35.9,\"t\":1795103630463}",
+     "con_sha256": "f31ad35fcf1d60642137a2c875c877bb867f27569688063fc9d1e7649654877b"
+    },
+    {
+     "slot": 1,
+     "ct": "20261119T155353,058136",
+     "con": "{\"light\":{\"n\":0},\"proximity\":{\"n\":0},\"battery_pct\":47,\"battery_temp_c\":35.9,\"t\":1795103635473}",
+     "con_sha256": "a1b4172298e8f54b9433eb3a557da0e841cef0650b1a6b179a5df85717924693"
+    },
+    {
+     "slot": 2,
+     "ct": "20261119T155358,014159",
+     "con": "{\"light\":{\"n\":0},\"proximity\":{\"n\":0},\"battery_pct\":47,\"battery_temp_c\":35.9,\"t\":1795103640477}",
+     "con_sha256": "bd68ec3b79a3b850e05d20ef0de9dbba0619db705ff011639307685f87d61cb8"
+    },
+    {
+     "slot": 3,
+     "ct": "20261119T155403,032537",
+     "con": "{\"light\":{\"n\":0},\"proximity\":{\"n\":0},\"battery_pct\":47,\"battery_temp_c\":35.9,\"t\":1795103645488}",
+     "con_sha256": "253a374aa91a3a061f572030d45206c41f698535c9201c19ba5bc754e132e48d"
+    },
+    {
+     "slot": 4,
+     "ct": "20261119T155408,043138",
+     "con": "{\"light\":{\"n\":0},\"proximity\":{\"n\":0},\"battery_pct\":47,\"battery_temp_c\":35.9,\"t\":1795103650497}",
+     "con_sha256": "bb449a8032ba1805407fa712f2f5f0204b9146caf4306eb9128658bbeb3d084e"
+    },
+    {
+     "slot": 5,
+     "ct": "20261119T155413,042011",
+     "con": "{\"light\":{\"n\":0},\"proximity\":{\"n\":0},\"battery_pct\":47,\"battery_temp_c\":35.9,\"t\":1795103655499}",
+     "con_sha256": "4201a465431ad07dc908f10d302d8ecda0e9da1d27ce08b3c485b243444c2b12"
+    },
+    {
+     "slot": 6,
+     "ct": "20261119T155418,071310",
+     "con": "{\"light\":{\"n\":0},\"proximity\":{\"n\":0},\"battery_pct\":47,\"battery_temp_c\":35.9,\"t\":1795103660518}",
+     "con_sha256": "f497ea2463e0891d658595259fb5a7aaa5d71389931e6eae9fc25ca4eb2c74ae"
+    },
+    {
+     "slot": 7,
+     "ct": "20261119T155423,093718",
+     "con": "{\"light\":{\"n\":0},\"proximity\":{\"n\":0},\"battery_pct\":47,\"battery_temp_c\":35.9,\"t\":1795103665532}",
+     "con_sha256": "b59c450c5f494e22d396107d2cfdb546f608a249d5114d1276cf977a2a2cfa7c"
+    },
+    {
+     "slot": 8,
+     "ct": "20261119T155428,077019",
+     "con": "{\"light\":{\"n\":0},\"proximity\":{\"n\":0},\"battery_pct\":47,\"battery_temp_c\":35.9,\"t\":1795103670532}",
+     "con_sha256": "dd4a8a0f3480e5cfdf7fc03bff90f1ec1e3c2de599025b0ae75196b2c6b5bc99"
+    },
+    {
+     "slot": 9,
+     "ct": "20261119T155433,095080",
+     "con": "{\"light\":{\"n\":0},\"proximity\":{\"n\":0},\"battery_pct\":47,\"battery_temp_c\":35.9,\"t\":1795103675530}",
+     "con_sha256": "a9e32bafb21c48d95c52a1610b0045895a1ff5fe8f1c174e00b73615ceb35559"
+    },
+    {
+     "slot": 10,
+     "ct": "20261119T155438,103385",
+     "con": "{\"light\":{\"n\":0},\"proximity\":{\"n\":0},\"battery_pct\":47,\"battery_temp_c\":35.9,\"t\":1795103680539}",
+     "con_sha256": "0ed7c68204886315eb4e4538bbb5ffbd60474586d92d79114e4ce7b46851e48d"
+    },
+    {
+     "slot": 11,
+     "ct": "20261119T155443,115240",
+     "con": "{\"light\":{\"n\":0},\"proximity\":{\"n\":0},\"battery_pct\":47,\"battery_temp_c\":35.9,\"t\":1795103685548}",
+     "con_sha256": "cbd77f157e2ff7d8e36d590fd75cfe13abcfadafeecca2d8ef92a3dcc9ae85d6"
+    },
+    {
+     "slot": 12,
+     "ct": "20261119T155448,093911",
+     "con": "{\"light\":{\"n\":1,\"mean\":[18.236249923706055],\"last\":[18.236249923706055]},\"proximity\":{\"n\":0},\"battery_pct\":47,\"battery_temp_c\":35.9,\"t\":1795103690545}",
+     "con_sha256": "da0d5f73a0ce0402fc872505c858bdb89ab0318929edb69ce592b5876c75b087"
+    },
+    {
+     "slot": 13,
+     "ct": "20261119T155453,136235",
+     "con": "{\"light\":{\"n\":0},\"proximity\":{\"n\":0},\"battery_pct\":47,\"battery_temp_c\":35.9,\"t\":1795103695582}",
+     "con_sha256": "522f81d1922571a89c4d74fb0a497f0ea89651b78d7633f694f73fb35bebdb9d"
+    },
+    {
+     "slot": 14,
+     "ct": "20261119T155458,108525",
+     "con": "{\"light\":{\"n\":0},\"proximity\":{\"n\":0},\"battery_pct\":47,\"battery_temp_c\":35.9,\"t\":1795103700575}",
+     "con_sha256": "ccb34699947b608ee8c21f65e971fee31a181db75979de8192cf04d5edd23daa"
+    },
+    {
+     "slot": 15,
+     "ct": "20261119T155503,124165",
+     "con": "{\"light\":{\"n\":0},\"proximity\":{\"n\":0},\"battery_pct\":47,\"battery_temp_c\":35.9,\"t\":1795103705588}",
+     "con_sha256": "9474f0ba20e4f522e080188aecefd51f7002a462f333698ddeb2b87693f421be"
+    },
+    {
+     "slot": 16,
+     "ct": "20261119T155508,125383",
+     "con": "{\"light\":{\"n\":0},\"proximity\":{\"n\":0},\"battery_pct\":47,\"battery_temp_c\":35.9,\"t\":1795103710585}",
+     "con_sha256": "2714ca4a60388e2c37353a142fe942c5d6992cd904aa453e905a3f98a67f7007"
+    },
+    {
+     "slot": 17,
+     "ct": "20261119T155513,132608",
+     "con": "{\"light\":{\"n\":0},\"proximity\":{\"n\":0},\"battery_pct\":47,\"battery_temp_c\":35.9,\"t\":1795103715592}",
+     "con_sha256": "e5867ce25d187c9e4ffffaf899717457d804d0cd6c5a358360c9a88cd127e066"
+    },
+    {
+     "slot": 18,
+     "ct": "20261119T155518,156074",
+     "con": "{\"light\":{\"n\":0},\"proximity\":{\"n\":0},\"battery_pct\":47,\"battery_temp_c\":35.9,\"t\":1795103720611}",
+     "con_sha256": "06ca88b77a42f2cdadea019518724a75ece463e741bb385b03b6acf638e14143"
+    },
+    {
+     "slot": 19,
+     "ct": "20261119T155523,148418",
+     "con": "{\"light\":{\"n\":1,\"mean\":[22.673749923706055],\"last\":[22.673749923706055]},\"proximity\":{\"n\":0},\"battery_pct\":47,\"battery_temp_c\":35.9,\"t\":1795103725607}",
+     "con_sha256": "08a7a2e4d34e8a1bd3a8fc70591c4711d4536dd4290efef3e2b254893585ac2e"
+    },
+    {
+     "slot": 20,
+     "ct": "20261119T155528,159961",
+     "con": "{\"light\":{\"n\":0},\"proximity\":{\"n\":0},\"battery_pct\":47,\"battery_temp_c\":35.9,\"t\":1795103730617}",
+     "con_sha256": "a712561e0d23644dd1a9b2a85c49860f3334f583e3ff248df2038e53027f9575"
+    },
+    {
+     "slot": 21,
+     "ct": "20261119T155533,178708",
+     "con": "{\"light\":{\"n\":0},\"proximity\":{\"n\":0},\"battery_pct\":47,\"battery_temp_c\":35.9,\"t\":1795103735628}",
+     "con_sha256": "3f0f38e5539ca54fb87c07a7e06325bcde057a54657a473c055670b21a20855f"
+    },
+    {
+     "slot": 22,
+     "ct": "20261119T155538,177163",
+     "con": "{\"light\":{\"n\":0},\"proximity\":{\"n\":0},\"battery_pct\":48,\"battery_temp_c\":35.6,\"t\":1795103740635}",
+     "con_sha256": "3967c0329e85d3513c3881b1f924c6e1c861b2512bde80279461824a00e79d75"
+    },
+    {
+     "slot": 23,
+     "ct": "20261119T155543,196309",
+     "con": "{\"light\":{\"n\":0},\"proximity\":{\"n\":0},\"battery_pct\":48,\"battery_temp_c\":35.6,\"t\":1795103745651}",
+     "con_sha256": "29efe9a8e2736c7ed6acc3faeb978cf8febcb543802715a23a51729337f0f908"
+    },
+    {
+     "slot": 24,
+     "ct": "20261119T155548,212622",
+     "con": "{\"light\":{\"n\":0},\"proximity\":{\"n\":0},\"battery_pct\":48,\"battery_temp_c\":35.6,\"t\":1795103750666}",
+     "con_sha256": "4adddcfe2d26d852e500dcd52a7b7f56d5700496b868cd5e5310c914910bfc1b"
+    },
+    {
+     "slot": 25,
+     "ct": "20261119T155553,217017",
+     "con": "{\"light\":{\"n\":0},\"proximity\":{\"n\":0},\"battery_pct\":48,\"battery_temp_c\":35.6,\"t\":1795103755676}",
+     "con_sha256": "5499920bacf42abf3425ae421b50df348ef35e21c742c28277651f35d23c4396"
+    },
+    {
+     "slot": 26,
+     "ct": "20261119T155558,153367",
+     "con": "{\"light\":{\"n\":0},\"proximity\":{\"n\":0},\"battery_pct\":48,\"battery_temp_c\":35.6,\"t\":1795103760620}",
+     "con_sha256": "b7405ee533bd4072a89787de164bd1d57c2bb1e33272a08933ef25b0684c4573"
+    }
+   ],
+   "refused": [],
+   "dropped_same_slot": 0,
+   "outside_the_window": 0,
+   "digest": "69cbcc2ed127eda8d0749a9c78968b22f2ae22aca76e882b62cd53c51f7e0ffc",
+   "cse_time_minus_record_time_ms": {
+    "n": 27,
+    "median": -2455,
+    "min": -2467,
+    "max": -2415
+   },
+   "countersignature": {
+    "ok": false,
+    "alias": "witness-20261015",
+    "challenge": "69cbcc2ed127eda8d0749a9c78968b22f2ae22aca76e882b62cd53c51f7e0ffc",
+    "sig": null,
+    "stage": "load",
+    "exception": "java.security.KeyStoreException",
+    "message": "no private key under alias witness-20261015"
+   }
+  },
+  "flSrc2": {
+   "label": "phone-B",
+   "ae": "rsu",
+   "records": [
+    {
+     "slot": 0,
+     "ct": "20261119T155347,455195",
+     "con": "{\"light\":{\"n\":46,\"mean\":[20.956521739130434],\"last\":[21]},\"proximity\":{\"n\":0},\"battery_pct\":25,\"battery_temp_c\":32,\"t\":1795103628135}",
+     "con_sha256": "76b6073e457f329c6d004d59d958970ce481082feb3493ac7e9256b3507648b9"
+    },
+    {
+     "slot": 1,
+     "ct": "20261119T155352,485129",
+     "con": "{\"light\":{\"n\":46,\"mean\":[21],\"last\":[21]},\"proximity\":{\"n\":0},\"battery_pct\":25,\"battery_temp_c\":32,\"t\":1795103633161}",
+     "con_sha256": "e762b324701965b29759cb3eeb96ffe1a842db66c8f02b0efa6e3db65029d428"
+    },
+    {
+     "slot": 2,
+     "ct": "20261119T155357,479320",
+     "con": "{\"light\":{\"n\":46,\"mean\":[21],\"last\":[21]},\"proximity\":{\"n\":0},\"battery_pct\":25,\"battery_temp_c\":32,\"t\":1795103638144}",
+     "con_sha256": "829806d2c0d7eb8f1b0e16b1f4b01009a6c51a7ea0b14dcc0d5b867a48e6c3a9"
+    },
+    {
+     "slot": 3,
+     "ct": "20261119T155402,482345",
+     "con": "{\"light\":{\"n\":47,\"mean\":[21],\"last\":[21]},\"proximity\":{\"n\":0},\"battery_pct\":25,\"battery_temp_c\":32,\"t\":1795103643152}",
+     "con_sha256": "281b440f12011dd6a3747413da83529ab575ec0e8887321ea89eb852c9adb4fe"
+    },
+    {
+     "slot": 4,
+     "ct": "20261119T155407,477865",
+     "con": "{\"light\":{\"n\":46,\"mean\":[20.97826086956522],\"last\":[21]},\"proximity\":{\"n\":0},\"battery_pct\":25,\"battery_temp_c\":32,\"t\":1795103648156}",
+     "con_sha256": "c82d00c43943427807ac2b5abfed2614970f63a21b8df7aac351641a1fae23f1"
+    },
+    {
+     "slot": 5,
+     "ct": "20261119T155412,488164",
+     "con": "{\"light\":{\"n\":46,\"mean\":[20.934782608695652],\"last\":[21]},\"proximity\":{\"n\":0},\"battery_pct\":25,\"battery_temp_c\":32,\"t\":1795103653165}",
+     "con_sha256": "38792a179691fb5fa5947651fcf4624a9e1b453b2ac45ae8c5a60754ae7964e9"
+    },
+    {
+     "slot": 6,
+     "ct": "20261119T155417,491590",
+     "con": "{\"light\":{\"n\":47,\"mean\":[21],\"last\":[21]},\"proximity\":{\"n\":0},\"battery_pct\":25,\"battery_temp_c\":32,\"t\":1795103658167}",
+     "con_sha256": "09f9b72d23873dc1480aee91d6b621478317cabd3967a64cb3dfcb7bf0b4cee5"
+    },
+    {
+     "slot": 7,
+     "ct": "20261119T155422,496218",
+     "con": "{\"light\":{\"n\":46,\"mean\":[21],\"last\":[21]},\"proximity\":{\"n\":0},\"battery_pct\":25,\"battery_temp_c\":32,\"t\":1795103663173}",
+     "con_sha256": "f53d4e7a78485776f3e29746e62a7267e59a09f0c11446adf9bf502333edfbd3"
+    },
+    {
+     "slot": 8,
+     "ct": "20261119T155427,506585",
+     "con": "{\"light\":{\"n\":47,\"mean\":[21],\"last\":[21]},\"proximity\":{\"n\":0},\"battery_pct\":25,\"battery_temp_c\":32,\"t\":1795103668184}",
+     "con_sha256": "7afc93e22732c6ee9e02c6431869ff4cd671b03af7abfad6fc8a1009fde37ccc"
+    },
+    {
+     "slot": 9,
+     "ct": "20261119T155432,536716",
+     "con": "{\"light\":{\"n\":46,\"mean\":[21],\"last\":[21]},\"proximity\":{\"n\":0},\"battery_pct\":25,\"battery_temp_c\":32,\"t\":1795103673209}",
+     "con_sha256": "7a61fd3edbef0d97560d09e82083ac3f704c72991f2c04e0f6f22623f758a24e"
+    },
+    {
+     "slot": 10,
+     "ct": "20261119T155437,543640",
+     "con": "{\"light\":{\"n\":46,\"mean\":[20.956521739130434],\"last\":[21]},\"proximity\":{\"n\":0},\"battery_pct\":25,\"battery_temp_c\":32,\"t\":1795103678219}",
+     "con_sha256": "da9d4769f80b0e3bbec2afa1afce05745a5fce9ace744fa941d306e78cced53b"
+    },
+    {
+     "slot": 11,
+     "ct": "20261119T155442,549554",
+     "con": "{\"light\":{\"n\":47,\"mean\":[22.574468085106382],\"last\":[25]},\"proximity\":{\"n\":0},\"battery_pct\":25,\"battery_temp_c\":32,\"t\":1795103683222}",
+     "con_sha256": "1f85ed84a2367c76f923ce8f4265d306fc1dd579320acb4ad25dccdc1d5e2f34"
+    },
+    {
+     "slot": 12,
+     "ct": "20261119T155447,558495",
+     "con": "{\"light\":{\"n\":46,\"mean\":[24.391304347826086],\"last\":[24]},\"proximity\":{\"n\":0},\"battery_pct\":25,\"battery_temp_c\":32,\"t\":1795103688234}",
+     "con_sha256": "5f802f8956c67d89b33761f36ad784a4f7a5a98bfa21329fa2a4af05dd52cf72"
+    },
+    {
+     "slot": 13,
+     "ct": "20261119T155452,562990",
+     "con": "{\"light\":{\"n\":47,\"mean\":[23.93617021276596],\"last\":[24]},\"proximity\":{\"n\":0},\"battery_pct\":25,\"battery_temp_c\":32,\"t\":1795103693241}",
+     "con_sha256": "02dc9faedf01c1af013595833cc3abc268da46d32570916b2e0043f13bd01f6f"
+    },
+    {
+     "slot": 14,
+     "ct": "20261119T155457,574795",
+     "con": "{\"light\":{\"n\":46,\"mean\":[24.17391304347826],\"last\":[24]},\"proximity\":{\"n\":0},\"battery_pct\":25,\"battery_temp_c\":32,\"t\":1795103698247}",
+     "con_sha256": "46fe563bee7d2c06596b7507129ae9dca3496bdaf22d42f7b3532ea0df0abf63"
+    },
+    {
+     "slot": 15,
+     "ct": "20261119T155502,578502",
+     "con": "{\"light\":{\"n\":46,\"mean\":[24],\"last\":[24]},\"proximity\":{\"n\":0},\"battery_pct\":25,\"battery_temp_c\":32,\"t\":1795103703253}",
+     "con_sha256": "af0971e0b4c91d1dd70e4eb6f0ce39082e1aec3855b4eff7d7d2ef7265437375"
+    },
+    {
+     "slot": 16,
+     "ct": "20261119T155507,585760",
+     "con": "{\"light\":{\"n\":47,\"mean\":[24],\"last\":[24]},\"proximity\":{\"n\":0},\"battery_pct\":25,\"battery_temp_c\":32,\"t\":1795103708260}",
+     "con_sha256": "179ff397bc73233a63854a1d2f7d6a385321849f5363160529320a7494a03a6c"
+    },
+    {
+     "slot": 17,
+     "ct": "20261119T155512,579350",
+     "con": "{\"light\":{\"n\":46,\"mean\":[24],\"last\":[24]},\"proximity\":{\"n\":0},\"battery_pct\":25,\"battery_temp_c\":32,\"t\":1795103713257}",
+     "con_sha256": "da0fedfb2a756693172478707b19ac64c5b419ee106c78d40643e61360b94ef4"
+    },
+    {
+     "slot": 18,
+     "ct": "20261119T155517,601298",
+     "con": "{\"light\":{\"n\":46,\"mean\":[23.543478260869566],\"last\":[19]},\"proximity\":{\"n\":0},\"battery_pct\":25,\"battery_temp_c\":32,\"t\":1795103718275}",
+     "con_sha256": "770f4561e1f4b16ed377bd4016e5e9797a8e875693ac5514aa2279ac40fe9ee1"
+    },
+    {
+     "slot": 19,
+     "ct": "20261119T155522,604247",
+     "con": "{\"light\":{\"n\":47,\"mean\":[24.574468085106382],\"last\":[27]},\"proximity\":{\"n\":0},\"battery_pct\":25,\"battery_temp_c\":32,\"t\":1795103723276}",
+     "con_sha256": "55d24874ed4e611cddb2beef4317c57260f4029668b5c9e3490999cb6204efbe"
+    },
+    {
+     "slot": 20,
+     "ct": "20261119T155527,599263",
+     "con": "{\"light\":{\"n\":46,\"mean\":[27.695652173913043],\"last\":[28]},\"proximity\":{\"n\":0},\"battery_pct\":25,\"battery_temp_c\":32,\"t\":1795103728272}",
+     "con_sha256": "026c8e6fa0c7932e5243e797202734fd0b2d6c4168e7aef83ce04b50c411d75d"
+    },
+    {
+     "slot": 21,
+     "ct": "20261119T155532,629065",
+     "con": "{\"light\":{\"n\":46,\"mean\":[27.73913043478261],\"last\":[28]},\"proximity\":{\"n\":0},\"battery_pct\":25,\"battery_temp_c\":32,\"t\":1795103733296}",
+     "con_sha256": "3502f921b23963a78d33e451922ef3049cb8466b1ae58ebbe9f0a19fb2eed406"
+    },
+    {
+     "slot": 22,
+     "ct": "20261119T155537,632791",
+     "con": "{\"light\":{\"n\":47,\"mean\":[27.829787234042552],\"last\":[28]},\"proximity\":{\"n\":0},\"battery_pct\":25,\"battery_temp_c\":32,\"t\":1795103738309}",
+     "con_sha256": "e210b20ed22c8303d38127b5eea4a1c701207d6e56a0bc3df8a6895eeac9f51c"
+    },
+    {
+     "slot": 23,
+     "ct": "20261119T155542,627252",
+     "con": "{\"light\":{\"n\":46,\"mean\":[27.869565217391305],\"last\":[28]},\"proximity\":{\"n\":0},\"battery_pct\":25,\"battery_temp_c\":32,\"t\":1795103743303}",
+     "con_sha256": "f6a3ed99b3befa9cca810ea5b65756ee17d24a46f7b1d8dc003b2f07d8882ce6"
+    },
+    {
+     "slot": 24,
+     "ct": "20261119T155547,623825",
+     "con": "{\"light\":{\"n\":46,\"mean\":[27.76086956521739],\"last\":[28]},\"proximity\":{\"n\":0},\"battery_pct\":25,\"battery_temp_c\":32,\"t\":1795103748302}",
+     "con_sha256": "fb33a48fa6dfd68768b72719ad472171dde0a6a7158f374adf2aa575047a3752"
+    },
+    {
+     "slot": 25,
+     "ct": "20261119T155552,654315",
+     "con": "{\"light\":{\"n\":47,\"mean\":[27.893617021276597],\"last\":[28]},\"proximity\":{\"n\":0},\"battery_pct\":25,\"battery_temp_c\":32,\"t\":1795103753330}",
+     "con_sha256": "1b804bbde63cc5c2ab49b0d8637519acd29128c0ed22a7bf749e4b501bbac7c5"
+    },
+    {
+     "slot": 26,
+     "ct": "20261119T155557,655302",
+     "con": "{\"light\":{\"n\":46,\"mean\":[27.543478260869566],\"last\":[27]},\"proximity\":{\"n\":0},\"battery_pct\":25,\"battery_temp_c\":32,\"t\":1795103758333}",
+     "con_sha256": "cc141f9552864bf6ede3ff2186a9c0589c130dcf627ac4c1cb14f89e664ac934"
+    }
+   ],
+   "refused": [],
+   "dropped_same_slot": 0,
+   "outside_the_window": 0,
+   "digest": "4871baf24ce5fda37b9921b9888570fb0c4a704c7b10f4b7b8ef67899ecdcc02",
+   "cse_time_minus_record_time_ms": {
+    "n": 27,
+    "median": -676,
+    "min": -680,
+    "max": -665
+   },
+   "countersignature": {
+    "ok": true,
+    "alias": "witness-20261015",
+    "challenge": "4871baf24ce5fda37b9921b9888570fb0c4a704c7b10f4b7b8ef67899ecdcc02",
+    "sig": "MEUCIQD/OraTqgiZhnu0WcQarq595ZZhXuDKcjrsp6B4TnQ7twIgE3CLomc1iI4OaLNDjpli/LKC3iGCPWgf/jxsoVE5Bcg=",
+    "stage": "done",
+    "exception": null,
+    "message": null
+   }
+  }
+ },
+ "expect": {
+  "r1": {
+   "n": 16,
+   "per_source": {
+    "flSrc1": 8,
+    "flSrc2": 8
+   },
+   "dropped_gap": 0,
+   "dropped_unaligned": 0
+  },
+  "weights": {
+   "1": {
+    "P-TFC-AGG": 16
+   },
+   "2": {
+    "P-TFC-S1": 17,
+    "P-TFC-S2": 17
+   },
+   "3": {
+    "P-TFC-S1": 26
+   }
+  }
+ },
+ "usable": true,
+ "why_not": [],
+ "capture_started_ms": 1795103627343,
+ "waited_s": 132.1,
+ "preregistration": {
+  "sha256": "6b10749058c77ab26ee43412e48fca2412f18f07a4720a6ecfe6f30fd293a18e",
+  "go_phrase": "6b107490"
+ }
+}

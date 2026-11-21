@@ -1,0 +1,49 @@
+EdgeFollow
+Copyright 2026 Ashish Kumar Singh
+
+Source code: Apache License 2.0 (LICENSE). Documentation, figures and records: CC BY 4.0 (LICENSES/CC-BY-4.0.txt).
+
+This repository includes third-party source code in one file only: records/tinyiot/tinyiot-lab.patch is a patch of
+tinyIoT (https://github.com/seslabSJU/tinyIoT, commit c140495). Its context lines and the lines it removes are
+tinyIoT's code, under tinyIoT's licence (BSD-3-Clause, reproduced below); the lines it adds are the author's. The
+tinyIoT run records (records/tinyiot/) hold tinyIoT's log output, not its source.
+It uses these projects as installed dependencies:
+- ACME oneM2M CSE (https://github.com/ankraft/ACME-oneM2M-CSE), BSD-3-Clause, installed with pip (acmecse==2026.5.3).
+- FastAPI, Starlette, uvicorn, pydantic, httpx, jsonschema, cryptography, pytest: each under its own licence,
+  installed with pip (requirements/lab.txt).
+The MEC service implementations in this repository are the author's own implementations of ETSI GS MEC APIs. The ETSI
+MEC test suites (ETSI Forge, BSD-3-Clause) are not included; the records of runs against them are.
+oneM2M and ETSI MEC specifications are referenced, not reproduced.
+
+-------------------------------------------------------------------------------
+tinyIoT (the code in records/tinyiot/tinyiot-lab.patch), from its LICENSE file at commit c140495:
+
+BSD 3-Clause License
+
+Copyright (c) 2024, tinyIoT Contributors
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this
+   list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice,
+   this list of conditions and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its
+   contributors may be used to endorse or promote products derived from
+   this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.

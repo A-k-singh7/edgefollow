@@ -1,0 +1,46 @@
+{
+  "appDVersion": "1",
+  "appName": "estimed-cse-consumer",
+  "appProvider": "ESTIMED lab",
+  "appSoftVersion": "0.1.0",
+  "appDescription": "TR-0086 deployment option D, the consumer side: finds its MN-CSE through MEC 011 service discovery (the service named in appServiceRequired, at a CSEBase named onem2m.edgeCse), accepts it only if the IN-CSE holds a <remoteCSE> for the CSE-ID it answers with (the two reads of estimed/handover.py registered_mn), and runs the sensor AE on it. onem2m.mnCse names that IN-CSE (cse-in): the platform's address for it is the one CSE address the consumer takes from the platform; the MN-CSE's address comes from MEC 011 only. Open: MEC 011 registration is unauthenticated, so a second onem2m-mn-cse service blocks discovery (refused, not resolved), and a stray answering with a CSE-ID the IN holds passes the check (it does not compare the <remoteCSE>'s poa with the endpoint). sensor_ae.py is a byte-for-byte copy of estimed/apps/sensor_ae/sensor_ae.py.",
+  "entryPoint": {
+    "runtime": "python3",
+    "file": "discover.py",
+    "args": [
+      "--instance",
+      "{instance}"
+    ]
+  },
+  "files": {
+    "discover.py": "4f5dcca4bddd9bfbe78c655eceb53f17fcf17df062e3d81b87a66e14c95697f7",
+    "sensor_ae.py": "27a241ffa909dfd87fb37612cd8b528fdad15e5c9d69f0f15b6c6ff6d64c244e"
+  },
+  "mecServicesRequired": [
+    {
+      "serName": "mec_app_support",
+      "version": "v2"
+    },
+    {
+      "serName": "mec_service_mgmt",
+      "version": "v1"
+    }
+  ],
+  "appServiceRequired": [
+    {
+      "serName": "onem2m-mn-cse"
+    }
+  ],
+  "onem2m": {
+    "mnCse": "cse-in",
+    "edgeCse": "cse-mn-c",
+    "api": "Nestimed.consumer",
+    "originator": "CestimedConsumer",
+    "rn": "estimedConsumer",
+    "acp": {
+      "rn": "consumerAcp",
+      "readers": []
+    },
+    "container": "readings"
+  }
+}

@@ -1,0 +1,1959 @@
+{
+ "record": "estimed.policy-handover.sim-run.v1",
+ "device": "none: the device is simulated (sim_phone.SimPhone)",
+ "sim": true,
+ "verdict": "PASS",
+ "aborted_at": null,
+ "verdict_scope": "the rows that ran, with a simulated device and a delay injected on the host; TD_MEC_HO_04 and TD_MEC_OBS_02 are not passed with a device by this record",
+ "rule_modelling": "policy-driven, own modelling of the rule; no CMDH management object in the lab's CSE",
+ "cmdh_probe": "ACME 2026.5.3 at the IN-CSE: CREATE <mgmtObj> mgd 1011 (cmdhPolicy) answered 500, '1011 is not a valid ResourceTypes' (2026-11-18); a <mgmtObj> mgd 1006 (battery) under the same <node> answered 201",
+ "where": {
+  "rule": "cse-in/hoPolicy/rule (latest contentInstance)",
+  "events": "cse-in/hoPolicy/events",
+  "constraint": "<edge CSE>/mecPolicy/constraint (latest contentInstance), written by the edge's own originator",
+  "violations": "<edge CSE>/mecPolicy/violations"
+ },
+ "quantity": {
+  "name": "ping_rtt_ms",
+  "sim": true,
+  "what": "creation time of the ping command in <cmd> to creation time of the device's acknowledgement in <ack>, both stamped by the serving CSE",
+  "delay": "injected on the host: 0.45 s slept by the simulated device before each of its posts (records and acknowledgements) toward edge A; not a radio effect, not a network measurement"
+ },
+ "numbers_of_ours": {
+  "threshold_ms": 250,
+  "dwell_s": 3.0,
+  "tick_s": 0.5,
+  "ping_timeout_s": 3.0,
+  "constraint_open": {
+   "admit": true,
+   "latency_limit_ms": 200,
+   "latency_ms": 20,
+   "sim": true
+  },
+  "constraint_forbidding": {
+   "admit": false,
+   "latency_limit_ms": 200,
+   "latency_ms": 20,
+   "sim": true
+  },
+  "constraint_broken_for_the_control": {
+   "admit": false,
+   "latency_limit_ms": 1,
+   "latency_ms": 20,
+   "sim": true
+  }
+ },
+ "preregistration": {
+  "sha256": null,
+  "go_phrase": null,
+  "result": "NA",
+  "reason": "a host-only run with a simulated device; no preregistration was frozen for it"
+ },
+ "clock_offset": {
+  "result": "NA",
+  "reason": "the device, the engine and the three CSEs run on one host; the round trip is the difference of two creation times stamped by one CSE"
+ },
+ "device_labels": {
+  "vehicle01": {
+   "originator": "Cvehicle01",
+   "sim": true,
+   "class": "simulated phone (sim_phone.SimPhone), registered as the library's vehicle"
+  },
+  "hoPolicy": {
+   "originator": "ChoPolicy",
+   "cse": "cse-in",
+   "role": "rule and events; the engine",
+   "sim": true
+  },
+  "mecPolicy": {
+   "originator": [
+    "CmecPolicyA",
+    "CmecPolicyB"
+   ],
+   "role": "each edge's MEC-side constraint (stand-in)",
+   "sim": true
+  }
+ },
+ "kpi": {
+  "sim": true,
+  "ping_round_trip_no_delay_ms": {
+   "N": 5,
+   "unit": "ms",
+   "sim": true,
+   "min": 8.2,
+   "median": 8.8,
+   "max": 15.9
+  },
+  "device_posts_during_conflict": {
+   "numerator": 36,
+   "denominator": 36,
+   "N": 36,
+   "unit": "posts accepted by edge A",
+   "sim": true
+  },
+  "ping_round_trip_with_delay_ms": {
+   "N": 17,
+   "unit": "ms",
+   "sim": true,
+   "min": 456.3,
+   "median": 458.2,
+   "max": 461.0
+  },
+  "handover_duration_s": {
+   "values": [
+    10.46
+   ],
+   "N": 1,
+   "unit": "s",
+   "sim": true
+  },
+  "ping_round_trip_on_target_ms": {
+   "N": 4,
+   "unit": "ms",
+   "sim": true,
+   "min": 8.2,
+   "median": 8.9,
+   "max": 9.6
+  },
+  "conflict_events": {
+   "value": 1,
+   "N": 1,
+   "unit": "events per conflict episode",
+   "sim": true
+  },
+  "telemetry_loss_during_handover": {
+   "numerator": 0,
+   "denominator": 25,
+   "N": 25,
+   "unit": "%",
+   "sim": true,
+   "value": "0.0",
+   "scope": "records the simulated device produced while a call of the library handover was running (completed or rolled back) that no CSE accepted by the end of the run; a record held during the handover and posted after it counts as delivered"
+  }
+ },
+ "steps": [
+  {
+   "step": "the IN-CSE and both MN-CSEs answer, and the IN holds both edges",
+   "pass": true,
+   "detail": "{'IN': 200, 'MN-A': 200, 'MN-B': 200}"
+  },
+  {
+   "step": "policy AE with <rule> and <events> on the IN-CSE; on each edge an AE of the edge's own originator with <constraint> and <violations>, constraint: admit, limit 200 ms, stated 20 ms",
+   "pass": true,
+   "detail": "[201, 201, 201, 201, 201, 201, 201, 201, 201, 201, 201]"
+  },
+  {
+   "step": "the simulated device (AE vehicle01) posts on edge A and the IN-CSE routes it to edge A alone",
+   "pass": true,
+   "detail": "radio instances 2; route ['/id-mn-a']; "
+  },
+  {
+   "step": "5 pings answered by the device; round trip (command created -> acknowledgement created, both stamped by the serving CSE) below the rule's 250 ms",
+   "pass": true,
+   "detail": "[11.1, 8.8, 8.5, 8.2, 15.9]"
+  },
+  {
+   "step": "the stimulus is there: with 0.45 s injected per device post the round trip stayed above 250 ms for longer than the dwell time",
+   "pass": true,
+   "detail": "10 samples above, 4.52 s unbroken"
+  },
+  {
+   "step": "CONTROL (must FAIL) the rule absent and the same stimulus started a handover",
+   "pass": false,
+   "detail": "handover calls 0, events 0, vehicle01 on B HTTP 404"
+  },
+  {
+   "step": "the rule is a resource on the IN-CSE (cse-in/hoPolicy/rule, latest instance) and reads back; policy-driven, own modelling of the rule; no CMDH management object in the lab's CSE",
+   "pass": true,
+   "detail": "{\"metric\": \"ping_rtt_ms\", \"threshold\": 250, \"dwell_s\": 3.0, \"allowed_targets\": [\"/id-mn-b\"], \"sim\": true}"
+  },
+  {
+   "step": "rule in force, round trip below the threshold: no handover, no event",
+   "pass": true,
+   "detail": "[8.6, 9.3, 8.0]"
+  },
+  {
+   "step": "the short stimulus is there: round trip above the threshold, for less than the dwell time of 3.0 s",
+   "pass": true,
+   "detail": "2 samples above, 0.48 s unbroken"
+  },
+  {
+   "step": "CONTROL (must FAIL) a stimulus shorter than the dwell time triggered",
+   "pass": false,
+   "detail": "handover calls 0, events 0"
+  },
+  {
+   "step": "step 4: edge B's constraint set to admit false while the rule allows only edge B; stimulus applied",
+   "pass": true,
+   "detail": "constraint HTTP 201; 17 samples above, 8.01 s unbroken"
+  },
+  {
+   "step": "step 5: the conflict is a diagnostic event an operator can read on the IN-CSE: cse-in/hoPolicy/events holds a record 'policy-conflict' with handover_started false, the rule, the serving edge and the reason per target",
+   "pass": true,
+   "detail": "[{\"event\": \"policy-conflict\", \"at\": \"2026-11-20T10:41:52Z\", \"sim\": true, \"handover_started\": false, \"serving\": \"/id-mn-a\", \"rule\": {\"metric\": \"ping_rtt_ms\", \"threshold\": 250, \"dwell_s\": 3.0, \"allowed_targets\": [\"/id-mn-b\"]}, \"reasons\": {\"/id-mn-b\": \"admit is not true\"}, \"note\": \"policy-driven, own modelling of the rule; no CMDH management object in the lab's CSE\"}]"
+  },
+  {
+   "step": "one event for the episode: the conflict lasted 5.0 s more and was not reported again (plan row A4: no handover, one event)",
+   "pass": true,
+   "detail": "1 conflict events, 1 events in all"
+  },
+  {
+   "step": "step 5: the handover does not proceed: no handover call, no transaction at the IN-CSE, nothing of the device on edge B, the IN-CSE still routes it to edge A",
+   "pass": true,
+   "detail": "handover calls 0; B HTTP 404; transaction HTTP 404; route ['/id-mn-a']"
+  },
+  {
+   "step": "step 6: the device kept working at the source throughout: its posts to edge A went on, none failed, and it answered every ping there",
+   "pass": true,
+   "detail": "36 posts accepted, 0 failed, radio instances on A +4; 17 pings, 0 unanswered"
+  },
+  {
+   "step": "CONTROL (must FAIL) a conflict started a handover anyway",
+   "pass": false,
+   "detail": "handover calls 0; vehicle01 on B HTTP 404"
+  },
+  {
+   "step": "CONTROL (must FAIL) a conflict left no diagnostic record on the IN-CSE",
+   "pass": false,
+   "detail": "1 record(s)"
+  },
+  {
+   "step": "CONTROL (must FAIL) the target forbidden by its MEC-side constraint (edge B) was chosen",
+   "pass": false,
+   "detail": "targets chosen: ['None']"
+  },
+  {
+   "step": "step 1: registration failure injected (an AE on edge B already holds the device's AE-ID, so edge B refuses the device's registration); the engine started a handover by itself and the target refused the registration after the transaction was opened",
+   "pass": true,
+   "detail": "blocker HTTP 201; events ['handover-started', 'target-registration-refused']; library: handover transaction dc7a2cd37f8241b7: /id-mn-a -> /id-mn-b | ! AE create on destination refused: 403"
+  },
+  {
+   "step": "step 1: the failure fell in HANDOVER_PREP: the source AE was modified (rr set false, then restored) during the attempt",
+   "pass": true,
+   "detail": "AE last modified 20261120T104134,410020 -> 20261120T104203,969357"
+  },
+  {
+   "step": "step 2: FAILED/ROLLBACK, the AE is ATTACHED(source): the device's AE is on edge A, nothing of it on edge B, the IN-CSE routes it to edge A alone, no transaction is left open, and the event names the failure",
+   "pass": true,
+   "detail": "A HTTP 200; B HTTP 404; route ['/id-mn-a']; transaction HTTP 404"
+  },
+  {
+   "step": "step 3: the source's reachability is what it was (rr true), and downlink delivery resumed at the source: a ping sent after the rollback was delivered to the device and acknowledged",
+   "pass": true,
+   "detail": "rr True -> True; ping after rollback [456.5] ms; device posts failed 0"
+  },
+  {
+   "step": "the injected failure is removed",
+   "pass": true,
+   "detail": "HTTP 200"
+  },
+  {
+   "step": "step 1: the policy condition was met: round trip above the threshold for the dwell time",
+   "pass": true,
+   "detail": "8 samples above, 3.49 s unbroken; events ['handover-started', 'handover-completed']"
+  },
+  {
+   "step": "step 2: the handover was started by the policy engine by itself (one call of the library handover from the engine's thread; the timeline of this driver calls none), recorded as 'handover-started' on the IN-CSE",
+   "pass": true,
+   "detail": "why: 457.9 ms above 250 ms for 3.0 s"
+  },
+  {
+   "step": "step 3: the target is one the rule allows and its MEC-side constraint permits (admit true, stated latency within the limit)",
+   "pass": true,
+   "detail": "target /id-mn-b; constraint {\"admit\": true, \"latency_limit_ms\": 200, \"latency_ms\": 20, \"sim\": true}"
+  },
+  {
+   "step": "the handover completed: the device's AE is on edge B and gone from edge A, the IN-CSE routes it to edge B alone, the transaction is closed, the device posts to edge B with no failed post in the whole run",
+   "pass": true,
+   "detail": "A HTTP 404; B HTTP 200; route ['/id-mn-b']; handover 10.46 s; device posts failed 0"
+  },
+  {
+   "step": "after the handover the round trip on edge B is back below the rule's 250 ms (no delay is injected toward B)",
+   "pass": true,
+   "detail": "[8.2, 8.8, 9.6, 9.0]"
+  },
+  {
+   "step": "step 4: no violation is raised on the target after the handover: edge B's MEC-side check (admit still true, device round trip within B's limit) raised none and B's <violations> is empty",
+   "pass": true,
+   "detail": "raised []; records 0; device round trip on B [9.0] ms, limit 200 ms"
+  },
+  {
+   "step": "CONTROL (must FAIL) the handover is complete, the constraint on the target is broken (admit false, limit 1 ms) and no violation was raised",
+   "pass": false,
+   "detail": "raised ['the target serves a device although its admit flag is not true', \"device round trip 9.0 ms is above the target's limit 1 ms\"]; records on edge B 2"
+  }
+ ],
+ "controls": [
+  {
+   "control": "CONTROL (must FAIL) the rule absent and the same stimulus started a handover",
+   "expected": "FAIL",
+   "observed": "FAIL",
+   "detail": "handover calls 0, events 0, vehicle01 on B HTTP 404"
+  },
+  {
+   "control": "CONTROL (must FAIL) a stimulus shorter than the dwell time triggered",
+   "expected": "FAIL",
+   "observed": "FAIL",
+   "detail": "handover calls 0, events 0"
+  },
+  {
+   "control": "CONTROL (must FAIL) a conflict started a handover anyway",
+   "expected": "FAIL",
+   "observed": "FAIL",
+   "detail": "handover calls 0; vehicle01 on B HTTP 404"
+  },
+  {
+   "control": "CONTROL (must FAIL) a conflict left no diagnostic record on the IN-CSE",
+   "expected": "FAIL",
+   "observed": "FAIL",
+   "detail": "1 record(s)"
+  },
+  {
+   "control": "CONTROL (must FAIL) the target forbidden by its MEC-side constraint (edge B) was chosen",
+   "expected": "FAIL",
+   "observed": "FAIL",
+   "detail": "targets chosen: ['None']"
+  },
+  {
+   "control": "CONTROL (must FAIL) the handover is complete, the constraint on the target is broken (admit false, limit 1 ms) and no violation was raised",
+   "expected": "FAIL",
+   "observed": "FAIL",
+   "detail": "raised ['the target serves a device although its admit flag is not true', \"device round trip 9.0 ms is above the target's limit 1 ms\"]; records on edge B 2"
+  }
+ ],
+ "not_run": [
+  {
+   "row": "the best target forbidden, the next one taken (three or more candidates)",
+   "result": "NOT-RUN",
+   "reason": "the lab has two edges; shown offline in test_policy.py"
+  },
+  {
+   "row": "target-not-ready, route-not-on-source, transaction-open, transaction-expired, rule-invalid as live events",
+   "result": "NOT-RUN",
+   "reason": "named offline from the library's messages (test_policy.py); the library's own tests exercise those refusals live"
+  },
+  {
+   "row": "TD_MEC_HO_04 pre-test 'TD_MEC_HO_01 has passed'",
+   "result": "NOT-RUN",
+   "reason": "not established by this run"
+  }
+ ],
+ "not_shown": [
+  "a real device: the phone is simulated in this driver's process and every record it posts says sim: true",
+  "a radio or network effect: the round trip rises because the simulated device sleeps on the host before it posts",
+  "a CMDH policy: the rule is our own JSON object in a <container>; the CSE does not interpret it",
+  "a MEC platform's own policy check: the constraint and the violation check are our stand-in resources on each edge's MN-CSE; no MEC 010 / MEC 011 interface carried, enforced or raised anything",
+  "the app's <pollingChannel> downlink: the device here takes commands by notification to a point of access",
+  "an authenticated originator: the lab CSEs take X-M2M-Origin as given over plain HTTP on loopback; the engine pings and reads the constraints as the lab's admin originator",
+  "separate machines: 'edge A', 'edge B' and the IN-CSE are three processes on one PC",
+  "the constraint broken DURING a handover: the control breaks it after the handover completed and checks that the MEC-side check then raises a violation",
+  "agreement with any test suite: this is a demonstration of mechanisms, not a conformance claim"
+ ],
+ "cleanup": {
+  "status_of_every_name_this_run_used": {
+   "IN/hoPolicy": 404,
+   "IN/mecPolicy": 404,
+   "IN/a4blocker": 404,
+   "IN/vehicle01": 404,
+   "IN/ho-Cvehicle01": 404,
+   "MN-A/hoPolicy": 404,
+   "MN-A/mecPolicy": 404,
+   "MN-A/a4blocker": 404,
+   "MN-A/vehicle01": 404,
+   "MN-A/ho-Cvehicle01": 404,
+   "MN-B/hoPolicy": 404,
+   "MN-B/mecPolicy": 404,
+   "MN-B/a4blocker": 404,
+   "MN-B/vehicle01": 404,
+   "MN-B/ho-Cvehicle01": 404
+  },
+  "after": {
+   "IN": [
+    "cse-in/AEContactList",
+    "cse-in/CAdmin",
+    "cse-in/acpCreateRootResources",
+    "cse-in/acpRetrieveCSEBase",
+    "cse-in/defaultNTP",
+    "cse-in/estimed.example.com_cse-mn-a",
+    "cse-in/estimed.example.com_cse-mn-b",
+    "cse-in/estimedIN",
+    "cse-in/id-mn-a",
+    "cse-in/id-mn-b"
+   ],
+   "MN-A": [
+    "cse-mn-a/CAdmin",
+    "cse-mn-a/acpCreateRootResources",
+    "cse-mn-a/acpRetrieveCSEBase",
+    "cse-mn-a/defaultNTP",
+    "cse-mn-a/id-in",
+    "cse-mn-a/phoneReadAcp",
+    "cse-mn-a/rsu",
+    "cse-mn-a/rsuReadAcp"
+   ],
+   "MN-B": [
+    "cse-mn-b/CAdmin",
+    "cse-mn-b/acpCreateRootResources",
+    "cse-mn-b/acpRetrieveCSEBase",
+    "cse-mn-b/defaultNTP",
+    "cse-mn-b/id-in",
+    "cse-mn-b/phoneCityAcp",
+    "cse-mn-b/phoneReadAcp"
+   ]
+  },
+  "route_of_the_device_at_the_IN_CSE": [],
+  "left_on_the_CSEs": [],
+  "made_by_the_CSE_itself": {
+   "names": [
+    "IN: cse-in/estimed.example.com_cse-mn-a",
+    "IN: cse-in/estimed.example.com_cse-mn-b"
+   ],
+   "what": "an announced CSEBase (<cbA>, ty 10005) holding nothing: ACME makes one on the IN-CSE per edge at the first announced registration after a start and keeps it; not a resource of this run"
+  },
+  "removed_that_was_there_before": [],
+  "note": "vehicle01 is the library's AE: ho.reset() removed it from both edges at the start and at the end, as the tests do; `python estimed/handover.py` puts the demonstration vehicle back on edge B"
+ },
+ "run": {
+  "argv": [
+   "/home/edgefollow/edgefollow-lab/.venv/bin/python",
+   "estimed_poc/policy_run.py"
+  ],
+  "cwd": "/home/edgefollow/edgefollow",
+  "commit": "214664640130fa43263b0b002a501ad3229d5b9a",
+  "uncommitted_paths": 3,
+  "files_sha256": {
+   "phone/estimed_poc2.py": "6948ea68df922f10c12628d8221bdcdd353686dda4c542650046320c54cb5e34",
+   "phone/estimed_poc.py": "12a721a6589e5d9df74ee62a5a1167af99b48cfc7eaf173081ac9d764c2210f9",
+   "phone/sim_phone.py": "66f1427b48b54cada2e0ef076074f9562341451dd75200be1ae9ce394e3fed40",
+   "phone/mec012_phone.py": "ef3d868ebe889cab58035e6067ed238827106e559b28536e546bdd120cd8888f",
+   "phone/mec013_phone.py": "ecc26a8eb65b5d9c5ea089b3ebc2313af2d7f8c84ea3b7507e225be8621d2344",
+   "phone/device_state.py": "2f617c430065c4007e0346ccc426e013e7da595eb932a506c363742933f541e5",
+   "phone/onem2m_acp.py": "2e70112dc67ebebade1c5ae248b0a1e03bafcbad844178fa0e80096a3b72925f",
+   "estimed/handover.py": "f1ed29421427e521b715efb341a3105f1b7ca39443aec3591545d06e5e356d4a",
+   "estimed/scenario.py": "7f78beccb019f576293124fbc52d8215078b0037e6072616dfc27e8be100a070",
+   "demo/mec040.py": "c314fb13b0022f01542a1e4326b50744a48c1840ddf3a1c6e578fbacfa1ac96d",
+   "estimed_poc/orchestrator.py": "ec17455e5d9978b9d966b8cc0263974a300d2dd98d4620fa234cd6364160d6fa",
+   "estimed_poc/district_app.py": "e80a39275867320d82e3d39c80480b0a8c062e902355e1ee44704ced8822d293",
+   "estimed_poc/mec011_district.py": "db93a150369fbd4b60b1282ca3915f967222fb601ed26d83e604f2b4b6765f33",
+   "/home/edgefollow/edgefollow/mec011_appsupport/candidate.py": "a36e1616b75d97da18f5193445aa2ce1701a681ee871ec11ca4e3f580b706534",
+   "estimed_poc/policy_core.py": "1d2356c28f55c7c7913521fcad9a551d307a96a5467c2ba8e076b20117c35468",
+   "estimed_poc/policy_run.py": "7bda74c5538a00314694f46efae0ad5f65f6eabf3bb5a74239c681877919d856",
+   "estimed_poc/test_policy.py": "73e1bad82a68f9e29d7b45d9f557415b9e3b70511b3e2b82c3179982717bf438",
+   "estimed_poc/PLAYBOOK_FAILURES.md": "5d6e7001bab8261ad3f3a04cd23e1e68b763b7fb9ba397d473bdd0af462abbc9"
+  },
+  "acme": "2026.5.3",
+  "at_utc": "2026-11-20T10:42:23Z",
+  "python": {
+   "version": "3.13.15",
+   "executable": "/usr/bin/python3.13",
+   "sha256": "aa7caff7dcabb09abdb8610f820186e71064351711eeb4882328705c33878f8f"
+  }
+ },
+ "raw": {
+  "vehicle01_found_before": {
+   "MN-A": false,
+   "MN-B": false
+  },
+  "top_level_before": {
+   "IN": [
+    "cse-in/AEContactList",
+    "cse-in/CAdmin",
+    "cse-in/acpCreateRootResources",
+    "cse-in/acpRetrieveCSEBase",
+    "cse-in/defaultNTP",
+    "cse-in/estimedIN",
+    "cse-in/id-mn-a",
+    "cse-in/id-mn-b"
+   ],
+   "MN-A": [
+    "cse-mn-a/CAdmin",
+    "cse-mn-a/acpCreateRootResources",
+    "cse-mn-a/acpRetrieveCSEBase",
+    "cse-mn-a/defaultNTP",
+    "cse-mn-a/id-in",
+    "cse-mn-a/phoneReadAcp",
+    "cse-mn-a/rsu",
+    "cse-mn-a/rsuReadAcp"
+   ],
+   "MN-B": [
+    "cse-mn-b/CAdmin",
+    "cse-mn-b/acpCreateRootResources",
+    "cse-mn-b/acpRetrieveCSEBase",
+    "cse-mn-b/defaultNTP",
+    "cse-mn-b/id-in",
+    "cse-mn-b/phoneCityAcp",
+    "cse-mn-b/phoneReadAcp"
+   ]
+  },
+  "stimulus_without_rule": {
+   "samples_above": 10,
+   "unbroken_s": 4.52
+  },
+  "events_on_the_IN_CSE": [
+   {
+    "event": "policy-conflict",
+    "at": "2026-11-20T10:41:52Z",
+    "sim": true,
+    "handover_started": false,
+    "serving": "/id-mn-a",
+    "rule": {
+     "metric": "ping_rtt_ms",
+     "threshold": 250,
+     "dwell_s": 3.0,
+     "allowed_targets": [
+      "/id-mn-b"
+     ]
+    },
+    "reasons": {
+     "/id-mn-b": "admit is not true"
+    },
+    "note": "policy-driven, own modelling of the rule; no CMDH management object in the lab's CSE"
+   },
+   {
+    "event": "handover-started",
+    "at": "2026-11-20T10:42:02Z",
+    "sim": true,
+    "by": "policy engine",
+    "source": "/id-mn-a",
+    "target": "/id-mn-b",
+    "why": "459.2 ms above 250 ms for 3.0 s",
+    "rtt_ms": 459.2,
+    "target_constraint": {
+     "admit": true,
+     "latency_limit_ms": 200,
+     "latency_ms": 20,
+     "sim": true
+    },
+    "forbidden": {}
+   },
+   {
+    "event": "target-registration-refused",
+    "at": "2026-11-20T10:42:03Z",
+    "sim": true,
+    "source": "/id-mn-a",
+    "target": "/id-mn-b",
+    "seconds": 0.99,
+    "rolled_back": true,
+    "log": [
+     "handover transaction dc7a2cd37f8241b7: /id-mn-a -> /id-mn-b",
+     "! AE create on destination refused: 403"
+    ]
+   },
+   {
+    "event": "handover-started",
+    "at": "2026-11-20T10:42:10Z",
+    "sim": true,
+    "by": "policy engine",
+    "source": "/id-mn-a",
+    "target": "/id-mn-b",
+    "why": "457.9 ms above 250 ms for 3.0 s",
+    "rtt_ms": 457.9,
+    "target_constraint": {
+     "admit": true,
+     "latency_limit_ms": 200,
+     "latency_ms": 20,
+     "sim": true
+    },
+    "forbidden": {}
+   },
+   {
+    "event": "handover-completed",
+    "at": "2026-11-20T10:42:20Z",
+    "sim": true,
+    "source": "/id-mn-a",
+    "target": "/id-mn-b",
+    "seconds": 10.46,
+    "log": [
+     "handover transaction 7a03c86a3aa0f87e: /id-mn-a -> /id-mn-b"
+    ]
+   }
+  ],
+  "device_posts": {
+   "format": "seconds since the engine's first tick when the device produced the record, container, accepted (null: still held by the device at the end)",
+   "posts": [
+    [
+     -2.062,
+     "imu",
+     true
+    ],
+    [
+     -2.057,
+     "env",
+     true
+    ],
+    [
+     -2.053,
+     "loc",
+     true
+    ],
+    [
+     -2.049,
+     "radio",
+     true
+    ],
+    [
+     -2.045,
+     "wlan",
+     true
+    ],
+    [
+     -0.082,
+     "imu",
+     true
+    ],
+    [
+     -0.077,
+     "env",
+     true
+    ],
+    [
+     -0.073,
+     "loc",
+     true
+    ],
+    [
+     -0.069,
+     "radio",
+     true
+    ],
+    [
+     -0.064,
+     "wlan",
+     true
+    ],
+    [
+     -0.032,
+     "ack",
+     true
+    ],
+    [
+     0.47,
+     "ack",
+     true
+    ],
+    [
+     0.969,
+     "ack",
+     true
+    ],
+    [
+     1.469,
+     "ack",
+     true
+    ],
+    [
+     1.952,
+     "imu",
+     true
+    ],
+    [
+     1.956,
+     "env",
+     true
+    ],
+    [
+     1.96,
+     "loc",
+     true
+    ],
+    [
+     1.966,
+     "radio",
+     true
+    ],
+    [
+     1.972,
+     "ack",
+     true
+    ],
+    [
+     1.975,
+     "wlan",
+     true
+    ],
+    [
+     2.468,
+     "ack",
+     true
+    ],
+    [
+     2.968,
+     "ack",
+     true
+    ],
+    [
+     3.467,
+     "ack",
+     true
+    ],
+    [
+     3.967,
+     "ack",
+     true
+    ],
+    [
+     3.994,
+     "imu",
+     true
+    ],
+    [
+     4.449,
+     "env",
+     true
+    ],
+    [
+     4.47,
+     "ack",
+     true
+    ],
+    [
+     4.904,
+     "loc",
+     true
+    ],
+    [
+     4.97,
+     "ack",
+     true
+    ],
+    [
+     5.358,
+     "radio",
+     true
+    ],
+    [
+     5.468,
+     "ack",
+     true
+    ],
+    [
+     5.813,
+     "wlan",
+     true
+    ],
+    [
+     5.972,
+     "ack",
+     true
+    ],
+    [
+     6.271,
+     "imu",
+     true
+    ],
+    [
+     6.471,
+     "ack",
+     true
+    ],
+    [
+     6.725,
+     "env",
+     true
+    ],
+    [
+     6.972,
+     "ack",
+     true
+    ],
+    [
+     7.178,
+     "loc",
+     true
+    ],
+    [
+     7.476,
+     "ack",
+     true
+    ],
+    [
+     7.632,
+     "radio",
+     true
+    ],
+    [
+     7.639,
+     "wlan",
+     true
+    ],
+    [
+     7.971,
+     "ack",
+     true
+    ],
+    [
+     8.297,
+     "imu",
+     true
+    ],
+    [
+     8.301,
+     "env",
+     true
+    ],
+    [
+     8.306,
+     "loc",
+     true
+    ],
+    [
+     8.31,
+     "radio",
+     true
+    ],
+    [
+     8.315,
+     "wlan",
+     true
+    ],
+    [
+     8.472,
+     "ack",
+     true
+    ],
+    [
+     8.974,
+     "ack",
+     true
+    ],
+    [
+     9.469,
+     "ack",
+     true
+    ],
+    [
+     9.971,
+     "ack",
+     true
+    ],
+    [
+     10.328,
+     "imu",
+     true
+    ],
+    [
+     10.471,
+     "ack",
+     true
+    ],
+    [
+     10.782,
+     "env",
+     true
+    ],
+    [
+     10.971,
+     "ack",
+     true
+    ],
+    [
+     11.237,
+     "loc",
+     true
+    ],
+    [
+     11.242,
+     "radio",
+     true
+    ],
+    [
+     11.245,
+     "wlan",
+     true
+    ],
+    [
+     11.473,
+     "ack",
+     true
+    ],
+    [
+     11.973,
+     "ack",
+     true
+    ],
+    [
+     12.356,
+     "imu",
+     true
+    ],
+    [
+     12.473,
+     "ack",
+     true
+    ],
+    [
+     12.814,
+     "env",
+     true
+    ],
+    [
+     12.972,
+     "ack",
+     true
+    ],
+    [
+     13.267,
+     "loc",
+     true
+    ],
+    [
+     13.471,
+     "ack",
+     true
+    ],
+    [
+     13.722,
+     "radio",
+     true
+    ],
+    [
+     13.974,
+     "ack",
+     true
+    ],
+    [
+     14.178,
+     "wlan",
+     true
+    ],
+    [
+     14.473,
+     "ack",
+     true
+    ],
+    [
+     14.638,
+     "imu",
+     true
+    ],
+    [
+     14.979,
+     "ack",
+     true
+    ],
+    [
+     15.093,
+     "env",
+     true
+    ],
+    [
+     15.474,
+     "ack",
+     true
+    ],
+    [
+     15.547,
+     "loc",
+     true
+    ],
+    [
+     15.974,
+     "ack",
+     true
+    ],
+    [
+     16.002,
+     "radio",
+     true
+    ],
+    [
+     16.456,
+     "wlan",
+     true
+    ],
+    [
+     16.472,
+     "ack",
+     true
+    ],
+    [
+     16.914,
+     "imu",
+     true
+    ],
+    [
+     16.973,
+     "ack",
+     true
+    ],
+    [
+     17.369,
+     "env",
+     true
+    ],
+    [
+     17.473,
+     "ack",
+     true
+    ],
+    [
+     17.822,
+     "loc",
+     true
+    ],
+    [
+     17.973,
+     "ack",
+     true
+    ],
+    [
+     18.276,
+     "radio",
+     true
+    ],
+    [
+     18.473,
+     "ack",
+     true
+    ],
+    [
+     18.73,
+     "wlan",
+     true
+    ],
+    [
+     18.973,
+     "ack",
+     true
+    ],
+    [
+     19.188,
+     "imu",
+     true
+    ],
+    [
+     19.475,
+     "ack",
+     true
+    ],
+    [
+     19.642,
+     "env",
+     true
+    ],
+    [
+     19.974,
+     "ack",
+     true
+    ],
+    [
+     20.097,
+     "loc",
+     true
+    ],
+    [
+     20.474,
+     "ack",
+     true
+    ],
+    [
+     20.552,
+     "radio",
+     true
+    ],
+    [
+     20.975,
+     "ack",
+     true
+    ],
+    [
+     21.006,
+     "wlan",
+     true
+    ],
+    [
+     21.464,
+     "imu",
+     true
+    ],
+    [
+     21.468,
+     "env",
+     true
+    ],
+    [
+     21.474,
+     "loc",
+     true
+    ],
+    [
+     21.485,
+     "ack",
+     true
+    ],
+    [
+     21.488,
+     "radio",
+     true
+    ],
+    [
+     21.491,
+     "wlan",
+     true
+    ],
+    [
+     21.977,
+     "ack",
+     true
+    ],
+    [
+     22.477,
+     "ack",
+     true
+    ],
+    [
+     22.975,
+     "ack",
+     true
+    ],
+    [
+     23.477,
+     "ack",
+     true
+    ],
+    [
+     23.506,
+     "imu",
+     true
+    ],
+    [
+     23.959,
+     "env",
+     true
+    ],
+    [
+     23.974,
+     "ack",
+     true
+    ],
+    [
+     24.414,
+     "loc",
+     true
+    ],
+    [
+     24.476,
+     "ack",
+     true
+    ],
+    [
+     24.868,
+     "radio",
+     true
+    ],
+    [
+     24.975,
+     "ack",
+     true
+    ],
+    [
+     25.322,
+     "wlan",
+     true
+    ],
+    [
+     25.477,
+     "ack",
+     true
+    ],
+    [
+     25.78,
+     "imu",
+     true
+    ],
+    [
+     25.975,
+     "ack",
+     true
+    ],
+    [
+     26.234,
+     "env",
+     true
+    ],
+    [
+     26.697,
+     "loc",
+     true
+    ],
+    [
+     27.154,
+     "radio",
+     true
+    ],
+    [
+     27.474,
+     "ack",
+     true
+    ],
+    [
+     27.61,
+     "wlan",
+     true
+    ],
+    [
+     27.976,
+     "ack",
+     true
+    ],
+    [
+     28.071,
+     "imu",
+     true
+    ],
+    [
+     28.074,
+     "env",
+     true
+    ],
+    [
+     28.08,
+     "loc",
+     true
+    ],
+    [
+     28.083,
+     "radio",
+     true
+    ],
+    [
+     28.087,
+     "wlan",
+     true
+    ],
+    [
+     28.478,
+     "ack",
+     true
+    ],
+    [
+     28.978,
+     "ack",
+     true
+    ],
+    [
+     29.476,
+     "ack",
+     true
+    ],
+    [
+     29.979,
+     "ack",
+     true
+    ],
+    [
+     30.102,
+     "imu",
+     true
+    ],
+    [
+     30.478,
+     "ack",
+     true
+    ],
+    [
+     30.557,
+     "env",
+     true
+    ],
+    [
+     30.979,
+     "ack",
+     true
+    ],
+    [
+     31.011,
+     "loc",
+     true
+    ],
+    [
+     31.466,
+     "radio",
+     true
+    ],
+    [
+     31.481,
+     "ack",
+     true
+    ],
+    [
+     31.92,
+     "wlan",
+     true
+    ],
+    [
+     31.976,
+     "ack",
+     true
+    ],
+    [
+     32.377,
+     "imu",
+     true
+    ],
+    [
+     32.479,
+     "ack",
+     true
+    ],
+    [
+     32.832,
+     "env",
+     true
+    ],
+    [
+     32.978,
+     "ack",
+     true
+    ],
+    [
+     33.286,
+     "loc",
+     true
+    ],
+    [
+     33.477,
+     "ack",
+     true
+    ],
+    [
+     33.742,
+     "radio",
+     true
+    ],
+    [
+     34.202,
+     "wlan",
+     true
+    ],
+    [
+     34.664,
+     "imu",
+     true
+    ],
+    [
+     35.119,
+     "env",
+     true
+    ],
+    [
+     35.573,
+     "loc",
+     true
+    ],
+    [
+     36.027,
+     "radio",
+     true
+    ],
+    [
+     36.482,
+     "wlan",
+     true
+    ],
+    [
+     36.948,
+     "imu",
+     true
+    ],
+    [
+     37.403,
+     "env",
+     true
+    ],
+    [
+     37.866,
+     "loc",
+     true
+    ],
+    [
+     38.326,
+     "radio",
+     true
+    ],
+    [
+     38.781,
+     "wlan",
+     true
+    ],
+    [
+     39.248,
+     "imu",
+     true
+    ],
+    [
+     39.704,
+     "env",
+     true
+    ],
+    [
+     40.165,
+     "loc",
+     true
+    ],
+    [
+     40.622,
+     "radio",
+     true
+    ],
+    [
+     41.078,
+     "wlan",
+     true
+    ],
+    [
+     41.555,
+     "imu",
+     true
+    ],
+    [
+     42.022,
+     "env",
+     true
+    ],
+    [
+     42.472,
+     "loc",
+     true
+    ],
+    [
+     42.922,
+     "radio",
+     true
+    ],
+    [
+     43.372,
+     "wlan",
+     true
+    ],
+    [
+     43.826,
+     "imu",
+     true
+    ],
+    [
+     44.276,
+     "env",
+     true
+    ],
+    [
+     44.444,
+     "ack",
+     true
+    ],
+    [
+     44.73,
+     "loc",
+     true
+    ],
+    [
+     44.734,
+     "radio",
+     true
+    ],
+    [
+     44.738,
+     "wlan",
+     true
+    ],
+    [
+     44.942,
+     "ack",
+     true
+    ],
+    [
+     45.44,
+     "ack",
+     true
+    ],
+    [
+     45.85,
+     "imu",
+     true
+    ],
+    [
+     45.855,
+     "env",
+     true
+    ],
+    [
+     45.86,
+     "loc",
+     true
+    ],
+    [
+     45.863,
+     "radio",
+     true
+    ],
+    [
+     45.868,
+     "wlan",
+     true
+    ],
+    [
+     45.942,
+     "ack",
+     true
+    ]
+   ]
+  },
+  "handover_windows": [
+   [
+    26.462,
+    27.456,
+    "rolled-back"
+   ],
+   [
+    33.963,
+    44.42,
+    "completed"
+   ]
+  ],
+  "violations_on_edge_B": [
+   {
+    "violation": "the target serves a device although its admit flag is not true",
+    "device": "Cvehicle01",
+    "at": "2026-11-20T10:42:22Z",
+    "sim": true
+   },
+   {
+    "violation": "device round trip 9.0 ms is above the target's limit 1 ms",
+    "device": "Cvehicle01",
+    "at": "2026-11-20T10:42:22Z",
+    "sim": true
+   }
+  ],
+  "device": {
+   "posts_accepted": 185,
+   "posts_failed": 0,
+   "commands_answered": 70
+  },
+  "engine_samples_format": "seconds since the first tick, serving CSE-ID, round trip ms or null, decision",
+  "engine": {
+   "samples": [
+    [
+     0.0,
+     "/id-mn-a",
+     11.1,
+     "none"
+    ],
+    [
+     0.5,
+     "/id-mn-a",
+     8.8,
+     "none"
+    ],
+    [
+     1.0,
+     "/id-mn-a",
+     8.5,
+     "none"
+    ],
+    [
+     1.5,
+     "/id-mn-a",
+     8.2,
+     "none"
+    ],
+    [
+     2.0,
+     "/id-mn-a",
+     15.9,
+     "none"
+    ],
+    [
+     2.93,
+     "/id-mn-a",
+     457.4,
+     "none"
+    ],
+    [
+     3.45,
+     "/id-mn-a",
+     456.7,
+     "none"
+    ],
+    [
+     3.94,
+     "/id-mn-a",
+     457.4,
+     "none"
+    ],
+    [
+     4.45,
+     "/id-mn-a",
+     458.2,
+     "none"
+    ],
+    [
+     4.95,
+     "/id-mn-a",
+     458.4,
+     "none"
+    ],
+    [
+     5.44,
+     "/id-mn-a",
+     458.3,
+     "none"
+    ],
+    [
+     5.95,
+     "/id-mn-a",
+     457.0,
+     "none"
+    ],
+    [
+     6.45,
+     "/id-mn-a",
+     458.7,
+     "none"
+    ],
+    [
+     6.93,
+     "/id-mn-a",
+     458.3,
+     "none"
+    ],
+    [
+     7.45,
+     "/id-mn-a",
+     458.7,
+     "none"
+    ],
+    [
+     7.5,
+     "/id-mn-a",
+     10.2,
+     "none"
+    ],
+    [
+     8.0,
+     "/id-mn-a",
+     8.9,
+     "none"
+    ],
+    [
+     8.5,
+     "/id-mn-a",
+     8.6,
+     "none"
+    ],
+    [
+     9.0,
+     "/id-mn-a",
+     9.3,
+     "none"
+    ],
+    [
+     9.5,
+     "/id-mn-a",
+     8.0,
+     "none"
+    ],
+    [
+     10.45,
+     "/id-mn-a",
+     458.3,
+     "none"
+    ],
+    [
+     10.93,
+     "/id-mn-a",
+     456.8,
+     "none"
+    ],
+    [
+     11.0,
+     "/id-mn-a",
+     8.2,
+     "none"
+    ],
+    [
+     11.5,
+     "/id-mn-a",
+     9.0,
+     "none"
+    ],
+    [
+     12.0,
+     "/id-mn-a",
+     9.0,
+     "none"
+    ],
+    [
+     12.94,
+     "/id-mn-a",
+     461.0,
+     "none"
+    ],
+    [
+     13.45,
+     "/id-mn-a",
+     458.2,
+     "none"
+    ],
+    [
+     13.93,
+     "/id-mn-a",
+     456.9,
+     "none"
+    ],
+    [
+     14.45,
+     "/id-mn-a",
+     460.7,
+     "none"
+    ],
+    [
+     14.93,
+     "/id-mn-a",
+     458.4,
+     "none"
+    ],
+    [
+     15.44,
+     "/id-mn-a",
+     456.3,
+     "none"
+    ],
+    [
+     15.95,
+     "/id-mn-a",
+     458.3,
+     "conflict"
+    ],
+    [
+     16.45,
+     "/id-mn-a",
+     458.8,
+     "none"
+    ],
+    [
+     16.95,
+     "/id-mn-a",
+     457.6,
+     "none"
+    ],
+    [
+     17.45,
+     "/id-mn-a",
+     458.8,
+     "none"
+    ],
+    [
+     17.95,
+     "/id-mn-a",
+     457.9,
+     "none"
+    ],
+    [
+     18.45,
+     "/id-mn-a",
+     458.1,
+     "none"
+    ],
+    [
+     18.95,
+     "/id-mn-a",
+     457.2,
+     "none"
+    ],
+    [
+     19.46,
+     "/id-mn-a",
+     458.5,
+     "none"
+    ],
+    [
+     19.95,
+     "/id-mn-a",
+     458.2,
+     "none"
+    ],
+    [
+     20.43,
+     "/id-mn-a",
+     456.8,
+     "none"
+    ],
+    [
+     20.95,
+     "/id-mn-a",
+     458.3,
+     "none"
+    ],
+    [
+     21.45,
+     "/id-mn-a",
+     460.0,
+     "none"
+    ],
+    [
+     21.51,
+     "/id-mn-a",
+     26.2,
+     "none"
+    ],
+    [
+     22.0,
+     "/id-mn-a",
+     9.0,
+     "none"
+    ],
+    [
+     22.95,
+     "/id-mn-a",
+     459.4,
+     "none"
+    ],
+    [
+     23.44,
+     "/id-mn-a",
+     457.4,
+     "none"
+    ],
+    [
+     23.95,
+     "/id-mn-a",
+     459.2,
+     "none"
+    ],
+    [
+     24.46,
+     "/id-mn-a",
+     458.7,
+     "none"
+    ],
+    [
+     24.95,
+     "/id-mn-a",
+     458.2,
+     "none"
+    ],
+    [
+     25.44,
+     "/id-mn-a",
+     456.5,
+     "none"
+    ],
+    [
+     25.95,
+     "/id-mn-a",
+     458.6,
+     "none"
+    ],
+    [
+     26.45,
+     "/id-mn-a",
+     459.2,
+     "handover"
+    ],
+    [
+     27.95,
+     "/id-mn-a",
+     456.5,
+     "none"
+    ],
+    [
+     28.44,
+     "/id-mn-a",
+     456.6,
+     "none"
+    ],
+    [
+     28.5,
+     "/id-mn-a",
+     8.9,
+     "none"
+    ],
+    [
+     29.0,
+     "/id-mn-a",
+     9.2,
+     "none"
+    ],
+    [
+     29.5,
+     "/id-mn-a",
+     9.2,
+     "none"
+    ],
+    [
+     30.46,
+     "/id-mn-a",
+     459.6,
+     "none"
+    ],
+    [
+     30.95,
+     "/id-mn-a",
+     458.8,
+     "none"
+    ],
+    [
+     31.44,
+     "/id-mn-a",
+     459.5,
+     "none"
+    ],
+    [
+     31.96,
+     "/id-mn-a",
+     459.4,
+     "none"
+    ],
+    [
+     32.46,
+     "/id-mn-a",
+     457.9,
+     "none"
+    ],
+    [
+     32.96,
+     "/id-mn-a",
+     458.4,
+     "none"
+    ],
+    [
+     33.46,
+     "/id-mn-a",
+     459.5,
+     "none"
+    ],
+    [
+     33.96,
+     "/id-mn-a",
+     457.9,
+     "handover"
+    ],
+    [
+     44.47,
+     "/id-mn-b",
+     8.2,
+     "none"
+    ],
+    [
+     44.97,
+     "/id-mn-b",
+     8.8,
+     "none"
+    ],
+    [
+     45.47,
+     "/id-mn-b",
+     9.6,
+     "none"
+    ],
+    [
+     45.97,
+     "/id-mn-b",
+     9.0,
+     "none"
+    ]
+   ],
+   "errors": [],
+   "handover_calls": 2
+  }
+ }
+}
